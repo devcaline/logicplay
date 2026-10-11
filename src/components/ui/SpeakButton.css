@@ -1,0 +1,55 @@
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 8px 16px 8px 10px;
+  border: none;
+  border-radius: 999px;
+  background: var(--lilac-100);
+  color: var(--lilac-700);
+  font: 600 1rem/1 var(--font-display);
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--lilac-200);
+  transition: transform 0.15s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+.speak-btn:hover { background: var(--lilac-150); }
+.speak-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--lilac-200); }
+.speak-btn--compact { padding: 0; width: 48px; justify-content: center; }
+
+.speak-btn__icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--lilac-500);
+  color: #fff;
+  position: relative;
+}
+.speak-btn--compact .speak-btn__icon { width: 36px; height: 36px; }
+
+.speak-btn.is-speaking .speak-btn__icon { background: var(--pink-500); animation: speak-pulse 1s ease-in-out infinite; }
+
+.speak-btn__waves {
+  position: absolute;
+  inset: -6px;
+  pointer-events: none;
+}
+.speak-btn__waves i {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--pink-400);
+  animation: speak-wave 1.4s ease-out infinite;
+  opacity: 0;
+}
+.speak-btn__waves i:nth-child(2) { animation-delay: 0.45s; }
+.speak-btn__waves i:nth-child(3) { animation-delay: 0.9s; }
+
+@keyframes speak-pulse { 50% { transform: scale(1.08); } }
+@keyframes speak-wave {
+  from { transform: scale(0.8); opacity: 0.8; }
+  to { transform: scale(1.5); opacity: 0; }
+}

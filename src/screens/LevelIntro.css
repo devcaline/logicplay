@@ -1,0 +1,124 @@
+.intro-screen { overflow: hidden; }
+.intro-screen > .scene { position: fixed; }
+.intro-screen .topbar { z-index: 2; }
+.intro-screen__content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 12px 16px max(24px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.intro-screen__eyebrow {
+  margin: 0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--green-500);
+  color: #fff;
+  font: 700 1rem/1 var(--font-display);
+  box-shadow: 0 4px 0 var(--green-700);
+}
+.intro-screen__dialogue .dialogue__text { font-size: 1.2rem; }
+.intro-screen__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+.intro-screen__footer .game-btn { min-width: 200px; }
+.intro-screen__dots { display: flex; gap: 8px; }
+.intro-screen__dots span { display: block; width: 14px; height: 14px; border-radius: 50%; background: rgba(255, 255, 255, 0.85); border: 2px solid var(--lilac-200); transition: all 0.3s ease; }
+.intro-screen__dots span.is-active { width: 34px; border-radius: 999px; background: var(--lilac-500); border-color: var(--lilac-500); }
+
+.intro-illus { width: 100%; display: flex; justify-content: center; margin-top: 10px; animation: pop-in 0.4s ease; }
+.intro-illus--scatter { flex-wrap: wrap; gap: 6px 12px; max-width: 460px; }
+.intro-illus--scatter .intro-illus__item {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 16px rgba(43, 35, 80, 0.12);
+  animation: float 3.2s ease-in-out infinite;
+}
+.intro-illus__circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: min(320px, 86vw);
+  aspect-ratio: 1.6;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 60%, #BDE6FF 0%, #8FD0FA 70%, #6EC3F2 100%);
+  border: 5px dashed #fff;
+  box-shadow: 0 0 0 6px rgba(59, 149, 232, 0.3);
+}
+.intro-illus__circle .intro-illus__item { animation: token-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.intro-illus__label {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--blue-500);
+  color: #fff;
+  font: 700 0.95rem/1 var(--font-display);
+  white-space: nowrap;
+}
+@keyframes token-pop { from { transform: scale(0); } to { transform: scale(1); } }
+
+@media (max-width: 520px) {
+  .intro-screen__dialogue { flex-direction: column; align-items: center; }
+  .intro-screen__dialogue .dialogue__bubble { margin-bottom: 0; }
+  .intro-screen__dialogue .dialogue__bubble::before,
+  .intro-screen__dialogue .dialogue__bubble::after { display: none; }
+  .intro-screen__dialogue .mascot { width: 110px !important; height: 121px !important; }
+  .intro-screen__dialogue .dialogue__text { font-size: 1.05rem; }
+  .intro-illus--scatter .intro-illus__item { width: 70px; height: 70px; }
+  .intro-illus--scatter .intro-illus__item svg { width: 52px; height: 52px; }
+  .intro-screen__footer .game-btn { min-width: 0; flex: 1; }
+}
+
+/* Temas do círculo de exemplo */
+.intro-illus__circle--fruits {
+  background: radial-gradient(circle at 50% 45%, #FFF3C4 0%, #FFD98A 70%, #FFC861 100%);
+  box-shadow: 0 0 0 6px rgba(255, 159, 67, 0.35);
+}
+.intro-illus__circle--fruits .intro-illus__label { background: var(--orange-500); }
+
+.intro-illus--belongs { align-items: center; gap: 18px; }
+.intro-illus--belongs .intro-illus__circle { width: min(240px, 58vw); }
+.intro-illus--belongs .intro-illus__item { position: relative; }
+.intro-illus__outside {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 16px rgba(43, 35, 80, 0.12);
+}
+.intro-illus__badge {
+  position: absolute;
+  right: -8px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  color: #fff;
+}
+.intro-illus__badge--yes { background: var(--green-500); }
+.intro-illus__badge--no { background: var(--pink-500); }

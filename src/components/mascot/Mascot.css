@@ -1,0 +1,95 @@
+.mascot {
+  position: relative;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mascot svg {
+  overflow: visible;
+  display: block;
+}
+
+.mascot__bob {
+  animation: mascot-bob 3s ease-in-out infinite;
+  transform-origin: 100px 200px;
+}
+
+.mascot__shadow {
+  animation: mascot-shadow 3s ease-in-out infinite;
+  transform-origin: 100px 210px;
+}
+
+.mascot__wing--left { transform-origin: 60px 146px; }
+.mascot__wing--right { transform-origin: 140px 146px; }
+
+.mascot__eye {
+  animation: mascot-blink 5s infinite;
+  transform-origin: 78px 80px;
+}
+
+.mascot__visor { animation: mascot-glow 2.4s ease-in-out infinite; }
+.mascot__antenna { animation: mascot-glow 1.8s ease-in-out infinite; }
+.mascot__heart { animation: mascot-heart 1.6s ease-in-out infinite; transform-origin: 100px 160px; }
+
+.mascot__head { transition: transform 0.4s ease; transform-origin: 100px 120px; }
+.mascot__head--tilt { transform: rotate(-8deg); }
+
+.mascot__mouth { transform-origin: 100px 101px; }
+.mascot--talking .mascot__mouth { animation: mascot-talk 0.28s ease-in-out infinite alternate; }
+
+.mascot--cheer .mascot__bob { animation: mascot-jump 0.9s ease-in-out infinite; }
+.mascot--cheer .mascot__wing--left { animation: mascot-flap-left 0.45s ease-in-out infinite alternate; }
+.mascot--cheer .mascot__wing--right { animation: mascot-flap-right 0.45s ease-in-out infinite alternate; }
+.mascot--encourage .mascot__wing--right { animation: mascot-wave 1.2s ease-in-out infinite; }
+.mascot__sparkles { animation: mascot-twinkle 1s ease-in-out infinite alternate; }
+
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes mascot-shadow {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.9); }
+}
+@keyframes mascot-jump {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  20% { transform: translateY(0) scale(1.04, 0.95); }
+  50% { transform: translateY(-16px) scale(0.97, 1.04); }
+}
+@keyframes mascot-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+@keyframes mascot-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes mascot-heart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+@keyframes mascot-talk {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1.25); }
+}
+@keyframes mascot-flap-left {
+  from { transform: rotate(10deg); }
+  to { transform: rotate(-35deg); }
+}
+@keyframes mascot-flap-right {
+  from { transform: rotate(-10deg); }
+  to { transform: rotate(35deg); }
+}
+@keyframes mascot-wave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(22deg); }
+}
+@keyframes mascot-twinkle {
+  from { opacity: 0.4; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot *, .mascot { animation: none !important; }
+}
