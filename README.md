@@ -4,7 +4,7 @@ Jogo educativo de aventura para aprender **conjuntos** e **tabela-verdade**. O j
 Mundo da Lógica ao lado do **Pipo**, um patinho ciborgue gentil, e restaura a organização do mundo
 completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes e adolescentes.
 
-> Versão 0.1: três fases jogáveis para a faixa de 5 a 8 anos, mapa completo e estrutura pronta para novas fases.
+> Versão 0.1: o Mundo 1 (Floresta dos Conjuntos) completo, com cinco fases jogáveis para a faixa de 5 a 8 anos, e estrutura pronta para os próximos mundos.
 
 ![Tela inicial do LogicPlay](docs/prints/01-inicio.png)
 
@@ -26,9 +26,17 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 |---|---|
 | ![Fase 2 em andamento](docs/prints/08-fase2-jogo.png) | ![Introdução da fase 3](docs/prints/12-fase3-introducao.png) |
 
-| Fase 3: A Ponte do E |
+| Fase 3: A Ponte do E | Fase 4: introdução à união |
+|---|---|
+| ![Fase 3 em andamento](docs/prints/13-fase3-jogo.png) | ![Introdução da fase 4](docs/prints/14-fase4-introducao.png) |
+
+| Fase 4: O Portal do OU | Fase 5: O Guardião da Floresta |
+|---|---|
+| ![Fase 4 em andamento](docs/prints/15-fase4-jogo.png) | ![Fase 5 em andamento](docs/prints/16-fase5-jogo.png) |
+
+| Fase 5: o Guardião acordado |
 |---|
-| ![Fase 3 em andamento](docs/prints/13-fase3-jogo.png) |
+| ![Guardião acordado no fim da fase 5](docs/prints/17-fase5-guardiao-acordado.png) |
 
 ### No celular
 
@@ -45,6 +53,8 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 - **Fase 1 — Conhecendo os Grupos:** arrastar e soltar os animais que vivem na água para dentro do conjunto, num cenário subaquático. Funciona com mouse, toque, e também tocando no animal e depois no destino.
 - **Fase 2 — Quem Pertence Aqui?:** um elemento por vez, a criança decide se ele *pertence* ou *não pertence* ao grupo das frutas.
 - **Fase 3 — A Ponte do E:** dois grupos que se cruzam (vermelhos e frutas). A criança descobre a *interseção*: o que é vermelho **e** fruta fica no meio.
+- **Fase 4 — O Portal do OU:** bolhas mágicas sobem pela tela e a criança estoura as que têm coisa vermelha **ou** fruta. Passa o que é só vermelho, o que é só fruta e também o que é os dois: a *união* inclui a interseção. Cada acerto acende o portal e aparece no mini diagrama. Dois erros seguidos deixam as bolhas certas douradas, e o brilho some no próximo acerto. Com movimento reduzido ativado no sistema, as bolhas ficam paradas.
+- **Fase 5 — O Guardião da Floresta:** desafio final do mundo. O Guardião é uma árvore gigante que ocupa o fundo da tela, dormindo e sem cor. Cinco perguntas rápidas aparecem no meio da tela e revisam tudo: conjunto, pertence, não pertence, E (vermelho e fruta) e OU (animal ou roxo, escolhendo várias respostas). Cada acerto acende uma pedra mágica nas raízes, e o Guardião vai acordando enquanto a floresta recupera as cores.
 - **Pipo, o mascote:** ilustração própria em SVG, com expressões (feliz, curioso, comemorando, incentivando) e bico que se mexe enquanto fala.
 - **Feedback sem punição:** dicas gentis a cada erro e dica visual depois de algumas tentativas.
 - **Voz e sons:** narração em português, botão de ouvir em todas as falas, efeitos sonoros suaves e botão para silenciar. Nada toca antes do primeiro toque do jogador.
@@ -123,7 +133,6 @@ com esses nomes (mp3, m4a, wav, ogg ou webm) e o jogo as usa automaticamente. Fa
 
 ## Próximos passos
 
-- Fases 4 e 5 da Floresta dos Conjuntos (união e desafio final)
 - Laboratório da Verdade (tabela-verdade)
 - Conteúdo para as faixas 9–12 e 13+
 - Gravação da voz oficial do Pipo

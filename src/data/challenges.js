@@ -1,3 +1,10 @@
+/** Cores do diagrama para os grupos "Animais" e "Roxos". */
+const ANIMAL_PURPLE_COLORS = {
+  a: { fill: '#5FD99B', label: '#33B877', shadow: '#1E8C55' },
+  b: { fill: '#B98CFF', label: '#9B6BE0', shadow: '#6E3FC0' },
+  both: { fill: '#7FA6E8', label: '#5B7FD6', shadow: '#3A5BA8' },
+};
+
 /**
  * Conteúdo dos desafios (textos, falas, elementos).
  * Cada fala tem um `id` estável: um áudio gravado pode substituí-la depois
@@ -276,6 +283,208 @@ export const CHALLENGES = {
       id: 'f3k.complete',
       title: 'Terceira missão concluída!',
       text: 'Você descobriu a interseção! É o lugar onde ficam os elementos que estão nos dois grupos ao mesmo tempo, como a maçã e o morango: vermelhos E frutas.',
+    },
+  },
+  'forest-4-kids': {
+    id: 'forest-4-kids',
+    type: 'union-catch',
+    levelId: 'forest-4',
+    ageGroup: '5-8',
+    scene: 'magic',
+
+    intro: [
+      {
+        id: 'f4k.intro.1',
+        mood: 'happy',
+        illustration: 'all-items',
+        text: 'Uau, o Portal do OU! Ele está fechado, e várias bolhas mágicas estão flutuando por aqui.',
+      },
+      {
+        id: 'f4k.intro.2',
+        mood: 'curious',
+        illustration: 'union-example',
+        example: { a: 'car', both: 'apple', b: 'banana', out: 'fish' },
+        text: 'O portal deixa passar quem é vermelho OU quem é fruta. Basta ser um dos dois, e quem é os dois também passa! Juntar dois grupos assim se chama união.',
+      },
+    ],
+
+    mission: {
+      id: 'f4k.mission',
+      text: 'Estoure as bolhas que têm coisa vermelha OU fruta para abrir o portal!',
+      short: 'Vermelhos OU frutas',
+    },
+
+    sets: {
+      a: { label: 'Vermelhos' },
+      b: { label: 'Frutas' },
+      both: { label: 'Vermelho E fruta' },
+    },
+
+    // groups: 'a' = vermelhos, 'b' = frutas. Sem grupo = o portal não deixa passar.
+    items: [
+      { id: 'apple', name: 'Maçã', groups: ['a', 'b'], yes: { id: 'f4k.yes.apple', text: 'A maçã é vermelha E é fruta. Com o OU, ela passa também!' } },
+      { id: 'fish', name: 'Peixe', groups: [], nope: { id: 'f4k.nope.fish', text: 'O peixe não é vermelho e não é fruta. O portal não deixa passar!' } },
+      { id: 'car', name: 'Carrinho', groups: ['a'], yes: { id: 'f4k.yes.car', text: 'O carrinho é vermelho. Não é fruta, mas com o OU basta um!' } },
+      { id: 'banana', name: 'Banana', groups: ['b'], yes: { id: 'f4k.yes.banana', text: 'A banana é fruta. Não é vermelha, mas com o OU basta um!' } },
+      { id: 'ball', name: 'Bola', groups: [], nope: { id: 'f4k.nope.ball', text: 'A bola não é vermelha e não é fruta. Ela fica de fora!' } },
+      { id: 'strawberry', name: 'Morango', groups: ['a', 'b'], yes: { id: 'f4k.yes.strawberry', text: 'O morango é vermelho E é fruta. Com o OU, ele passa também!' } },
+      { id: 'rabbit', name: 'Coelho', groups: [], nope: { id: 'f4k.nope.rabbit', text: 'O coelho não é vermelho e não é fruta. Ele fica de fora!' } },
+      { id: 'grapes', name: 'Uva', groups: ['b'], yes: { id: 'f4k.yes.grapes', text: 'A uva é fruta. Não é vermelha, mas com o OU basta um!' } },
+      { id: 'shoe', name: 'Sapato', groups: [], nope: { id: 'f4k.nope.shoe', text: 'O sapato não é vermelho e não é fruta. O portal não deixa passar!' } },
+      { id: 'octopus', name: 'Polvo', groups: [], nope: { id: 'f4k.nope.octopus', text: 'O polvo não é vermelho e não é fruta. Ele fica de fora!' } },
+    ],
+
+    feedback: {
+      success: {
+        id: 'f4k.success',
+        title: 'Muito bem! Você conseguiu!',
+        text: 'O portal abriu! Passou tudo que é vermelho, tudo que é fruta, e também o que é os dois. Com o OU, basta ser um!',
+      },
+      visualHint: {
+        id: 'f4k.hint.visual',
+        text: 'Vou te ajudar: as bolhas certas estão brilhando douradas!',
+      },
+      idle: {
+        id: 'f4k.hint.idle',
+        text: 'Toque numa bolha que tem coisa vermelha ou fruta!',
+      },
+    },
+
+    /** Erros seguidos até as bolhas certas brilharem. O brilho some no próximo acerto. */
+    visualHintAfter: 2,
+
+    complete: {
+      id: 'f4k.complete',
+      title: 'Quarta missão concluída!',
+      text: 'Você descobriu a união! Com o OU, basta estar em um dos grupos para entrar. E quem está nos dois também entra, como a maçã e o morango.',
+    },
+  },
+  'forest-5-kids': {
+    id: 'forest-5-kids',
+    type: 'guardian-quiz',
+    levelId: 'forest-5',
+    ageGroup: '5-8',
+    scene: 'guardian', // a própria árvore do Guardião é o cenário (GuardianScene)
+
+    intro: [
+      {
+        id: 'f5k.intro.1',
+        mood: 'curious',
+        illustration: 'guardian',
+        example: { lit: 0 },
+        text: 'Este é o Guardião da Floresta. Ele caiu num sono profundo, e a floresta perdeu as suas cores!',
+      },
+      {
+        id: 'f5k.intro.2',
+        mood: 'happy',
+        illustration: 'guardian',
+        example: { lit: 1 },
+        text: 'Para acordar o Guardião, vamos usar tudo o que aprendemos. Cada acerto acende uma pedra mágica. Vamos lá?',
+      },
+    ],
+
+    mission: {
+      id: 'f5k.mission',
+      text: 'Acerte os cinco desafios para acordar o Guardião!',
+      short: 'Desafio final',
+    },
+
+    // Nomes dos elementos usados nos desafios.
+    elements: {
+      fish: 'Peixe', dolphin: 'Golfinho', octopus: 'Polvo', rabbit: 'Coelho', chicken: 'Galinha', butterfly: 'Borboleta',
+      apple: 'Maçã', banana: 'Banana', grapes: 'Uva', strawberry: 'Morango', ball: 'Bola', car: 'Carrinho', shoe: 'Sapato',
+    },
+
+    rounds: [
+      {
+        id: 'set',
+        symbol: '{ }',
+        concept: 'Conjunto',
+        kind: 'pick-one',
+        display: { type: 'group', label: 'Vivem na água', theme: 'water' },
+        prompt: { id: 'f5k.r1.prompt', text: 'Primeiro desafio: qual destes grupos é o conjunto dos animais que vivem na água?' },
+        options: [
+          { key: 'g-land', items: ['rabbit', 'chicken', 'butterfly'] },
+          { key: 'g-water', items: ['fish', 'dolphin', 'octopus'] },
+          { key: 'g-mixed', items: ['fish', 'rabbit', 'octopus'] },
+        ],
+        answer: ['g-water'],
+        hint: { id: 'f5k.r1.hint', text: 'Quase! Procure o grupo em que todos os bichinhos nadam na água.' },
+        ok: { id: 'f5k.r1.ok', text: 'Isso! Peixe, golfinho e polvo: todos vivem na água. Primeira pedra acesa!' },
+      },
+      {
+        id: 'member',
+        symbol: '∈',
+        concept: 'Pertence',
+        kind: 'pick-one',
+        display: { type: 'group', label: 'Frutas', theme: 'fruits' },
+        prompt: { id: 'f5k.r2.prompt', text: 'Qual destes pertence ao grupo das frutas?' },
+        options: ['car', 'grapes', 'shoe'],
+        answer: ['grapes'],
+        hint: { id: 'f5k.r2.hint', text: 'Quase! Qual destes a gente pode comer? Ele é uma fruta!' },
+        ok: { id: 'f5k.r2.ok', text: 'Muito bem! A uva pertence ao grupo das frutas!' },
+      },
+      {
+        id: 'not-member',
+        symbol: '∉',
+        concept: 'Não pertence',
+        kind: 'pick-one',
+        display: { type: 'group', label: 'Vivem na água', theme: 'water' },
+        prompt: { id: 'f5k.r3.prompt', text: 'Agora o contrário: quem NÃO pertence ao grupo dos animais da água?' },
+        options: ['dolphin', 'butterfly', 'fish'],
+        answer: ['butterfly'],
+        hint: { id: 'f5k.r3.hint', text: 'Quase! Dois deles nadam. Quem voa pelo céu e não vive na água?' },
+        ok: { id: 'f5k.r3.ok', text: 'Isso mesmo! A borboleta voa, ela não pertence ao grupo da água!' },
+      },
+      {
+        id: 'and',
+        symbol: '∩',
+        concept: 'E',
+        kind: 'pick-one',
+        display: { type: 'venn', a: 'Vermelhos', b: 'Frutas', highlight: 'both' },
+        prompt: { id: 'f5k.r4.prompt', text: 'A Ponte do E! Qual destes é vermelho E é fruta ao mesmo tempo?' },
+        options: ['car', 'banana', 'strawberry'],
+        answer: ['strawberry'],
+        hint: { id: 'f5k.r4.hint', text: 'Quase! Com o E, precisa ser as duas coisas: vermelho e fruta.' },
+        ok: { id: 'f5k.r4.ok', text: 'Perfeito! O morango é vermelho E é fruta. Ele fica no meio, na interseção!' },
+      },
+      {
+        id: 'or',
+        symbol: '∪',
+        concept: 'OU',
+        kind: 'pick-many',
+        display: { type: 'venn', a: 'Animais', b: 'Roxos', highlight: 'union', colors: ANIMAL_PURPLE_COLORS },
+        prompt: { id: 'f5k.r5.prompt', text: 'Último desafio, o Portal do OU! Toque em TODOS que são animais OU roxos, e depois em Pronto.' },
+        options: ['fish', 'ball', 'octopus', 'grapes'],
+        answer: ['fish', 'octopus', 'grapes'],
+        hint: { id: 'f5k.r5.hint', text: 'Quase! Com o OU, basta ser animal ou ser roxo. E quem é os dois também vale!' },
+        ok: { id: 'f5k.r5.ok', text: 'Isso! O peixe é animal, a uva é roxa e o polvo é os dois: todos passam pelo OU. A bola fica de fora!' },
+      },
+    ],
+
+    feedback: {
+      success: {
+        id: 'f5k.success',
+        title: 'O Guardião acordou!',
+        text: 'Você acendeu todas as pedras mágicas, e a floresta ganhou as suas cores de volta. Obrigado, amiguinho!',
+      },
+      visualHint: {
+        id: 'f5k.hint.visual',
+        text: 'Vou te dar uma ajudinha: olha a resposta brilhando!',
+      },
+      pickMore: {
+        id: 'f5k.hint.pickMore',
+        text: 'Toque em pelo menos um antes de apertar Pronto!',
+      },
+    },
+
+    /** Erros no mesmo desafio até a resposta certa brilhar. */
+    visualHintAfter: 2,
+
+    complete: {
+      id: 'f5k.complete',
+      title: 'Floresta dos Conjuntos restaurada!',
+      text: 'Você acordou o Guardião! Agora você sabe o que é um conjunto, o que pertence a um grupo, e conhece o E e o OU. Que aventura incrível!',
     },
   },
 };

@@ -16,9 +16,9 @@
 .venn__base { fill: #FFFAF2; }
 .venn__shapes { filter: drop-shadow(0 10px 18px rgba(43, 35, 80, 0.18)); }
 .venn__circle { transition: fill-opacity 0.2s ease, stroke-width 0.2s ease; }
-.venn__circle--a { fill: #FF7A88; fill-opacity: 0.42; }
-.venn__circle--b { fill: #FFC24D; fill-opacity: 0.48; }
-.venn__lens { fill: #FF9750; fill-opacity: 0.55; transition: fill-opacity 0.2s ease; }
+.venn__circle--a { fill: var(--venn-a, #FF7A88); fill-opacity: 0.42; }
+.venn__circle--b { fill: var(--venn-b, #FFC24D); fill-opacity: 0.48; }
+.venn__lens { fill: var(--venn-both, #FF9750); fill-opacity: 0.55; transition: fill-opacity 0.2s ease; }
 .venn__outline {
   fill: none;
   stroke: #fff;
@@ -42,9 +42,9 @@
   white-space: nowrap;
   pointer-events: none;
 }
-.venn__label--a { top: -2%; left: 22%; transform: translateX(-50%); background: #F0546A; box-shadow: 0 4px 0 #B8314A; }
-.venn__label--b { top: -2%; left: 78%; transform: translateX(-50%); background: #F5A623; box-shadow: 0 4px 0 #B87500; }
-.venn__label--both { bottom: -3%; left: 50%; transform: translateX(-50%); background: #FF7A3D; box-shadow: 0 4px 0 #C2541E; }
+.venn__label--a { top: -2%; left: 22%; transform: translateX(-50%); background: var(--venn-a-label, #F0546A); box-shadow: 0 4px 0 var(--venn-a-shadow, #B8314A); }
+.venn__label--b { top: -2%; left: 78%; transform: translateX(-50%); background: var(--venn-b-label, #F5A623); box-shadow: 0 4px 0 var(--venn-b-shadow, #B87500); }
+.venn__label--both { bottom: -3%; left: 50%; transform: translateX(-50%); background: var(--venn-both-label, #FF7A3D); box-shadow: 0 4px 0 var(--venn-both-shadow, #C2541E); }
 
 .venn__region {
   position: absolute;
@@ -62,6 +62,13 @@
 .venn__region--both { left: 36.5%; width: 27%; top: 19%; height: 62%; }
 .venn__region--b { left: 67%; width: 25%; top: 20%; height: 60%; }
 .venn.is-target .venn__region { cursor: pointer; }
+
+/* Destaque de uma parte (usado para mostrar o E e o OU) */
+.venn.is-highlight-both .venn__circle { fill-opacity: 0.18; }
+.venn.is-highlight-both .venn__lens { fill-opacity: 1; animation: venn-pulse 1.6s ease-in-out infinite; }
+.venn.is-highlight-union .venn__circle { fill-opacity: 0.85; animation: venn-pulse 1.6s ease-in-out infinite; }
+.venn.is-highlight-union .venn__lens { fill-opacity: 0.85; }
+@keyframes venn-pulse { 50% { opacity: 0.75; } }
 
 .venn--small .venn__label { font-size: 0.75rem; padding: 4px 10px; }
 

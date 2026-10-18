@@ -75,3 +75,19 @@ export function pickVennHintKey(result) {
   if (result.wrong.some((entry) => entry.actual === 'both')) return 'wrongBoth';
   return 'generic';
 }
+
+/** União (A OU B): o elemento entra se estiver em pelo menos um dos grupos. */
+export function isInUnion(item) {
+  return item.groups.length > 0;
+}
+
+/**
+ * Validação de uma escolha (uma ou várias opções).
+ * @param {string[]} answer   chaves certas
+ * @param {string[]} chosen   chaves escolhidas
+ */
+export function validateChoice(answer, chosen) {
+  const missing = answer.filter((key) => !chosen.includes(key));
+  const extra = chosen.filter((key) => !answer.includes(key));
+  return { correct: missing.length === 0 && extra.length === 0, missing, extra };
+}

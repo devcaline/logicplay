@@ -28,12 +28,25 @@ export function vennZoneAt(element, x, y, tolerance = 1.06) {
   return 'out';
 }
 
+/** Cores opcionais por grupo: sets.a.color = { fill, label, shadow } (o padrão é vermelho e amarelo). */
+function colorVars(sets) {
+  const vars = {};
+  for (const key of ['a', 'b', 'both']) {
+    const color = sets[key]?.color;
+    if (!color) continue;
+    if (color.fill) vars[`--venn-${key}`] = color.fill;
+    if (color.label) vars[`--venn-${key}-label`] = color.label;
+    if (color.shadow) vars[`--venn-${key}-shadow`] = color.shadow;
+  }
+  return vars;
+}
+
 /**
  * Diagrama com dois grupos. `regions` traz o conteúdo de cada parte ('a', 'both', 'b').
  * `onZoneClick(zone)` é chamado ao tocar numa parte (alternativa ao arrastar).
  */
 const VennDiagram = forwardRef(function VennDiagram(
-  { sets, regions = {}, over = null, targetable = false, solved = false, onZoneClick, className = '', small = false },
+  { sets, regions = {}, over = null, targetable = false, solved = false, onZoneClick, className = '', small = false, highlight = null },
   ref,
 ) {
   const handleClick = (event) => {
@@ -63,8 +76,9 @@ const VennDiagram = forwardRef(function VennDiagram(
   return (
     <div
       ref={ref}
-      className={`venn ${small ? 'venn--small' : ''} ${targetable ? 'is-target' : ''} ${solved ? 'is-solved' : ''} ${over ? `is-over-${over}` : ''} ${className}`}
+      className={`venn ${small ? 'venn--small' : ''} ${highlight ? `is-highlight-${highlight}` : ''} ${targetable ? 'is-target' : ''} ${solved ? 'is-solved' : ''} ${over ? `is-over-${over}` : ''} ${className}`}
       onClick={handleClick}
+      style={colorVars(sets)}
     >
       <svg className="venn__shapes" viewBox={`0 0 ${VENN.width} ${VENN.height}`} aria-hidden="true">
  <circle className="venn__base" cx={VENN.a.cx} cy={VENN.a.cy} r={VENN.a.r} />

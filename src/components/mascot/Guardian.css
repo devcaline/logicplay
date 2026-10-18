@@ -1,0 +1,43 @@
+.guardian { position: relative; flex-shrink: 0; }
+.guardian svg { overflow: visible; display: block; }
+
+.guardian__body { transform-origin: 100px 200px; animation: guardian-breathe 4s ease-in-out infinite; }
+.guardian.is-awake .guardian__body { animation: guardian-happy 1.4s ease-in-out infinite; }
+
+/* A copa ganha cor conforme o Guardião acorda */
+.guardian__crown { filter: saturate(calc(0.25 + var(--awake) * 0.75)) brightness(calc(0.85 + var(--awake) * 0.15)); transition: filter 0.8s ease; }
+.guardian__leaf { filter: saturate(calc(0.25 + var(--awake) * 0.75)); transition: filter 0.8s ease; }
+
+.guardian__arm--left { transform-origin: 58px 132px; }
+.guardian__arm--right { transform-origin: 142px 132px; }
+.guardian.is-awake .guardian__arm--left { animation: guardian-wave-left 0.9s ease-in-out infinite alternate; }
+.guardian.is-awake .guardian__arm--right { animation: guardian-wave-right 0.9s ease-in-out infinite alternate; }
+
+.guardian__rune-stone { fill: #8C86B8; stroke: #6E6896; stroke-width: 1.5; transition: fill 0.4s ease; }
+.guardian__rune-glow { fill: #FFD43B; opacity: 0; transition: opacity 0.4s ease; }
+.guardian__rune-symbol { font: 700 9px/1 var(--font-display); fill: #D7D2EE; transition: fill 0.4s ease; }
+.guardian__rune.is-on .guardian__rune-stone { fill: #FFC21A; stroke: #E5A100; }
+.guardian__rune.is-on .guardian__rune-glow { opacity: 0.55; animation: guardian-rune 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.guardian__rune.is-on .guardian__rune-symbol { fill: #7A4E00; }
+
+.guardian__zzz text { font: 700 14px/1 var(--font-display); fill: #8B7CF6; animation: guardian-zzz 2.4s ease-in-out infinite; }
+.guardian__zzz text:nth-child(2) { animation-delay: 0.4s; }
+.guardian__zzz text:nth-child(3) { animation-delay: 0.8s; }
+.guardian__sparkles { animation: mascot-twinkle 1s ease-in-out infinite alternate; }
+
+@keyframes guardian-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.015, 0.985); }
+}
+@keyframes guardian-happy {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes guardian-wave-left { from { transform: rotate(8deg); } to { transform: rotate(-14deg); } }
+@keyframes guardian-wave-right { from { transform: rotate(-8deg); } to { transform: rotate(14deg); } }
+@keyframes guardian-rune { 50% { transform: scale(1.5); opacity: 0.2; } }
+@keyframes guardian-zzz {
+  0% { opacity: 0; transform: translateY(6px); }
+  40% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-8px); }
+}

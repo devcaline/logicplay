@@ -1,0 +1,33 @@
+.guardian-scene__tree { transform-box: view-box; transform-origin: 600px 800px; animation: gs-breathe 4.5s ease-in-out infinite; }
+.guardian-scene.is-awake .guardian-scene__tree { animation: gs-happy 1.6s ease-in-out infinite; }
+.guardian-scene.is-stirring .guardian-scene__tree { animation: gs-stir 0.7s ease; }
+
+.guardian-scene__arm--left { transform-box: view-box; transform-origin: 470px 360px; }
+.guardian-scene__arm--right { transform-box: view-box; transform-origin: 730px 360px; }
+.guardian-scene.is-awake .guardian-scene__arm--left { animation: gs-wave-left 1s ease-in-out infinite alternate; }
+.guardian-scene.is-awake .guardian-scene__arm--right { animation: gs-wave-right 1s ease-in-out infinite alternate; }
+
+.guardian-scene__face.is-awake { animation: gs-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); transform-box: fill-box; transform-origin: center; }
+.guardian-scene__snore { transform-box: fill-box; transform-origin: center; animation: gs-snore 3s ease-in-out infinite; }
+
+.guardian-scene__zzz text { font: 700 44px/1 var(--font-display); fill: #8B7CF6; animation: guardian-zzz 2.6s ease-in-out infinite; }
+.guardian-scene__zzz text:nth-child(2) { animation-delay: 0.45s; }
+.guardian-scene__zzz text:nth-child(3) { animation-delay: 0.9s; }
+
+@keyframes gs-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.008, 0.992); }
+}
+@keyframes gs-happy {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes gs-stir {
+  20% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+  80% { transform: rotate(-0.6deg); }
+}
+@keyframes gs-wave-left { from { transform: rotate(6deg); } to { transform: rotate(-12deg); } }
+@keyframes gs-wave-right { from { transform: rotate(-6deg); } to { transform: rotate(12deg); } }
+@keyframes gs-pop { from { transform: scale(0.6); } to { transform: scale(1); } }
+@keyframes gs-snore { 50% { transform: scale(1.25); } }

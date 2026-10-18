@@ -1,0 +1,60 @@
+.portal {
+  position: relative;
+  width: 200px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}
+.portal__swirl {
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 45%),
+    conic-gradient(from 0deg, #8B7CF6, #5CE1FF, #FF8DBF, #FFD43B, #8B7CF6);
+  filter: saturate(0.35) brightness(0.85);
+  animation: portal-spin 9s linear infinite;
+  transition: filter 0.6s ease, inset 0.6s ease;
+}
+.portal__ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.portal__segment {
+  fill: none;
+  stroke: #8C7BD8;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke 0.4s ease, filter 0.4s ease;
+}
+.portal__segment.is-on {
+  stroke: #FFD43B;
+  filter: drop-shadow(0 0 6px rgba(255, 212, 59, 0.9));
+  animation: portal-segment-in 0.5s ease;
+}
+.portal__word {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 700 2.6rem/1 var(--font-display);
+  color: #fff;
+  text-shadow: 0 3px 0 #5443C4, 0 0 18px rgba(84, 67, 196, 0.6);
+  pointer-events: none;
+}
+
+.portal.is-pulsing { animation: portal-pulse 0.5s ease; }
+.portal.is-open .portal__swirl {
+  inset: 9%;
+  filter: saturate(1.2) brightness(1.1);
+  animation-duration: 2.5s;
+  box-shadow: 0 0 40px 12px rgba(255, 255, 255, 0.8);
+}
+.portal.is-open { animation: portal-open 1s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+@keyframes portal-spin { to { transform: rotate(360deg); } }
+@keyframes portal-pulse { 50% { transform: scale(1.08); } }
+@keyframes portal-open {
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+@keyframes portal-segment-in {
+  from { stroke-width: 22; }
+  to { stroke-width: 12; }
+}

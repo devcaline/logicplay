@@ -140,3 +140,38 @@
   .intro-illus__venn-item { width: 44px; height: 44px; }
   .intro-illus__venn-item svg { width: 34px; height: 34px; }
 }
+
+/* Exemplo de união: dois grupos entrando no portal */
+.intro-illus--union { align-items: center; gap: 14px; flex-wrap: wrap; }
+.intro-illus--union .portal { width: 130px; }
+.intro-illus--union .portal__word { font-size: 1.8rem; }
+.intro-illus__union-in { display: flex; flex-direction: column; gap: 4px; }
+.intro-illus__union-row { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.intro-illus__bubble {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #fff 0 9%, rgba(255, 255, 255, 0.75) 10%, rgba(214, 240, 255, 0.85) 100%);
+  border: 3px solid #fff;
+  box-shadow: 0 6px 14px rgba(43, 35, 80, 0.15);
+  animation: float 3.2s ease-in-out infinite;
+}
+.intro-illus__group {
+  justify-self: end;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font: 700 0.8rem/1 var(--font-display);
+}
+.intro-illus__group--a { background: #F0546A; }
+.intro-illus__group--both { background: #FF7A3D; }
+.intro-illus__group--b { background: #F5A623; }
+
+.intro-illus--guardian { margin-top: 6px; }
+.intro-screen:has(.intro-illus--guardian) > .scene { filter: saturate(0.25) brightness(0.85); }
+@media (max-width: 520px) {
+  .intro-illus--guardian .guardian { width: 140px !important; height: 154px !important; }
+}

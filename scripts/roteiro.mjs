@@ -40,7 +40,17 @@ for (const challenge of Object.values(CHALLENGES)) {
   const lines = [];
 
   challenge.intro.forEach((intro, index) => lines.push({ line: intro, where: `Introdução ${index + 1}`, tone: intro.mood }));
-  lines.push({ line: challenge.mission, where: 'Missão', tone: 'curious' });
+  if (challenge.type !== 'guardian-quiz') lines.push({ line: challenge.mission, where: 'Missão', tone: 'curious' });
+
+  if (challenge.type === 'guardian-quiz') {
+    challenge.rounds.forEach((round, index) => {
+      lines.push({ line: round.prompt, where: `Desafio ${index + 1} (${round.concept}) — pergunta`, tone: 'curious' });
+      lines.push({ line: round.hint, where: `Desafio ${index + 1} — dica ao errar`, tone: 'encourage' });
+      lines.push({ line: round.ok, where: `Desafio ${index + 1} — acertou`, tone: 'cheer' });
+    });
+    lines.push({ line: challenge.feedback.visualHint, where: 'Dica — resposta brilhando (após 2 erros)', tone: 'encourage' });
+    lines.push({ line: challenge.feedback.pickMore, where: 'Apertou Pronto sem escolher nada', tone: 'encourage' });
+  }
 
   if (challenge.type === 'set-sorting') {
     challenge.items.forEach((item) =>
@@ -72,6 +82,15 @@ for (const challenge of Object.values(CHALLENGES)) {
     for (const [key, where] of Object.entries(hintPlaces)) {
       lines.push({ line: challenge.feedback[key], where, tone: 'encourage' });
     }
+  }
+
+  if (challenge.type === 'union-catch') {
+    challenge.items.forEach((item) => {
+      if (item.yes) lines.push({ line: item.yes, where: `Estourou a bolha certa — ${item.name}`, tone: 'cheer' });
+      if (item.nope) lines.push({ line: item.nope, where: `Tocou numa bolha que não passa — ${item.name}`, tone: 'encourage' });
+    });
+    lines.push({ line: challenge.feedback.visualHint, where: 'Dica — bolhas douradas (após 2 toques errados)', tone: 'encourage' });
+    lines.push({ line: challenge.feedback.idle, where: 'Dica — criança parada sem tocar', tone: 'encourage' });
   }
 
   if (challenge.type === 'membership') {

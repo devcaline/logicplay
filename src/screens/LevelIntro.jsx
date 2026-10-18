@@ -6,6 +6,8 @@ import GameButton from '../components/ui/GameButton.jsx';
 import { getLevelScene } from '../components/scenery/scenes.js';
 import ItemArt from '../components/art/ItemArt.jsx';
 import VennDiagram from '../components/ui/VennDiagram.jsx';
+import Portal from '../components/ui/Portal.jsx';
+import Guardian from '../components/mascot/Guardian.jsx';
 import './LevelIntro.css';
 
 /** Ilustração de apoio para cada fala da introdução (não depender só de leitura ou áudio). */
@@ -53,6 +55,46 @@ function IntroIllustration({ kind, items, set, sets, example }) {
           <ItemArt id={outside.id} size={58} />
           <span className="intro-illus__badge intro-illus__badge--no"><X size={18} strokeWidth={3.5} /></span>
         </span>
+      </div>
+    );
+  }
+  if (kind === 'guardian') {
+    return (
+      <div className="intro-illus intro-illus--guardian" aria-hidden="true">
+        <Guardian lit={example?.lit ?? 0} total={5} size={170} />
+      </div>
+    );
+  }
+  if (kind === 'union-example') {
+    const badge = (yes) => (
+      <span className={`intro-illus__badge intro-illus__badge--${yes ? 'yes' : 'no'}`}>
+        {yes ? <Check size={18} strokeWidth={3.5} /> : <X size={18} strokeWidth={3.5} />}
+      </span>
+    );
+    const bubble = (id, yes) => (
+      <span className="intro-illus__item intro-illus__bubble">
+        <ItemArt id={id} size={48} />
+        {badge(yes)}
+      </span>
+    );
+    return (
+      <div className="intro-illus intro-illus--union" aria-hidden="true">
+        <div className="intro-illus__union-in">
+          {[
+            ['a', sets.a.label],
+            ['both', 'Os dois'],
+            ['b', sets.b.label],
+          ]
+            .filter(([zone]) => example[zone])
+            .map(([zone, label]) => (
+              <span key={zone} className="intro-illus__union-row">
+                <span className={`intro-illus__group intro-illus__group--${zone}`}>{label}</span>
+                {bubble(example[zone], true)}
+              </span>
+            ))}
+        </div>
+        <Portal total={3} lit={3} open />
+        {bubble(example.out, false)}
       </div>
     );
   }

@@ -43,7 +43,7 @@ export const WORLDS = [
         name: 'O Portal do OU',
         description: 'Junte grupos para abrir o portal mágico.',
         pos: { x: 72, y: 68 },
-        content: {},
+        content: { '5-8': 'forest-4-kids' },
       },
       {
         id: 'forest-5',
@@ -51,7 +51,7 @@ export const WORLDS = [
         name: 'O Guardião da Floresta',
         description: 'O grande desafio final da floresta.',
         pos: { x: 44, y: 83 },
-        content: {},
+        content: { '5-8': 'forest-5-kids' },
         boss: true,
       },
     ],
