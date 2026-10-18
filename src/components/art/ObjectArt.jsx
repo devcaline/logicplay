@@ -62,6 +62,26 @@ function Grapes() {
   );
 }
 
+function Strawberry() {
+  const seeds = [[38, 44], [52, 42], [64, 46], [44, 58], [58, 58], [36, 70], [50, 72], [62, 68], [48, 84]];
+  return (
+    <>
+      <path d="M50 92 C30 80 16 58 22 42 C28 28 42 30 50 34 C58 30 72 28 78 42 C84 58 70 80 50 92 Z" fill="#FF4D6A" />
+      <path d="M50 92 C64 82 78 62 74 44 C80 58 72 78 50 92 Z" fill="#E5344F" />
+      {seeds.map(([x, y]) => (
+        <ellipse key={`${x}-${y}`} cx={x} cy={y} rx="1.8" ry="2.6" fill="#FFE07A" />
+      ))}
+      <path d="M50 36 L36 24 L46 28 L50 16 L54 28 L64 24 Z" fill="#4CC38A" />
+      <path d="M50 18 Q50 10 56 6" stroke="#3E9E68" strokeWidth="3" fill="none" strokeLinecap="round" />
+      <circle cx="43" cy="56" r="3.4" fill="#2B2350" />
+      <circle cx="57" cy="56" r="3.4" fill="#2B2350" />
+      <circle cx="44.2" cy="54.8" r="1.2" fill="#fff" />
+      <circle cx="58.2" cy="54.8" r="1.2" fill="#fff" />
+      <path d="M45 64 Q50 68 55 64" stroke="#2B2350" strokeWidth="2.4" fill="none" strokeLinecap="round" />
+    </>
+  );
+}
+
 function Ball() {
   return (
     <>
@@ -103,4 +123,4 @@ function Shoe() {
   );
 }
 
-export const OBJECTS = { apple: Apple, banana: Banana, grapes: Grapes, ball: Ball, car: ToyCar, shoe: Shoe };
+export const OBJECTS = { apple: Apple, strawberry: Strawberry, banana: Banana, grapes: Grapes, ball: Ball, car: ToyCar, shoe: Shoe };

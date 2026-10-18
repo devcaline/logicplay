@@ -5,10 +5,11 @@ import MascotDialogue from '../components/mascot/MascotDialogue.jsx';
 import GameButton from '../components/ui/GameButton.jsx';
 import { getLevelScene } from '../components/scenery/scenes.js';
 import ItemArt from '../components/art/ItemArt.jsx';
+import VennDiagram from '../components/ui/VennDiagram.jsx';
 import './LevelIntro.css';
 
 /** Ilustração de apoio para cada fala da introdução (não depender só de leitura ou áudio). */
-function IntroIllustration({ kind, items, set, example }) {
+function IntroIllustration({ kind, items, set, sets, example }) {
   if (kind === 'all-items') {
     return (
       <div className="intro-illus intro-illus--scatter" aria-hidden="true">
@@ -55,6 +56,18 @@ function IntroIllustration({ kind, items, set, example }) {
       </div>
     );
   }
+  if (kind === 'venn-example') {
+    const art = (id) => (
+      <span key={id} className="intro-illus__item intro-illus__venn-item">
+        <ItemArt id={id} size={44} />
+      </span>
+    );
+    return (
+      <div className="intro-illus intro-illus--venn" aria-hidden="true">
+        <VennDiagram small sets={sets} regions={{ a: art(example.a), both: art(example.both), b: art(example.b) }} />
+      </div>
+    );
+  }
   return null;
 }
 
@@ -72,7 +85,7 @@ export default function LevelIntro({ challenge, level, onStart, onBack }) {
       <main className="intro-screen__content">
         <p className="intro-screen__eyebrow">Fase {level.number}</p>
 
-        <IntroIllustration key={step} kind={line.illustration} items={challenge.items} set={challenge.set} example={line.example} />
+        <IntroIllustration key={step} kind={line.illustration} items={challenge.items} set={challenge.set} sets={challenge.sets} example={line.example} />
 
         <MascotDialogue line={line} mood={line.mood} mascotSize={130} autoPlay className="intro-screen__dialogue" />
 

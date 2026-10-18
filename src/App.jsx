@@ -7,6 +7,7 @@ import AdventureMap from './screens/map/AdventureMap.jsx';
 import LevelIntro from './screens/LevelIntro.jsx';
 import SetSortingGame from './screens/game/SetSortingGame.jsx';
 import MembershipGame from './screens/game/MembershipGame.jsx';
+import VennSortingGame from './screens/game/VennSortingGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -18,6 +19,7 @@ import { narrator } from './audio/narrator.js';
 const GAME_COMPONENTS = {
   'set-sorting': SetSortingGame,
   membership: MembershipGame,
+  'venn-sorting': VennSortingGame,
 };
 
 function Router() {

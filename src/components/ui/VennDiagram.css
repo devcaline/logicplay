@@ -1,0 +1,74 @@
+.venn {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 160 / 110;
+  margin: 0 auto;
+  outline: none;
+}
+.venn__shapes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.venn__base { fill: #FFFAF2; }
+.venn__shapes { filter: drop-shadow(0 10px 18px rgba(43, 35, 80, 0.18)); }
+.venn__circle { transition: fill-opacity 0.2s ease, stroke-width 0.2s ease; }
+.venn__circle--a { fill: #FF7A88; fill-opacity: 0.42; }
+.venn__circle--b { fill: #FFC24D; fill-opacity: 0.48; }
+.venn__lens { fill: #FF9750; fill-opacity: 0.55; transition: fill-opacity 0.2s ease; }
+.venn__outline {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.4;
+  stroke-dasharray: 3 2.4;
+}
+
+.venn.is-over-a .venn__circle--a,
+.venn.is-over-b .venn__circle--b { fill-opacity: 0.75; }
+.venn.is-over-both .venn__lens { fill-opacity: 0.95; }
+.venn.is-target .venn__shapes { animation: venn-glow 1.4s ease-in-out infinite; }
+.venn.is-solved .venn__shapes { filter: drop-shadow(0 0 10px rgba(95, 217, 155, 0.9)); }
+
+.venn__label {
+  position: absolute;
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font: 700 0.95rem/1 var(--font-display);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.venn__label--a { top: -2%; left: 22%; transform: translateX(-50%); background: #F0546A; box-shadow: 0 4px 0 #B8314A; }
+.venn__label--b { top: -2%; left: 78%; transform: translateX(-50%); background: #F5A623; box-shadow: 0 4px 0 #B87500; }
+.venn__label--both { bottom: -3%; left: 50%; transform: translateX(-50%); background: #FF7A3D; box-shadow: 0 4px 0 #C2541E; }
+
+.venn__region {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 4px;
+  outline: none;
+  border-radius: 24px;
+}
+.venn__region:focus-visible { outline: 4px solid var(--blue-700); outline-offset: 2px; }
+.venn__region--a { left: 8%; width: 25%; top: 20%; height: 60%; }
+.venn__region--both { left: 36.5%; width: 27%; top: 19%; height: 62%; }
+.venn__region--b { left: 67%; width: 25%; top: 20%; height: 60%; }
+.venn.is-target .venn__region { cursor: pointer; }
+
+.venn--small .venn__label { font-size: 0.75rem; padding: 4px 10px; }
+
+@keyframes venn-glow {
+  50% { filter: drop-shadow(0 0 8px rgba(255, 212, 59, 0.95)); }
+}
+
+@media (max-width: 520px) {
+  .venn__label { font-size: 0.8rem; padding: 5px 10px; }
+}

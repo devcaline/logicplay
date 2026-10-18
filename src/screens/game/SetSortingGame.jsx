@@ -1,19 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
 import { Check, Waves, LogOut, Hand } from 'lucide-react';
 import TopBar from '../../components/ui/TopBar.jsx';
 import MascotDialogue from '../../components/mascot/MascotDialogue.jsx';
 import GameButton from '../../components/ui/GameButton.jsx';
 import StarBurst from '../../components/ui/StarBurst.jsx';
 import { getLevelScene } from '../../components/scenery/scenes.js';
-import AnimalToken, { AnimalTokenFace } from './AnimalToken.jsx';
+import AnimalToken from './AnimalToken.jsx';
+import { useTokenDrag, DragGhost } from './useTokenDrag.jsx';
 import GameFeedback from './GameFeedback.jsx';
 import { validateSetPlacement, pickHintKey } from '../../logic/validation.js';
 import { useGame, useNarration } from '../../state/GameContext.jsx';
 import { sfx } from '../../audio/sfx.js';
 import './SetSortingGame.css';
 
-const DRAG_THRESHOLD = 8; // px antes de considerar que virou arraste
 const DROP_MARGIN = 32; // folga ao redor do círculo: não exige precisão
 
 function initialPlacement(items) {
@@ -27,7 +26,6 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
 
   const [placement, setPlacement] = useState(() => initialPlacement(items));
   const [selectedId, setSelectedId] = useState(null);
-  const [drag, setDrag] = useState(null);
   const [status, setStatus] = useState('playing'); // playing | hint | success
   const [hintKey, setHintKey] = useState(null);
   const [hintCount, setHintCount] = useState(0);
@@ -36,8 +34,6 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
   const [showFeedback, setShowFeedback] = useState(false);
 
   const setZoneRef = useRef(null);
-  const pointerRef = useRef(null);
-  const suppressClickRef = useRef(false);
   const locked = status === 'success';
   const Scene = getLevelScene(challenge.scene);
 
@@ -67,67 +63,20 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
   }, []);
 
   // ---------- Arrastar e soltar (Pointer Events: mouse, toque e caneta) ----------
-  const handlers = {
-    onPointerDown(event, id) {
-      suppressClickRef.current = false;
-      if (locked || (event.pointerType === 'mouse' && event.button !== 0)) return;
-      const rect = event.currentTarget.getBoundingClientRect();
-      pointerRef.current = {
-        id,
-        pointerId: event.pointerId,
-        startX: event.clientX,
-        startY: event.clientY,
-        offsetX: event.clientX - rect.left,
-        offsetY: event.clientY - rect.top,
-        width: rect.width,
-        height: rect.height,
-        dragging: false,
-      };
-      event.currentTarget.setPointerCapture?.(event.pointerId);
+  const { drag, handlers } = useTokenDrag({
+    disabled: locked,
+    // Soltou sobre o círculo: entra. Em qualquer outro lugar: fica fora (nunca se perde).
+    zoneAt: (x, y) => (isOverSet(x, y) ? 'in' : 'out'),
+    onDragStart: () => {
+      setSelectedId(null);
+      sfx.play('pick');
     },
-    onPointerMove(event) {
-      const pointer = pointerRef.current;
-      if (!pointer || pointer.pointerId !== event.pointerId) return;
-      if (!pointer.dragging) {
-        const distance = Math.hypot(event.clientX - pointer.startX, event.clientY - pointer.startY);
-        if (distance < DRAG_THRESHOLD) return;
-        pointer.dragging = true;
-        setSelectedId(null);
-        sfx.play('pick');
-      }
-      setDrag({
-        id: pointer.id,
-        x: event.clientX - pointer.offsetX,
-        y: event.clientY - pointer.offsetY,
-        width: pointer.width,
-        height: pointer.height,
-        overSet: isOverSet(event.clientX, event.clientY),
-      });
-    },
-    onPointerUp(event) {
-      const pointer = pointerRef.current;
-      if (!pointer || pointer.pointerId !== event.pointerId) return;
-      pointerRef.current = null;
-      if (pointer.dragging) {
-        suppressClickRef.current = true;
-        // Soltou sobre o círculo: entra. Em qualquer outro lugar: fica fora (nunca se perde).
-        moveItem(pointer.id, isOverSet(event.clientX, event.clientY) ? 'in' : 'out');
-        sfx.play('drop');
-        setDrag(null);
-      }
-    },
-    onPointerCancel() {
-      pointerRef.current = null;
-      setDrag(null);
+    onDrop: (id, zone) => {
+      moveItem(id, zone);
+      sfx.play('drop');
     },
     // Toque/clique simples ou teclado (Enter/Espaço): seleciona o animal.
-    onClick(event, id) {
-      event.stopPropagation();
-      if (suppressClickRef.current) {
-        suppressClickRef.current = false;
-        return;
-      }
-      if (locked) return;
+    onTap: (id) => {
       if (selectedId === id) {
         sfx.play('tap');
         setSelectedId(null);
@@ -138,7 +87,7 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
       const item = items.find((candidate) => candidate.id === id);
       autoSpeak({ id: `item.${id}`, text: item.name });
     },
-  };
+  });
 
   // Alternativa acessível: com um animal selecionado, tocar no destino.
   const handleZoneActivate = (location) => {
@@ -223,7 +172,7 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
         <div className="game-board">
           <div
             ref={setZoneRef}
-            className={`set-zone ${drag?.overSet ? 'is-over' : ''} ${selectedId ? 'is-target' : ''} ${locked ? 'is-solved' : ''}`}
+            className={`set-zone ${drag?.over === 'in' ? 'is-over' : ''} ${selectedId ? 'is-target' : ''} ${locked ? 'is-solved' : ''}`}
             role="button"
             tabIndex={selectedId ? 0 : -1}
             aria-label={`Círculo do conjunto: ${challenge.set.label}. ${inside.length} animais dentro.${selectedId ? ' Toque para colocar o animal escolhido aqui.' : ''}`}
@@ -260,17 +209,7 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
         </div>
       </div>
 
-      {draggingItem &&
-        createPortal(
-          <div
-            className={`token token--ghost ${drag.overSet ? 'is-over' : ''}`}
-            style={{ width: drag.width, height: drag.height, transform: `translate(${drag.x}px, ${drag.y}px)` }}
-            aria-hidden="true"
-          >
-            <AnimalTokenFace item={draggingItem} showHint={showVisualHint && draggingItem.belongs} />
-          </div>,
-          document.body,
-        )}
+      <DragGhost drag={drag} item={draggingItem} showHint={showVisualHint && draggingItem?.belongs} highlight={drag?.over === 'in'} />
 
       {showFeedback && <GameFeedback line={feedback.success} onContinue={onComplete} />}
     </div>

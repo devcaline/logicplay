@@ -19,13 +19,13 @@ export function AnimalTokenFace({ item, showHint }) {
 }
 
 /** Animal interativo: arrastar (mouse/toque) ou tocar para selecionar. */
-export default function AnimalToken({ item, location, selected, dragging, showHint, disabled, handlers }) {
+export default function AnimalToken({ item, location, selected, dragging, showHint, disabled, handlers, compact = false, locationLabel, children }) {
   return (
     <button
       type="button"
-      className={`token ${selected ? 'is-selected' : ''} ${dragging ? 'is-dragging' : ''} ${showHint ? 'has-hint' : ''}`}
+      className={`token ${compact ? 'token--compact' : ''} ${selected ? 'is-selected' : ''} ${dragging ? 'is-dragging' : ''} ${showHint ? 'has-hint' : ''}`}
       aria-pressed={selected}
-      aria-label={`${item.name}, ${location === 'in' ? 'dentro do círculo' : 'fora do círculo'}${selected ? ', selecionado' : ''}`}
+      aria-label={`${item.name}, ${locationLabel ?? (location === 'in' ? 'dentro do círculo' : 'fora do círculo')}${selected ? ', selecionado' : ''}`}
       disabled={disabled}
       onPointerDown={(event) => handlers.onPointerDown(event, item.id)}
       onPointerMove={handlers.onPointerMove}
@@ -34,6 +34,7 @@ export default function AnimalToken({ item, location, selected, dragging, showHi
       onClick={(event) => handlers.onClick(event, item.id)}
     >
       <AnimalTokenFace item={item} showHint={showHint} />
+      {children}
     </button>
   );
 }

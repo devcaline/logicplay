@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 0 de 40 falas gravadas.**
+**Progresso: 0 de 56 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -69,4 +69,25 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ⬜ | `f2k.hint.visual.mp3` | Dica — 2º erro no mesmo elemento | carinhoso, incentivando | Vou te dar uma ajudinha: olha o botão que está brilhando! |
 | ⬜ | `f2k.success.mp3` | Acertou tudo | comemorando, bem animado | A banana, a maçã e a uva pertencem ao grupo das frutas. A bola, o carrinho e o sapato não pertencem. |
 | ⬜ | `f2k.complete.mp3` | Tela final da fase | comemorando, bem animado | Segunda missão concluída! Quando um elemento faz parte de um conjunto, dizemos que ele pertence ao conjunto. A banana pertence ao conjunto das frutas. A bola não pertence. |
+
+## Fase: A Ponte do E (5-8 anos)
+
+| ✓ | Arquivo | Onde aparece | Tom | Fala |
+|---|---|---|---|---|
+| ⬜ | `f3k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Chegamos na Ponte do E! Para atravessar, vamos arrumar estas coisas em dois grupos: coisas vermelhas e frutas. |
+| ⬜ | `f3k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | Olha a maçã: ela é vermelha E é fruta! Por isso ela fica no meio, onde os dois grupos se encontram. Esse lugar se chama interseção. |
+| ⬜ | `f3k.mission.mp3` | Missão | curioso, explicando com calma | Coloque cada coisa no lugar certo: nos vermelhos, nas frutas, no meio se for os dois, ou fora. |
+| ⬜ | `item.apple.mp3` | Ao tocar no elemento | só o nome, claro e simpático | Maçã! |
+| ⬜ | `item.car.mp3` | Ao tocar no elemento | só o nome, claro e simpático | Carrinho! |
+| ⬜ | `item.banana.mp3` | Ao tocar no elemento | só o nome, claro e simpático | Banana! |
+| ⬜ | `item.ball.mp3` | Ao tocar no elemento | só o nome, claro e simpático | Bola! |
+| ⬜ | `item.strawberry.mp3` | Ao tocar no elemento | só o nome, claro e simpático | Morango! |
+| ⬜ | `item.grapes.mp3` | Ao tocar no elemento | só o nome, claro e simpático | Uva! |
+| ⬜ | `f3k.hint.empty.mp3` | Dica — apertou Verificar sem colocar nada nos grupos | carinhoso, incentivando | Vamos começar? Arraste cada coisa para o grupo dela. Comece pela maçã! |
+| ⬜ | `f3k.hint.missingBoth.mp3` | Dica — algo que é dos dois grupos não está no meio | carinhoso, incentivando | Quase lá! Tem coisa que é vermelha E é fruta ao mesmo tempo. Ela vai no meio, na ponte entre os dois grupos! |
+| ⬜ | `f3k.hint.wrongBoth.mp3` | Dica — algo no meio que não é dos dois grupos | carinhoso, incentivando | Quase lá! No meio só fica o que é vermelho E fruta ao mesmo tempo. Vamos olhar de novo? |
+| ⬜ | `f3k.hint.generic.mp3` | Dica — elemento no grupo errado | carinhoso, incentivando | Quase lá! Olhe cada coisa e pergunte: ela é vermelha? Ela é fruta? Ou nenhum dos dois? |
+| ⬜ | `f3k.hint.visual.mp3` | Dica com marquinhas (após 2 tentativas) | carinhoso, incentivando | Coloquei marquinhas para te ajudar: bolinha vermelha é para vermelho, e a maçãzinha é para fruta! |
+| ⬜ | `f3k.success.mp3` | Acertou tudo | comemorando, bem animado | A maçã e o morango são vermelhos E são frutas, então ficam no meio! O carrinho é só vermelho, a banana e a uva são só frutas, e a bola fica de fora. |
+| ⬜ | `f3k.complete.mp3` | Tela final da fase | comemorando, bem animado | Terceira missão concluída! Você descobriu a interseção! É o lugar onde ficam os elementos que estão nos dois grupos ao mesmo tempo, como a maçã e o morango: vermelhos E frutas. |
 

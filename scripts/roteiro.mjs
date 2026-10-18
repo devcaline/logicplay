@@ -58,6 +58,22 @@ for (const challenge of Object.values(CHALLENGES)) {
     }
   }
 
+  if (challenge.type === 'venn-sorting') {
+    challenge.items.forEach((item) =>
+      lines.push({ line: { id: `item.${item.id}`, text: `${item.name}!` }, where: 'Ao tocar no elemento', tone: 'name' }),
+    );
+    const hintPlaces = {
+      empty: 'Dica — apertou Verificar sem colocar nada nos grupos',
+      missingBoth: 'Dica — algo que é dos dois grupos não está no meio',
+      wrongBoth: 'Dica — algo no meio que não é dos dois grupos',
+      generic: 'Dica — elemento no grupo errado',
+      visualHint: 'Dica com marquinhas (após 2 tentativas)',
+    };
+    for (const [key, where] of Object.entries(hintPlaces)) {
+      lines.push({ line: challenge.feedback[key], where, tone: 'encourage' });
+    }
+  }
+
   if (challenge.type === 'membership') {
     challenge.items.forEach((item) => {
       lines.push({ line: item.question, where: `Pergunta — ${item.name}`, tone: 'curious' });

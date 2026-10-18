@@ -1,0 +1,54 @@
+.venn-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: 18px auto 14px;
+}
+
+/* Elemento compacto (dentro do diagrama) */
+.token--compact {
+  --token-w: clamp(48px, 12.5vw, 70px);
+  padding: 4px 2px 3px;
+  border-radius: 16px;
+  border-width: 2px;
+  gap: 0;
+  box-shadow: 0 3px 0 rgba(84, 67, 196, 0.18), 0 6px 12px rgba(43, 35, 80, 0.12);
+}
+.token--compact .token__art svg { width: clamp(32px, 8.5vw, 46px); height: auto; }
+.token--compact .token__name { font-size: clamp(0.6rem, 2.2vw, 0.75rem); }
+.token--compact.is-selected { box-shadow: 0 0 0 4px rgba(255, 194, 26, 0.55); }
+
+/* Marquinhas da dica visual */
+.trait-badges {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  display: flex;
+  gap: 2px;
+  pointer-events: none;
+  animation: hint-drop 1.4s ease-in-out infinite;
+}
+.trait {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(43, 35, 80, 0.2);
+}
+.trait--a { background: #F0546A; }
+.trait--b { background: #F5A623; }
+
+@media (min-width: 820px) {
+  .venn-board { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+  .venn-wrap { width: min(100%, max(380px, calc((100dvh - 360px) * 1.45))); }
+}
+
+@media (max-width: 819px) {
+  .venn-wrap { margin-top: 20px; margin-bottom: 26px; }
+  .venn-screen .tray__items { gap: 8px; }
+  .venn-screen .tray .token { --token-w: clamp(76px, 22vw, 96px); }
+  .venn-screen .tray .token__art svg { width: clamp(44px, 12vw, 56px); }
+}

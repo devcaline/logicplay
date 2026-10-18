@@ -4,7 +4,7 @@ Jogo educativo de aventura para aprender **conjuntos** e **tabela-verdade**. O j
 Mundo da Lógica ao lado do **Pipo**, um patinho ciborgue gentil, e restaura a organização do mundo
 completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes e adolescentes.
 
-> Versão 0.1: duas fases jogáveis para a faixa de 5 a 8 anos, mapa completo e estrutura pronta para novas fases.
+> Versão 0.1: três fases jogáveis para a faixa de 5 a 8 anos, mapa completo e estrutura pronta para novas fases.
 
 ![Tela inicial do LogicPlay](docs/prints/01-inicio.png)
 
@@ -22,9 +22,13 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 |---|---|
 | ![Comemoração de acerto](docs/prints/06-fase1-acerto.png) | ![Tela de missão concluída](docs/prints/07-missao-concluida.png) |
 
-| Fase 2: pertence ou não pertence? |
+| Fase 2: pertence ou não pertence? | Fase 3: introdução à interseção |
+|---|---|
+| ![Fase 2 em andamento](docs/prints/08-fase2-jogo.png) | ![Introdução da fase 3](docs/prints/12-fase3-introducao.png) |
+
+| Fase 3: A Ponte do E |
 |---|
-| ![Fase 2 em andamento](docs/prints/08-fase2-jogo.png) |
+| ![Fase 3 em andamento](docs/prints/13-fase3-jogo.png) |
 
 ### No celular
 
@@ -40,6 +44,7 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 - **Mapa de aventura** com dois mundos (Floresta dos Conjuntos e Laboratório da Verdade), fases bloqueadas, concluídas com estrelas e "Em breve".
 - **Fase 1 — Conhecendo os Grupos:** arrastar e soltar os animais que vivem na água para dentro do conjunto, num cenário subaquático. Funciona com mouse, toque, e também tocando no animal e depois no destino.
 - **Fase 2 — Quem Pertence Aqui?:** um elemento por vez, a criança decide se ele *pertence* ou *não pertence* ao grupo das frutas.
+- **Fase 3 — A Ponte do E:** dois grupos que se cruzam (vermelhos e frutas). A criança descobre a *interseção*: o que é vermelho **e** fruta fica no meio.
 - **Pipo, o mascote:** ilustração própria em SVG, com expressões (feliz, curioso, comemorando, incentivando) e bico que se mexe enquanto fala.
 - **Feedback sem punição:** dicas gentis a cada erro e dica visual depois de algumas tentativas.
 - **Voz e sons:** narração em português, botão de ouvir em todas as falas, efeitos sonoros suaves e botão para silenciar. Nada toca antes do primeiro toque do jogador.
@@ -118,7 +123,7 @@ com esses nomes (mp3, m4a, wav, ogg ou webm) e o jogo as usa automaticamente. Fa
 
 ## Próximos passos
 
-- Fases 3 a 5 da Floresta dos Conjuntos (interseção, união e desafio final)
+- Fases 4 e 5 da Floresta dos Conjuntos (união e desafio final)
 - Laboratório da Verdade (tabela-verdade)
 - Conteúdo para as faixas 9–12 e 13+
 - Gravação da voz oficial do Pipo

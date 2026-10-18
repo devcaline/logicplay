@@ -40,3 +40,38 @@ export function pickHintKey(result) {
 export function validateMembershipAnswer(item, answerBelongs) {
   return item.belongs === answerBelongs;
 }
+
+/** Lugar certo de um elemento no diagrama de dois grupos: 'both', 'a', 'b' ou 'out'. */
+export function expectedVennZone(item) {
+  const inA = item.groups.includes('a');
+  const inB = item.groups.includes('b');
+  if (inA && inB) return 'both';
+  if (inA) return 'a';
+  if (inB) return 'b';
+  return 'out';
+}
+
+/**
+ * Validação do desafio de interseção (dois grupos que se cruzam).
+ * @param {Array<{id: string, groups: string[]}>} items
+ * @param {Record<string, 'a' | 'b' | 'both' | 'out'>} placement
+ */
+export function validateVennPlacement(items, placement) {
+  const wrong = items
+    .map((item) => ({ id: item.id, expected: expectedVennZone(item), actual: placement[item.id] ?? 'out' }))
+    .filter((entry) => entry.expected !== entry.actual);
+  return {
+    correct: wrong.length === 0,
+    empty: items.every((item) => (placement[item.id] ?? 'out') === 'out'),
+    wrong,
+  };
+}
+
+/** Dica do mascote para o desafio de interseção. */
+export function pickVennHintKey(result) {
+  if (result.correct) return 'success';
+  if (result.empty) return 'empty';
+  if (result.wrong.some((entry) => entry.expected === 'both')) return 'missingBoth';
+  if (result.wrong.some((entry) => entry.actual === 'both')) return 'wrongBoth';
+  return 'generic';
+}
