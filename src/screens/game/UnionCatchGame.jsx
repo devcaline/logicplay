@@ -166,7 +166,10 @@ export default function UnionCatchGame({ challenge, level, onExit, onComplete })
         say(feedback.success, 'cheer', 'success');
         return;
       }
-      say(item.yes, 'cheer', 'success');
+      // Acerto: só o som positivo. Se havia uma dica no balão, ele volta à missão em silêncio.
+      setLine(mission);
+      setMood('curious');
+      setTone('default');
       setTimeout(() => respawn(laneIndex), 450);
       return;
     }
@@ -215,7 +218,7 @@ export default function UnionCatchGame({ challenge, level, onExit, onComplete })
           mascotSize={84}
           layout="compact"
           tone={tone}
-          className="game-dialogue"
+          className={`game-dialogue ${status === 'success' ? 'is-hidden' : ''}`}
         />
 
         <div className="union-board">

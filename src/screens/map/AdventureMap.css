@@ -99,6 +99,18 @@
   aspect-ratio: 100 / 130;
   overflow: hidden;
 }
+/* Cenário desbotado: as fases e os botões ficam em destaque */
+.world--forest .world__map { background: #F3F7F1; }
+.world--lab .world__map { background: #F2F0FA; }
+.world__map > .scene {
+  filter: saturate(0.7) contrast(0.86) brightness(1.06);
+  opacity: 0.78;
+}
+.world--lab .world__map > .scene {
+  filter: saturate(0.75) contrast(0.78) brightness(1.45);
+  opacity: 0.66;
+}
+
 .world__path {
   position: absolute;
   inset: 0;
@@ -108,12 +120,12 @@
 }
 .world__path-base {
   fill: none;
-  stroke: #FFF4D6;
+  stroke: #F1E2BF;
   stroke-width: 4.2;
   stroke-linecap: round;
   opacity: 0.9;
 }
-.world--lab .world__path-base { stroke: #4E3FA8; opacity: 1; }
+.world--lab .world__path-base { stroke: #B9AEEB; opacity: 1; }
 .world__path-dots {
   fill: none;
   stroke: #E3B86A;
@@ -121,7 +133,7 @@
   stroke-linecap: round;
   stroke-dasharray: 0.1 3;
 }
-.world--lab .world__path-dots { stroke: #7DE8FF; opacity: 0.6; }
+.world--lab .world__path-dots { stroke: #6C5CE7; opacity: 0.7; }
 .world__path-dots.is-walked {
   stroke: #FFB020;
   stroke-width: 1.8;
@@ -293,24 +305,29 @@
 .level-panel__note svg { flex-shrink: 0; margin-top: 1px; }
 .level-panel__cta { margin-top: 8px; width: 100%; }
 
-/* Folha inferior no celular */
+/* Aba inferior no celular: sobe do fim da tela, encostada nas bordas */
 .map-sheet {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 40;
-  padding: 0 12px max(12px, env(safe-area-inset-bottom));
-  animation: sheet-up 0.3s ease;
+  animation: sheet-up 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .map-sheet .level-panel {
-  max-width: 560px;
-  margin: 0 auto;
-  box-shadow: 0 -6px 30px rgba(43, 35, 80, 0.2);
+  max-width: none;
+  margin: 0;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -10px 40px rgba(43, 35, 80, 0.28);
   gap: 6px;
-  padding: 14px 16px 16px;
+  padding: 20px 20px max(20px, calc(env(safe-area-inset-bottom) + 14px));
+  animation: none;
 }
+.map-sheet .level-panel__close { top: 14px; right: 14px; }
 .map-sheet .level-panel__name { font-size: 1.3rem; }
+@media (min-width: 600px) {
+  .map-sheet .level-panel { padding-left: max(20px, calc((100% - 560px) / 2)); padding-right: max(20px, calc((100% - 560px) / 2)); }
+}
 @keyframes sheet-up {
   from { transform: translateY(100%); }
   to { transform: none; }

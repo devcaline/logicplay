@@ -159,7 +159,7 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
           mascotSize={84}
           layout="compact"
           tone={status === 'hint' ? 'hint' : status === 'success' ? 'success' : 'default'}
-          className="game-dialogue"
+          className={`game-dialogue ${locked ? 'is-hidden' : ''}`}
         />
 
         <p className={`game-tip ${selectedId ? 'is-active' : ''}`} aria-live="polite">

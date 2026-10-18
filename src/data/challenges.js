@@ -132,7 +132,6 @@ export const CHALLENGES = {
         name: 'Banana',
         belongs: true,
         question: { id: 'f2k.q.banana', text: 'Olha a banana! Ela pertence ao grupo das frutas?' },
-        correct: { id: 'f2k.ok.banana', text: 'Isso! A banana é uma fruta. Ela pertence ao grupo!' },
         hint: { id: 'f2k.hint.banana', text: 'Hmm... a banana é amarelinha e gostosa de comer. Será que ela é uma fruta?' },
       },
       {
@@ -140,7 +139,6 @@ export const CHALLENGES = {
         name: 'Bola',
         belongs: false,
         question: { id: 'f2k.q.ball', text: 'E a bola? Ela pertence ao grupo das frutas?' },
-        correct: { id: 'f2k.ok.ball', text: 'Muito bem! A bola é um brinquedo. Ela não pertence ao grupo das frutas.' },
         hint: { id: 'f2k.hint.ball', text: 'Será que a gente come a bola? A bola é para brincar! Vamos pensar de novo?' },
       },
       {
@@ -148,7 +146,6 @@ export const CHALLENGES = {
         name: 'Maçã',
         belongs: true,
         question: { id: 'f2k.q.apple', text: 'Olha a maçã! Ela pertence ao grupo das frutas?' },
-        correct: { id: 'f2k.ok.apple', text: 'Isso mesmo! A maçã é uma fruta. Ela pertence ao grupo!' },
         hint: { id: 'f2k.hint.apple', text: 'A maçã é vermelhinha e nasce na árvore. Será que ela é uma fruta?' },
       },
       {
@@ -156,7 +153,6 @@ export const CHALLENGES = {
         name: 'Carrinho',
         belongs: false,
         question: { id: 'f2k.q.car', text: 'E o carrinho? Ele pertence ao grupo das frutas?' },
-        correct: { id: 'f2k.ok.car', text: 'Muito bem! O carrinho é um brinquedo. Ele não pertence ao grupo das frutas.' },
         hint: { id: 'f2k.hint.car', text: 'O carrinho tem rodinhas e serve para brincar. Será que ele é uma fruta?' },
       },
       {
@@ -164,7 +160,6 @@ export const CHALLENGES = {
         name: 'Uva',
         belongs: true,
         question: { id: 'f2k.q.grapes', text: 'Olha a uva! Ela pertence ao grupo das frutas?' },
-        correct: { id: 'f2k.ok.grapes', text: 'Isso! A uva é uma fruta. Ela pertence ao grupo!' },
         hint: { id: 'f2k.hint.grapes', text: 'A uva é pequenininha, redondinha e docinha. Será que ela é uma fruta?' },
       },
       {
@@ -172,7 +167,6 @@ export const CHALLENGES = {
         name: 'Sapato',
         belongs: false,
         question: { id: 'f2k.q.shoe', text: 'E o sapato? Ele pertence ao grupo das frutas?' },
-        correct: { id: 'f2k.ok.shoe', text: 'Muito bem! O sapato a gente usa nos pés. Ele não pertence ao grupo das frutas.' },
         hint: { id: 'f2k.hint.shoe', text: 'O sapato a gente coloca nos pés para passear. Será que ele é uma fruta?' },
       },
     ],
@@ -303,42 +297,43 @@ export const CHALLENGES = {
         id: 'f4k.intro.2',
         mood: 'curious',
         illustration: 'union-example',
-        example: { a: 'car', both: 'apple', b: 'banana', out: 'fish' },
-        text: 'O portal deixa passar quem é vermelho OU quem é fruta. Basta ser um dos dois, e quem é os dois também passa! Juntar dois grupos assim se chama união.',
+        example: { a: 'fish', both: 'octopus', b: 'grapes', out: 'apple' },
+        text: 'O portal deixa passar quem é animal OU quem é roxo. Basta ser um dos dois, e quem é os dois também passa! Juntar dois grupos assim se chama união.',
       },
     ],
 
     mission: {
       id: 'f4k.mission',
-      text: 'Estoure as bolhas que têm coisa vermelha OU fruta para abrir o portal!',
-      short: 'Vermelhos OU frutas',
+      text: 'Estoure as bolhas que têm animal OU coisa roxa para abrir o portal!',
+      short: 'Animais OU roxos',
     },
 
     sets: {
-      a: { label: 'Vermelhos' },
-      b: { label: 'Frutas' },
-      both: { label: 'Vermelho E fruta' },
+      a: { label: 'Animais', color: ANIMAL_PURPLE_COLORS.a },
+      b: { label: 'Roxos', color: ANIMAL_PURPLE_COLORS.b },
+      both: { label: 'Animal E roxo', color: ANIMAL_PURPLE_COLORS.both },
     },
 
-    // groups: 'a' = vermelhos, 'b' = frutas. Sem grupo = o portal não deixa passar.
+    // groups: 'a' = animais, 'b' = roxos. Sem grupo = o portal não deixa passar.
     items: [
-      { id: 'apple', name: 'Maçã', groups: ['a', 'b'], yes: { id: 'f4k.yes.apple', text: 'A maçã é vermelha E é fruta. Com o OU, ela passa também!' } },
-      { id: 'fish', name: 'Peixe', groups: [], nope: { id: 'f4k.nope.fish', text: 'O peixe não é vermelho e não é fruta. O portal não deixa passar!' } },
-      { id: 'car', name: 'Carrinho', groups: ['a'], yes: { id: 'f4k.yes.car', text: 'O carrinho é vermelho. Não é fruta, mas com o OU basta um!' } },
-      { id: 'banana', name: 'Banana', groups: ['b'], yes: { id: 'f4k.yes.banana', text: 'A banana é fruta. Não é vermelha, mas com o OU basta um!' } },
-      { id: 'ball', name: 'Bola', groups: [], nope: { id: 'f4k.nope.ball', text: 'A bola não é vermelha e não é fruta. Ela fica de fora!' } },
-      { id: 'strawberry', name: 'Morango', groups: ['a', 'b'], yes: { id: 'f4k.yes.strawberry', text: 'O morango é vermelho E é fruta. Com o OU, ele passa também!' } },
-      { id: 'rabbit', name: 'Coelho', groups: [], nope: { id: 'f4k.nope.rabbit', text: 'O coelho não é vermelho e não é fruta. Ele fica de fora!' } },
-      { id: 'grapes', name: 'Uva', groups: ['b'], yes: { id: 'f4k.yes.grapes', text: 'A uva é fruta. Não é vermelha, mas com o OU basta um!' } },
-      { id: 'shoe', name: 'Sapato', groups: [], nope: { id: 'f4k.nope.shoe', text: 'O sapato não é vermelho e não é fruta. O portal não deixa passar!' } },
-      { id: 'octopus', name: 'Polvo', groups: [], nope: { id: 'f4k.nope.octopus', text: 'O polvo não é vermelho e não é fruta. Ele fica de fora!' } },
+      { id: 'fish', name: 'Peixe', groups: ['a'] },
+      { id: 'apple', name: 'Maçã', groups: [], nope: { id: 'f4k.nope.apple', text: 'A maçã não é animal e não é roxa. O portal não deixa passar!' } },
+      { id: 'octopus', name: 'Polvo', groups: ['a', 'b'] },
+      { id: 'grapes', name: 'Uva', groups: ['b'] },
+      { id: 'ball', name: 'Bola', groups: [], nope: { id: 'f4k.nope.ball', text: 'A bola não é animal e não é roxa. Ela fica de fora!' } },
+      { id: 'rabbit', name: 'Coelho', groups: ['a'] },
+      { id: 'car', name: 'Carrinho', groups: [], nope: { id: 'f4k.nope.car', text: 'O carrinho não é animal e não é roxo. O portal não deixa passar!' } },
+      { id: 'shoe', name: 'Sapato', groups: ['b'] },
+      { id: 'banana', name: 'Banana', groups: [], nope: { id: 'f4k.nope.banana', text: 'A banana não é animal e não é roxa. Ela fica de fora!' } },
+      { id: 'dolphin', name: 'Golfinho', groups: ['a'] },
+      { id: 'strawberry', name: 'Morango', groups: [], nope: { id: 'f4k.nope.strawberry', text: 'O morango não é animal e não é roxo. Ele fica de fora!' } },
     ],
 
     feedback: {
       success: {
         id: 'f4k.success',
         title: 'Muito bem! Você conseguiu!',
-        text: 'O portal abriu! Passou tudo que é vermelho, tudo que é fruta, e também o que é os dois. Com o OU, basta ser um!',
+        text: 'O portal abriu! Passaram os animais, as coisas roxas, e também o polvo, que é os dois. Com o OU, basta ser um!',
       },
       visualHint: {
         id: 'f4k.hint.visual',
@@ -346,7 +341,7 @@ export const CHALLENGES = {
       },
       idle: {
         id: 'f4k.hint.idle',
-        text: 'Toque numa bolha que tem coisa vermelha ou fruta!',
+        text: 'Toque numa bolha que tem animal ou coisa roxa!',
       },
     },
 
@@ -356,9 +351,10 @@ export const CHALLENGES = {
     complete: {
       id: 'f4k.complete',
       title: 'Quarta missão concluída!',
-      text: 'Você descobriu a união! Com o OU, basta estar em um dos grupos para entrar. E quem está nos dois também entra, como a maçã e o morango.',
+      text: 'Você descobriu a união! Com o OU, basta estar em um dos grupos para entrar. E quem está nos dois também entra, como o polvo: animal E roxo.',
     },
   },
+
   'forest-5-kids': {
     id: 'forest-5-kids',
     type: 'guardian-quiz',
@@ -410,7 +406,6 @@ export const CHALLENGES = {
         ],
         answer: ['g-water'],
         hint: { id: 'f5k.r1.hint', text: 'Quase! Procure o grupo em que todos os bichinhos nadam na água.' },
-        ok: { id: 'f5k.r1.ok', text: 'Isso! Peixe, golfinho e polvo: todos vivem na água. Primeira pedra acesa!' },
       },
       {
         id: 'member',
@@ -422,7 +417,6 @@ export const CHALLENGES = {
         options: ['car', 'grapes', 'shoe'],
         answer: ['grapes'],
         hint: { id: 'f5k.r2.hint', text: 'Quase! Qual destes a gente pode comer? Ele é uma fruta!' },
-        ok: { id: 'f5k.r2.ok', text: 'Muito bem! A uva pertence ao grupo das frutas!' },
       },
       {
         id: 'not-member',
@@ -434,7 +428,6 @@ export const CHALLENGES = {
         options: ['dolphin', 'butterfly', 'fish'],
         answer: ['butterfly'],
         hint: { id: 'f5k.r3.hint', text: 'Quase! Dois deles nadam. Quem voa pelo céu e não vive na água?' },
-        ok: { id: 'f5k.r3.ok', text: 'Isso mesmo! A borboleta voa, ela não pertence ao grupo da água!' },
       },
       {
         id: 'and',
@@ -446,7 +439,6 @@ export const CHALLENGES = {
         options: ['car', 'banana', 'strawberry'],
         answer: ['strawberry'],
         hint: { id: 'f5k.r4.hint', text: 'Quase! Com o E, precisa ser as duas coisas: vermelho e fruta.' },
-        ok: { id: 'f5k.r4.ok', text: 'Perfeito! O morango é vermelho E é fruta. Ele fica no meio, na interseção!' },
       },
       {
         id: 'or',
@@ -458,7 +450,6 @@ export const CHALLENGES = {
         options: ['fish', 'ball', 'octopus', 'grapes'],
         answer: ['fish', 'octopus', 'grapes'],
         hint: { id: 'f5k.r5.hint', text: 'Quase! Com o OU, basta ser animal ou ser roxo. E quem é os dois também vale!' },
-        ok: { id: 'f5k.r5.ok', text: 'Isso! O peixe é animal, a uva é roxa e o polvo é os dois: todos passam pelo OU. A bola fica de fora!' },
       },
     ],
 

@@ -15,6 +15,9 @@
 }
 
 .game-dialogue .dialogue__bubble { border-width: 3px; }
+/* Ao concluir, a mensagem e o Pipo ficam só no painel de baixo */
+.game-dialogue { transition: opacity 0.35s ease, visibility 0.35s; }
+.game-dialogue.is-hidden { opacity: 0; visibility: hidden; }
 
 .game-tip {
   display: flex;

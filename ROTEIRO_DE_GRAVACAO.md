@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 0 de 94 falas gravadas.**
+**Progresso: 0 de 84 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -96,22 +96,17 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ✓ | Arquivo | Onde aparece | Tom | Fala |
 |---|---|---|---|---|
 | ⬜ | `f4k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Uau, o Portal do OU! Ele está fechado, e várias bolhas mágicas estão flutuando por aqui. |
-| ⬜ | `f4k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | O portal deixa passar quem é vermelho OU quem é fruta. Basta ser um dos dois, e quem é os dois também passa! Juntar dois grupos assim se chama união. |
-| ⬜ | `f4k.mission.mp3` | Missão | curioso, explicando com calma | Estoure as bolhas que têm coisa vermelha OU fruta para abrir o portal! |
-| ⬜ | `f4k.yes.apple.mp3` | Estourou a bolha certa — Maçã | comemorando, bem animado | A maçã é vermelha E é fruta. Com o OU, ela passa também! |
-| ⬜ | `f4k.nope.fish.mp3` | Tocou numa bolha que não passa — Peixe | carinhoso, incentivando | O peixe não é vermelho e não é fruta. O portal não deixa passar! |
-| ⬜ | `f4k.yes.car.mp3` | Estourou a bolha certa — Carrinho | comemorando, bem animado | O carrinho é vermelho. Não é fruta, mas com o OU basta um! |
-| ⬜ | `f4k.yes.banana.mp3` | Estourou a bolha certa — Banana | comemorando, bem animado | A banana é fruta. Não é vermelha, mas com o OU basta um! |
-| ⬜ | `f4k.nope.ball.mp3` | Tocou numa bolha que não passa — Bola | carinhoso, incentivando | A bola não é vermelha e não é fruta. Ela fica de fora! |
-| ⬜ | `f4k.yes.strawberry.mp3` | Estourou a bolha certa — Morango | comemorando, bem animado | O morango é vermelho E é fruta. Com o OU, ele passa também! |
-| ⬜ | `f4k.nope.rabbit.mp3` | Tocou numa bolha que não passa — Coelho | carinhoso, incentivando | O coelho não é vermelho e não é fruta. Ele fica de fora! |
-| ⬜ | `f4k.yes.grapes.mp3` | Estourou a bolha certa — Uva | comemorando, bem animado | A uva é fruta. Não é vermelha, mas com o OU basta um! |
-| ⬜ | `f4k.nope.shoe.mp3` | Tocou numa bolha que não passa — Sapato | carinhoso, incentivando | O sapato não é vermelho e não é fruta. O portal não deixa passar! |
-| ⬜ | `f4k.nope.octopus.mp3` | Tocou numa bolha que não passa — Polvo | carinhoso, incentivando | O polvo não é vermelho e não é fruta. Ele fica de fora! |
+| ⬜ | `f4k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | O portal deixa passar quem é animal OU quem é roxo. Basta ser um dos dois, e quem é os dois também passa! Juntar dois grupos assim se chama união. |
+| ⬜ | `f4k.mission.mp3` | Missão | curioso, explicando com calma | Estoure as bolhas que têm animal OU coisa roxa para abrir o portal! |
+| ⬜ | `f4k.nope.apple.mp3` | Tocou numa bolha que não passa — Maçã | carinhoso, incentivando | A maçã não é animal e não é roxa. O portal não deixa passar! |
+| ⬜ | `f4k.nope.ball.mp3` | Tocou numa bolha que não passa — Bola | carinhoso, incentivando | A bola não é animal e não é roxa. Ela fica de fora! |
+| ⬜ | `f4k.nope.car.mp3` | Tocou numa bolha que não passa — Carrinho | carinhoso, incentivando | O carrinho não é animal e não é roxo. O portal não deixa passar! |
+| ⬜ | `f4k.nope.banana.mp3` | Tocou numa bolha que não passa — Banana | carinhoso, incentivando | A banana não é animal e não é roxa. Ela fica de fora! |
+| ⬜ | `f4k.nope.strawberry.mp3` | Tocou numa bolha que não passa — Morango | carinhoso, incentivando | O morango não é animal e não é roxo. Ele fica de fora! |
 | ⬜ | `f4k.hint.visual.mp3` | Dica — bolhas douradas (após 2 toques errados) | carinhoso, incentivando | Vou te ajudar: as bolhas certas estão brilhando douradas! |
-| ⬜ | `f4k.hint.idle.mp3` | Dica — criança parada sem tocar | carinhoso, incentivando | Toque numa bolha que tem coisa vermelha ou fruta! |
-| ⬜ | `f4k.success.mp3` | Acertou tudo | comemorando, bem animado | O portal abriu! Passou tudo que é vermelho, tudo que é fruta, e também o que é os dois. Com o OU, basta ser um! |
-| ⬜ | `f4k.complete.mp3` | Tela final da fase | comemorando, bem animado | Quarta missão concluída! Você descobriu a união! Com o OU, basta estar em um dos grupos para entrar. E quem está nos dois também entra, como a maçã e o morango. |
+| ⬜ | `f4k.hint.idle.mp3` | Dica — criança parada sem tocar | carinhoso, incentivando | Toque numa bolha que tem animal ou coisa roxa! |
+| ⬜ | `f4k.success.mp3` | Acertou tudo | comemorando, bem animado | O portal abriu! Passaram os animais, as coisas roxas, e também o polvo, que é os dois. Com o OU, basta ser um! |
+| ⬜ | `f4k.complete.mp3` | Tela final da fase | comemorando, bem animado | Quarta missão concluída! Você descobriu a união! Com o OU, basta estar em um dos grupos para entrar. E quem está nos dois também entra, como o polvo: animal E roxo. |
 
 ## Fase: O Guardião da Floresta (5-8 anos)
 
@@ -121,19 +116,14 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ⬜ | `f5k.intro.2.mp3` | Introdução 2 | alegre, acolhedor | Para acordar o Guardião, vamos usar tudo o que aprendemos. Cada acerto acende uma pedra mágica. Vamos lá? |
 | ⬜ | `f5k.r1.prompt.mp3` | Desafio 1 (Conjunto) — pergunta | curioso, explicando com calma | Primeiro desafio: qual destes grupos é o conjunto dos animais que vivem na água? |
 | ⬜ | `f5k.r1.hint.mp3` | Desafio 1 — dica ao errar | carinhoso, incentivando | Quase! Procure o grupo em que todos os bichinhos nadam na água. |
-| ⬜ | `f5k.r1.ok.mp3` | Desafio 1 — acertou | comemorando, bem animado | Isso! Peixe, golfinho e polvo: todos vivem na água. Primeira pedra acesa! |
 | ⬜ | `f5k.r2.prompt.mp3` | Desafio 2 (Pertence) — pergunta | curioso, explicando com calma | Qual destes pertence ao grupo das frutas? |
 | ⬜ | `f5k.r2.hint.mp3` | Desafio 2 — dica ao errar | carinhoso, incentivando | Quase! Qual destes a gente pode comer? Ele é uma fruta! |
-| ⬜ | `f5k.r2.ok.mp3` | Desafio 2 — acertou | comemorando, bem animado | Muito bem! A uva pertence ao grupo das frutas! |
 | ⬜ | `f5k.r3.prompt.mp3` | Desafio 3 (Não pertence) — pergunta | curioso, explicando com calma | Agora o contrário: quem NÃO pertence ao grupo dos animais da água? |
 | ⬜ | `f5k.r3.hint.mp3` | Desafio 3 — dica ao errar | carinhoso, incentivando | Quase! Dois deles nadam. Quem voa pelo céu e não vive na água? |
-| ⬜ | `f5k.r3.ok.mp3` | Desafio 3 — acertou | comemorando, bem animado | Isso mesmo! A borboleta voa, ela não pertence ao grupo da água! |
 | ⬜ | `f5k.r4.prompt.mp3` | Desafio 4 (E) — pergunta | curioso, explicando com calma | A Ponte do E! Qual destes é vermelho E é fruta ao mesmo tempo? |
 | ⬜ | `f5k.r4.hint.mp3` | Desafio 4 — dica ao errar | carinhoso, incentivando | Quase! Com o E, precisa ser as duas coisas: vermelho e fruta. |
-| ⬜ | `f5k.r4.ok.mp3` | Desafio 4 — acertou | comemorando, bem animado | Perfeito! O morango é vermelho E é fruta. Ele fica no meio, na interseção! |
 | ⬜ | `f5k.r5.prompt.mp3` | Desafio 5 (OU) — pergunta | curioso, explicando com calma | Último desafio, o Portal do OU! Toque em TODOS que são animais OU roxos, e depois em Pronto. |
 | ⬜ | `f5k.r5.hint.mp3` | Desafio 5 — dica ao errar | carinhoso, incentivando | Quase! Com o OU, basta ser animal ou ser roxo. E quem é os dois também vale! |
-| ⬜ | `f5k.r5.ok.mp3` | Desafio 5 — acertou | comemorando, bem animado | Isso! O peixe é animal, a uva é roxa e o polvo é os dois: todos passam pelo OU. A bola fica de fora! |
 | ⬜ | `f5k.hint.visual.mp3` | Dica — resposta brilhando (após 2 erros) | carinhoso, incentivando | Vou te dar uma ajudinha: olha a resposta brilhando! |
 | ⬜ | `f5k.hint.pickMore.mp3` | Apertou Pronto sem escolher nada | carinhoso, incentivando | Toque em pelo menos um antes de apertar Pronto! |
 | ⬜ | `f5k.success.mp3` | Acertou tudo | comemorando, bem animado | Você acendeu todas as pedras mágicas, e a floresta ganhou as suas cores de volta. Obrigado, amiguinho! |

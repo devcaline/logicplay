@@ -13,7 +13,7 @@ import { useGame, useNarration } from '../../state/GameContext.jsx';
 import { sfx } from '../../audio/sfx.js';
 import './GuardianQuizGame.css';
 
-const NEXT_ROUND_MS = 2200; // tempo para ver a pedra acender antes do próximo desafio
+const NEXT_ROUND_MS = 1400; // tempo para ver a pedra acender antes do próximo desafio
 
 const normalizeOptions = (round) =>
   round.options.map((option) => (typeof option === 'string' ? { key: option, items: [option] } : option));
@@ -126,7 +126,7 @@ export default function GuardianQuizGame({ challenge, level, onExit, onComplete 
     setLit((count) => count + 1);
     setStirring(true);
     later(() => setStirring(false), 700);
-    say(round.ok);
+    // Acerto: só o som positivo e a pedra acendendo; o Pipo não fala nada.
 
     const isLast = roundIndex === rounds.length - 1;
     later(() => {
@@ -179,8 +179,8 @@ export default function GuardianQuizGame({ challenge, level, onExit, onComplete 
     else fail(null);
   };
 
-  const tone = phase === 'hint' ? 'hint' : phase === 'correct' || phase === 'success' ? 'success' : 'default';
-  const mood = phase === 'hint' ? 'encourage' : phase === 'correct' || phase === 'success' ? 'cheer' : 'curious';
+  const tone = phase === 'hint' ? 'hint' : phase === 'success' ? 'success' : 'default';
+  const mood = phase === 'hint' ? 'encourage' : phase === 'success' ? 'cheer' : 'curious';
   const done = phase === 'success';
 
   return (
@@ -189,7 +189,7 @@ export default function GuardianQuizGame({ challenge, level, onExit, onComplete 
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
       <div className="game-layout guardian-layout">
-        <MascotDialogue line={line} bubbleKey={`${line.id}-${lineCount}`} mood={mood} mascotSize={84} layout="compact" tone={tone} className="game-dialogue" />
+        <MascotDialogue line={line} bubbleKey={`${line.id}-${lineCount}`} mood={mood} mascotSize={84} layout="compact" tone={tone} className={`game-dialogue ${done ? 'is-hidden' : ''}`} />
 
         {/* espaço livre para o rosto do Guardião aparecer */}
         <div ref={spaceRef} className="guardian-face-space" style={faceSpace != null ? { flexBasis: faceSpace } : undefined} aria-hidden="true">

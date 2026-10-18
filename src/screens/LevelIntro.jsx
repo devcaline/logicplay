@@ -88,7 +88,9 @@ function IntroIllustration({ kind, items, set, sets, example }) {
             .filter(([zone]) => example[zone])
             .map(([zone, label]) => (
               <span key={zone} className="intro-illus__union-row">
-                <span className={`intro-illus__group intro-illus__group--${zone}`}>{label}</span>
+                <span className={`intro-illus__group intro-illus__group--${zone}`} style={sets[zone]?.color ? { background: sets[zone].color.label } : undefined}>
+                  {label}
+                </span>
                 {bubble(example[zone], true)}
               </span>
             ))}

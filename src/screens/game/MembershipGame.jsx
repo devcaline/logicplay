@@ -72,7 +72,6 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
   const handleAnswer = (answerBelongs) => {
     if (phase === 'correct' || phase === 'success') return;
     if (validateMembershipAnswer(item, answerBelongs)) {
-      // Sem esperar o elogio: a pergunta do próximo elemento já vai ser narrada.
       sfx.play('correct');
       sfx.play('whoosh');
       setPhase('correct');
@@ -95,11 +94,8 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
     mood = 'encourage';
     tone = 'hint';
   }
-  if (phase === 'correct') {
-    line = item.correct;
-    mood = 'cheer';
-    tone = 'success';
-  }
+  // Acerto: só o som positivo; o balão continua com a pergunta até o próximo elemento.
+  if (phase === 'correct') line = item.question;
   if (phase === 'success') {
     line = feedback.success;
     mood = 'cheer';
@@ -133,7 +129,7 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
           mascotSize={84}
           layout="compact"
           tone={tone}
-          className="game-dialogue"
+          className={`game-dialogue ${phase === 'success' ? 'is-hidden' : ''}`}
         />
 
         <div className="member-board">
