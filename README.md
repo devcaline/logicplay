@@ -92,6 +92,12 @@ Para testar no celular na mesma rede Wi-Fi, rode `npm run dev -- --host` e acess
 | `npm run preview` | Abre a versão de produção localmente |
 | `npm run roteiro` | Gera o roteiro de gravação da voz do Pipo |
 
+## Como publicar
+
+O jogo é um site estático: `npm run build` gera a pasta `dist/`, que pode ser enviada para qualquer hospedagem
+(na Hostinger, pelo Gerenciador de Arquivos, dentro de `public_html` ou de uma subpasta). Os caminhos são relativos,
+então o site funciona tanto na raiz do domínio quanto dentro de uma pasta.
+
 ## Estrutura
 
 ```
