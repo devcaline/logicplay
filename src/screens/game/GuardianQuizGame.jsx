@@ -6,7 +6,7 @@ import GameButton from '../../components/ui/GameButton.jsx';
 import StarBurst from '../../components/ui/StarBurst.jsx';
 import VennDiagram from '../../components/ui/VennDiagram.jsx';
 import ItemArt from '../../components/art/ItemArt.jsx';
-import GuardianScene from '../../components/scenery/GuardianScene.jsx';
+import GuardianScene, { SIDE_QUERY } from '../../components/scenery/GuardianScene.jsx';
 import GameFeedback from './GameFeedback.jsx';
 import { validateChoice } from '../../logic/validation.js';
 import { useGame, useNarration } from '../../state/GameContext.jsx';
@@ -83,6 +83,11 @@ export default function GuardianQuizGame({ challenge, level, onExit, onComplete 
 
   // O cartão do desafio fica logo abaixo do rosto do Guardião, sem passar das pedras mágicas.
   const fitCard = useCallback(() => {
+    // Tablet e computador: a árvore fica na faixa lateral e o cartão não precisa desviar do rosto.
+    if (window.matchMedia(SIDE_QUERY).matches) {
+      setFaceSpace(null);
+      return;
+    }
     const face = document.querySelector('.guardian-scene__face');
     const space = spaceRef.current;
     const bar = barRef.current;
@@ -253,6 +258,12 @@ export default function GuardianQuizGame({ challenge, level, onExit, onComplete 
           ))}
         </div>
       </div>
+
+      {done && (
+        <div className="guardian-side-burst" aria-hidden="true">
+          <StarBurst />
+        </div>
+      )}
 
       {showFeedback && <GameFeedback line={feedback.success} onContinue={onComplete} />}
     </div>

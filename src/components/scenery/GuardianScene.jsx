@@ -7,33 +7,39 @@ import './GuardianScene.css';
  * Ele acorda aos poucos (`lit` de `total`). As cores voltam pelo filtro da tela (--restore).
  * O desenho é ancorado embaixo (o tronco segue até o fim da tela) e o rosto fica no alto do tronco.
  */
-// Celular (retrato): enquadramento com mais chão embaixo, para o rosto subir e ficar acima do desafio.
-const COMPACT_QUERY = '(max-width: 819px)';
+// Tablet e computador: a árvore ocupa uma faixa à esquerda (35% da tela), de cima a baixo.
+// Celular: enquadramento com mais chão embaixo, para o rosto subir e ficar acima do desafio.
+export const SIDE_QUERY = '(min-width: 768px)';
 
 // Quanto a árvore desce em relação ao desenho original (unidades do SVG).
 const TREE_DROP = 80;
 
-function useCompact() {
-  const [compact, setCompact] = useState(() => window.matchMedia(COMPACT_QUERY).matches);
+function useSideLayout() {
+  const [side, setSide] = useState(() => window.matchMedia(SIDE_QUERY).matches);
   useEffect(() => {
-    const media = window.matchMedia(COMPACT_QUERY);
-    const onChange = () => setCompact(media.matches);
+    const media = window.matchMedia(SIDE_QUERY);
+    const onChange = () => setSide(media.matches);
     media.addEventListener('change', onChange);
     return () => media.removeEventListener('change', onChange);
   }, []);
-  return compact;
+  return side;
 }
 
+// Na faixa lateral os galhos ficam mais curtos, para caberem na largura.
+const armTransform = (side, x) => (side ? `translate(${x} 360) scale(0.65) translate(${-x} -360)` : undefined);
+
 export default function GuardianScene({ lit = 0, total = 5, stirring = false }) {
-  const compact = useCompact();
-  const groundBottom = compact ? 1100 : 800;
+  const side = useSideLayout();
+  const groundBottom = side ? 800 : 1100;
+  // Faixa lateral: enquadra só a árvore, da copa até o fim do tronco.
+  const viewBox = side ? '150 -230 900 1030' : `0 -150 1200 ${groundBottom + 150}`;
   const awake = lit >= total;
   const sleepy = !awake && lit >= Math.ceil(total / 2);
 
   return (
     <svg
-      className={`scene guardian-scene ${awake ? 'is-awake' : ''} ${stirring ? 'is-stirring' : ''}`}
-      viewBox={`0 -150 1200 ${groundBottom + 150}`}
+      className={`scene guardian-scene ${side ? 'guardian-scene--side' : ''} ${awake ? 'is-awake' : ''} ${stirring ? 'is-stirring' : ''}`}
+      viewBox={viewBox}
       preserveAspectRatio="xMidYMax slice"
       aria-hidden="true"
     >
@@ -49,7 +55,7 @@ export default function GuardianScene({ lit = 0, total = 5, stirring = false }) 
         </linearGradient>
       </defs>
 
-      <rect x="0" y="-150" width="1200" height={groundBottom + 150} fill="url(#gs-sky)" />
+      <rect x="0" y="-300" width="1200" height={groundBottom + 300} fill="url(#gs-sky)" />
 
       {/* floresta ao fundo */}
       <path d="M0 640 Q300 580 600 620 T1200 600 V800 H0 Z" fill="#BFE8C9" />
@@ -64,20 +70,23 @@ export default function GuardianScene({ lit = 0, total = 5, stirring = false }) 
       <g transform={`translate(0 ${TREE_DROP})`}>
       <g className="guardian-scene__tree">
         {/* braços de galho */}
+        <g transform={armTransform(side, 470)}>
         <g className="guardian-scene__arm guardian-scene__arm--left">
           <path d="M470 360 Q360 330 270 250" stroke="#8B5E45" strokeWidth="34" fill="none" strokeLinecap="round" />
           <circle cx="255" cy="232" r="52" fill="#4CC38A" />
           <circle cx="225" cy="262" r="34" fill="#5FCB91" />
           <circle cx="240" cy="215" r="10" fill="#FF8DBF" />
         </g>
+        </g>
+        <g transform={armTransform(side, 730)}>
         <g className="guardian-scene__arm guardian-scene__arm--right">
           <path d="M730 360 Q840 330 930 250" stroke="#8B5E45" strokeWidth="34" fill="none" strokeLinecap="round" />
           <circle cx="945" cy="232" r="52" fill="#4CC38A" />
           <circle cx="975" cy="262" r="34" fill="#5FCB91" />
           <circle cx="960" cy="215" r="10" fill="#FFD43B" />
         </g>
+        </g>
 
-        {/* tronco */}
         {/* tronco: desce até passar do fim da tela */}
         <path d="M470 150 Q455 430 428 720 L412 1500 L788 1500 L772 720 Q745 430 730 150 Z" fill="url(#gs-trunk)" />
         <path d="M505 420 Q495 600 482 900 M700 420 Q712 600 720 900 M600 480 Q596 640 604 880 M540 380 Q536 330 548 300 M662 380 Q668 330 654 300" stroke="#6E4A36" strokeWidth="7" fill="none" strokeLinecap="round" opacity="0.6" />
