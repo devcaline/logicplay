@@ -4,7 +4,7 @@ Jogo educativo de aventura para aprender **conjuntos** e **tabela-verdade**. O j
 Mundo da Lógica ao lado do **Pipo**, um patinho ciborgue gentil, e restaura a organização do mundo
 completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes e adolescentes.
 
-> Versão 0.1: o Mundo 1 (Floresta dos Conjuntos) completo, com cinco fases jogáveis para a faixa de 5 a 8 anos, e as quatro primeiras fases do Mundo 2 (Laboratório da Verdade).
+> Versão 0.1: os dois mundos completos para a faixa de 5 a 8 anos — a Floresta dos Conjuntos (conjuntos, pertinência, interseção e união) e o Laboratório da Verdade (verdadeiro e falso, E, OU, NÃO e tabela-verdade), com dez fases jogáveis.
 
 ![Tela inicial do LogicPlay](docs/prints/01-inicio.png)
 
@@ -46,6 +46,10 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 |---|---|
 | ![Fase 3 do Laboratório da Verdade](docs/prints/20-lab3-maquina-do-ou.png) | ![Fase 4 do Laboratório da Verdade](docs/prints/21-lab4-espelho-do-nao.png) |
 
+| Laboratório: A Tabela Mestra |
+|---|
+| ![Fase 5 do Laboratório da Verdade](docs/prints/22-lab5-tabela-mestra.png) |
+
 ### No celular
 
 <p>
@@ -67,6 +71,7 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 - **Laboratório, fase 2 — A Máquina do E:** quatro máquinas no laboratório; ao tocar numa delas, a tela aproxima a máquina, com duas frases ligadas por fios a uma porta "E" e uma lâmpada grande. A criança dá o palpite (acende ou não acende?) e a máquina mostra o resultado: as frases verdadeiras acendem, a energia corre e a lâmpada grande só acende se as duas forem verdade. As quatro máquinas cobrem a tabela-verdade do E.
 - **Laboratório, fase 3 — A Máquina do OU:** uma máquina de engrenagens com duas alavancas (azul e rosa). Em cada rodada o jogo mostra uma combinação de alavancas ligadas e desligadas, e a criança diz se a máquina funciona: se funcionar, as engrenagens giram e saem bolhas; se não, ela trava e solta fumaça. As quatro rodadas cobrem a tabela-verdade do OU, e na última a alavanca azul emperra e a própria criança liga a outra.
 - **Laboratório, fase 4 — O Espelho do NÃO:** um espelho mágico que mostra tudo ao contrário. Primeiro com objetos: a criança toca nos reflexos para virá-los (lâmpada acesa vira apagada, alavanca ligada vira desligada, porta fechada vira aberta) e olha no espelho para conferir. Depois com frases, uma por vez: a frase de verdade aparece com a luz já respondida, o espelho mostra a frase com NÃO e a criança escolhe se a luz do espelho acende ou apaga. "O peixe NÃO vive na água" apaga, e "A banana NÃO é vermelha" acende.
+- **Laboratório, fase 5 — A Tabela Mestra:** desafio final do mundo, com um circuito por vez: duas alavancas (verdes quando ligadas, sem cor quando desligadas) mandam energia por fios até a porta E ou OU e uma lâmpada. A criança diz se a luz acende e a energia verde corre pelos fios: no E, com uma alavanca só, a energia chega fraca e a lâmpada só pisca fraquinho; com as duas, acende. Primeiro as quatro combinações do E, depois as do OU. No fim, a Tabela Mestra aparece completa com tudo o que a criança descobriu.
 - **Pipo, o mascote:** ilustração própria em SVG, com expressões (feliz, curioso, comemorando, incentivando) e bico que se mexe enquanto fala.
 - **Feedback sem punição:** dicas gentis a cada erro e dica visual depois de algumas tentativas.
 - **Voz e sons:** narração em português, botão de ouvir em todas as falas, efeitos sonoros suaves e botão para silenciar. Nada toca antes do primeiro toque do jogador.
@@ -151,7 +156,6 @@ com esses nomes (mp3, m4a, wav, ogg ou webm) e o jogo as usa automaticamente. Fa
 
 ## Próximos passos
 
-- Fase 5 do Laboratório da Verdade (a Tabela Mestra)
 - Conteúdo para as faixas 9–12 e 13+
 - Gravação da voz oficial do Pipo
 

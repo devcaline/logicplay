@@ -1,0 +1,81 @@
+.energy-circuit { width: 100%; max-width: 640px; margin: 0 auto; }
+.energy-circuit svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* Alavancas: ligada = verde, desligada = sem cor */
+.circuit-lever__box { fill: #F1EFF6; stroke: #D8D4E4; stroke-width: 4; transition: fill 0.3s ease, stroke 0.3s ease; }
+.circuit-lever__track { fill: #CFCBDC; }
+.circuit-lever__stick { fill: #B8B4C8; }
+.circuit-lever__knob { fill: #C9C5D6; stroke: #A9A5B8; stroke-width: 3; transition: fill 0.3s ease; }
+.circuit-lever__pivot { fill: #A9A5B8; }
+.circuit-lever__arm { transform-box: view-box; transform-origin: 0 0; transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.circuit-lever__badge { fill: #fff; stroke: #CFCBDC; stroke-width: 3; }
+.circuit-lever__number { font: 700 14px/1 var(--font-display); fill: #8C86B8; }
+.circuit-lever__state { font: 700 17px/1 var(--font-display); fill: #8C86B8; }
+.circuit-lever.is-on .circuit-lever__box { fill: #E3F8EC; stroke: #5FD99B; }
+.circuit-lever.is-on .circuit-lever__track { fill: #A6E8C4; }
+.circuit-lever.is-on .circuit-lever__stick { fill: #33B877; }
+.circuit-lever.is-on .circuit-lever__knob { fill: #33B877; stroke: #1E8C55; }
+.circuit-lever.is-on .circuit-lever__pivot { fill: #1E8C55; }
+.circuit-lever.is-on .circuit-lever__badge { stroke: #5FD99B; }
+.circuit-lever.is-on .circuit-lever__number { fill: #1E8C55; }
+.circuit-lever.is-on .circuit-lever__state { fill: #1E8C55; }
+
+/* Fios e energia */
+.circuit-wire { fill: none; stroke: #D8D4E4; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; }
+.circuit-energy {
+  fill: none;
+  stroke: #33B877;
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(95, 217, 155, 0.9));
+}
+.circuit-energy.is-flowing { opacity: 1; animation: circuit-draw 0.8s ease-out forwards; }
+.circuit-energy--weak { stroke: #A6E8C4; stroke-width: 8; filter: none; }
+.circuit-energy--weak.is-flowing { animation: circuit-draw 0.8s ease-out forwards, circuit-weak 0.5s ease-in-out 0.8s infinite; }
+
+/* Porta lógica */
+.circuit-gate__box { fill: #7B68EE; stroke: #fff; stroke-width: 5; transition: fill 0.3s ease; }
+.circuit-gate.is-charged .circuit-gate__box { fill: #6C5CE7; filter: drop-shadow(0 0 10px rgba(95, 217, 155, 0.7)); }
+.circuit-gate__label { font: 700 40px/1 var(--font-display); fill: #fff; }
+.circuit-gate__slot { fill: #5443C4; stroke: #fff; stroke-width: 3; transition: fill 0.3s ease; }
+.circuit-gate__slot.is-filled { fill: #5FD99B; }
+
+/* Lâmpada */
+.circuit-bulb__glow { fill: #FFE066; opacity: 0; }
+.circuit-bulb__glass { fill: #E4E1EE; stroke: #B8B4C8; stroke-width: 4; transition: fill 0.3s ease, stroke 0.3s ease; }
+.circuit-bulb__shine { stroke: #fff; stroke-width: 5; fill: none; stroke-linecap: round; opacity: 0.8; }
+.circuit-bulb__question { font: 700 38px/1 var(--font-display); fill: #8B7CF6; }
+.circuit-bulb__filament { stroke: #A9A5B8; stroke-width: 3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.circuit-bulb__ray { stroke: #FFC21A; stroke-width: 7; stroke-linecap: round; }
+.circuit-bulb--unset .circuit-bulb__glass { fill: #F4F1FF; stroke: #B6A9FF; stroke-dasharray: 8 6; }
+.circuit-bulb--on .circuit-bulb__glass { fill: #FFE27A; stroke: #F2B705; }
+.circuit-bulb--on .circuit-bulb__glow { opacity: 0.5; animation: circuit-glow 1.4s ease-in-out infinite; }
+.circuit-bulb--on .circuit-bulb__filament { stroke: #E08A00; }
+.circuit-bulb--on { animation: circuit-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); transform-box: fill-box; transform-origin: center; }
+/* Energia fraca: a lâmpada só pisca fraquinho */
+.circuit-bulb--weak .circuit-bulb__glass { animation: circuit-flicker 0.9s steps(1, end) infinite; }
+.circuit-bulb--weak .circuit-bulb__glow { animation: circuit-flicker-glow 0.9s steps(1, end) infinite; }
+.circuit-bulb--off .circuit-bulb__glass { fill: #C9C5D6; stroke: #A9A5B8; }
+
+@keyframes circuit-draw { to { stroke-dashoffset: 0; } }
+@keyframes circuit-weak { 50% { opacity: 0.35; } }
+@keyframes circuit-glow { 50% { opacity: 0.2; } }
+@keyframes circuit-pop { from { transform: scale(0.85); } to { transform: scale(1); } }
+@keyframes circuit-flicker {
+  0%, 100% { fill: #E4E1EE; }
+  12% { fill: #FFF3B8; }
+  24% { fill: #E4E1EE; }
+  40% { fill: #FFF6CC; }
+  52% { fill: #E4E1EE; }
+}
+@keyframes circuit-flicker-glow {
+  0%, 100% { opacity: 0; }
+  12% { opacity: 0.18; }
+  24% { opacity: 0; }
+  40% { opacity: 0.12; }
+  52% { opacity: 0; }
+}

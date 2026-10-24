@@ -41,7 +41,7 @@ for (const challenge of Object.values(CHALLENGES)) {
 
   challenge.intro.forEach((intro, index) => lines.push({ line: intro, where: `Introdução ${index + 1}`, tone: intro.mood }));
   // A missão é narrada na entrada (no Espelho do NÃO e no Guardião, cada parte tem a própria instrução).
-  if (!['guardian-quiz', 'not-mirror'].includes(challenge.type)) lines.push({ line: challenge.mission, where: 'Missão', tone: 'curious' });
+  if (!['guardian-quiz', 'not-mirror', 'master-table'].includes(challenge.type)) lines.push({ line: challenge.mission, where: 'Missão', tone: 'curious' });
 
   if (challenge.type === 'guardian-quiz') {
     challenge.rounds.forEach((round, index) => {
@@ -90,6 +90,15 @@ for (const challenge of Object.values(CHALLENGES)) {
     });
     lines.push({ line: challenge.feedback.visualHint, where: 'Dica — bolhas douradas (após 2 toques errados)', tone: 'encourage' });
     lines.push({ line: challenge.feedback.idle, where: 'Dica — criança parada sem tocar', tone: 'encourage' });
+  }
+
+  if (challenge.type === 'master-table') {
+    challenge.columns.forEach((column) => {
+      lines.push({ line: column.start, where: `Máquina do ${column.gate} — começo`, tone: 'curious' });
+      column.questions.forEach((question, index) => lines.push({ line: question, where: `Máquina do ${column.gate} — teste ${index + 1}`, tone: 'curious' }));
+      [2, 1, 0].forEach((count) => lines.push({ line: column.hints[count], where: `Máquina do ${column.gate} — errou (${count} alavanca(s) ligada(s))`, tone: 'encourage' }));
+    });
+    lines.push({ line: challenge.feedback.tableDone, where: 'Tabela Mestra completa', tone: 'cheer' });
   }
 
   if (challenge.type === 'not-mirror') {

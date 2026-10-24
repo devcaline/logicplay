@@ -241,3 +241,10 @@
   font: 700 0.8rem/1 var(--font-display);
 }
 .intro-illus--mirror .mirror-phrase { max-width: 150px; }
+
+/* Exemplo da Tabela Mestra */
+.intro-illus--table { margin-top: 14px; }
+.intro-illus--table .master-table { width: min(320px, 86vw); }
+
+/* Exemplo do circuito de energia */
+.intro-illus--circuit .energy-circuit { width: min(440px, 88vw); padding: 10px; border-radius: 26px; background: rgba(255, 255, 255, 0.85); }

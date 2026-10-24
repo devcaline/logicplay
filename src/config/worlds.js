@@ -101,7 +101,7 @@ export const WORLDS = [
         name: 'A Tabela Mestra',
         description: 'Monte a grande tabela-verdade do laboratório.',
         pos: { x: 46, y: 83 },
-        content: {},
+        content: { '5-8': 'lab-5-kids' },
         boss: true,
       },
     ],

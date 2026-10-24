@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 0 de 139 falas gravadas.**
+**Progresso: 0 de 160 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -203,4 +203,30 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ⬜ | `l4k.hint.unset.mp3` | Dica — reflexo ainda sem resposta | carinhoso, incentivando | Ainda tem reflexo com ponto de interrogação. Toque nele para escolher! |
 | ⬜ | `l4k.success.mp3` | Acertou tudo | comemorando, bem animado | O NÃO deixa tudo ao contrário: o que era verdade vira falso, e o que era falso vira verdade. |
 | ⬜ | `l4k.complete.mp3` | Tela final da fase | comemorando, bem animado | Quarta missão do laboratório concluída! Você descobriu o NÃO: ele vira tudo ao contrário. Verdade vira falso, e falso vira verdade. |
+
+## Fase: A Tabela Mestra (5-8 anos)
+
+| ✓ | Arquivo | Onde aparece | Tom | Fala |
+|---|---|---|---|---|
+| ⬜ | `l5k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | A Tabela Mestra está sem energia! As alavancas ligadas ficam verdes e mandam energia pelos fios até a lâmpada. |
+| ⬜ | `l5k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | Na Máquina do E, a lâmpada precisa da energia das duas alavancas. Com uma só, ela só pisca fraquinho. Vamos testar? |
+| ⬜ | `l5k.col.and.mp3` | Máquina do E — começo | curioso, explicando com calma | Primeiro a Máquina do E! Ela precisa da energia das duas alavancas para acender a luz. |
+| ⬜ | `l5k.and.0.mp3` | Máquina do E — teste 1 | curioso, explicando com calma | As duas alavancas estão ligadas. Com o E, a luz acende? |
+| ⬜ | `l5k.and.1.mp3` | Máquina do E — teste 2 | curioso, explicando com calma | Só a alavanca 1 está ligada. Com o E, a luz acende? |
+| ⬜ | `l5k.and.2.mp3` | Máquina do E — teste 3 | curioso, explicando com calma | Só a alavanca 2 está ligada. Com o E, a luz acende? |
+| ⬜ | `l5k.and.3.mp3` | Máquina do E — teste 4 | curioso, explicando com calma | Nenhuma alavanca está ligada. Com o E, a luz acende? |
+| ⬜ | `l5k.and.h2.mp3` | Máquina do E — errou (2 alavanca(s) ligada(s)) | carinhoso, incentivando | As duas alavancas mandaram energia! Com o E, quando chega a energia das duas, a luz acende. |
+| ⬜ | `l5k.and.h1.mp3` | Máquina do E — errou (1 alavanca(s) ligada(s)) | carinhoso, incentivando | Só uma alavanca mandou energia. O E precisa das duas, então a luz só pisca fraquinho e não acende. |
+| ⬜ | `l5k.and.h0.mp3` | Máquina do E — errou (0 alavanca(s) ligada(s)) | carinhoso, incentivando | Nenhuma alavanca está ligada, então não sai energia e a luz fica apagada. |
+| ⬜ | `l5k.col.or.mp3` | Máquina do OU — começo | curioso, explicando com calma | Agora a Máquina do OU! Com o OU, a energia de uma alavanca já basta para acender a luz. |
+| ⬜ | `l5k.or.0.mp3` | Máquina do OU — teste 1 | curioso, explicando com calma | As duas alavancas estão ligadas. Com o OU, a luz acende? |
+| ⬜ | `l5k.or.1.mp3` | Máquina do OU — teste 2 | curioso, explicando com calma | Só a alavanca 1 está ligada. Com o OU, a luz acende? |
+| ⬜ | `l5k.or.2.mp3` | Máquina do OU — teste 3 | curioso, explicando com calma | Só a alavanca 2 está ligada. Com o OU, a luz acende? |
+| ⬜ | `l5k.or.3.mp3` | Máquina do OU — teste 4 | curioso, explicando com calma | Nenhuma alavanca está ligada. Com o OU, a luz acende? |
+| ⬜ | `l5k.or.h2.mp3` | Máquina do OU — errou (2 alavanca(s) ligada(s)) | carinhoso, incentivando | As duas alavancas mandaram energia! Com o OU, a luz acende. |
+| ⬜ | `l5k.or.h1.mp3` | Máquina do OU — errou (1 alavanca(s) ligada(s)) | carinhoso, incentivando | Uma alavanca mandou energia, e com o OU uma já basta: a luz acende! |
+| ⬜ | `l5k.or.h0.mp3` | Máquina do OU — errou (0 alavanca(s) ligada(s)) | carinhoso, incentivando | Nenhuma alavanca está ligada, então não sai energia e a luz fica apagada. |
+| ⬜ | `l5k.tableDone.mp3` | Tabela Mestra completa | comemorando, bem animado | Olha a Tabela Mestra completa, com tudo que você descobriu! O laboratório tem energia de novo! |
+| ⬜ | `l5k.success.mp3` | Acertou tudo | comemorando, bem animado | Você descobriu quando a energia acende a luz no E e no OU. O laboratório está funcionando de novo. Obrigado, amiguinho! |
+| ⬜ | `l5k.complete.mp3` | Tela final da fase | comemorando, bem animado | Laboratório da Verdade restaurado! Você descobriu o verdadeiro e o falso, a Máquina do E, a Máquina do OU, o Espelho do NÃO e montou a Tabela Mestra. Que cientista incrível! |
 

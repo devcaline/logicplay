@@ -14,6 +14,7 @@ import TruthLightsGame from './screens/game/TruthLightsGame.jsx';
 import GateMachinesGame from './screens/game/GateMachinesGame.jsx';
 import LeverMachineGame from './screens/game/LeverMachineGame.jsx';
 import NotMirrorGame from './screens/game/NotMirrorGame.jsx';
+import MasterTableGame from './screens/game/MasterTableGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -32,6 +33,7 @@ const GAME_COMPONENTS = {
   'gate-machines': GateMachinesGame,
   'lever-machine': LeverMachineGame,
   'not-mirror': NotMirrorGame,
+  'master-table': MasterTableGame,
 };
 
 function Router() {
