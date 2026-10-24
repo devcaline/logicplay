@@ -192,3 +192,10 @@
 .intro-truth.is-off { border: 3px solid #C9C4E0; }
 .intro-truth__picture { display: flex; align-items: center; gap: 4px; }
 .intro-truth .intro-illus__badge { right: -10px; bottom: -8px; }
+
+/* Exemplo de máquina lógica */
+.intro-illus--gate .gate-machine { width: min(340px, 86vw); padding: 12px; border-radius: 28px; background: rgba(255, 255, 255, 0.75); }
+.intro-illus--gate .truth-lamp { transform-origin: center; }
+@media (max-width: 520px) {
+  .intro-illus--gate .gate-input__picture svg:first-child { width: 44px; height: 44px; }
+}

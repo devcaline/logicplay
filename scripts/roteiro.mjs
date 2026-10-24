@@ -91,6 +91,13 @@ for (const challenge of Object.values(CHALLENGES)) {
     lines.push({ line: challenge.feedback.idle, where: 'Dica — criança parada sem tocar', tone: 'encourage' });
   }
 
+  if (challenge.type === 'gate-machines') {
+    challenge.machines.forEach((machine, index) => {
+      lines.push({ line: machine.question, where: `Máquina ${index + 1} — pergunta (ao abrir)`, tone: 'curious' });
+      lines.push({ line: machine.hint, where: `Máquina ${index + 1} — explicação ao errar o palpite`, tone: 'encourage' });
+    });
+  }
+
   if (challenge.type === 'truth-lights') {
     challenge.statements.forEach((statement) => {
       lines.push({ line: statement.line, where: 'Frase do cartão (botão de ouvir)', tone: 'calm' });

@@ -104,3 +104,10 @@ export function validateTruthAnswers(statements, answers) {
     .map((statement) => statement.id);
   return { correct: unanswered.length === 0 && wrong.length === 0, unanswered, wrong };
 }
+
+/** Saída de uma porta lógica com duas entradas. */
+export function gateOutput(gate, a, b) {
+  if (gate === 'E') return a && b;
+  if (gate === 'OU') return a || b;
+  throw new Error(`Porta desconhecida: ${gate}`);
+}

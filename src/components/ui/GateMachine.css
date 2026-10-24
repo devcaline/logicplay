@@ -1,0 +1,51 @@
+.gate-machine { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+.gate-machine__inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
+.gate-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border-radius: 22px;
+  background: #fff;
+  border: 3px solid var(--lilac-150);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.gate-input--on { border-color: #FFD43B; background: #FFFBEA; }
+.gate-input--off { border-color: #C9C4E0; background: #F4F2FA; }
+.gate-input__picture { display: flex; align-items: center; gap: 4px; }
+.gate-input__text { font: 700 0.98rem/1.25 var(--font-display); color: var(--ink); text-align: center; }
+
+.gate-machine__wires { width: 100%; height: 44px; display: block; }
+.gate-machine__wire-out { width: 20px; height: 26px; display: block; }
+.gate-wire { fill: none; stroke: #C9C0EE; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: stroke 0.3s ease; }
+.gate-wire.is-on { stroke: #FFC21A; stroke-dasharray: 10 8; animation: gate-flow 0.6s linear infinite; filter: drop-shadow(0 0 4px rgba(255, 194, 26, 0.9)); }
+
+.gate-machine__gate {
+  display: grid;
+  place-items: center;
+  min-width: 82px;
+  padding: 8px 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #8B7CF6, #6C5CE7);
+  color: #fff;
+  font: 700 1.6rem/1 var(--font-display);
+  box-shadow: 0 5px 0 #4B3DB8, 0 8px 16px rgba(84, 67, 196, 0.3);
+}
+.gate-machine__gate.is-working { animation: gate-hum 0.5s ease-in-out 3; }
+.gate-machine__output { display: grid; place-items: center; }
+
+/* Versão pequena, usada nas máquinas do laboratório */
+.gate-machine--mini .gate-machine__inputs { gap: 6px; }
+.gate-machine--mini .gate-input { flex-direction: row; justify-content: center; gap: 2px; padding: 4px; border-radius: 14px; border-width: 2px; }
+.gate-machine--mini .gate-machine__wires { height: 20px; }
+.gate-machine--mini .gate-machine__gate { min-width: 0; padding: 4px 12px; border-radius: 12px; font-size: 1rem; box-shadow: 0 3px 0 #4B3DB8; }
+.gate-machine--mini .gate-machine__wire-out { height: 12px; }
+.gate-machine--mini .gate-wire { stroke-width: 4; }
+
+@keyframes gate-flow { to { stroke-dashoffset: -18; } }
+@keyframes gate-hum {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}

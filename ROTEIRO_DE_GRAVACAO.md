@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 0 de 98 falas gravadas.**
+**Progresso: 0 de 111 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -147,4 +147,22 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ⬜ | `l1k.hint.unanswered.mp3` | Dica — ligou a máquina com frase sem resposta | carinhoso, incentivando | Ainda tem lâmpada com ponto de interrogação. Toque nela para ver a frase! |
 | ⬜ | `l1k.success.mp3` | Acertou tudo | comemorando, bem animado | O peixe vive na água e a uva é roxa: verdade! A banana vermelha e o coelho que voa: falso! |
 | ⬜ | `l1k.complete.mp3` | Tela final da fase | comemorando, bem animado | Primeira missão do laboratório concluída! Agora você sabe: uma frase pode ser verdadeira ou falsa. Quando é verdade, a luz acende! |
+
+## Fase: A Máquina do E (5-8 anos)
+
+| ✓ | Arquivo | Onde aparece | Tom | Fala |
+|---|---|---|---|---|
+| ⬜ | `l2k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Esta é a Máquina do E. Ela tem duas frases. A lâmpada grande só acende se a primeira frase E a segunda frase forem verdade! |
+| ⬜ | `l2k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | O peixe vive na água, mas o carrinho não voa. Se uma das frases for falsa, a Máquina do E fica apagada. Vamos testar as máquinas do laboratório? |
+| ⬜ | `l2k.mission.mp3` | Missão | curioso, explicando com calma | Toque em cada Máquina do E e descubra: a lâmpada grande vai acender? |
+| ⬜ | `l2k.q.1.mp3` | Máquina 1 — pergunta (ao abrir) | curioso, explicando com calma | O peixe vive na água E a uva é roxa. A Máquina do E acende? |
+| ⬜ | `l2k.h.1.mp3` | Máquina 1 — explicação ao errar o palpite | carinhoso, incentivando | As duas frases são verdade! Quando as duas são verdade, a Máquina do E acende. |
+| ⬜ | `l2k.q.2.mp3` | Máquina 2 — pergunta (ao abrir) | curioso, explicando com calma | A maçã é vermelha E o carrinho voa. A Máquina do E acende? |
+| ⬜ | `l2k.h.2.mp3` | Máquina 2 — explicação ao errar o palpite | carinhoso, incentivando | O carrinho não voa! Uma frase é falsa, então a Máquina do E fica apagada. |
+| ⬜ | `l2k.q.3.mp3` | Máquina 3 — pergunta (ao abrir) | curioso, explicando com calma | A banana é azul E o golfinho vive na água. A Máquina do E acende? |
+| ⬜ | `l2k.h.3.mp3` | Máquina 3 — explicação ao errar o palpite | carinhoso, incentivando | A banana não é azul! Uma frase é falsa, então a Máquina do E fica apagada. |
+| ⬜ | `l2k.q.4.mp3` | Máquina 4 — pergunta (ao abrir) | curioso, explicando com calma | A galinha vive na água E o polvo é amarelo. A Máquina do E acende? |
+| ⬜ | `l2k.h.4.mp3` | Máquina 4 — explicação ao errar o palpite | carinhoso, incentivando | As duas frases são falsas! Para a Máquina do E acender, as duas precisam ser verdade. |
+| ⬜ | `l2k.success.mp3` | Acertou tudo | comemorando, bem animado | A Máquina do E só acende quando as duas frases são verdade. Se uma for falsa, ela fica apagada. |
+| ⬜ | `l2k.complete.mp3` | Tela final da fase | comemorando, bem animado | Segunda missão do laboratório concluída! Você descobriu o E: a lâmpada só acende quando as duas frases são verdade ao mesmo tempo. |
 

@@ -11,6 +11,7 @@ import VennSortingGame from './screens/game/VennSortingGame.jsx';
 import UnionCatchGame from './screens/game/UnionCatchGame.jsx';
 import GuardianQuizGame from './screens/game/GuardianQuizGame.jsx';
 import TruthLightsGame from './screens/game/TruthLightsGame.jsx';
+import GateMachinesGame from './screens/game/GateMachinesGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -26,6 +27,7 @@ const GAME_COMPONENTS = {
   'union-catch': UnionCatchGame,
   'guardian-quiz': GuardianQuizGame,
   'truth-lights': TruthLightsGame,
+  'gate-machines': GateMachinesGame,
 };
 
 function Router() {

@@ -10,10 +10,12 @@ import Portal from '../components/ui/Portal.jsx';
 import Guardian from '../components/mascot/Guardian.jsx';
 import TruthLamp from '../components/ui/TruthLamp.jsx';
 import PropertyIcon from '../components/art/PropertyIcon.jsx';
+import GateMachine from '../components/ui/GateMachine.jsx';
+import { gateOutput } from '../logic/validation.js';
 import './LevelIntro.css';
 
 /** Ilustração de apoio para cada fala da introdução (não depender só de leitura ou áudio). */
-function IntroIllustration({ kind, items, set, sets, example, statements }) {
+function IntroIllustration({ kind, items, set, sets, example, statements, challenge }) {
   if (kind === 'all-items') {
     return (
       <div className="intro-illus intro-illus--scatter" aria-hidden="true">
@@ -57,6 +59,23 @@ function IntroIllustration({ kind, items, set, sets, example, statements }) {
           <ItemArt id={outside.id} size={58} />
           <span className="intro-illus__badge intro-illus__badge--no"><X size={18} strokeWidth={3.5} /></span>
         </span>
+      </div>
+    );
+  }
+  if (kind === 'gate-example') {
+    const { a, b } = example;
+    const out = gateOutput(challenge.gate, a.value, b.value);
+    return (
+      <div className="intro-illus intro-illus--gate" aria-hidden="true">
+        <GateMachine
+          gate={challenge.gate}
+          inputs={[
+            { ...a, lamp: a.value ? 'on' : 'off' },
+            { ...b, lamp: b.value ? 'on' : 'off' },
+          ]}
+          output={out ? 'on' : 'off'}
+          flowing
+        />
       </div>
     );
   }
@@ -154,7 +173,7 @@ export default function LevelIntro({ challenge, level, onStart, onBack }) {
       <main className="intro-screen__content">
         <p className="intro-screen__eyebrow">Fase {level.number}</p>
 
-        <IntroIllustration key={step} kind={line.illustration} items={challenge.items} set={challenge.set} sets={challenge.sets} example={line.example} statements={challenge.statements} />
+        <IntroIllustration key={step} kind={line.illustration} items={challenge.items} set={challenge.set} sets={challenge.sets} example={line.example} statements={challenge.statements} challenge={challenge} />
 
         <MascotDialogue line={line} mood={line.mood} mascotSize={130} autoPlay className="intro-screen__dialogue" />
 
