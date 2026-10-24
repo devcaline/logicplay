@@ -91,6 +91,14 @@ for (const challenge of Object.values(CHALLENGES)) {
     lines.push({ line: challenge.feedback.idle, where: 'Dica — criança parada sem tocar', tone: 'encourage' });
   }
 
+  if (challenge.type === 'lever-machine') {
+    challenge.rounds.forEach((round, index) => {
+      lines.push({ line: round.question, where: `Rodada ${index + 1} — pergunta`, tone: 'curious' });
+      if (round.hint) lines.push({ line: round.hint, where: `Rodada ${index + 1} — explicação ao errar`, tone: 'encourage' });
+      if (round.stuckHint) lines.push({ line: round.stuckHint, where: `Rodada ${index + 1} — tocou na alavanca emperrada`, tone: 'encourage' });
+    });
+  }
+
   if (challenge.type === 'gate-machines') {
     challenge.machines.forEach((machine, index) => {
       lines.push({ line: machine.question, where: `Máquina ${index + 1} — pergunta (ao abrir)`, tone: 'curious' });

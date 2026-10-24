@@ -1,0 +1,86 @@
+.lever-machine { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 460px; margin: 0 auto; }
+.lever-machine__body { width: 100%; height: auto; display: block; overflow: visible; }
+
+.lever-machine__gear { transform-box: fill-box; transform-origin: center; }
+.lever-machine--idle .lever-machine__gear { filter: saturate(0.55); }
+.lever-machine--working .lever-machine__gear--cw { animation: scene-spin 1.6s linear infinite; }
+.lever-machine--working .lever-machine__gear--ccw { animation: scene-spin 1.2s linear infinite reverse; }
+.lever-machine--stopped .lever-machine__gear { filter: saturate(0.3) brightness(0.85); animation: lm-jam 0.25s ease-in-out 4; }
+
+.lever-machine__bubble { animation: lm-bubble 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+.lever-machine__smoke { animation: lm-smoke 1.4s ease-out forwards; transform-box: fill-box; transform-origin: center; opacity: 0; }
+
+.lever-machine__panel {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(10px, 4vw, 30px);
+  width: 92%;
+  margin-top: -8px;
+  padding: 12px 10px 12px;
+  border-radius: 0 0 26px 26px;
+  background: linear-gradient(180deg, #C9C0EE, #A99BE0);
+  box-shadow: 0 8px 0 #8C7BD8, 0 16px 30px rgba(84, 67, 196, 0.25);
+}
+.lever-machine__gate {
+  align-self: center;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #8B7CF6, #6C5CE7);
+  color: #fff;
+  font: 700 1.5rem/1 var(--font-display);
+  box-shadow: 0 4px 0 #4B3DB8;
+}
+
+.lever {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px 6px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+}
+.lever__art { width: clamp(70px, 20vw, 92px); height: auto; overflow: visible; }
+.lever__arm { transform-box: view-box; transform-origin: 40px 55px; transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.lever__state {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #6E6896;
+  color: #E4E0F5;
+  font: 700 0.82rem/1 var(--font-display);
+}
+.lever__state.is-on { background: var(--green-500); color: #fff; }
+.lever.is-interactive { cursor: pointer; background: rgba(255, 255, 255, 0.35); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8); -webkit-tap-highlight-color: transparent; }
+.lever.is-interactive:not(.is-stuck):not(.is-on) { animation: lm-call 1.8s ease-in-out infinite; }
+.lever.is-stuck { opacity: 0.85; }
+.lever.is-wiggle { animation: lm-wiggle 0.5s ease; }
+
+.lever-machine--small .lever__art { width: 52px; }
+.lever-machine--small .lever-machine__gate { font-size: 1rem; padding: 4px 10px; }
+.lever-machine--small .lever-machine__panel { padding: 6px 6px 8px; }
+
+@keyframes lm-bubble {
+  0% { transform: translate(0, 0) scale(0.4); opacity: 0; }
+  20% { opacity: 0.9; }
+  100% { transform: translate(var(--bx, 18px), -70px) scale(1.2); opacity: 0; }
+}
+.lever-machine__bubble:nth-of-type(2n) { --bx: -20px; }
+@keyframes lm-smoke {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  30% { opacity: 0.8; }
+  100% { transform: translate(10px, -50px) scale(1.6); opacity: 0; }
+}
+@keyframes lm-jam {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(8deg); }
+}
+@keyframes lm-call { 50% { box-shadow: 0 0 0 7px rgba(255, 212, 59, 0.75); } }
+@keyframes lm-wiggle {
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}

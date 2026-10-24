@@ -11,6 +11,7 @@ import Guardian from '../components/mascot/Guardian.jsx';
 import TruthLamp from '../components/ui/TruthLamp.jsx';
 import PropertyIcon from '../components/art/PropertyIcon.jsx';
 import GateMachine from '../components/ui/GateMachine.jsx';
+import LeverMachine from '../components/ui/LeverMachine.jsx';
 import { gateOutput } from '../logic/validation.js';
 import './LevelIntro.css';
 
@@ -59,6 +60,13 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
           <ItemArt id={outside.id} size={58} />
           <span className="intro-illus__badge intro-illus__badge--no"><X size={18} strokeWidth={3.5} /></span>
         </span>
+      </div>
+    );
+  }
+  if (kind === 'lever-example') {
+    return (
+      <div className="intro-illus intro-illus--levers" aria-hidden="true">
+        <LeverMachine levers={challenge.levers} values={{ a: example.a, b: example.b }} gate={challenge.gate} state={example.state} />
       </div>
     );
   }

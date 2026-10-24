@@ -199,3 +199,6 @@
 @media (max-width: 520px) {
   .intro-illus--gate .gate-input__picture svg:first-child { width: 44px; height: 44px; }
 }
+
+/* Exemplo da máquina de alavancas */
+.intro-illus--levers .lever-machine { width: min(340px, 82vw); }
