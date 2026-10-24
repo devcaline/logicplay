@@ -2,24 +2,31 @@ import { Lock } from 'lucide-react';
 import { gearPath } from '../scenery/sceneParts.jsx';
 import './LeverMachine.css';
 
+/** Desenho da alavanca num trilho vertical: em cima = ligada, embaixo = desligada. */
+export function LeverArt({ on, color = '#3B95E8', className = 'lever__art' }) {
+  return (
+    <svg className={className} viewBox="0 0 80 110" aria-hidden="true">
+      {/* placa com trilho vertical: em cima = ligada, embaixo = desligada */}
+      <rect x="16" y="6" width="48" height="98" rx="16" fill="#6E6896" />
+      <rect x="35" y="16" width="10" height="78" rx="5" fill="#3F3A63" />
+      <circle cx="40" cy="14" r="3" fill={on ? '#5FD99B' : '#8C86B8'} />
+      <circle cx="40" cy="96" r="3" fill={on ? '#8C86B8' : '#C9C4E0'} />
+      <g className="lever__arm" style={{ transform: `rotate(${on ? 0 : 180}deg)` }}>
+        <rect x="36" y="22" width="8" height="34" rx="4" fill="#C9C4E0" />
+        <circle cx="40" cy="22" r="13" fill={color} />
+        <circle cx="36" cy="18" r="4" fill="#fff" opacity="0.6" />
+      </g>
+      <circle cx="40" cy="55" r="9" fill="#A9A3CF" />
+      <circle cx="40" cy="55" r="3.5" fill="#6E6896" />
+    </svg>
+  );
+}
+
 /** Uma alavanca: para cima = ligada, para baixo = desligada. */
 function Lever({ on, color, label, stuck, interactive, onToggle, small }) {
   const content = (
     <>
-      <svg className="lever__art" viewBox="0 0 80 110" aria-hidden="true">
-        {/* placa com trilho vertical: em cima = ligada, embaixo = desligada */}
-        <rect x="16" y="6" width="48" height="98" rx="16" fill="#6E6896" />
-        <rect x="35" y="16" width="10" height="78" rx="5" fill="#3F3A63" />
-        <circle cx="40" cy="14" r="3" fill={on ? '#5FD99B' : '#8C86B8'} />
-        <circle cx="40" cy="96" r="3" fill={on ? '#8C86B8' : '#C9C4E0'} />
-        <g className="lever__arm" style={{ transform: `rotate(${on ? 0 : 180}deg)` }}>
-          <rect x="36" y="22" width="8" height="34" rx="4" fill="#C9C4E0" />
-          <circle cx="40" cy="22" r="13" fill={color} />
-          <circle cx="36" cy="18" r="4" fill="#fff" opacity="0.6" />
-        </g>
-        <circle cx="40" cy="55" r="9" fill="#A9A3CF" />
-        <circle cx="40" cy="55" r="3.5" fill="#6E6896" />
-      </svg>
+      <LeverArt on={on} color={color} />
       {!small && (
         <span className={`lever__state ${on ? 'is-on' : ''}`}>
           {stuck && <Lock size={14} strokeWidth={3} aria-hidden="true" />} {on ? 'Ligada' : 'Desligada'}

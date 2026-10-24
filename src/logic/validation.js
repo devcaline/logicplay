@@ -111,3 +111,14 @@ export function gateOutput(gate, a, b) {
   if (gate === 'OU') return a || b;
   throw new Error(`Porta desconhecida: ${gate}`);
 }
+
+/**
+ * Espelho do NÃO: cada reflexo precisa ser o contrário do original.
+ * @param {Array<{id: string, value: boolean}>} rows
+ * @param {Record<string, boolean | undefined>} reflections
+ */
+export function validateMirror(rows, reflections) {
+  const unset = rows.filter((row) => typeof reflections[row.id] !== 'boolean').map((row) => row.id);
+  const wrong = rows.filter((row) => typeof reflections[row.id] === 'boolean' && reflections[row.id] !== !row.value).map((row) => row.id);
+  return { correct: unset.length === 0 && wrong.length === 0, unset, wrong };
+}

@@ -40,7 +40,8 @@ for (const challenge of Object.values(CHALLENGES)) {
   const lines = [];
 
   challenge.intro.forEach((intro, index) => lines.push({ line: intro, where: `Introdução ${index + 1}`, tone: intro.mood }));
-  if (challenge.type !== 'guardian-quiz') lines.push({ line: challenge.mission, where: 'Missão', tone: 'curious' });
+  // A missão é narrada na entrada (no Espelho do NÃO e no Guardião, cada parte tem a própria instrução).
+  if (!['guardian-quiz', 'not-mirror'].includes(challenge.type)) lines.push({ line: challenge.mission, where: 'Missão', tone: 'curious' });
 
   if (challenge.type === 'guardian-quiz') {
     challenge.rounds.forEach((round, index) => {
@@ -89,6 +90,14 @@ for (const challenge of Object.values(CHALLENGES)) {
     });
     lines.push({ line: challenge.feedback.visualHint, where: 'Dica — bolhas douradas (após 2 toques errados)', tone: 'encourage' });
     lines.push({ line: challenge.feedback.idle, where: 'Dica — criança parada sem tocar', tone: 'encourage' });
+  }
+
+  if (challenge.type === 'not-mirror') {
+    challenge.stages.forEach((stage, index) => {
+      lines.push({ line: stage.instruction, where: `Parte ${index + 1} (${stage.title}) — instrução`, tone: 'curious' });
+      stage.rows.forEach((row) => lines.push({ line: row.hint, where: `Parte ${index + 1} — reflexo errado`, tone: 'encourage' }));
+    });
+    lines.push({ line: challenge.feedback.unset, where: 'Dica — reflexo ainda sem resposta', tone: 'encourage' });
   }
 
   if (challenge.type === 'lever-machine') {

@@ -13,6 +13,7 @@ import GuardianQuizGame from './screens/game/GuardianQuizGame.jsx';
 import TruthLightsGame from './screens/game/TruthLightsGame.jsx';
 import GateMachinesGame from './screens/game/GateMachinesGame.jsx';
 import LeverMachineGame from './screens/game/LeverMachineGame.jsx';
+import NotMirrorGame from './screens/game/NotMirrorGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -30,6 +31,7 @@ const GAME_COMPONENTS = {
   'truth-lights': TruthLightsGame,
   'gate-machines': GateMachinesGame,
   'lever-machine': LeverMachineGame,
+  'not-mirror': NotMirrorGame,
 };
 
 function Router() {

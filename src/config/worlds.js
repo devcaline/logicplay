@@ -93,7 +93,7 @@ export const WORLDS = [
         name: 'O Espelho do NÃO',
         description: 'Um espelho que inverte tudo o que vê.',
         pos: { x: 70, y: 68 },
-        content: {},
+        content: { '5-8': 'lab-4-kids' },
       },
       {
         id: 'lab-5',

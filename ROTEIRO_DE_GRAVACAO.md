@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 0 de 126 falas gravadas.**
+**Progresso: 0 de 139 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -185,4 +185,22 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ⬜ | `l3k.h.5.mp3` | Rodada 5 — tocou na alavanca emperrada | carinhoso, incentivando | Essa alavanca está emperrada. Tente a outra! Com o OU, basta uma. |
 | ⬜ | `l3k.success.mp3` | Acertou tudo | comemorando, bem animado | Com o OU, basta uma alavanca ligada. A máquina só fica parada quando as duas estão desligadas. |
 | ⬜ | `l3k.complete.mp3` | Tela final da fase | comemorando, bem animado | Terceira missão do laboratório concluída! Você descobriu o OU: basta uma alavanca ligada para a máquina funcionar. Ela só para quando todas estão desligadas. |
+
+## Fase: O Espelho do NÃO (5-8 anos)
+
+| ✓ | Arquivo | Onde aparece | Tom | Fala |
+|---|---|---|---|---|
+| ⬜ | `l4k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Este é o Espelho do NÃO! Ele mostra tudo ao contrário. A lâmpada acesa, no espelho, fica apagada! |
+| ⬜ | `l4k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | Com as frases também! O peixe vive na água: é verdade. Com o NÃO, a frase vira falsa. |
+| ⬜ | `l4k.stage.1.mp3` | Parte 1 (Objetos no espelho) — instrução | curioso, explicando com calma | O espelho está bagunçado! Toque nos reflexos para deixar tudo ao contrário. |
+| ⬜ | `l4k.h.lamp.mp3` | Parte 1 — reflexo errado | carinhoso, incentivando | A lâmpada está acesa. No Espelho do NÃO, ela fica apagada! |
+| ⬜ | `l4k.h.lever.mp3` | Parte 1 — reflexo errado | carinhoso, incentivando | A alavanca está ligada. No Espelho do NÃO, ela fica desligada! |
+| ⬜ | `l4k.h.door.mp3` | Parte 1 — reflexo errado | carinhoso, incentivando | A porta está fechada. No Espelho do NÃO, ela fica aberta! |
+| ⬜ | `l4k.stage.2.mp3` | Parte 2 (Frases no espelho) — instrução | curioso, explicando com calma | Agora as frases! O espelho do NÃO também deixa as frases ao contrário. A luz do espelho acende ou apaga? |
+| ⬜ | `l4k.h.fish.mp3` | Parte 2 — reflexo errado | carinhoso, incentivando | A luz do peixe está acesa. No espelho fica ao contrário: a luz apaga! |
+| ⬜ | `l4k.h.banana.mp3` | Parte 2 — reflexo errado | carinhoso, incentivando | A luz da banana está apagada, porque ela não é vermelha. No espelho fica ao contrário: a luz acende! |
+| ⬜ | `l4k.h.grapes.mp3` | Parte 2 — reflexo errado | carinhoso, incentivando | A luz da uva está acesa. No espelho fica ao contrário: a luz apaga! |
+| ⬜ | `l4k.hint.unset.mp3` | Dica — reflexo ainda sem resposta | carinhoso, incentivando | Ainda tem reflexo com ponto de interrogação. Toque nele para escolher! |
+| ⬜ | `l4k.success.mp3` | Acertou tudo | comemorando, bem animado | O NÃO deixa tudo ao contrário: o que era verdade vira falso, e o que era falso vira verdade. |
+| ⬜ | `l4k.complete.mp3` | Tela final da fase | comemorando, bem animado | Quarta missão do laboratório concluída! Você descobriu o NÃO: ele vira tudo ao contrário. Verdade vira falso, e falso vira verdade. |
 

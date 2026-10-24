@@ -12,6 +12,7 @@ import TruthLamp from '../components/ui/TruthLamp.jsx';
 import PropertyIcon from '../components/art/PropertyIcon.jsx';
 import GateMachine from '../components/ui/GateMachine.jsx';
 import LeverMachine from '../components/ui/LeverMachine.jsx';
+import MirrorItem from '../components/ui/MirrorItem.jsx';
 import { gateOutput } from '../logic/validation.js';
 import './LevelIntro.css';
 
@@ -59,6 +60,22 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
         <span className="intro-illus__item intro-illus__outside">
           <ItemArt id={outside.id} size={58} />
           <span className="intro-illus__badge intro-illus__badge--no"><X size={18} strokeWidth={3.5} /></span>
+        </span>
+      </div>
+    );
+  }
+  if (kind === 'mirror-example') {
+    return (
+      <div className="intro-illus intro-illus--mirror" aria-hidden="true">
+        <span className="intro-mirror__real">
+          <MirrorItem row={example} value={example.value} size="lg" />
+        </span>
+        <span className="intro-mirror__arrow">→</span>
+        <span className="intro-mirror__glass">
+          <span className="intro-mirror__plaque">NÃO</span>
+          <span className="mirror-reflection__art">
+            <MirrorItem row={example} value={!example.value} reflected size="lg" />
+          </span>
         </span>
       </div>
     );
