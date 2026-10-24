@@ -1,0 +1,18 @@
+.truth-lamp { display: inline-block; flex-shrink: 0; }
+.truth-lamp svg { overflow: visible; display: block; }
+.truth-lamp__glow { fill: #FFE066; opacity: 0; transition: opacity 0.3s ease; }
+.truth-lamp__glass { fill: #DCD8EC; stroke: #B8B1D8; stroke-width: 3; transition: fill 0.3s ease, stroke 0.3s ease; }
+.truth-lamp__shine { stroke: #fff; stroke-width: 4; stroke-linecap: round; fill: none; opacity: 0.8; }
+.truth-lamp__question { font: 700 30px/1 var(--font-display); fill: #8B7CF6; }
+
+.truth-lamp--unset .truth-lamp__glass { fill: #EEE9FF; stroke: #B6A9FF; stroke-dasharray: 6 4; }
+.truth-lamp--off .truth-lamp__glass { fill: #9E99B8; stroke: #7E7898; }
+.truth-lamp--on .truth-lamp__glass { fill: #FFE27A; stroke: #F2B705; }
+.truth-lamp--on .truth-lamp__glow { opacity: 0.45; animation: truth-glow 1.6s ease-in-out infinite; }
+.truth-lamp__rays { animation: truth-glow 1.6s ease-in-out infinite; }
+.truth-lamp--on { animation: truth-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.truth-lamp.is-flashing .truth-lamp__glow { animation: truth-flash 0.35s ease-in-out 4; opacity: 0.8; }
+
+@keyframes truth-glow { 50% { opacity: 0.2; } }
+@keyframes truth-pop { from { transform: scale(0.85); } to { transform: scale(1); } }
+@keyframes truth-flash { 50% { opacity: 0; } }

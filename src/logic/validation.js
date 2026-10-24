@@ -91,3 +91,16 @@ export function validateChoice(answer, chosen) {
   const extra = chosen.filter((key) => !answer.includes(key));
   return { correct: missing.length === 0 && extra.length === 0, missing, extra };
 }
+
+/**
+ * Validação das luzes da verdade: cada frase precisa da resposta certa.
+ * @param {Array<{id: string, value: boolean}>} statements
+ * @param {Record<string, boolean | undefined>} answers  true = verdadeiro, false = falso
+ */
+export function validateTruthAnswers(statements, answers) {
+  const unanswered = statements.filter((statement) => typeof answers[statement.id] !== 'boolean').map((statement) => statement.id);
+  const wrong = statements
+    .filter((statement) => typeof answers[statement.id] === 'boolean' && answers[statement.id] !== statement.value)
+    .map((statement) => statement.id);
+  return { correct: unanswered.length === 0 && wrong.length === 0, unanswered, wrong };
+}

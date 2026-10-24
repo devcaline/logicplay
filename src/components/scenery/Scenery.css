@@ -49,3 +49,11 @@
   0%, 100% { transform: translate(0, 0) scale(0.8); opacity: 0.4; }
   50% { transform: translate(24px, -30px) scale(1.15); opacity: 1; }
 }
+
+/* Laboratório */
+.lab-bubble { animation: lab-bubble 2.4s ease-in infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes lab-bubble {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  30% { opacity: 0.9; }
+  100% { transform: translateY(-40px) scale(1); opacity: 0; }
+}

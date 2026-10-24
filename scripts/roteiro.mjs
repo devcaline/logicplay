@@ -91,6 +91,14 @@ for (const challenge of Object.values(CHALLENGES)) {
     lines.push({ line: challenge.feedback.idle, where: 'Dica — criança parada sem tocar', tone: 'encourage' });
   }
 
+  if (challenge.type === 'truth-lights') {
+    challenge.statements.forEach((statement) => {
+      lines.push({ line: statement.line, where: 'Frase do cartão (botão de ouvir)', tone: 'calm' });
+      lines.push({ line: statement.hint, where: 'Dica — errou esta frase', tone: 'encourage' });
+    });
+    lines.push({ line: challenge.feedback.unanswered, where: 'Dica — ligou a máquina com frase sem resposta', tone: 'encourage' });
+  }
+
   if (challenge.type === 'membership') {
     challenge.items.forEach((item) => {
       lines.push({ line: item.question, where: `Pergunta — ${item.name}`, tone: 'curious' });

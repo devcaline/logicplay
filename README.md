@@ -4,7 +4,7 @@ Jogo educativo de aventura para aprender **conjuntos** e **tabela-verdade**. O j
 Mundo da Lógica ao lado do **Pipo**, um patinho ciborgue gentil, e restaura a organização do mundo
 completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes e adolescentes.
 
-> Versão 0.1: o Mundo 1 (Floresta dos Conjuntos) completo, com cinco fases jogáveis para a faixa de 5 a 8 anos, e estrutura pronta para os próximos mundos.
+> Versão 0.1: o Mundo 1 (Floresta dos Conjuntos) completo, com cinco fases jogáveis para a faixa de 5 a 8 anos, e a primeira fase do Mundo 2 (Laboratório da Verdade).
 
 ![Tela inicial do LogicPlay](docs/prints/01-inicio.png)
 
@@ -38,6 +38,10 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 |---|
 | ![Guardião acordado no fim da fase 5](docs/prints/17-fase5-guardiao-acordado.png) |
 
+| Laboratório: Luzes da Verdade |
+|---|
+| ![Fase 1 do Laboratório da Verdade](docs/prints/18-lab1-jogo.png) |
+
 ### No celular
 
 <p>
@@ -55,6 +59,7 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 - **Fase 3 — A Ponte do E:** dois grupos que se cruzam (vermelhos e frutas). A criança descobre a *interseção*: o que é vermelho **e** fruta fica no meio.
 - **Fase 4 — O Portal do OU:** bolhas mágicas sobem pela tela e a criança estoura as que têm animal **ou** coisa roxa. Passa o que é só animal, o que é só roxo e também o que é os dois (o polvo): a *união* inclui a interseção. Cada acerto acende o portal e aparece no mini diagrama. Dois erros seguidos deixam as bolhas certas douradas, e o brilho some no próximo acerto. Com movimento reduzido ativado no sistema, as bolhas ficam paradas.
 - **Fase 5 — O Guardião da Floresta:** desafio final do mundo. O Guardião é uma árvore gigante, dormindo e sem cor: no celular ela ocupa o fundo da tela; em tablet e computador fica numa faixa à esquerda (35% da tela), com o jogo à direita. Cinco perguntas rápidas aparecem no meio da tela e revisam tudo: conjunto, pertence, não pertence, E (vermelho e fruta) e OU (animal ou roxo, escolhendo várias respostas). Cada acerto acende uma pedra mágica nas raízes, e o Guardião vai acordando enquanto a floresta recupera as cores.
+- **Laboratório, fase 1 — Luzes da Verdade:** uma máquina com quatro lâmpadas. Ao tocar numa lâmpada, a tela aproxima o desafio dela (como nos jogos de puzzle): uma frase ilustrada, como "O peixe vive na água" ou "A banana é vermelha", e a criança escolhe verdadeiro (a lâmpada acende) ou falso (fica apagada). Depois liga a máquina para conferir; as lâmpadas erradas piscam e o Pipo dá uma dica.
 - **Pipo, o mascote:** ilustração própria em SVG, com expressões (feliz, curioso, comemorando, incentivando) e bico que se mexe enquanto fala.
 - **Feedback sem punição:** dicas gentis a cada erro e dica visual depois de algumas tentativas.
 - **Voz e sons:** narração em português, botão de ouvir em todas as falas, efeitos sonoros suaves e botão para silenciar. Nada toca antes do primeiro toque do jogador.
@@ -139,7 +144,7 @@ com esses nomes (mp3, m4a, wav, ogg ou webm) e o jogo as usa automaticamente. Fa
 
 ## Próximos passos
 
-- Laboratório da Verdade (tabela-verdade)
+- Fases 2 a 5 do Laboratório da Verdade (a Máquina do E, a Máquina do OU, o Espelho do NÃO e a Tabela Mestra)
 - Conteúdo para as faixas 9–12 e 13+
 - Gravação da voz oficial do Pipo
 

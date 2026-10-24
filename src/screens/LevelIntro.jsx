@@ -8,10 +8,12 @@ import ItemArt from '../components/art/ItemArt.jsx';
 import VennDiagram from '../components/ui/VennDiagram.jsx';
 import Portal from '../components/ui/Portal.jsx';
 import Guardian from '../components/mascot/Guardian.jsx';
+import TruthLamp from '../components/ui/TruthLamp.jsx';
+import PropertyIcon from '../components/art/PropertyIcon.jsx';
 import './LevelIntro.css';
 
 /** Ilustração de apoio para cada fala da introdução (não depender só de leitura ou áudio). */
-function IntroIllustration({ kind, items, set, sets, example }) {
+function IntroIllustration({ kind, items, set, sets, example, statements }) {
   if (kind === 'all-items') {
     return (
       <div className="intro-illus intro-illus--scatter" aria-hidden="true">
@@ -55,6 +57,29 @@ function IntroIllustration({ kind, items, set, sets, example }) {
           <ItemArt id={outside.id} size={58} />
           <span className="intro-illus__badge intro-illus__badge--no"><X size={18} strokeWidth={3.5} /></span>
         </span>
+      </div>
+    );
+  }
+  if (kind === 'truth-example') {
+    const card = (subjectId, on) => {
+      const statement = statements.find((item) => item.subject === subjectId);
+      return (
+        <span className={`intro-truth ${on ? 'is-on' : 'is-off'}`}>
+          <TruthLamp state={on ? 'on' : 'off'} size={40} />
+          <span className="intro-truth__picture">
+            <ItemArt id={subjectId} size={50} />
+            <PropertyIcon kind={statement.property.kind} color={statement.property.color} size={30} />
+          </span>
+          <span className={`intro-illus__badge intro-illus__badge--${on ? 'yes' : 'no'}`}>
+            {on ? <Check size={18} strokeWidth={3.5} /> : <X size={18} strokeWidth={3.5} />}
+          </span>
+        </span>
+      );
+    };
+    return (
+      <div className="intro-illus intro-illus--truth" aria-hidden="true">
+        {card(example.yes, true)}
+        {card(example.no, false)}
       </div>
     );
   }
@@ -129,7 +154,7 @@ export default function LevelIntro({ challenge, level, onStart, onBack }) {
       <main className="intro-screen__content">
         <p className="intro-screen__eyebrow">Fase {level.number}</p>
 
-        <IntroIllustration key={step} kind={line.illustration} items={challenge.items} set={challenge.set} sets={challenge.sets} example={line.example} />
+        <IntroIllustration key={step} kind={line.illustration} items={challenge.items} set={challenge.set} sets={challenge.sets} example={line.example} statements={challenge.statements} />
 
         <MascotDialogue line={line} mood={line.mood} mascotSize={130} autoPlay className="intro-screen__dialogue" />
 

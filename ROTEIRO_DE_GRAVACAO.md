@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 0 de 84 falas gravadas.**
+**Progresso: 0 de 98 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -128,4 +128,23 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ⬜ | `f5k.hint.pickMore.mp3` | Apertou Pronto sem escolher nada | carinhoso, incentivando | Toque em pelo menos um antes de apertar Pronto! |
 | ⬜ | `f5k.success.mp3` | Acertou tudo | comemorando, bem animado | Você acendeu todas as pedras mágicas, e a floresta ganhou as suas cores de volta. Obrigado, amiguinho! |
 | ⬜ | `f5k.complete.mp3` | Tela final da fase | comemorando, bem animado | Floresta dos Conjuntos restaurada! Você acordou o Guardião! Agora você sabe o que é um conjunto, o que pertence a um grupo, e conhece o E e o OU. Que aventura incrível! |
+
+## Fase: Luzes da Verdade (5-8 anos)
+
+| ✓ | Arquivo | Onde aparece | Tom | Fala |
+|---|---|---|---|---|
+| ⬜ | `l1k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Bem-vindo ao Laboratório da Verdade! Aqui as máquinas só funcionam quando a gente descobre o que é verdade. |
+| ⬜ | `l1k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | Uma frase pode ser verdadeira ou falsa. O peixe vive na água: é verdade, a luz acende! A banana é vermelha: é falso, a luz fica apagada. |
+| ⬜ | `l1k.mission.mp3` | Missão | curioso, explicando com calma | Toque em cada lâmpada da máquina, escute a frase e escolha: verdadeiro ou falso. Depois, ligue a máquina! |
+| ⬜ | `l1k.s.fish.mp3` | Frase do cartão (botão de ouvir) | calmo, convidativo | O peixe vive na água. |
+| ⬜ | `l1k.h.fish.mp3` | Dica — errou esta frase | carinhoso, incentivando | Pense no peixe: onde ele nada? Ele vive na água! |
+| ⬜ | `l1k.s.banana.mp3` | Frase do cartão (botão de ouvir) | calmo, convidativo | A banana é vermelha. |
+| ⬜ | `l1k.h.banana.mp3` | Dica — errou esta frase | carinhoso, incentivando | Olhe bem a cor da banana. Ela é vermelha ou amarela? |
+| ⬜ | `l1k.s.rabbit.mp3` | Frase do cartão (botão de ouvir) | calmo, convidativo | O coelho voa. |
+| ⬜ | `l1k.h.rabbit.mp3` | Dica — errou esta frase | carinhoso, incentivando | O coelho tem asas? Ele pula, mas será que voa? |
+| ⬜ | `l1k.s.grapes.mp3` | Frase do cartão (botão de ouvir) | calmo, convidativo | A uva é roxa. |
+| ⬜ | `l1k.h.grapes.mp3` | Dica — errou esta frase | carinhoso, incentivando | Olhe a cor da uva. Ela é roxinha! |
+| ⬜ | `l1k.hint.unanswered.mp3` | Dica — ligou a máquina com frase sem resposta | carinhoso, incentivando | Ainda tem lâmpada com ponto de interrogação. Toque nela para ver a frase! |
+| ⬜ | `l1k.success.mp3` | Acertou tudo | comemorando, bem animado | O peixe vive na água e a uva é roxa: verdade! A banana vermelha e o coelho que voa: falso! |
+| ⬜ | `l1k.complete.mp3` | Tela final da fase | comemorando, bem animado | Primeira missão do laboratório concluída! Agora você sabe: uma frase pode ser verdadeira ou falsa. Quando é verdade, a luz acende! |
 
