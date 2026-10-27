@@ -66,6 +66,23 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'membership-notation') {
+    return (
+      <div className="intro-notation" aria-hidden="true">
+        <span className="intro-notation__math">A = {'{'}2, 4, 6, 8{'}'}</span>
+        <div className="intro-notation__pair">
+          <div className="intro-notation__row">
+            <span className="intro-notation__math">4 ∈ A</span>
+            <span className="intro-notation__tag">4 pertence a A</span>
+          </div>
+          <div className="intro-notation__row">
+            <span className="intro-notation__math">5 ∉ A</span>
+            <span className="intro-notation__tag">5 não pertence a A</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
   if (kind === 'notation-example') {
     return (
       <div className="intro-notation" aria-hidden="true">

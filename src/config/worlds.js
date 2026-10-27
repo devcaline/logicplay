@@ -27,7 +27,7 @@ export const WORLDS = [
         name: 'Quem Pertence Aqui?',
         description: 'Descubra quais elementos fazem parte de cada grupo.',
         pos: { x: 70, y: 30 },
-        content: { '5-8': 'forest-2-kids' },
+        content: { '5-8': 'forest-2-kids', '13+': 'forest-2-teen' },
       },
       {
         id: 'forest-3',

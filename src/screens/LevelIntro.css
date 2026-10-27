@@ -271,3 +271,4 @@
 .intro-notation__equals { font: 700 1.4rem/1 var(--font-display); color: var(--lilac-500); }
 .intro-notation__count { margin-top: 4px; padding: 6px 14px; border-radius: 8px; background: #2E2668; color: #7DE8FF; font: 600 1rem/1 'Cambria Math', 'Times New Roman', serif; }
 @media (max-width: 520px) { .intro-notation__math { font-size: 1.08rem; } }
+.intro-notation__pair { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 6px; }
