@@ -20,6 +20,14 @@ export const NARRATION = {
     id: 'map.kidsDone',
     text: 'Você é incrível! As próximas fases estão chegando em breve.',
   },
+  mapTeen: {
+    id: 'map.teen',
+    text: 'Selecione a fase destacada para começar.',
+  },
+  mapTeenDone: {
+    id: 'map.teenDone',
+    text: 'Novas fases para a sua faixa estão a caminho.',
+  },
   mapInDevelopment: {
     id: 'map.inDevelopment',
     text: 'As missões para a sua idade estão sendo preparadas com muito carinho. Volte em breve!',

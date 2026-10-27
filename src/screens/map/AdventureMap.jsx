@@ -35,7 +35,12 @@ export default function AdventureMap({ onHome, onChangeAge, onPlayLevel }) {
   const selectedWorld = selectedLevel ? findWorld(selectedLevel.worldId) : null;
 
   const hasPlayable = Object.values(statuses).includes('available');
-  const guide = !isKids ? NARRATION.mapInDevelopment : hasPlayable ? NARRATION.mapKids : NARRATION.mapKidsDone;
+  const hasContent = LEVEL_SEQUENCE.some((item) => item.content?.[profile?.ageGroup]);
+  const guide = !hasContent
+    ? NARRATION.mapInDevelopment
+    : !isKids
+      ? hasPlayable ? NARRATION.mapTeen : NARRATION.mapTeenDone
+      : hasPlayable ? NARRATION.mapKids : NARRATION.mapKidsDone;
 
   const panelProps = selectedLevel && {
     level: selectedLevel,
@@ -66,7 +71,7 @@ export default function AdventureMap({ onHome, onChangeAge, onPlayLevel }) {
         </aside>
 
         <main className="map-main">
-          {!isKids && (
+          {!hasContent && (
             <div className="map-notice" role="status">
               <strong>Fases em desenvolvimento</strong>
               <span>

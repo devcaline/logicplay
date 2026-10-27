@@ -19,7 +19,7 @@ export const WORLDS = [
         name: 'Conhecendo os Grupos',
         description: 'Descubra o que é um conjunto ajudando animais perdidos.',
         pos: { x: 24, y: 12 },
-        content: { '5-8': 'forest-1-kids' },
+        content: { '5-8': 'forest-1-kids', '13+': 'forest-1-teen' },
       },
       {
         id: 'forest-2',

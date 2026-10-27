@@ -25,6 +25,7 @@ export default function LevelComplete({ challenge, stars = 3, onMap, onReplay, n
   }, [stars]);
 
   useEffect(() => {
+    if (challenge.quiet) return;
     autoSpeak(line);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

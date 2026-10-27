@@ -122,3 +122,14 @@ export function validateMirror(rows, reflections) {
   const wrong = rows.filter((row) => typeof reflections[row.id] === 'boolean' && reflections[row.id] !== !row.value).map((row) => row.id);
   return { correct: unset.length === 0 && wrong.length === 0, unset, wrong };
 }
+
+/**
+ * Conjunto montado pelo jogador comparado com o esperado.
+ * @param {number[]} expected
+ * @param {number[]} chosen
+ */
+export function compareSets(expected, chosen) {
+  const extra = chosen.filter((x) => !expected.includes(x));
+  const missing = expected.filter((x) => !chosen.includes(x));
+  return { correct: extra.length === 0 && missing.length === 0, extra, missing };
+}

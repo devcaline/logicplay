@@ -35,7 +35,8 @@ add('Telas gerais', [
   { line: NARRATION.howToPlay, where: '"Como jogar?"', tone: 'calm' },
 ]);
 
-for (const challenge of Object.values(CHALLENGES)) {
+for (const challenge of Object.values(CHALLENGES).filter((item) => !item.quiet)) {
+  // Fases "quiet" (13+) não têm narração.
   const level = LEVEL_SEQUENCE.find((candidate) => candidate.id === challenge.levelId);
   const lines = [];
 

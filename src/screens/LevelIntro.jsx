@@ -66,6 +66,22 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'notation-example') {
+    return (
+      <div className="intro-notation" aria-hidden="true">
+        <div className="intro-notation__row">
+          <span className="intro-notation__tag">Por propriedade</span>
+          <span className="intro-notation__math">A = {'{'}x ∈ ℕ | x é par e 0 &lt; x &lt; 10{'}'}</span>
+        </div>
+        <span className="intro-notation__equals">=</span>
+        <div className="intro-notation__row">
+          <span className="intro-notation__tag">Listando os elementos</span>
+          <span className="intro-notation__math">A = {'{'}2, 4, 6, 8{'}'}</span>
+        </div>
+        <span className="intro-notation__count">n(A) = 4</span>
+      </div>
+    );
+  }
   if (kind === 'circuit-example') {
     return (
       <div className="intro-illus intro-illus--circuit" aria-hidden="true">
@@ -207,7 +223,7 @@ export default function LevelIntro({ challenge, level, onStart, onBack }) {
   const Scene = getLevelScene(challenge.scene);
 
   return (
-    <div className="screen intro-screen">
+    <div className={`screen intro-screen ${challenge.quiet ? 'intro-screen--quiet' : ''}`}>
       <Scene />
       <TopBar onBack={onBack} backLabel="Voltar ao mapa" title={level.name} />
 
@@ -216,7 +232,11 @@ export default function LevelIntro({ challenge, level, onStart, onBack }) {
 
         <IntroIllustration key={step} kind={line.illustration} items={challenge.items} set={challenge.set} sets={challenge.sets} example={line.example} statements={challenge.statements} challenge={challenge} />
 
-        <MascotDialogue line={line} mood={line.mood} mascotSize={130} autoPlay className="intro-screen__dialogue" />
+        {challenge.quiet ? (
+          <MascotDialogue line={line} mood={line.mood} mascotSize={64} layout="compact" className="intro-screen__dialogue intro-screen__dialogue--quiet" />
+        ) : (
+          <MascotDialogue line={line} mood={line.mood} mascotSize={130} autoPlay className="intro-screen__dialogue" />
+        )}
 
         <div className="intro-screen__footer">
           <div className="intro-screen__dots" aria-label={`Parte ${step + 1} de ${challenge.intro.length}`}>
@@ -226,7 +246,7 @@ export default function LevelIntro({ challenge, level, onStart, onBack }) {
           </div>
           {isLast ? (
             <GameButton variant="primary" size="lg" icon={Play} onClick={onStart}>
-              Vamos lá!
+              {challenge.quiet ? 'Começar' : 'Vamos lá!'}
             </GameButton>
           ) : (
             <GameButton variant="lilac" size="lg" iconRight={ArrowRight} onClick={() => setStep(step + 1)}>

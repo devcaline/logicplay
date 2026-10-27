@@ -248,3 +248,26 @@
 
 /* Exemplo do circuito de energia */
 .intro-illus--circuit .energy-circuit { width: min(440px, 88vw); padding: 10px; border-radius: 26px; background: rgba(255, 255, 255, 0.85); }
+
+/* 13+: introdução sóbria */
+.intro-screen--quiet .intro-screen__eyebrow { border-radius: 8px; box-shadow: none; background: var(--lilac-700); }
+.intro-screen--quiet .intro-screen__dialogue--quiet .dialogue__text { font-size: 1.02rem; line-height: 1.5; }
+.intro-screen--quiet .intro-screen__dots { visibility: hidden; }
+.intro-notation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: min(560px, 100%);
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #DCDAEE;
+  box-shadow: 0 2px 10px rgba(43, 35, 80, 0.06);
+}
+.intro-notation__row { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.intro-notation__tag { font: 700 0.72rem/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--lilac-700); }
+.intro-notation__math { font: 600 1.3rem/1.3 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: var(--ink); text-align: center; }
+.intro-notation__equals { font: 700 1.4rem/1 var(--font-display); color: var(--lilac-500); }
+.intro-notation__count { margin-top: 4px; padding: 6px 14px; border-radius: 8px; background: #2E2668; color: #7DE8FF; font: 600 1rem/1 'Cambria Math', 'Times New Roman', serif; }
+@media (max-width: 520px) { .intro-notation__math { font-size: 1.08rem; } }

@@ -15,6 +15,7 @@ import GateMachinesGame from './screens/game/GateMachinesGame.jsx';
 import LeverMachineGame from './screens/game/LeverMachineGame.jsx';
 import NotMirrorGame from './screens/game/NotMirrorGame.jsx';
 import MasterTableGame from './screens/game/MasterTableGame.jsx';
+import SetBuilderGame from './screens/game/teen/SetBuilderGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -34,6 +35,7 @@ const GAME_COMPONENTS = {
   'lever-machine': LeverMachineGame,
   'not-mirror': NotMirrorGame,
   'master-table': MasterTableGame,
+  'set-builder': SetBuilderGame,
 };
 
 function Router() {
@@ -102,7 +104,7 @@ function Router() {
           challenge={challenge}
           level={level}
           onExit={goMap}
-          onComplete={() => go('complete', { levelId: level.id })}
+          onComplete={(stars) => go('complete', { levelId: level.id, stars: typeof stars === 'number' ? stars : undefined })}
         />
       );
     }
@@ -113,7 +115,7 @@ function Router() {
       return (
         <LevelComplete
           challenge={challenge}
-          stars={profileProgress[level.id]?.stars ?? 3}
+          stars={route.stars ?? profileProgress[level.id]?.stars ?? 3}
           onMap={goMap}
           onReplay={() => go('game', { levelId: level.id, run: Date.now() })}
           nextLevel={nextLevel}
