@@ -122,7 +122,10 @@ então o site funciona tanto na raiz do domínio quanto dentro de uma pasta.
 src/
   App.jsx                  navegação entre telas e proteções de acesso
   config/                  faixas etárias, dificuldades, mundos e fases
-  data/                    textos e conteúdo dos desafios, falas do Pipo
+  data/                    conteúdo dos desafios, um arquivo por desafio, e falas do Pipo
+    forest/                desafios da Floresta dos Conjuntos
+    lab/                   desafios do Laboratório da Verdade
+    teen/                  questões de 13+ (sorteadas a cada partida)
   logic/                   validação das respostas, progresso, armazenamento
   audio/                   narração (voz gravada ou sintetizada) e efeitos sonoros
   state/                   estado global e hooks de narração
@@ -133,11 +136,13 @@ scripts/roteiro.mjs        gerador do roteiro de gravação
 docs/prints/               prints do README
 ```
 
-O conteúdo das fases fica separado da lógica: textos, elementos e dicas estão em `src/data/challenges.js`.
+O conteúdo das fases fica separado da lógica: cada desafio tem um arquivo próprio na pasta do seu mundo
+(`src/data/forest/`, `src/data/lab/`, nomeado com o id do desafio), e `src/data/challenges.js` apenas reúne todos.
 
 ## Como expandir
 
-**Nova fase:** adicione o conteúdo em `src/data/challenges.js` e ligue-o à fase em `src/config/worlds.js`:
+**Nova fase:** crie o arquivo do desafio na pasta do mundo (por exemplo `src/data/forest/forest-3-teen.js`,
+com `export default`), liste-o em `src/data/forest/challenges.js` e ligue-o à fase em `src/config/worlds.js`:
 
 ```js
 content: { '5-8': 'forest-3-kids' }
