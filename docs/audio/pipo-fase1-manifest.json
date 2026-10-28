@@ -1,0 +1,130 @@
+[
+  {
+    "id": "f1k.intro.1",
+    "text": "Oi, amiguinho! Alguns animais estão perdidos por aqui. Você pode me ajudar a encontrar o lugar deles?",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 6.16,
+    "bytes": 74925
+  },
+  {
+    "id": "f1k.intro.2",
+    "text": "Um conjunto é um grupo de coisas que têm alguma característica em comum. Vamos descobrir quais animais fazem parte do nosso grupo?",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 7.57,
+    "bytes": 91917
+  },
+  {
+    "id": "f1k.mission",
+    "text": "Coloque dentro do círculo os animais que vivem na água.",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 3.22,
+    "bytes": 39501
+  },
+  {
+    "id": "f1k.item.fish",
+    "text": "Peixe!",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 0.75,
+    "bytes": 10125
+  },
+  {
+    "id": "f1k.item.rabbit",
+    "text": "Coelho!",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 0.77,
+    "bytes": 10413
+  },
+  {
+    "id": "f1k.item.dolphin",
+    "text": "Golfinho!",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 0.9,
+    "bytes": 11853
+  },
+  {
+    "id": "f1k.item.chicken",
+    "text": "Galinha!",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 0.83,
+    "bytes": 10989
+  },
+  {
+    "id": "f1k.item.octopus",
+    "text": "Polvo!",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 0.72,
+    "bytes": 9837
+  },
+  {
+    "id": "f1k.item.butterfly",
+    "text": "Borboleta!",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 1.05,
+    "bytes": 13581
+  },
+  {
+    "id": "f1k.success",
+    "text": "O peixe, o golfinho e o polvo vivem na água. Por isso, eles fazem parte do conjunto!",
+    "voice": "pf_dora",
+    "speed": 1.0,
+    "duration": 4.95,
+    "bytes": 60525
+  },
+  {
+    "id": "f1k.hint.empty",
+    "text": "Vamos começar? Arraste para dentro do círculo um animal que vive na água.",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 4.23,
+    "bytes": 51885
+  },
+  {
+    "id": "f1k.hint.wrongInside",
+    "text": "Quase lá! Tem um animal no círculo que gosta mais da terra ou do céu. Vamos olhar de novo?",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 5.43,
+    "bytes": 66285
+  },
+  {
+    "id": "f1k.hint.missing",
+    "text": "Quase lá! Ainda tem animal da água esperando do lado de fora. Vamos observar?",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 4.98,
+    "bytes": 60813
+  },
+  {
+    "id": "f1k.hint.generic",
+    "text": "Quase lá! Vamos observar quais animais vivem na água?",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 3.47,
+    "bytes": 42669
+  },
+  {
+    "id": "f1k.hint.visual",
+    "text": "Olha só! Coloquei gotinhas de água nos animais que nadam. Eles adoram a água!",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 4.9,
+    "bytes": 59949
+  },
+  {
+    "id": "f1k.complete",
+    "text": "Primeira missão concluída! Você criou um conjunto! Um conjunto é um grupo de elementos. Neste, colocamos os animais que vivem na água.",
+    "voice": "pf_dora",
+    "speed": 0.96,
+    "duration": 8.16,
+    "bytes": 98829
+  }
+]

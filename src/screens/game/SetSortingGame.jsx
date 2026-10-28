@@ -85,7 +85,7 @@ export default function SetSortingGame({ challenge, level, onExit, onComplete })
       sfx.play('pick');
       setSelectedId(id);
       const item = items.find((candidate) => candidate.id === id);
-      autoSpeak({ id: `item.${id}`, text: item.name });
+      autoSpeak({ id: item.narrationId ?? `item.${id}`, text: item.name });
     },
   });
 
