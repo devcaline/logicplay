@@ -99,6 +99,22 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'numbers-example') {
+    return (
+      <div className="intro-notation" aria-hidden="true">
+        <div className="intro-notation__row">
+          <span className="intro-notation__tag">Descrevendo por uma regra</span>
+          <span className="intro-notation__math">A = {'{'}x | x é par e x {'<'} 10{'}'}</span>
+        </div>
+        <span className="intro-notation__equals">=</span>
+        <div className="intro-notation__row">
+          <span className="intro-notation__tag">Listando os elementos</span>
+          <span className="intro-notation__math">A = {'{'}2, 4, 6, 8{'}'}</span>
+        </div>
+        <span className="intro-notation__count">n(A) = 4</span>
+      </div>
+    );
+  }
   if (kind === 'circuit-example') {
     return (
       <div className="intro-illus intro-illus--circuit" aria-hidden="true">

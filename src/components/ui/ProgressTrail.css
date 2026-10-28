@@ -1,0 +1,31 @@
+.trail { display: flex; align-items: center; gap: 7px; }
+
+.trail__step {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #DCDAEE;
+  color: #fff;
+}
+
+.trail__step.is-done {
+  background: var(--green-500);
+  border-color: var(--green-700);
+}
+
+.trail__step.is-current {
+  background: var(--yellow-100);
+  border-color: var(--yellow-500);
+  animation: trail-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes trail-pulse {
+  50% { box-shadow: 0 0 0 4px rgba(255, 194, 26, 0.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trail__step.is-current { animation: none; }
+}

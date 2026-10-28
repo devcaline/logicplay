@@ -4,24 +4,30 @@ import TopBar from '../../../components/ui/TopBar.jsx';
 import Mascot from '../../../components/mascot/Mascot.jsx';
 import MascotDialogue from '../../../components/mascot/MascotDialogue.jsx';
 import GameButton from '../../../components/ui/GameButton.jsx';
+import StarBurst from '../../../components/ui/StarBurst.jsx';
+import ProgressTrail from '../../../components/ui/ProgressTrail.jsx';
 import { getLevelScene } from '../../../components/scenery/scenes.js';
 import { getDifficulty } from '../../../config/ageGroups.js';
 import { generateSetRounds, tutorialRound, formatSet } from '../../../data/teen/setRounds.js';
 import { compareSets } from '../../../logic/validation.js';
 import { starsFromErrors, HELP_BY_DIFFICULTY } from '../../../logic/scoring.js';
-import { useGame } from '../../../state/GameContext.jsx';
+import { useGame, useNarration, useSpeakingId } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
+import './tween.css';
 
 const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 
 /** Aquecimento, parte 1: a notação dividida em peças que o Pipo explica. */
-function NotationDecoder({ tutorial, onDone }) {
+function NotationDecoder({ tutorial, narrate = false, onDone }) {
+  const speakingId = useSpeakingId();
   const [seen, setSeen] = useState([]);
   const [current, setCurrent] = useState(null);
   const allSeen = seen.length === tutorial.parts.length;
   const part = tutorial.parts.find((item) => item.id === current);
-  const line = allSeen && !part ? tutorial.reading : part ?? tutorial.start;
+  // A fala usa o `lineId` quando existe (id estável para narração); senão, o id da peça.
+  const asLine = (entry) => (entry ? { id: entry.lineId ?? entry.id, text: entry.text } : null);
+  const line = asLine(allSeen && !part ? tutorial.reading : part ?? tutorial.start);
 
   const open = (item) => {
     sfx.play('pick');
@@ -31,10 +37,10 @@ function NotationDecoder({ tutorial, onDone }) {
 
   // Lido tudo: a frase completa aparece depois de um instante.
   useEffect(() => {
-    if (!allSeen) return undefined;
+    if (!allSeen || (narrate && speakingId === line?.id)) return undefined;
     const timer = setTimeout(() => setCurrent(null), 2600);
     return () => clearTimeout(timer);
-  }, [allSeen]);
+  }, [allSeen, narrate, speakingId, line?.id]);
 
   const piece = (id) => {
     const item = tutorial.parts.find((p) => p.id === id);
@@ -74,7 +80,7 @@ function NotationDecoder({ tutorial, onDone }) {
         {seen.length} de {tutorial.parts.length} partes descobertas
       </p>
 
-      <MascotDialogue line={line} bubbleKey={line.id} mood={allSeen ? 'cheer' : 'curious'} mascotSize={72} layout="compact" className="decoder-talk" />
+      <MascotDialogue line={line} bubbleKey={line.id} mood={allSeen ? 'cheer' : 'curious'} mascotSize={narrate ? 88 : 72} layout="compact" autoPlay={narrate} className="decoder-talk" />
 
       {allSeen && (
         <div className="teen-actions teen-actions--inline">
@@ -94,13 +100,19 @@ function NotationDecoder({ tutorial, onDone }) {
  */
 export default function SetBuilderGame({ challenge, level, onExit, onComplete }) {
   const { profile, completeLevel } = useGame();
+  const { autoSpeak } = useNarration();
   const difficultyId = profile?.difficulty ?? 'easy';
   const difficulty = getDifficulty(difficultyId);
   const Scene = getLevelScene(challenge.scene);
   const { tutorial, symbols } = challenge;
+  const narrate = !challenge.quiet; // fases narradas (9–12) têm o Pipo falando
 
-  const rounds = useMemo(() => generateSetRounds(difficultyId, challenge.rounds), [difficultyId, challenge.rounds]);
-  const warmup = useMemo(() => tutorialRound(), []);
+  // O desafio pode trazer os próprios geradores (faixa 9–12); sem eles, usamos os de 13+.
+  const rounds = useMemo(
+    () => (challenge.roundsGenerator ?? generateSetRounds)(difficultyId, challenge.rounds),
+    [challenge, difficultyId],
+  );
+  const warmup = useMemo(() => (challenge.warmupGenerator ?? tutorialRound)(), [challenge]);
   const [stage, setStage] = useState(tutorial ? 'decode' : 'rounds'); // decode | build | rounds
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState([]);
@@ -109,6 +121,7 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
   const [roundErrors, setRoundErrors] = useState(0);
   const [hintOpen, setHintOpen] = useState(false);
   const [legendOpen, setLegendOpen] = useState(false);
+  const [praise, setPraise] = useState(null); // elogio do Pipo ao acertar uma questão (fases 9–12)
   const feedbackRef = useRef(null);
 
   const inWarmup = stage === 'build';
@@ -125,11 +138,27 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
     if (result) feedbackRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }, [result]);
 
+  // Nas fases com voz, a missão é narrada quando as questões de verdade começam
+  // (durante o aquecimento, o Pipo conduz com as falas próprias do tutorial).
+  const missionSpokenRef = useRef(false);
+  useEffect(() => {
+    if (stage !== 'rounds' || !narrate || !challenge.mission || missionSpokenRef.current) return;
+    missionSpokenRef.current = true;
+    autoSpeak(challenge.mission);
+  }, [stage, narrate, challenge, autoSpeak]);
+
+  // Nas fases com voz, a dica pedida também é dita em voz alta.
+  useEffect(() => {
+    if (hintOpen && narrate && round?.hint) autoSpeak({ id: round.hintId ?? `hint.${round.id}`, text: round.hint });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hintOpen]);
+
   const resetRound = () => {
     setChosen([]);
     setResult(null);
     setRoundErrors(0);
     setHintOpen(false);
+    setPraise(null);
   };
 
   const toggle = (n) => {
@@ -145,6 +174,13 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
     setResult(next);
     if (next.correct) {
       sfx.play('correct');
+      // Nas fases lúdicas (9–12), cada acerto é celebrado com um elogio do Pipo.
+      const lines = narrate ? challenge.feedback.praise : null;
+      if (lines?.length) {
+        const line = lines[Math.floor(Math.random() * lines.length)];
+        setPraise(line);
+        autoSpeak(line);
+      }
       return;
     }
     sfx.play('tryAgain');
@@ -194,14 +230,18 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
   };
 
   return (
-    <div className="screen game-screen teen-screen">
+    <div className={`screen game-screen teen-screen ${narrate ? 'tween-screen' : ''}`}>
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
       <div className="teen-layout">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
-          <span className="teen-progress">{stage === 'rounds' ? `Questão ${index + 1} de ${rounds.length}` : 'Aquecimento'}</span>
+          {stage === 'rounds' && narrate ? (
+            <ProgressTrail total={rounds.length} done={index + (solved ? 1 : 0)} current={index} />
+          ) : (
+            <span className="teen-progress">{stage === 'rounds' ? `Questão ${index + 1} de ${rounds.length}` : 'Aquecimento'}</span>
+          )}
           {symbols && (
             <button type="button" className="teen-legend-btn" onClick={() => setLegendOpen((open) => !open)} aria-expanded={legendOpen}>
               <BookOpen size={16} strokeWidth={2.6} aria-hidden="true" /> Símbolos
@@ -231,16 +271,29 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
         )}
 
         {stage === 'decode' ? (
-          <NotationDecoder tutorial={tutorial} onDone={() => { sfx.play('tap'); setStage('build'); }} />
+          <NotationDecoder tutorial={tutorial} narrate={narrate} onDone={() => { sfx.play('tap'); setStage('build'); }} />
         ) : (
           <>
+            {!inWarmup && narrate && (
+              <MascotDialogue
+                line={praise ?? challenge.mission}
+                bubbleKey={praise ? praise.id : 'mission'}
+                mood={praise ? 'cheer' : 'curious'}
+                mascotSize={84}
+                layout="compact"
+                tone={praise ? 'success' : 'default'}
+                className="tween-guide"
+              />
+            )}
+
             {inWarmup && (
               <MascotDialogue
                 line={solved ? tutorial.done : tutorial.build}
                 bubbleKey={solved ? 'done' : 'build'}
                 mood={solved ? 'cheer' : 'happy'}
-                mascotSize={60}
+                mascotSize={narrate ? 84 : 60}
                 layout="compact"
+                autoPlay={narrate}
                 className="decoder-talk"
               />
             )}
@@ -286,6 +339,7 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
             </div>
 
             <div className="teen-answer" aria-live="polite">
+              {solved && narrate && <StarBurst />}
               <span className="teen-answer__set">A = {formatSet(chosen)}</span>
               <span className="teen-answer__count">n(A) = {chosen.length}</span>
             </div>

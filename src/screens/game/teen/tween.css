@@ -1,0 +1,144 @@
+/*
+ * Camada lúdica para as fases de 9–12 anos: o mesmo layout dos 13+ (teen.css),
+ * mas com cores vivas, cartões com bordas grossas, botões "de doce" e celebração.
+ * Só é aplicada quando a raiz do jogo tem a classe .tween-screen — o 13+ não muda nada.
+ *
+ * Princípios (pesquisa de jogos educativos para a faixa):
+ * - vitórias pequenas e constantes: cada acerto é celebrado (elogio do Pipo + brilho);
+ * - progresso visível e amigável: a trilha substitui "Questão 1 de 3";
+ * - sem punição: o contador de erros fica escondido (as estrelas finais cuidam disso).
+ */
+
+/* Cartões: borda grossa e cantos arredondados, como nos jogos dos 5–8. */
+.tween-screen .teen-card,
+.tween-screen .decoder {
+  border-width: 3px;
+  border-color: var(--lilac-150);
+  border-radius: 18px;
+}
+
+/* Etiquetas dos cartões em verde-amigável. */
+.tween-screen .teen-card__label {
+  color: var(--green-700);
+}
+
+/* Sem contador de erros: feedback sempre positivo nessa faixa. */
+.tween-screen .teen-errors {
+  display: none;
+}
+
+/* Números como botões de doce: borda grossa, cantos grandes e pulinho ao escolher. */
+.tween-screen .number-cell {
+  border-width: 2px;
+  border-radius: 14px;
+}
+.tween-screen .number-cell:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--lilac-400);
+}
+.tween-screen .number-cell.is-selected {
+  transform: rotate(-3deg);
+  animation: cell-pop 0.25s ease;
+}
+.tween-screen .number-cell.is-right {
+  animation: cell-bounce 0.45s ease;
+}
+
+/* O "cofre" do conjunto: claro com borda pontilhada, em vez do painel escuro. */
+.tween-screen .teen-answer {
+  position: relative;
+  background: #fff;
+  border: 2px dashed var(--lilac-200);
+  color: var(--ink);
+}
+.tween-screen .teen-answer__count {
+  color: var(--lilac-700);
+}
+
+/* A pergunta ganha cor: painel amarelo-sol, número em ficha e lacuna lilás. */
+.tween-screen .statement {
+  position: relative;
+  background: var(--yellow-50);
+  border: 3px solid var(--yellow-300);
+  color: var(--ink);
+}
+.tween-screen .statement .teen-card__label {
+  color: #B07C00;
+}
+.tween-screen .statement__left {
+  background: #fff;
+  border: 2px solid var(--lilac-150);
+  border-radius: 14px;
+  padding: 4px 14px;
+}
+.tween-screen .statement__slot {
+  border-color: var(--lilac-500);
+  color: var(--lilac-700);
+}
+.tween-screen .statement__slot.is-fixed {
+  color: var(--ink);
+}
+.tween-screen .statement__dot {
+  background: #F1E5C0;
+}
+.tween-screen .statement__dot.is-done {
+  background: var(--green-300);
+}
+.tween-screen .statement__dot.is-current {
+  background: var(--yellow-500);
+}
+
+/* Botões de pertence/não pertence: verde é sim, rosa é não — e são gordinhos. */
+.tween-screen .relation-btn {
+  border-radius: 18px;
+  border-bottom-width: 5px;
+  padding: 14px 10px;
+}
+.tween-screen .relation-btn:active {
+  border-bottom-width: 3px;
+}
+.tween-screen .relation-choices .relation-btn:first-child {
+  background: var(--green-50);
+  border-color: var(--green-300);
+  color: var(--green-700);
+}
+.tween-screen .relation-choices .relation-btn:first-child:hover {
+  border-color: var(--green-500);
+}
+.tween-screen .relation-choices .relation-btn:first-child .relation-btn__label {
+  color: var(--green-700);
+}
+.tween-screen .relation-choices .relation-btn:nth-child(2) {
+  background: var(--pink-100);
+  border-color: var(--pink-400);
+  color: #A3285C;
+}
+.tween-screen .relation-choices .relation-btn:nth-child(2):hover {
+  border-color: var(--pink-500);
+}
+.tween-screen .relation-choices .relation-btn:nth-child(2) .relation-btn__label {
+  color: #A3285C;
+}
+
+/* O Pipo guia do topo durante as questões: um respiro para o balão dele. */
+.tween-screen .tween-guide {
+  margin: -4px 0;
+}
+
+@keyframes cell-pop {
+  50% { transform: scale(1.15) rotate(3deg); }
+}
+
+@keyframes cell-bounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  70% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tween-screen .number-cell.is-selected,
+  .tween-screen .number-cell.is-right {
+    animation: none;
+  }
+}
