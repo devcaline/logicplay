@@ -72,6 +72,7 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 - **Laboratório, fase 3 — A Máquina do OU:** uma máquina de engrenagens com duas alavancas (azul e rosa). Em cada rodada o jogo mostra uma combinação de alavancas ligadas e desligadas, e a criança diz se a máquina funciona: se funcionar, as engrenagens giram e saem bolhas; se não, ela trava e solta fumaça. As quatro rodadas cobrem a tabela-verdade do OU, e na última a alavanca azul emperra e a própria criança liga a outra.
 - **Laboratório, fase 4 — O Espelho do NÃO:** um espelho mágico que mostra tudo ao contrário. Primeiro com objetos: a criança toca nos reflexos para virá-los (lâmpada acesa vira apagada, alavanca ligada vira desligada, porta fechada vira aberta) e olha no espelho para conferir. Depois com frases, uma por vez: a frase de verdade aparece com a luz já respondida, o espelho mostra a frase com NÃO e a criança escolhe se a luz do espelho acende ou apaga. "O peixe NÃO vive na água" apaga, e "A banana NÃO é vermelha" acende.
 - **Laboratório, fase 5 — A Tabela Mestra:** desafio final do mundo, com um circuito por vez: duas alavancas (verdes quando ligadas, sem cor quando desligadas) mandam energia por fios até a porta E ou OU e uma lâmpada. A criança diz se a luz acende e a energia verde corre pelos fios: no E, com uma alavanca só, a energia chega fraca e a lâmpada só pisca fraquinho; com as duas, acende. Primeiro as quatro combinações do E, depois as do OU. No fim, a Tabela Mestra aparece completa com tudo o que a criança descobriu.
+- **9 a 12 anos (em construção):** números e diagramas com os primeiros símbolos, em um visual lúdico sobre os cenários da floresta: trilha de progresso, elogios do Pipo a cada acerto, celebração com brilho de estrelas e nada de contador de erros. O Pipo narra missões, dicas e comemorações. Prontas: fase 1, montar conjuntos de números a partir da descrição (com aquecimento que decifra a notação A = {x | x é par e x < 10} peça por peça, como um pergaminho), e fase 2, pertinência com ∈ e ∉. Cada partida sorteia os exercícios; a dificuldade muda o tamanho do universo, a forma de descrever o conjunto e a ajuda. Estrelas por desempenho: 3 sem erros, 2 com até 2 erros, 1 concluindo.
 - **13 anos ou mais (em construção):** visual sóbrio, notação matemática de verdade e exercícios sorteados a cada partida. A dificuldade muda o universo de números, a forma de descrever os conjuntos e a ajuda (toda questão tem dica, sempre disponível; Fácil: erros marcados; Médio: só os elementos a mais são marcados; Difícil: a dica explica a notação sem dar elementos, e os erros aparecem só como contagem). Estrelas por desempenho: 3 sem erros, 2 com até 2 erros, 1 concluindo. Cada fase começa com um aquecimento guiado (igual em todas as dificuldades, sem valer estrelas): a notação aparece dividida em peças coloridas que o Pipo explica, e o jogador monta um conjunto simples com ajuda total. Um botão "Símbolos" com a legenda (∈, ℕ, ℕ*, |, <, ≤, n(A)) fica sempre disponível. Prontas: fase 1, notação de conjuntos (montar A a partir da descrição), e fase 2, pertinência (completar afirmações como 7 _ A com ∈ ou ∉; no Difícil também {2, 3} _ A com ⊂ ou ⊄). Depois de cada resposta aparece o porquê. No Fácil o conjunto aparece listado, no Médio só por propriedade com a leitura em palavras e no Difícil só a notação, com ℤ, x² e 2n + 1.
 - **Pipo, o mascote:** ilustração própria em SVG, com expressões (feliz, curioso, comemorando, incentivando) e bico que se mexe enquanto fala.
 - **Feedback sem punição:** dicas gentis a cada erro e dica visual depois de algumas tentativas.
@@ -122,7 +123,10 @@ então o site funciona tanto na raiz do domínio quanto dentro de uma pasta.
 src/
   App.jsx                  navegação entre telas e proteções de acesso
   config/                  faixas etárias, dificuldades, mundos e fases
-  data/                    textos e conteúdo dos desafios, falas do Pipo
+  data/                    conteúdo dos desafios, um arquivo por desafio, e falas do Pipo
+    forest/                desafios da Floresta dos Conjuntos
+    lab/                   desafios do Laboratório da Verdade
+    teen/                  questões de 13+ (sorteadas a cada partida)
   logic/                   validação das respostas, progresso, armazenamento
   audio/                   narração (voz gravada ou sintetizada) e efeitos sonoros
   state/                   estado global e hooks de narração
@@ -133,11 +137,13 @@ scripts/roteiro.mjs        gerador do roteiro de gravação
 docs/prints/               prints do README
 ```
 
-O conteúdo das fases fica separado da lógica: textos, elementos e dicas estão em `src/data/challenges.js`.
+O conteúdo das fases fica separado da lógica: cada desafio tem um arquivo próprio na pasta do seu mundo
+(`src/data/forest/`, `src/data/lab/`, nomeado com o id do desafio), e `src/data/challenges.js` apenas reúne todos.
 
 ## Como expandir
 
-**Nova fase:** adicione o conteúdo em `src/data/challenges.js` e ligue-o à fase em `src/config/worlds.js`:
+**Nova fase:** crie o arquivo do desafio na pasta do mundo (por exemplo `src/data/forest/forest-3-teen.js`,
+com `export default`), liste-o em `src/data/forest/challenges.js` e ligue-o à fase em `src/config/worlds.js`:
 
 ```js
 content: { '5-8': 'forest-3-kids' }
@@ -157,8 +163,8 @@ com esses nomes (mp3, m4a, wav, ogg ou webm) e o jogo as usa automaticamente. Fa
 
 ## Próximos passos
 
+- Fases 3 a 10 para 9–12 (interseção, união, o Guardião e o mundo da lógica)
 - Fases 3 a 10 para 13+ (interseção, união, desafio misto e o mundo da lógica com ∧, ∨, ¬ e tabelas-verdade)
-- Conteúdo para a faixa 9–12
 - Gravação da voz oficial do Pipo
 
 ## Autoria

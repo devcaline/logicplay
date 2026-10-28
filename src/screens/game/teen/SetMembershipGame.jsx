@@ -4,13 +4,16 @@ import TopBar from '../../../components/ui/TopBar.jsx';
 import Mascot from '../../../components/mascot/Mascot.jsx';
 import MascotDialogue from '../../../components/mascot/MascotDialogue.jsx';
 import GameButton from '../../../components/ui/GameButton.jsx';
+import StarBurst from '../../../components/ui/StarBurst.jsx';
+import ProgressTrail from '../../../components/ui/ProgressTrail.jsx';
 import { getLevelScene } from '../../../components/scenery/scenes.js';
 import { getDifficulty } from '../../../config/ageGroups.js';
 import { generateMembershipRounds, membershipWarmup, RELATION_SYMBOLS } from '../../../data/teen/membershipRounds.js';
 import { starsFromErrors } from '../../../logic/scoring.js';
-import { useGame } from '../../../state/GameContext.jsx';
+import { useGame, useNarration } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
+import './tween.css';
 
 /**
  * Pertinência (13+): cada conjunto vem com afirmações do tipo "7 _ A" para completar com ∈ ou ∉
@@ -19,13 +22,22 @@ import './teen.css';
  */
 export default function SetMembershipGame({ challenge, level, onExit, onComplete }) {
   const { profile, completeLevel } = useGame();
+  const { autoSpeak } = useNarration();
   const difficultyId = profile?.difficulty ?? 'easy';
   const difficulty = getDifficulty(difficultyId);
   const Scene = getLevelScene(challenge.scene);
   const { tutorial, symbols } = challenge;
+  const narrate = !challenge.quiet; // fases narradas (9–12) têm o Pipo falando
 
-  const rounds = useMemo(() => generateMembershipRounds(difficultyId, challenge.rounds), [difficultyId, challenge.rounds]);
-  const warmup = useMemo(() => membershipWarmup(difficultyId), [difficultyId]);
+  // O desafio pode trazer os próprios geradores (faixa 9–12); sem eles, usamos os de 13+.
+  const rounds = useMemo(
+    () => (challenge.roundsGenerator ?? generateMembershipRounds)(difficultyId, challenge.rounds),
+    [challenge, difficultyId],
+  );
+  const warmup = useMemo(
+    () => (challenge.warmupGenerator ?? membershipWarmup)(difficultyId),
+    [challenge, difficultyId],
+  );
   const [inWarmup, setInWarmup] = useState(Boolean(tutorial));
   const [index, setIndex] = useState(0);
   const [itemIndex, setItemIndex] = useState(0);
@@ -33,6 +45,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
   const [errors, setErrors] = useState(0);
   const [hintOpen, setHintOpen] = useState(false);
   const [legendOpen, setLegendOpen] = useState(false);
+  const [roundPraise, setRoundPraise] = useState(null); // elogio ao fechar um conjunto (fases 9–12)
   const feedbackRef = useRef(null);
 
   const round = inWarmup ? warmup : rounds[index];
@@ -42,6 +55,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
   const correct = answered && answer === item.belongs;
   const lastItem = itemIndex === round.items.length - 1;
   const lastRound = index === rounds.length - 1;
+  const roundDone = answered && correct && lastItem; // fechou o conjunto com tudo certo
   const showList = inWarmup || difficultyId === 'easy';
   const showWords = inWarmup || difficultyId !== 'hard';
 
@@ -49,11 +63,41 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
     if (answered) feedbackRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }, [answered]);
 
+  // Nas fases com voz, a missão é narrada quando as questões de verdade começam
+  // (durante o aquecimento, o Pipo conduz com as falas próprias de cada item).
+  const missionSpokenRef = useRef(false);
+  useEffect(() => {
+    if (inWarmup || !narrate || !challenge.mission || missionSpokenRef.current) return;
+    missionSpokenRef.current = true;
+    autoSpeak(challenge.mission);
+  }, [inWarmup, narrate, challenge, autoSpeak]);
+
+  // Nas fases com voz, o porquê da resposta também é dito em voz alta (fora do aquecimento).
+  // Fechando o conjunto com tudo certo, o Pipo comemora com um elogio em vez do porquê.
+  useEffect(() => {
+    if (!answered || !narrate || !item) return;
+    if (roundPraise) {
+      autoSpeak(roundPraise);
+      return;
+    }
+    autoSpeak({ id: `${item.id}-reason`, text: item.reason });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered]);
+
+  // Nas fases com voz, a dica pedida também é dita em voz alta.
+  useEffect(() => {
+    if (hintOpen && narrate && item) autoSpeak({ id: `hint.${item.id}`, text: item.hint });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hintOpen]);
+
   const choose = (belongs) => {
     if (answered) return;
     setAnswer(belongs);
     if (belongs === item.belongs) {
       sfx.play('correct');
+      // Nas fases lúdicas (9–12), fechar o conjunto com tudo certo merece elogio do Pipo.
+      const lines = narrate && lastItem && !inWarmup ? challenge.feedback.praise : null;
+      if (lines?.length) setRoundPraise(lines[Math.floor(Math.random() * lines.length)]);
       return;
     }
     sfx.play('tryAgain');
@@ -64,6 +108,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
     sfx.play('tap');
     setAnswer(null);
     setHintOpen(false);
+    setRoundPraise(null);
     if (!lastItem) {
       setItemIndex(itemIndex + 1);
       return;
@@ -93,14 +138,18 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
   };
 
   return (
-    <div className="screen game-screen teen-screen">
+    <div className={`screen game-screen teen-screen ${narrate ? 'tween-screen' : ''}`}>
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
       <div className="teen-layout">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
-          <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Conjunto ${index + 1} de ${rounds.length}`}</span>
+          {!inWarmup && narrate ? (
+            <ProgressTrail total={rounds.length} done={index + (roundDone ? 1 : 0)} current={index} />
+          ) : (
+            <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Conjunto ${index + 1} de ${rounds.length}`}</span>
+          )}
           {symbols && (
             <button type="button" className="teen-legend-btn" onClick={() => setLegendOpen((open) => !open)} aria-expanded={legendOpen}>
               <BookOpen size={16} strokeWidth={2.6} aria-hidden="true" /> Símbolos
@@ -129,13 +178,26 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
           </div>
         )}
 
+        {!inWarmup && narrate && (
+          <MascotDialogue
+            line={roundPraise ?? challenge.mission}
+            bubbleKey={roundPraise ? roundPraise.id : 'mission'}
+            mood={roundPraise ? 'cheer' : 'curious'}
+            mascotSize={84}
+            layout="compact"
+            tone={roundPraise ? 'success' : 'default'}
+            className="tween-guide"
+          />
+        )}
+
         {inWarmup && (
           <MascotDialogue
             line={answered ? { id: `${item.id}-done`, text: item.reason } : { id: item.id, text: item.talk }}
             bubbleKey={answered ? `${item.id}-done` : item.id}
             mood={answered ? (correct ? 'cheer' : 'encourage') : 'curious'}
-            mascotSize={60}
+            mascotSize={narrate ? 84 : 60}
             layout="compact"
+            autoPlay={narrate}
             className="decoder-talk"
           />
         )}
@@ -158,6 +220,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
         </section>
 
         <section className="statement" aria-live="polite">
+          {roundDone && narrate && <StarBurst />}
           <p className="teen-card__label">
             Complete a afirmação {inWarmup ? '' : `· ${itemIndex + 1} de ${round.items.length}`}
           </p>

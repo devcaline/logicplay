@@ -1,0 +1,17 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "bIHbv24MWmeRgasZH58o",
+  "model_id": "eleven_v3",
+  "line_id": "f1k.intro.1",
+  "text": "Oi, amiguinho! Alguns animais estão perdidos por aqui. Você pode me ajudar a encontrar o lugar deles?",
+  "language_code": "pt",
+  "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.0
+  },
+  "input_characters": 101,
+  "bytes": 108712,
+  "request_id": "wgRl1n2ATwtDpaqsUa72",
+  "character_cost": "101"
+}

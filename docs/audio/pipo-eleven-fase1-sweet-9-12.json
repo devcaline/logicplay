@@ -1,0 +1,855 @@
+{
+  "provider": "ElevenLabs",
+  "voice": "Jessica",
+  "model": "eleven_v3",
+  "installed": true,
+  "lines": [
+    {
+      "id": "f1a.intro.1",
+      "text": "Aventureiro! Bem-vindo à Trilha dos Números! Os conjuntos da floresta também são feitos de números que têm algo em comum. Podemos escrever um conjunto listando os elementos, como o A formado por dois, quatro, seis e oito.",
+      "synthesis_text": "[warmly] Aventureiro! Bem-vindo à Trilha dos Números! Os conjuntos da floresta também são feitos de números que têm algo em comum. Podemos escrever um conjunto listando os elementos, como o A formado por dois, quatro, seis e oito.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 230,
+      "bytes": 296794,
+      "character_cost": "230",
+      "request_id": "NMnMBT9LcbYHM3OMgGEO"
+    },
+    {
+      "id": "f1a.intro.2",
+      "text": "E dá para escrever por uma regra, como um mapa do tesouro: o conjunto A é formado pelos números x, tal que x é par e x menor que dez. Cada conjunto que você montar guarda um cristal da floresta. Vamos começar a coleção?",
+      "synthesis_text": "[curious] E dá para escrever por uma regra, como um mapa do tesouro: o conjunto A é formado pelos números xis, tal que xis é par e xis menor que dez. Cada conjunto que você montar guarda um cristal da floresta. Vamos começar a coleção?",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 235,
+      "bytes": 289270,
+      "character_cost": "235",
+      "request_id": "613ZvxahJZ3jmwDnpl9y"
+    },
+    {
+      "id": "f1a.mission",
+      "text": "Missão do explorador: toque em todos os números do universo que seguem a regra e monte o conjunto!",
+      "synthesis_text": "[gently] Missão do explorador: toque em todos os números do universo que seguem a regra e monte o conjunto!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 107,
+      "bytes": 152180,
+      "character_cost": "107",
+      "request_id": "du5MWmmdjeB4aghOAzOA"
+    },
+    {
+      "id": "f1a.tut.start",
+      "text": "Achamos um pergaminho misterioso com a escrita dos conjuntos! Toque em cada parte colorida para decifrar o que ela quer dizer.",
+      "synthesis_text": "[curious] Achamos um pergaminho misterioso com a escrita dos conjuntos! Toque em cada parte colorida para decifrar o que ela quer dizer.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 136,
+      "bytes": 149672,
+      "character_cost": "136",
+      "request_id": "9h3LoOjz85yOfHemPukU"
+    },
+    {
+      "id": "f1a.tut.name",
+      "text": "A é o nome do conjunto. Lemos assim: \"o conjunto A é…\".",
+      "synthesis_text": "[gently] A é o nome do conjunto. Lemos assim: \"o conjunto A é…\".",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 64,
+      "bytes": 100771,
+      "character_cost": "64",
+      "request_id": "m4Z2dKHmMUbyd5a7u2eK"
+    },
+    {
+      "id": "f1a.tut.braces",
+      "text": "As chaves funcionam como uma caixa: dentro delas ficam os elementos do conjunto.",
+      "synthesis_text": "[gently] As chaves funcionam como uma caixa: dentro delas ficam os elementos do conjunto.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 89,
+      "bytes": 97009,
+      "character_cost": "89",
+      "request_id": "GgO2RL2ZS2vOcD2x52f5"
+    },
+    {
+      "id": "f1a.tut.element",
+      "text": "O x representa cada número que queremos testar, um por um.",
+      "synthesis_text": "[gently] O xis representa cada número que queremos testar, um por um.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 69,
+      "bytes": 79037,
+      "character_cost": "69",
+      "request_id": "Sy3PV6umMMAcALATsVLD"
+    },
+    {
+      "id": "f1a.tut.such",
+      "text": "A barrinha se lê \"tal que\". Depois dela vem a regra que os números precisam seguir.",
+      "synthesis_text": "[gently] A barrinha se lê \"tal que\". Depois dela vem a regra que os números precisam seguir.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 92,
+      "bytes": 109966,
+      "character_cost": "92",
+      "request_id": "s9tgWtl5kM3fGzReJyvi"
+    },
+    {
+      "id": "f1a.tut.rule",
+      "text": "A regra do nosso conjunto: só entram os números pares que também são menores que 10. O menor que não inclui o 10.",
+      "synthesis_text": "[gently] A regra do nosso conjunto: só entram os números pares que também são menores que 10. O menor que não inclui o 10.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 122,
+      "bytes": 135461,
+      "character_cost": "122",
+      "request_id": "fmlWojIS2GlVDFJWCqxj"
+    },
+    {
+      "id": "f1a.tut.reading",
+      "text": "Lendo tudo junto: o conjunto A é formado pelos números pares menores que 10.",
+      "synthesis_text": "[gently] Lendo tudo junto: o conjunto A é formado pelos números pares menores que 10.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 85,
+      "bytes": 125430,
+      "character_cost": "85",
+      "request_id": "Tw1qgrdjfHy30o6Wts9O"
+    },
+    {
+      "id": "f1a.tut.build",
+      "text": "Agora monte esse conjunto! Aqui os erros não contam, é só para treinar.",
+      "synthesis_text": "[gently] Agora monte esse conjunto! Aqui os erros não contam, é só para treinar.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 80,
+      "bytes": 98263,
+      "character_cost": "80",
+      "request_id": "aMbhc1FfWG6vE7NrUkOC"
+    },
+    {
+      "id": "f1a.tut.done",
+      "text": "Você decifrou o pergaminho! Agora sim: missões valendo estrelas e cristais!",
+      "synthesis_text": "[happy] Você decifrou o pergaminho! Agora sim: missões valendo estrelas e cristais!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 83,
+      "bytes": 103278,
+      "character_cost": "83",
+      "request_id": "YAc6ddeIBsTaSs7AK8jW"
+    },
+    {
+      "id": "f1a.success",
+      "text": "Muito bem! Fase concluída! Você montou conjuntos de números de verdade! O Pipo vai guardar esses cristais na coleção com todo o carinho.",
+      "synthesis_text": "[happy] Muito bem! Fase concluída! Você montou conjuntos de números de verdade! O Pipo vai guardar esses cristais na coleção com todo o carinho.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 144,
+      "bytes": 170152,
+      "character_cost": "144",
+      "request_id": "TsVCsa0IsWvJkyA9k8Hk"
+    },
+    {
+      "id": "f1a.praise.1",
+      "text": "Isso! Mais um cristal brilhante para a nossa coleção!",
+      "synthesis_text": "[happy] Isso! Mais um cristal brilhante para a nossa coleção!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 61,
+      "bytes": 58557,
+      "character_cost": "61",
+      "request_id": "kjU3gq7AJb9UgalbB5To"
+    },
+    {
+      "id": "f1a.praise.2",
+      "text": "Muito bem! Você é um verdadeiro explorador de conjuntos!",
+      "synthesis_text": "[happy] Muito bem! Você é um verdadeiro explorador de conjuntos!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 64,
+      "bytes": 77783,
+      "character_cost": "64",
+      "request_id": "2Y76TUcWD6HI61yKJtvQ"
+    },
+    {
+      "id": "f1a.praise.3",
+      "text": "Que demais! A floresta fica mais colorida com esse conjunto!",
+      "synthesis_text": "[happy] Que demais! A floresta fica mais colorida com esse conjunto!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 68,
+      "bytes": 80291,
+      "character_cost": "68",
+      "request_id": "svcoJ7XAv5xiw7eISdSh"
+    },
+    {
+      "id": "f1a.hint.easy-even",
+      "text": "Os pares terminam em 0, 2, 4, 6 ou 8.",
+      "synthesis_text": "[encouraging] Os pares terminam em 0, 2, 4, 6 ou 8.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 51,
+      "bytes": 88232,
+      "character_cost": "51",
+      "request_id": "fkejRMOcD7wPgMnmHlVS"
+    },
+    {
+      "id": "f1a.hint.easy-odd",
+      "text": "Os ímpares terminam em 1, 3, 5, 7 ou 9.",
+      "synthesis_text": "[encouraging] Os ímpares terminam em 1, 3, 5, 7 ou 9.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 53,
+      "bytes": 106204,
+      "character_cost": "53",
+      "request_id": "13xkXo6lbCMQtUA5Lubz"
+    },
+    {
+      "id": "f1a.hint.easy-gt-4",
+      "text": "\"Maior que 4\" não inclui o 4: comece no 5.",
+      "synthesis_text": "[encouraging] \"Maior que 4\" não inclui o 4: comece no 5.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 56,
+      "bytes": 71514,
+      "character_cost": "56",
+      "request_id": "Kb2Ny7IIfrsROHPgrrN5"
+    },
+    {
+      "id": "f1a.hint.easy-gt-5",
+      "text": "\"Maior que 5\" não inclui o 5: comece no 6.",
+      "synthesis_text": "[encouraging] \"Maior que 5\" não inclui o 5: comece no 6.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 56,
+      "bytes": 72767,
+      "character_cost": "56",
+      "request_id": "nt6rXoY9LGeYfZgDXv02"
+    },
+    {
+      "id": "f1a.hint.easy-gt-6",
+      "text": "\"Maior que 6\" não inclui o 6: comece no 7.",
+      "synthesis_text": "[encouraging] \"Maior que 6\" não inclui o 6: comece no 7.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 56,
+      "bytes": 69006,
+      "character_cost": "56",
+      "request_id": "qAo0NCrn1THAwT85afTu"
+    },
+    {
+      "id": "f1a.hint.easy-gt-7",
+      "text": "\"Maior que 7\" não inclui o 7: comece no 8.",
+      "synthesis_text": "[encouraging] \"Maior que 7\" não inclui o 7: comece no 8.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 56,
+      "bytes": 66498,
+      "character_cost": "56",
+      "request_id": "Fjz4OIUfQtIQvtj5H7za"
+    },
+    {
+      "id": "f1a.hint.easy-lt-5",
+      "text": "\"Menor que 5\" não inclui o 5: pare no 4.",
+      "synthesis_text": "[encouraging] \"Menor que 5\" não inclui o 5: pare no 4.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 54,
+      "bytes": 67752,
+      "character_cost": "54",
+      "request_id": "pydDOLBKcndCO1D8OXC6"
+    },
+    {
+      "id": "f1a.hint.easy-lt-6",
+      "text": "\"Menor que 6\" não inclui o 6: pare no 5.",
+      "synthesis_text": "[encouraging] \"Menor que 6\" não inclui o 6: pare no 5.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 54,
+      "bytes": 70260,
+      "character_cost": "54",
+      "request_id": "G0DtW3lg5cbkSCLKz3od"
+    },
+    {
+      "id": "f1a.hint.easy-lt-7",
+      "text": "\"Menor que 7\" não inclui o 7: pare no 6.",
+      "synthesis_text": "[encouraging] \"Menor que 7\" não inclui o 7: pare no 6.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 54,
+      "bytes": 71514,
+      "character_cost": "54",
+      "request_id": "UnlTpiTdXV2KzfxXGsMD"
+    },
+    {
+      "id": "f1a.hint.easy-lt-8",
+      "text": "\"Menor que 8\" não inclui o 8: pare no 7.",
+      "synthesis_text": "[encouraging] \"Menor que 8\" não inclui o 8: pare no 7.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 54,
+      "bytes": 70260,
+      "character_cost": "54",
+      "request_id": "ZRZECnHR85Ah9aygV5se"
+    },
+    {
+      "id": "f1a.hint.easy-mult5",
+      "text": "Os múltiplos de 5 terminam em 0 ou 5: 5, 10, 15, 20.",
+      "synthesis_text": "[encouraging] Os múltiplos de 5 terminam em 0 ou 5: 5, 10, 15, 20.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 66,
+      "bytes": 149672,
+      "character_cost": "66",
+      "request_id": "cpmHLl8s4NNqCEDc4Dx4"
+    },
+    {
+      "id": "f1a.hint.medium-mult-3",
+      "text": "Some 3 a cada passo: 3, 6, 9…",
+      "synthesis_text": "[encouraging] Some 3 a cada passo: 3, 6, 9…",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 43,
+      "bytes": 76529,
+      "character_cost": "43",
+      "request_id": "zmFbtBK835J1LyRxAErE"
+    },
+    {
+      "id": "f1a.hint.medium-mult-4",
+      "text": "Some 4 a cada passo: 4, 8, 12…",
+      "synthesis_text": "[encouraging] Some 4 a cada passo: 4, 8, 12…",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 44,
+      "bytes": 80291,
+      "character_cost": "44",
+      "request_id": "wVWnZFqYpteqOqBRYlds"
+    },
+    {
+      "id": "f1a.hint.medium-mult-5",
+      "text": "Some 5 a cada passo: 5, 10, 15…",
+      "synthesis_text": "[encouraging] Some 5 a cada passo: 5, 10, 15…",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 45,
+      "bytes": 80291,
+      "character_cost": "45",
+      "request_id": "uiS1Hg1ZXBHLSSF8Jh6p"
+    },
+    {
+      "id": "f1a.hint.medium-interval",
+      "text": "O \"<\" não inclui o número da ponta; o \"≤\" inclui.",
+      "synthesis_text": "[encouraging] O \" menor que \" não inclui o número da ponta; o \" menor ou igual a \" inclui.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 90,
+      "bytes": 116235,
+      "character_cost": "90",
+      "request_id": "NXx0UD4wsxQ1Kw0vyisN"
+    },
+    {
+      "id": "f1a.hint.medium-div-12",
+      "text": "Um divisor divide 12 sem sobrar resto. Não esqueça o 1 e o próprio 12.",
+      "synthesis_text": "[encouraging] Um divisor divide 12 sem sobrar resto. Não esqueça o 1 e o próprio 12.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 84,
+      "bytes": 97009,
+      "character_cost": "84",
+      "request_id": "yc3vlBcjO1qxMDR5I7to"
+    },
+    {
+      "id": "f1a.hint.medium-div-15",
+      "text": "Um divisor divide 15 sem sobrar resto. Não esqueça o 1 e o próprio 15.",
+      "synthesis_text": "[encouraging] Um divisor divide 15 sem sobrar resto. Não esqueça o 1 e o próprio 15.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 84,
+      "bytes": 95755,
+      "character_cost": "84",
+      "request_id": "O9cBFvCDuwNpLDpKFaIX"
+    },
+    {
+      "id": "f1a.hint.medium-div-16",
+      "text": "Um divisor divide 16 sem sobrar resto. Não esqueça o 1 e o próprio 16.",
+      "synthesis_text": "[encouraging] Um divisor divide 16 sem sobrar resto. Não esqueça o 1 e o próprio 16.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 84,
+      "bytes": 122505,
+      "character_cost": "84",
+      "request_id": "kRDuMRMWgoHB5MjwzrXD"
+    },
+    {
+      "id": "f1a.hint.medium-div-18",
+      "text": "Um divisor divide 18 sem sobrar resto. Não esqueça o 1 e o próprio 18.",
+      "synthesis_text": "[encouraging] Um divisor divide 18 sem sobrar resto. Não esqueça o 1 e o próprio 18.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 84,
+      "bytes": 113727,
+      "character_cost": "84",
+      "request_id": "JejAmiOTbwpT43He8d0B"
+    },
+    {
+      "id": "f1a.hint.medium-odd-11",
+      "text": "São os ímpares de 1 até 9 (o 11 não entra, por causa do \"<\").",
+      "synthesis_text": "[encouraging] São os ímpares de 1 até 9 (o 11 não entra, por causa do \" menor que \").",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 85,
+      "bytes": 86978,
+      "character_cost": "85",
+      "request_id": "eMV1qfKu6LMMbi6ueF6u"
+    },
+    {
+      "id": "f1a.hint.medium-odd-13",
+      "text": "São os ímpares de 1 até 11 (o 13 não entra, por causa do \"<\").",
+      "synthesis_text": "[encouraging] São os ímpares de 1 até 11 (o 13 não entra, por causa do \" menor que \").",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 86,
+      "bytes": 93247,
+      "character_cost": "86",
+      "request_id": "l7vVkjBTF3ytHbPARt9N"
+    },
+    {
+      "id": "f1a.hint.medium-odd-15",
+      "text": "São os ímpares de 1 até 13 (o 15 não entra, por causa do \"<\").",
+      "synthesis_text": "[encouraging] São os ímpares de 1 até 13 (o 15 não entra, por causa do \" menor que \").",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 86,
+      "bytes": 93247,
+      "character_cost": "86",
+      "request_id": "SnCaDMTFRDJnd6pLvWc5"
+    },
+    {
+      "id": "f1a.hint.medium-odd-17",
+      "text": "São os ímpares de 1 até 15 (o 17 não entra, por causa do \"<\").",
+      "synthesis_text": "[encouraging] São os ímpares de 1 até 15 (o 17 não entra, por causa do \" menor que \").",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 86,
+      "bytes": 98263,
+      "character_cost": "86",
+      "request_id": "ljdKfqdsHBTA5iUuixkr"
+    },
+    {
+      "id": "f1a.hint.medium-odd-19",
+      "text": "São os ímpares de 1 até 17 (o 19 não entra, por causa do \"<\").",
+      "synthesis_text": "[encouraging] São os ímpares de 1 até 17 (o 19 não entra, por causa do \" menor que \").",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 86,
+      "bytes": 98263,
+      "character_cost": "86",
+      "request_id": "3i5IzsjHu7qZ4cey1AEJ"
+    },
+    {
+      "id": "f1a.hint.hard-mult-2-and-3",
+      "text": "O \"e\" pede as duas coisas ao mesmo tempo: o número precisa estar na tabuada do 2 e também na do 3.",
+      "synthesis_text": "[encouraging] O \"e\" pede as duas coisas ao mesmo tempo: o número precisa estar na tabuada do 2 e também na do 3.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 112,
+      "bytes": 129192,
+      "character_cost": "112",
+      "request_id": "YS9GPLjyELFZvXe7x98A"
+    },
+    {
+      "id": "f1a.hint.hard-primes",
+      "text": "Um número primo é maior que 1 e só tem dois divisores: 1 e ele mesmo. O 1 não é primo!",
+      "synthesis_text": "[encouraging] Um número primo é maior que 1 e só tem dois divisores: 1 e ele mesmo. O 1 não é primo!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 100,
+      "bytes": 123758,
+      "character_cost": "100",
+      "request_id": "OGQiEhxcQY14VOePZyem"
+    },
+    {
+      "id": "f1a.hint.hard-squares",
+      "text": "Quadrados perfeitos vêm de um número multiplicado por ele mesmo: 1·1, 2·2, 3·3, 4·4, 5·5.",
+      "synthesis_text": "[encouraging] Quadrados perfeitos vêm de um número multiplicado por ele mesmo: 1 vezes 1, 2 vezes 2, 3 vezes 3, 4 vezes 4, 5 vezes 5.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 133,
+      "bytes": 189378,
+      "character_cost": "133",
+      "request_id": "WQ79OCWzyTFHAiDp4DrT"
+    },
+    {
+      "id": "f1a.hint.hard-div-24",
+      "text": "Procure os pares que multiplicados dão 24: 1·24, 2·12, 3·8, 4·6.",
+      "synthesis_text": "[encouraging] Procure os pares que multiplicados dão 24: 1 vezes 24, 2 vezes 12, 3 vezes 8, 4 vezes 6.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 102,
+      "bytes": 164718,
+      "character_cost": "102",
+      "request_id": "9JXKHiVg1uqmhr3EqIVF"
+    },
+    {
+      "id": "f1a.hint.hard-odd-mult5",
+      "text": "O \"e\" pede os dois: ser ímpar e estar na tabuada do 5 ao mesmo tempo.",
+      "synthesis_text": "[encouraging] O \"e\" pede os dois: ser ímpar e estar na tabuada do 5 ao mesmo tempo.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 83,
+      "bytes": 88232,
+      "character_cost": "83",
+      "request_id": "EnQbqG9QkSAwAYhFb8W6"
+    },
+    {
+      "id": "f1a.hint.tween-tutorial-even",
+      "text": "Os pares terminam em 0, 2, 4, 6 ou 8. Pare antes do 10.",
+      "synthesis_text": "[encouraging] Os pares terminam em 0, 2, 4, 6 ou 8. Pare antes do 10.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 69,
+      "bytes": 111220,
+      "character_cost": "69",
+      "request_id": "K7IVgojVWIZQFGIdZBh0"
+    },
+    {
+      "id": "f1a.complete",
+      "text": "Primeira missão concluída! Um conjunto é um grupo de elementos. Você pode escrevê-lo listando os elementos ou descrevendo a propriedade que todos têm em comum.",
+      "synthesis_text": "[happy] Primeira missão concluída! Um conjunto é um grupo de elementos. Você pode escrevê-lo listando os elementos ou descrevendo a propriedade que todos têm em comum.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 167,
+      "bytes": 194394,
+      "character_cost": "167",
+      "request_id": "CsttZxX1WTKtbXuOxKCS"
+    }
+  ],
+  "character_cost_total": 4092
+}

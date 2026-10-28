@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 0 de 160 falas gravadas.**
+**Progresso: 63 de 219 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -30,22 +30,22 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 
 | ✓ | Arquivo | Onde aparece | Tom | Fala |
 |---|---|---|---|---|
-| ⬜ | `f1k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Oi, amiguinho! Alguns animais estão perdidos por aqui. Você pode me ajudar a encontrar o lugar deles? |
-| ⬜ | `f1k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | Um conjunto é um grupo de coisas que têm alguma característica em comum. Vamos descobrir quais animais fazem parte do nosso grupo? |
-| ⬜ | `f1k.mission.mp3` | Missão | curioso, explicando com calma | Coloque dentro do círculo os animais que vivem na água. |
-| ⬜ | `item.fish.mp3` | Ao tocar no animal | só o nome, claro e simpático | Peixe! |
-| ⬜ | `item.rabbit.mp3` | Ao tocar no animal | só o nome, claro e simpático | Coelho! |
-| ⬜ | `item.dolphin.mp3` | Ao tocar no animal | só o nome, claro e simpático | Golfinho! |
-| ⬜ | `item.chicken.mp3` | Ao tocar no animal | só o nome, claro e simpático | Galinha! |
-| ⬜ | `item.octopus.mp3` | Ao tocar no animal | só o nome, claro e simpático | Polvo! |
-| ⬜ | `item.butterfly.mp3` | Ao tocar no animal | só o nome, claro e simpático | Borboleta! |
-| ⬜ | `f1k.hint.empty.mp3` | Dica — apertou Verificar sem nada no círculo | carinhoso, incentivando | Vamos começar? Arraste para dentro do círculo um animal que vive na água. |
-| ⬜ | `f1k.hint.wrongInside.mp3` | Dica — tem animal errado dentro | carinhoso, incentivando | Quase lá! Tem um animal no círculo que gosta mais da terra ou do céu. Vamos olhar de novo? |
-| ⬜ | `f1k.hint.missing.mp3` | Dica — falta animal dentro | carinhoso, incentivando | Quase lá! Ainda tem animal da água esperando do lado de fora. Vamos observar? |
-| ⬜ | `f1k.hint.generic.mp3` | Dica — genérica | carinhoso, incentivando | Quase lá! Vamos observar quais animais vivem na água? |
-| ⬜ | `f1k.hint.visual.mp3` | Dica com gotinhas (após 2 tentativas) | carinhoso, incentivando | Olha só! Coloquei gotinhas de água nos animais que nadam. Eles adoram a água! |
-| ⬜ | `f1k.success.mp3` | Acertou tudo | comemorando, bem animado | O peixe, o golfinho e o polvo vivem na água. Por isso, eles fazem parte do conjunto! |
-| ⬜ | `f1k.complete.mp3` | Tela final da fase | comemorando, bem animado | Primeira missão concluída! Você criou um conjunto! Um conjunto é um grupo de elementos. Neste, colocamos os animais que vivem na água. |
+| ✅ | `f1k.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Oi, amiguinho! Alguns animais estão perdidos por aqui. Você pode me ajudar a encontrar o lugar deles? |
+| ✅ | `f1k.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | Um conjunto é um grupo de coisas que têm alguma característica em comum. Vamos descobrir quais animais fazem parte do nosso grupo? |
+| ✅ | `f1k.mission.mp3` | Missão | curioso, explicando com calma | Coloque dentro do círculo os animais que vivem na água. |
+| ✅ | `f1k.item.fish.mp3` | Ao tocar no animal | só o nome, claro e simpático | Peixe! |
+| ✅ | `f1k.item.rabbit.mp3` | Ao tocar no animal | só o nome, claro e simpático | Coelho! |
+| ✅ | `f1k.item.dolphin.mp3` | Ao tocar no animal | só o nome, claro e simpático | Golfinho! |
+| ✅ | `f1k.item.chicken.mp3` | Ao tocar no animal | só o nome, claro e simpático | Galinha! |
+| ✅ | `f1k.item.octopus.mp3` | Ao tocar no animal | só o nome, claro e simpático | Polvo! |
+| ✅ | `f1k.item.butterfly.mp3` | Ao tocar no animal | só o nome, claro e simpático | Borboleta! |
+| ✅ | `f1k.hint.empty.mp3` | Dica — apertou Verificar sem nada no círculo | carinhoso, incentivando | Vamos começar? Arraste para dentro do círculo um animal que vive na água. |
+| ✅ | `f1k.hint.wrongInside.mp3` | Dica — tem animal errado dentro | carinhoso, incentivando | Quase lá! Tem um animal no círculo que gosta mais da terra ou do céu. Vamos olhar de novo? |
+| ✅ | `f1k.hint.missing.mp3` | Dica — falta animal dentro | carinhoso, incentivando | Quase lá! Ainda tem animal da água esperando do lado de fora. Vamos observar? |
+| ✅ | `f1k.hint.generic.mp3` | Dica — genérica | carinhoso, incentivando | Quase lá! Vamos observar quais animais vivem na água? |
+| ✅ | `f1k.hint.visual.mp3` | Dica com gotinhas (após 2 tentativas) | carinhoso, incentivando | Olha só! Coloquei gotinhas de água nos animais que nadam. Eles adoram a água! |
+| ✅ | `f1k.success.mp3` | Acertou tudo | comemorando, bem animado | O peixe, o golfinho e o polvo vivem na água. Por isso, eles fazem parte do conjunto! |
+| ✅ | `f1k.complete.mp3` | Tela final da fase | comemorando, bem animado | Primeira missão concluída! Você criou um conjunto! Um conjunto é um grupo de elementos. Neste, colocamos os animais que vivem na água. |
 
 ## Fase: Quem Pertence Aqui? (5-8 anos)
 
@@ -128,6 +128,75 @@ melhor de outro jeito, grave assim e me avise para eu ajustar o texto na tela.
 | ⬜ | `f5k.hint.pickMore.mp3` | Apertou Pronto sem escolher nada | carinhoso, incentivando | Toque em pelo menos um antes de apertar Pronto! |
 | ⬜ | `f5k.success.mp3` | Acertou tudo | comemorando, bem animado | Você acendeu todas as pedras mágicas, e a floresta ganhou as suas cores de volta. Obrigado, amiguinho! |
 | ⬜ | `f5k.complete.mp3` | Tela final da fase | comemorando, bem animado | Floresta dos Conjuntos restaurada! Você acordou o Guardião! Agora você sabe o que é um conjunto, o que pertence a um grupo, e conhece o E e o OU. Que aventura incrível! |
+
+## Fase: Conhecendo os Grupos (9-12 anos)
+
+| ✓ | Arquivo | Onde aparece | Tom | Fala |
+|---|---|---|---|---|
+| ✅ | `f1a.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Aventureiro! Bem-vindo à Trilha dos Números! Os conjuntos da floresta também são feitos de números que têm algo em comum. Podemos escrever um conjunto listando os elementos, como o A formado por dois, quatro, seis e oito. |
+| ✅ | `f1a.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | E dá para escrever por uma regra, como um mapa do tesouro: o conjunto A é formado pelos números x, tal que x é par e x menor que dez. Cada conjunto que você montar guarda um cristal da floresta. Vamos começar a coleção? |
+| ✅ | `f1a.mission.mp3` | Missão | curioso, explicando com calma | Missão do explorador: toque em todos os números do universo que seguem a regra e monte o conjunto! |
+| ✅ | `f1a.tut.start.mp3` | Aquecimento — começo | curioso, explicando com calma | Achamos um pergaminho misterioso com a escrita dos conjuntos! Toque em cada parte colorida para decifrar o que ela quer dizer. |
+| ✅ | `f1a.tut.name.mp3` | Aquecimento — peça A = | curioso, explicando com calma | A é o nome do conjunto. Lemos assim: "o conjunto A é…". |
+| ✅ | `f1a.tut.braces.mp3` | Aquecimento — peça { } | curioso, explicando com calma | As chaves funcionam como uma caixa: dentro delas ficam os elementos do conjunto. |
+| ✅ | `f1a.tut.element.mp3` | Aquecimento — peça x | curioso, explicando com calma | O x representa cada número que queremos testar, um por um. |
+| ✅ | `f1a.tut.such.mp3` | Aquecimento — peça \| | curioso, explicando com calma | A barrinha se lê "tal que". Depois dela vem a regra que os números precisam seguir. |
+| ✅ | `f1a.tut.rule.mp3` | Aquecimento — peça x é par e x < 10 | curioso, explicando com calma | A regra do nosso conjunto: só entram os números pares que também são menores que 10. O menor que não inclui o 10. |
+| ✅ | `f1a.tut.reading.mp3` | Aquecimento — leitura completa | calmo, convidativo | Lendo tudo junto: o conjunto A é formado pelos números pares menores que 10. |
+| ✅ | `f1a.tut.build.mp3` | Aquecimento — montar o conjunto | alegre, acolhedor | Agora monte esse conjunto! Aqui os erros não contam, é só para treinar. |
+| ✅ | `f1a.tut.done.mp3` | Aquecimento — fim | comemorando, bem animado | Você decifrou o pergaminho! Agora sim: missões valendo estrelas e cristais! |
+| ✅ | `f1a.hint.easy-even.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Os pares terminam em 0, 2, 4, 6 ou 8. |
+| ✅ | `f1a.hint.easy-odd.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Os ímpares terminam em 1, 3, 5, 7 ou 9. |
+| ✅ | `f1a.hint.easy-gt-4.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Maior que 4" não inclui o 4: comece no 5. |
+| ✅ | `f1a.hint.easy-gt-5.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Maior que 5" não inclui o 5: comece no 6. |
+| ✅ | `f1a.hint.easy-gt-6.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Maior que 6" não inclui o 6: comece no 7. |
+| ✅ | `f1a.hint.easy-gt-7.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Maior que 7" não inclui o 7: comece no 8. |
+| ✅ | `f1a.hint.easy-lt-5.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Menor que 5" não inclui o 5: pare no 4. |
+| ✅ | `f1a.hint.easy-lt-6.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Menor que 6" não inclui o 6: pare no 5. |
+| ✅ | `f1a.hint.easy-lt-7.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Menor que 7" não inclui o 7: pare no 6. |
+| ✅ | `f1a.hint.easy-lt-8.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | "Menor que 8" não inclui o 8: pare no 7. |
+| ✅ | `f1a.hint.easy-mult5.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Os múltiplos de 5 terminam em 0 ou 5: 5, 10, 15, 20. |
+| ✅ | `f1a.hint.medium-mult-3.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Some 3 a cada passo: 3, 6, 9… |
+| ✅ | `f1a.hint.medium-mult-4.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Some 4 a cada passo: 4, 8, 12… |
+| ✅ | `f1a.hint.medium-mult-5.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Some 5 a cada passo: 5, 10, 15… |
+| ✅ | `f1a.hint.medium-interval.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | O "<" não inclui o número da ponta; o "≤" inclui. |
+| ✅ | `f1a.hint.medium-div-12.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Um divisor divide 12 sem sobrar resto. Não esqueça o 1 e o próprio 12. |
+| ✅ | `f1a.hint.medium-div-15.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Um divisor divide 15 sem sobrar resto. Não esqueça o 1 e o próprio 15. |
+| ✅ | `f1a.hint.medium-div-16.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Um divisor divide 16 sem sobrar resto. Não esqueça o 1 e o próprio 16. |
+| ✅ | `f1a.hint.medium-div-18.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Um divisor divide 18 sem sobrar resto. Não esqueça o 1 e o próprio 18. |
+| ✅ | `f1a.hint.medium-odd-11.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | São os ímpares de 1 até 9 (o 11 não entra, por causa do "<"). |
+| ✅ | `f1a.hint.medium-odd-13.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | São os ímpares de 1 até 11 (o 13 não entra, por causa do "<"). |
+| ✅ | `f1a.hint.medium-odd-15.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | São os ímpares de 1 até 13 (o 15 não entra, por causa do "<"). |
+| ✅ | `f1a.hint.medium-odd-17.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | São os ímpares de 1 até 15 (o 17 não entra, por causa do "<"). |
+| ✅ | `f1a.hint.medium-odd-19.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | São os ímpares de 1 até 17 (o 19 não entra, por causa do "<"). |
+| ✅ | `f1a.hint.hard-mult-2-and-3.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | O "e" pede as duas coisas ao mesmo tempo: o número precisa estar na tabuada do 2 e também na do 3. |
+| ✅ | `f1a.hint.hard-primes.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Um número primo é maior que 1 e só tem dois divisores: 1 e ele mesmo. O 1 não é primo! |
+| ✅ | `f1a.hint.hard-squares.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Quadrados perfeitos vêm de um número multiplicado por ele mesmo: 1·1, 2·2, 3·3, 4·4, 5·5. |
+| ✅ | `f1a.hint.hard-div-24.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Procure os pares que multiplicados dão 24: 1·24, 2·12, 3·8, 4·6. |
+| ✅ | `f1a.hint.hard-odd-mult5.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | O "e" pede os dois: ser ímpar e estar na tabuada do 5 ao mesmo tempo. |
+| ✅ | `f1a.hint.tween-tutorial-even.mp3` | Dica — exercícios sorteados e aquecimento | carinhoso, incentivando | Os pares terminam em 0, 2, 4, 6 ou 8. Pare antes do 10. |
+| ✅ | `f1a.praise.1.mp3` | Acertou uma questão — elogio 1 | comemorando, bem animado | Isso! Mais um cristal brilhante para a nossa coleção! |
+| ✅ | `f1a.praise.2.mp3` | Acertou uma questão — elogio 2 | comemorando, bem animado | Muito bem! Você é um verdadeiro explorador de conjuntos! |
+| ✅ | `f1a.praise.3.mp3` | Acertou uma questão — elogio 3 | comemorando, bem animado | Que demais! A floresta fica mais colorida com esse conjunto! |
+| ✅ | `f1a.success.mp3` | Acertou tudo | comemorando, bem animado | Você montou conjuntos de números de verdade! O Pipo vai guardar esses cristais na coleção com todo o carinho. |
+| ✅ | `f1a.complete.mp3` | Tela final da fase | comemorando, bem animado | Primeira missão concluída! Um conjunto é um grupo de elementos. Você pode escrevê-lo listando os elementos ou descrevendo a propriedade que todos têm em comum. |
+
+## Fase: Quem Pertence Aqui? (9-12 anos)
+
+| ✓ | Arquivo | Onde aparece | Tom | Fala |
+|---|---|---|---|---|
+| ⬜ | `f2a.intro.1.mp3` | Introdução 1 | alegre, acolhedor | Para dizer que um número faz parte de um conjunto usamos um símbolo especial, o "pertence". Quando o número não faz parte, usamos o mesmo símbolo cortado com uma barrinha: é o "não pertence". |
+| ⬜ | `f2a.intro.2.mp3` | Introdução 2 | curioso, explicando com calma | O conjunto pode vir numa caixinha com os números devidos, ou descrito por uma regra, como "os múltiplos de três". Missão do explorador: olhar cada número e decidir se ele pertence ou não pertence! |
+| ⬜ | `f2a.mission.mp3` | Missão | curioso, explicando com calma | Missão do explorador: olhe cada número e responda — ele pertence ao conjunto ou não pertence? |
+| ⬜ | `f2a.warm.4.mp3` | Aquecimento — o 4 | curioso, explicando com calma | Este símbolo novo quer dizer "pertence". Pense em A como uma caixa com números dentro. O 4 está dentro da caixa? |
+| ⬜ | `f2a.warm.4-done.mp3` | Aquecimento — resposta do 4 | calmo, convidativo | O 4 está dentro das chaves de A: ele pertence a A. Lemos assim: "4 pertence a A". |
+| ⬜ | `f2a.warm.5.mp3` | Aquecimento — o 5 | curioso, explicando com calma | Agora, quando cortamos esse símbolo com uma barrinha, ele vira o "não pertence". E o 5, será que está na caixa? |
+| ⬜ | `f2a.warm.5-done.mp3` | Aquecimento — resposta do 5 | calmo, convidativo | O 5 não aparece dentro das chaves de A: ele não pertence a A. Lemos assim: "5 não pertence a A". |
+| ⬜ | `f2a.praise.1.mp3` | Acertou uma questão — elogio 1 | comemorando, bem animado | Isso! Cada conjunto completo ilumina um cristal da floresta! |
+| ⬜ | `f2a.praise.2.mp3` | Acertou uma questão — elogio 2 | comemorando, bem animado | Muito bem! Pertence ou não pertence, você sabe de cor! |
+| ⬜ | `f2a.praise.3.mp3` | Acertou uma questão — elogio 3 | comemorando, bem animado | Você é demais! O Pipo está orgulhoso de você! |
+| ⬜ | `f2a.success.mp3` | Acertou tudo | comemorando, bem animado | Você decidiu, número por número, quem pertence a cada conjunto. Os cristais da floresta estão brilhando por causa de você! |
+| ⬜ | `f2a.complete.mp3` | Tela final da fase | comemorando, bem animado | Segunda missão concluída! Para cada número há apenas duas respostas possíveis: ele pertence ao conjunto ou não pertence. Afinal de contas, um conjunto é uma caixa: ou o número está dentro dela, ou está fora. |
 
 ## Fase: Luzes da Verdade (5-8 anos)
 

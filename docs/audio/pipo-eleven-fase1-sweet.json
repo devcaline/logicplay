@@ -1,0 +1,297 @@
+{
+  "provider": "ElevenLabs",
+  "voice": "Jessica",
+  "model": "eleven_v3",
+  "installed": true,
+  "lines": [
+    {
+      "id": "f1k.intro.1",
+      "text": "Oi, amiguinho! Alguns animais estão perdidos por aqui. Você pode me ajudar a encontrar o lugar deles?",
+      "synthesis_text": "[sweetly] Oi, amiguinho! Alguns animais estão perdidos por aqui. [curious] Você pode me ajudar a encontrar o lugar deles?",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 121,
+      "bytes": 121251,
+      "character_cost": "121",
+      "request_id": "V1s5uF4JvCFTGVGqB15l"
+    },
+    {
+      "id": "f1k.intro.2",
+      "text": "Um conjunto é um grupo de coisas que têm alguma característica em comum. Vamos descobrir quais animais fazem parte do nosso grupo?",
+      "synthesis_text": "[gently] Um conjunto é um grupo de coisas que têm alguma característica em comum. [curious] Vamos descobrir quais animais fazem parte do nosso grupo?",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 149,
+      "bytes": 154687,
+      "character_cost": "149",
+      "request_id": "ufIooXqvygbpCkrHE1JP"
+    },
+    {
+      "id": "f1k.mission",
+      "text": "Coloque dentro do círculo os animais que vivem na água.",
+      "synthesis_text": "[gently] Coloque dentro do círculo os animais que vivem na água.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.96
+      },
+      "input_characters": 64,
+      "bytes": 61065,
+      "character_cost": "64",
+      "request_id": "CxjxAu1qshTtWBNKgVsm"
+    },
+    {
+      "id": "f1k.item.fish",
+      "text": "Peixe!",
+      "synthesis_text": "[cheerful] Peixe!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 17,
+      "bytes": 39331,
+      "character_cost": "17",
+      "request_id": "QF38imhPMhISQn3ZvkOx"
+    },
+    {
+      "id": "f1k.item.rabbit",
+      "text": "Coelho!",
+      "synthesis_text": "[cheerful] Coelho!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 18,
+      "bytes": 36823,
+      "character_cost": "18",
+      "request_id": "TOrztMXsXglpG6edl3Jh"
+    },
+    {
+      "id": "f1k.item.dolphin",
+      "text": "Golfinho!",
+      "synthesis_text": "[cheerful] Golfinho!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 20,
+      "bytes": 25538,
+      "character_cost": "20",
+      "request_id": "fiT5rZLFM6NurXR7oY5P"
+    },
+    {
+      "id": "f1k.item.chicken",
+      "text": "Galinha!",
+      "synthesis_text": "[cheerful] Galinha!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 19,
+      "bytes": 26792,
+      "character_cost": "19",
+      "request_id": "NqauD7AONXVP5HxH6oTz"
+    },
+    {
+      "id": "f1k.item.octopus",
+      "text": "Polvo!",
+      "synthesis_text": "[cheerful] Polvo!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 17,
+      "bytes": 23030,
+      "character_cost": "17",
+      "request_id": "rp0kOCGQ8jeSkMiGBda3"
+    },
+    {
+      "id": "f1k.item.butterfly",
+      "text": "Borboleta!",
+      "synthesis_text": "[cheerful] Borboleta!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 21,
+      "bytes": 29300,
+      "character_cost": "21",
+      "request_id": "geGAjyoJ44WMfXWNG2Xj"
+    },
+    {
+      "id": "f1k.success",
+      "text": "Muito bem! Você conseguiu! O peixe, o golfinho e o polvo vivem na água. Por isso, eles fazem parte do conjunto!",
+      "synthesis_text": "[happy] Muito bem! Você conseguiu! O peixe, o golfinho e o polvo vivem na água. Por isso, eles fazem parte do conjunto!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 1.0
+      },
+      "input_characters": 119,
+      "bytes": 153434,
+      "character_cost": "119",
+      "request_id": "oLx9zOyYnG36jYam6aTZ"
+    },
+    {
+      "id": "f1k.hint.empty",
+      "text": "Vamos começar? Arraste para dentro do círculo um animal que vive na água.",
+      "synthesis_text": "[encouraging] Vamos começar? Arraste para dentro do círculo um animal que vive na água.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 87,
+      "bytes": 95755,
+      "character_cost": "87",
+      "request_id": "IAQXr6mAln11b8k9DOio"
+    },
+    {
+      "id": "f1k.hint.wrongInside",
+      "text": "Quase lá! Tem um animal no círculo que gosta mais da terra ou do céu. Vamos olhar de novo?",
+      "synthesis_text": "[encouraging] Quase lá! Tem um animal no círculo que gosta mais da terra ou do céu. Vamos olhar de novo?",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 104,
+      "bytes": 111220,
+      "character_cost": "104",
+      "request_id": "jUsww5jwBW7f5bLWwiaA"
+    },
+    {
+      "id": "f1k.hint.missing",
+      "text": "Quase lá! Ainda tem animal da água esperando do lado de fora. Vamos observar?",
+      "synthesis_text": "[encouraging] Quase lá! Ainda tem animal da água esperando do lado de fora. Vamos observar?",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 91,
+      "bytes": 85724,
+      "character_cost": "91",
+      "request_id": "vvOotft0llJCTo1UTTqf"
+    },
+    {
+      "id": "f1k.hint.generic",
+      "text": "Quase lá! Vamos observar quais animais vivem na água?",
+      "synthesis_text": "[encouraging] Quase lá! Vamos observar quais animais vivem na água?",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 67,
+      "bytes": 65244,
+      "character_cost": "67",
+      "request_id": "Z80Yn5l4W6Hxy3spPlYA"
+    },
+    {
+      "id": "f1k.hint.visual",
+      "text": "Olha só! Coloquei gotinhas de água nos animais que nadam. Eles adoram a água!",
+      "synthesis_text": "[encouraging] Olha só! Coloquei gotinhas de água nos animais que nadam. Eles adoram a água!",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 91,
+      "bytes": 95755,
+      "character_cost": "91",
+      "request_id": "bfEs9RYkMSz6SwHNBM9x"
+    },
+    {
+      "id": "f1k.complete",
+      "text": "Primeira missão concluída! Você criou um conjunto! Um conjunto é um grupo de elementos. Neste, colocamos os animais que vivem na água.",
+      "synthesis_text": "[happy] Primeira missão concluída! Você criou um conjunto! [warmly] Um conjunto é um grupo de elementos. Neste, colocamos os animais que vivem na água.",
+      "voice_id": "cgSgspJ2msm6clMCkdW9",
+      "voice_name": "Jessica",
+      "model_id": "eleven_v3",
+      "language_code": "pt",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "speed": 0.98
+      },
+      "input_characters": 151,
+      "bytes": 176421,
+      "character_cost": "151",
+      "request_id": "rdiagcYH27uPtiK0st0x"
+    }
+  ],
+  "character_cost_total": 1156
+}

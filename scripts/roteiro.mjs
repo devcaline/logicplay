@@ -55,7 +55,7 @@ for (const challenge of Object.values(CHALLENGES).filter((item) => !item.quiet))
 
   if (challenge.type === 'set-sorting') {
     challenge.items.forEach((item) =>
-      lines.push({ line: { id: `item.${item.id}`, text: `${item.name}!` }, where: `Ao tocar no animal`, tone: 'name' }),
+      lines.push({ line: { id: item.narrationId ?? `item.${item.id}`, text: `${item.name}!` }, where: `Ao tocar no animal`, tone: 'name' }),
     );
     const hintPlaces = {
       empty: 'Dica — apertou Verificar sem nada no círculo',
@@ -141,6 +141,39 @@ for (const challenge of Object.values(CHALLENGES).filter((item) => !item.quiet))
     lines.push({ line: challenge.feedback.visualHint, where: 'Dica — 2º erro no mesmo elemento', tone: 'encourage' });
   }
 
+  // Fases de montar conjuntos com aquecimento narrado (9–12): as peças da notação.
+  if (challenge.type === 'set-builder' && challenge.tutorial) {
+    const tutorial = challenge.tutorial;
+    lines.push({ line: tutorial.start, where: 'Aquecimento — começo', tone: 'curious' });
+    tutorial.parts.forEach((part) =>
+      lines.push({ line: { id: part.lineId ?? part.id, text: part.text }, where: `Aquecimento — peça ${part.label}`, tone: 'curious' }),
+    );
+    lines.push({ line: tutorial.reading, where: 'Aquecimento — leitura completa', tone: 'calm' });
+    lines.push({ line: tutorial.build, where: 'Aquecimento — montar o conjunto', tone: 'happy' });
+    lines.push({ line: tutorial.done, where: 'Aquecimento — fim', tone: 'cheer' });
+  }
+
+  // Fases de pertinência com aquecimento narrado (9–12): as falas do aquecimento vêm do gerador.
+  if (challenge.type === 'set-membership' && challenge.warmupGenerator) {
+    challenge.warmupGenerator('easy').items.forEach((item) => {
+      lines.push({ line: { id: item.id, text: item.talk }, where: `Aquecimento — o ${item.left}`, tone: 'curious' });
+      lines.push({ line: { id: `${item.id}-done`, text: item.reason }, where: `Aquecimento — resposta do ${item.left}`, tone: 'calm' });
+    });
+  }
+
+  // Elogios do Pipo nas fases lúdicas (9–12): sorteados a cada acerto.
+  if (challenge.roundsCatalog) {
+    const hints = new Map(challenge.roundsCatalog().filter((round) => round.hint)
+      .map((round) => [round.hintId ?? `hint.${round.id}`, round.hint]));
+    for (const [id, text] of hints) {
+      lines.push({ line: { id, text }, where: 'Dica — exercícios sorteados e aquecimento', tone: 'encourage' });
+    }
+  }
+
+  (challenge.feedback.praise ?? []).forEach((line, index) =>
+    lines.push({ line, where: `Acertou uma questão — elogio ${index + 1}`, tone: 'cheer' }),
+  );
+
   lines.push({ line: challenge.feedback.success, where: 'Acertou tudo', tone: 'cheer' });
   lines.push({
     line: { id: challenge.complete.id, text: `${challenge.complete.title} ${challenge.complete.text}` },
@@ -177,7 +210,7 @@ for (const section of sections) {
   md += `## ${section.title}\n\n| ✓ | Arquivo | Onde aparece | Tom | Fala |\n|---|---|---|---|---|\n`;
   for (const { line, where, tone } of section.lines) {
     const mark = recorded.has(line.id) ? '✅' : '⬜';
-    md += `| ${mark} | \`${line.id}.mp3\` | ${where} | ${TONE[tone] ?? tone} | ${line.text.replace(/\|/g, '\\|')} |\n`;
+    md += `| ${mark} | \`${line.id}.mp3\` | ${where.replace(/\|/g, '\\|')} | ${TONE[tone] ?? tone} | ${line.text.replace(/\|/g, '\\|')} |\n`;
   }
   md += '\n';
 }
