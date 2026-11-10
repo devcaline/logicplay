@@ -1199,6 +1199,58 @@ export const CHALLENGES = {
       text: 'Para contar A ∪ B, some n(A) e n(B) e tire n(A ∩ B), que foi contado duas vezes.',
     },
   },
+  'forest-5-teen': {
+    id: 'forest-5-teen',
+    type: 'teen-guardian',
+    levelId: 'forest-5',
+    ageGroup: '13+',
+    scene: 'guardian',
+    quiet: true,
+
+    intro: [
+      {
+        id: 't.f5.intro',
+        mood: 'curious',
+        illustration: 'guardian',
+        example: { lit: 0 },
+        text: 'O Guardião da Floresta está adormecido. Cada desafio revisa uma parte do que você aprendeu: notação, pertinência, interseção e união. Cada acerto acende uma pedra mágica, e com as cinco acesas ele acorda.',
+      },
+    ],
+
+    mission: { id: 't.f5.mission', text: 'Acerte os cinco desafios para acender as pedras e acordar o Guardião.' },
+
+    tutorial: {
+      start: { id: 't.f5.tut.start', text: 'Antes de acordar o Guardião, vamos relembrar os símbolos. Este aqui ainda não acende pedra nenhuma.' },
+      done: { id: 't.f5.tut.done', text: 'Isso! Você está pronto. Agora cada acerto acende uma pedra mágica.' },
+    },
+
+    symbols: [
+      ['∈ / ∉', 'pertence / não pertence'],
+      ['⊂', 'está contido em'],
+      ['∩', 'interseção: em A e em B'],
+      ['∪', 'união: em A ou em B'],
+      ['n(A)', 'quantidade de elementos de A'],
+      ['∅', 'conjunto vazio: sem elementos'],
+      ['ℕ / ℕ*', 'naturais / naturais sem o zero'],
+      ['ℤ', 'inteiros: …, −2, −1, 0, 1, 2…'],
+      ['|', 'tal que'],
+      ['( )', 'resolva primeiro o que está entre parênteses'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.f5.success',
+        title: 'O Guardião acordou!',
+        text: 'Você revisou toda a Floresta dos Conjuntos.',
+      },
+    },
+
+    complete: {
+      id: 't.f5.complete',
+      title: 'Floresta dos Conjuntos: concluída!',
+      text: 'Notação, pertinência, interseção e união: agora você fala a língua dos conjuntos.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

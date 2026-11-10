@@ -51,7 +51,7 @@ export const WORLDS = [
         name: 'O Guardião da Floresta',
         description: 'O grande desafio final da floresta.',
         pos: { x: 44, y: 83 },
-        content: { '5-8': 'forest-5-kids' },
+        content: { '5-8': 'forest-5-kids', '13+': 'forest-5-teen' },
         boss: true,
       },
     ],

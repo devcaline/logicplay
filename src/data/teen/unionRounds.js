@@ -105,7 +105,7 @@ const CONTEXTS = [
   { group: 'Num grupo de amigos', a: 'leem mangá', b: 'jogam videogame', both: 'fazem as duas coisas', who: 'amigos', A: 'M', B: 'J' },
 ];
 
-function problemRound(index, mode) {
+export function problemRound(index, mode) {
   const ctx = pick(CONTEXTS);
   const both = pick([3, 4, 5, 6, 7]);
   const a = both + pick([5, 6, 8, 9, 11]);
