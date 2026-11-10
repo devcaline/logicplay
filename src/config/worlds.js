@@ -35,7 +35,7 @@ export const WORLDS = [
         name: 'A Ponte do E',
         description: 'Encontre o que dois grupos têm em comum.',
         pos: { x: 30, y: 50 },
-        content: { '5-8': 'forest-3-kids' },
+        content: { '5-8': 'forest-3-kids', '13+': 'forest-3-teen' },
       },
       {
         id: 'forest-4',
@@ -43,7 +43,7 @@ export const WORLDS = [
         name: 'O Portal do OU',
         description: 'Junte grupos para abrir o portal mágico.',
         pos: { x: 72, y: 68 },
-        content: { '5-8': 'forest-4-kids' },
+        content: { '5-8': 'forest-4-kids', '13+': 'forest-4-teen' },
       },
       {
         id: 'forest-5',

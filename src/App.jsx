@@ -17,6 +17,8 @@ import NotMirrorGame from './screens/game/NotMirrorGame.jsx';
 import MasterTableGame from './screens/game/MasterTableGame.jsx';
 import SetBuilderGame from './screens/game/teen/SetBuilderGame.jsx';
 import SetMembershipGame from './screens/game/teen/SetMembershipGame.jsx';
+import IntersectionGame from './screens/game/teen/IntersectionGame.jsx';
+import UnionGame from './screens/game/teen/UnionGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -38,6 +40,8 @@ const GAME_COMPONENTS = {
   'master-table': MasterTableGame,
   'set-builder': SetBuilderGame,
   'set-membership': SetMembershipGame,
+  'set-intersection': IntersectionGame,
+  'set-union': UnionGame,
 };
 
 function Router() {

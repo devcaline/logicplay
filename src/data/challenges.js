@@ -1098,6 +1098,107 @@ export const CHALLENGES = {
       text: 'Para qualquer elemento só existem duas respostas: ele pertence (∈) ou não pertence (∉) ao conjunto.',
     },
   },
+  'forest-3-teen': {
+    id: 'forest-3-teen',
+    type: 'set-intersection',
+    levelId: 'forest-3',
+    ageGroup: '13+',
+    scene: 'study',
+    quiet: true,
+    rounds: 3,
+
+    intro: [
+      {
+        id: 't.f3.intro',
+        mood: 'curious',
+        illustration: 'intersection-notation',
+        text: 'A interseção A ∩ B é o conjunto dos elementos que estão em A e em B ao mesmo tempo. No diagrama de Venn, ela é a parte do meio, onde os dois círculos se encontram.',
+      },
+    ],
+
+    mission: { id: 't.f3.mission', text: 'Coloque cada número na região certa do diagrama e descubra A ∩ B.' },
+
+    tutorial: {
+      start: { id: 't.f3.tut.start', text: 'O ∩ se lê “interseção” e quer dizer “em A e em B”. Toque na região de cada número: o meio é para quem está nas duas listas, e o lado de fora para quem não está em nenhuma.' },
+      done: { id: 't.f3.tut.done', text: 'Isso! A ∩ B = {3, 4}: só os números que estão nos dois conjuntos. Agora vamos às questões valendo estrelas!' },
+    },
+
+    symbols: [
+      ['∩', 'interseção: em A e em B'],
+      ['U', 'universo: todos os números da questão'],
+      ['∈', 'pertence a'],
+      ['|', 'tal que'],
+      ['n(A ∩ B)', 'quantidade de elementos da interseção'],
+      ['< / ≤', 'menor que / menor ou igual a'],
+      ['> / ≥', 'maior que / maior ou igual a'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.f3.success',
+        title: 'Fase concluída!',
+        text: 'Você encontrou os elementos que dois conjuntos têm em comum.',
+      },
+    },
+
+    complete: {
+      id: 't.f3.complete',
+      title: 'Interseção: concluída!',
+      text: 'A ∩ B guarda só o que está nos dois conjuntos: é o “e” da matemática.',
+    },
+  },
+  'forest-4-teen': {
+    id: 'forest-4-teen',
+    type: 'set-union',
+    levelId: 'forest-4',
+    ageGroup: '13+',
+    scene: 'study',
+    quiet: true,
+    rounds: 3,
+
+    intro: [
+      {
+        id: 't.f4.intro',
+        mood: 'curious',
+        illustration: 'union-notation',
+        text: 'A união A ∪ B junta todos os elementos que estão em A ou em B. Quem está nos dois aparece uma vez só, por isso n(A ∪ B) = n(A) + n(B) − n(A ∩ B).',
+      },
+    ],
+
+    mission: { id: 't.f4.mission', text: 'Junte os conjuntos sem repetir elementos e conte quantos ficaram.' },
+
+    tutorial: {
+      start: { id: 't.f4.tut.start', text: 'O ∪ se lê “união”: junta tudo o que está em A ou em B. Toque em todas as fichas, de A e de B, para levar os números para a caixa A ∪ B.' },
+      dup: { id: 't.f4.tut.dup', text: 'Viu? O 3 já estava na caixa, então ele não entra de novo. Na união, cada elemento aparece uma vez só.' },
+      count: { id: 't.f4.tut.count', text: 'Agora conte: quantos elementos tem A ∪ B?' },
+      done: { id: 't.f4.tut.done', text: 'Isso! A tem 3 e B tem 2, mas A ∪ B tem 4, porque o 3 não conta duas vezes. Agora vamos às questões valendo estrelas!' },
+    },
+
+    symbols: [
+      ['∪', 'união: em A ou em B (ou nos dois)'],
+      ['∩', 'interseção: em A e em B'],
+      ['n(A)', 'quantidade de elementos de A'],
+      ['n(A ∪ B)', 'n(A) + n(B) − n(A ∩ B)'],
+      ['∈', 'pertence a'],
+      ['ℕ*', 'naturais sem o zero: 1, 2, 3…'],
+      ['|', 'tal que'],
+      ['< / ≤', 'menor que / menor ou igual a'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.f4.success',
+        title: 'Fase concluída!',
+        text: 'Você juntou conjuntos sem repetir elementos e contou a união do jeito certo.',
+      },
+    },
+
+    complete: {
+      id: 't.f4.complete',
+      title: 'União: concluída!',
+      text: 'Para contar A ∪ B, some n(A) e n(B) e tire n(A ∩ B), que foi contado duas vezes.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

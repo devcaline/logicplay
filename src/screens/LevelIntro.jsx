@@ -66,6 +66,28 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'union-notation') {
+    return (
+      <div className="intro-notation" aria-hidden="true">
+        <span className="intro-notation__math">A = {'{'}1, 2, 3{'}'}</span>
+        <span className="intro-notation__math">B = {'{'}3, 4{'}'}</span>
+        <span className="intro-notation__equals">↓</span>
+        <span className="intro-notation__math">A ∪ B = {'{'}1, 2, 3, 4{'}'}</span>
+        <span className="intro-notation__count">n(A ∪ B) = 3 + 2 − 1 = 4</span>
+      </div>
+    );
+  }
+  if (kind === 'intersection-notation') {
+    return (
+      <div className="intro-notation" aria-hidden="true">
+        <span className="intro-notation__math">A = {'{'}1, 2, 3, 4{'}'}</span>
+        <span className="intro-notation__math">B = {'{'}3, 4, 5, 6{'}'}</span>
+        <span className="intro-notation__equals">↓</span>
+        <span className="intro-notation__math">A ∩ B = {'{'}3, 4{'}'}</span>
+        <span className="intro-notation__tag">em A e em B</span>
+      </div>
+    );
+  }
   if (kind === 'membership-notation') {
     return (
       <div className="intro-notation" aria-hidden="true">
