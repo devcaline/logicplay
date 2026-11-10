@@ -118,3 +118,16 @@
 .tween-notes__why { font: 600 0.85rem/1.3 var(--font-body); color: var(--ink-soft); }
 .intro-balls-membership .intro-notation__row { gap: 6px; }
 .intro-balls-membership .num-ball.intro-ball { width: 52px; height: 52px; flex: none; font-size: 1.3rem; }
+
+/* Fase 3: diagrama de Venn com bolinhas */
+.venn .token--ball.token--compact { --token-w: clamp(40px, 10.5vw, 54px); width: var(--token-w); height: var(--token-w); padding: 0; }
+.venn .token--ball .num-ball { font-size: clamp(1rem, 3.6vw, 1.3rem); }
+.ball-badges { position: absolute; top: -6px; right: -8px; display: flex; gap: 2px; pointer-events: none; }
+.ball-badge { display: grid; place-items: center; min-width: 18px; height: 18px; padding: 0 3px; border-radius: 9px; border: 2px solid #fff; font: 700 0.68rem/1 var(--font-display); color: #fff; }
+.tween-reveal__math.is-key { padding: 2px 12px; border-radius: 10px; background: #FFF3C4; }
+.tween-reveal__note { margin: 4px 0 0; font: 700 0.85rem/1.3 var(--font-body); color: var(--ink-soft); }
+.intro-venn-ball { width: 30px; height: 30px; font-size: 0.9rem; }
+.intro-illus--venn .venn { width: min(300px, 76vw); }
+.venn-screen .tray .token--ball { --token-w: clamp(54px, 14vw, 66px); }
+.venn-screen .tween-reveal { margin-top: 12px; }
+.venn-screen.tween-screen .tray { margin-top: 16px; }

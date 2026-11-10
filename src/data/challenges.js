@@ -1337,6 +1337,51 @@ export const CHALLENGES = {
       text: 'Para cada elemento só existem duas respostas: ele pertence ou não pertence ao grupo. E a cor da bolinha só importa quando a regra fala dela!',
     },
   },
+  'forest-3-tween': {
+    id: 'forest-3-tween',
+    type: 'tween-venn',
+    levelId: 'forest-3',
+    ageGroup: '9-12',
+    scene: 'forest',
+
+    intro: [
+      {
+        id: 't9.f3.intro.1',
+        mood: 'curious',
+        illustration: 'venn-balls',
+        text: 'Às vezes um elemento pertence a dois grupos ao mesmo tempo! Quando isso acontece, ele fica no meio, na ponte entre os dois grupos.',
+      },
+      {
+        id: 't9.f3.intro.2',
+        mood: 'happy',
+        illustration: 'venn-balls',
+        text: 'Lembra da missão das bolinhas que eram de uma cor e também ímpares? Hoje essa parte do meio vai ganhar um nome e um símbolo só dela!',
+      },
+    ],
+
+    mission: { id: 't9.f3.mission', text: 'Coloque cada bolinha no lugar certo do diagrama.' },
+
+    feedback: {
+      success: {
+        id: 't9.f3.success',
+        title: 'Você atravessou a Ponte do E!',
+        text: 'Você encontrou as bolinhas que estão nos dois grupos ao mesmo tempo. Essa parte do meio se chama interseção.',
+      },
+      empty: { id: 't9.f3.hint.empty', text: 'Vamos começar? Arraste cada bolinha para o grupo dela.' },
+      missingBoth: { id: 't9.f3.hint.missingBoth', text: 'Quase! Tem bolinha que pertence aos dois grupos e deveria estar no meio.' },
+      wrongBoth: { id: 't9.f3.hint.wrongBoth', text: 'Quase! No meio só fica quem pertence aos dois grupos ao mesmo tempo.' },
+      generic: { id: 't9.f3.hint.generic', text: 'Quase! Tem bolinha no lugar errado.' },
+      visualHint: { id: 't9.f3.hint.visual', text: 'Coloquei etiquetas nas bolinhas: cada letra mostra um grupo a que ela pertence. Duas letras? Vai para o meio!' },
+    },
+
+    visualHintAfter: 2,
+
+    complete: {
+      id: 't9.f3.complete',
+      title: 'Interseção: concluída!',
+      text: 'A interseção é a parte do meio: os elementos que estão nos dois grupos ao mesmo tempo. O símbolo dela parece um U de cabeça para baixo.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

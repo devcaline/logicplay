@@ -6,6 +6,7 @@ import GameButton from '../components/ui/GameButton.jsx';
 import { getLevelScene } from '../components/scenery/scenes.js';
 import ItemArt from '../components/art/ItemArt.jsx';
 import VennDiagram from '../components/ui/VennDiagram.jsx';
+import { VENN_PALETTE } from '../data/tween/vennBalls.js';
 import Portal from '../components/ui/Portal.jsx';
 import Guardian from '../components/mascot/Guardian.jsx';
 import TruthLamp from '../components/ui/TruthLamp.jsx';
@@ -28,6 +29,16 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
             <ItemArt id={item.id} size={64} />
           </span>
         ))}
+      </div>
+    );
+  }
+  if (kind === 'venn-balls') {
+    const sets = { a: { label: 'Vermelhas', color: VENN_PALETTE.red }, b: { label: 'Ímpares', color: VENN_PALETTE.ruleA }, both: { label: 'Vermelhas e ímpares', color: VENN_PALETTE.both } };
+    const ball = (n, color) => <span key={n} className={`num-ball num-ball--${color} intro-venn-ball`}>{n}</span>;
+    return (
+      <div className="intro-illus intro-illus--venn intro-illus--balls" aria-hidden="true">
+        <VennDiagram small sets={sets} regions={{ a: [ball(4, 'red')], both: [ball(3, 'red'), ball(7, 'red')], b: [ball(9, 'blue')] }} className="tween-venn" />
+        <span className="intro-notation__math intro-ball-caption">V ∩ I = {'{'}3, 7{'}'}</span>
       </div>
     );
   }
