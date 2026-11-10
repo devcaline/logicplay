@@ -1,0 +1,79 @@
+/* 9 a 12 anos: a mecânica lúdica do 5–8 com números coloridos */
+
+/* Bolinha numerada */
+.token--ball {
+  --token-w: clamp(58px, 15vw, 72px);
+  width: var(--token-w);
+  height: var(--token-w);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+}
+.token--ball.is-selected { box-shadow: 0 0 0 4px #FFD43B; }
+.token--ball.has-hint { box-shadow: 0 0 0 4px #FFD43B, 0 0 18px 4px rgba(255, 212, 59, 0.8); animation: ball-hint 1.2s ease-in-out infinite; }
+.set-zone .token--ball { --token-w: clamp(50px, 13vw, 64px); padding: 0; }
+.num-ball {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: #fff;
+  font: 700 clamp(1.25rem, 4.6vw, 1.6rem)/1 var(--font-display);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.16), inset 0 5px 8px rgba(255, 255, 255, 0.45), 0 4px 10px rgba(43, 35, 80, 0.18);
+  pointer-events: none;
+}
+.num-ball--red { background: radial-gradient(circle at 35% 30%, #FF8F86, #EF4B42 60%, #D23A32); }
+.num-ball--blue { background: radial-gradient(circle at 35% 30%, #8CC8FF, #3B95E8 60%, #2A78C4); }
+.num-ball--yellow { background: radial-gradient(circle at 35% 30%, #FFE680, #F5B700 60%, #D99A00); color: #5A3D00; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.token--ball .token__hint { top: -4px; right: -4px; }
+
+/* O círculo do conjunto, num tom neutro (as cores são das bolinhas) */
+.tween-zone {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 60%),
+    radial-gradient(circle at 50% 60%, #EEE9FF 0%, #DCD3FF 70%, #C9BDFB 100%);
+  box-shadow: 0 0 0 6px rgba(139, 124, 246, 0.35), 0 16px 40px rgba(84, 67, 196, 0.22), inset 0 -16px 30px rgba(84, 67, 196, 0.14);
+}
+.tween-zone .set-zone__label { background: var(--lilac-500); box-shadow: 0 4px 0 var(--lilac-700); }
+.tween-zone .set-zone__empty { color: var(--lilac-700); text-shadow: none; opacity: 0.7; }
+.tween-zone.is-solved { box-shadow: 0 0 0 10px rgba(95, 217, 155, 0.75), 0 16px 40px rgba(84, 67, 196, 0.22); }
+
+/* Missões da fase */
+.tween-steps { display: flex; justify-content: center; gap: 10px; }
+.tween-step {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 3px solid #fff;
+  color: var(--ink-soft);
+  font: 700 0.95rem/1 var(--font-display);
+}
+.tween-step.is-current { background: var(--yellow-100); border-color: #FFD43B; color: #7A5300; }
+.tween-step.is-done { background: var(--green-500); border-color: var(--green-700); color: #fff; }
+
+/* Como os matemáticos escrevem */
+.tween-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: var(--radius-xl);
+  background: #fff;
+  border: 3px solid #E4DEFF;
+  box-shadow: 0 6px 0 rgba(84, 67, 196, 0.12);
+  animation: tween-pop 0.35s ease;
+  scroll-margin-bottom: 110px;
+}
+.tween-reveal__label { margin: 0 0 4px; font: 700 0.8rem/1 var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--lilac-700); }
+.tween-reveal__math { margin: 0; font: 600 clamp(1.2rem, 4.4vw, 1.6rem)/1.35 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: var(--ink); text-align: center; white-space: pre-wrap; }
+
+@keyframes ball-hint { 50% { transform: translateY(-3px); } }
+@keyframes tween-pop { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }

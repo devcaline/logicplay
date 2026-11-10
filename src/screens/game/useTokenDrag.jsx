@@ -84,15 +84,15 @@ export function useTokenDrag({ disabled, zoneAt, onDrop, onTap, onDragStart }) {
 }
 
 /** Cópia do elemento que acompanha o dedo/mouse durante o arraste. */
-export function DragGhost({ drag, item, showHint, highlight, compact = false, children }) {
+export function DragGhost({ drag, item, showHint, highlight, compact = false, renderFace, children }) {
   if (!drag || !item) return null;
   return createPortal(
     <div
-      className={`token token--ghost ${compact ? 'token--compact' : ''} ${highlight ? 'is-over' : ''}`}
+      className={`token token--ghost ${compact ? 'token--compact' : ''} ${renderFace ? 'token--ball' : ''} ${highlight ? 'is-over' : ''}`}
       style={{ width: drag.width, height: drag.height, transform: `translate(${drag.x}px, ${drag.y}px)` }}
       aria-hidden="true"
     >
-      <AnimalTokenFace item={item} showHint={showHint} />
+      {renderFace ? renderFace(item) : <AnimalTokenFace item={item} showHint={showHint} />}
       {children}
     </div>,
     document.body,

@@ -24,6 +24,7 @@ export default function AdventureMap({ onHome, onChangeAge, onPlayLevel }) {
   const ageGroup = getAgeGroup(profile?.ageGroup);
   const difficulty = getDifficulty(profile?.difficulty);
   const isKids = profile?.ageGroup === '5-8';
+  const isTeen = profile?.ageGroup === '13+';
 
   const statuses = useMemo(
     () => Object.fromEntries(LEVEL_SEQUENCE.map((level) => [level.id, getLevelStatus(level.id, profile, profileProgress)])),
@@ -38,7 +39,7 @@ export default function AdventureMap({ onHome, onChangeAge, onPlayLevel }) {
   const hasContent = LEVEL_SEQUENCE.some((item) => item.content?.[profile?.ageGroup]);
   const guide = !hasContent
     ? NARRATION.mapInDevelopment
-    : !isKids
+    : isTeen
       ? hasPlayable ? NARRATION.mapTeen : NARRATION.mapTeenDone
       : hasPlayable ? NARRATION.mapKids : NARRATION.mapKidsDone;
 

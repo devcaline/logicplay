@@ -20,6 +20,7 @@ import SetMembershipGame from './screens/game/teen/SetMembershipGame.jsx';
 import IntersectionGame from './screens/game/teen/IntersectionGame.jsx';
 import UnionGame from './screens/game/teen/UnionGame.jsx';
 import TeenGuardianGame from './screens/game/teen/TeenGuardianGame.jsx';
+import ColorSortingGame from './screens/game/tween/ColorSortingGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -44,6 +45,7 @@ const GAME_COMPONENTS = {
   'set-intersection': IntersectionGame,
   'set-union': UnionGame,
   'teen-guardian': TeenGuardianGame,
+  'color-sorting': ColorSortingGame,
 };
 
 function Router() {

@@ -31,6 +31,35 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'color-balls' || kind === 'color-balls-set') {
+    const balls = [[3, 'red'], [8, 'blue'], [12, 'red'], [5, 'yellow'], [7, 'red'], [10, 'blue']];
+    if (kind === 'color-balls') {
+      return (
+        <div className="intro-illus intro-illus--scatter" aria-hidden="true">
+          {balls.map(([n, color], index) => (
+            <span key={n} className="intro-illus__item intro-ball" style={{ animationDelay: `${index * -0.6}s` }}>
+              <span className={`num-ball num-ball--${color}`}>{n}</span>
+            </span>
+          ))}
+        </div>
+      );
+    }
+    return (
+      <div className="intro-illus intro-illus--set intro-illus--balls" aria-hidden="true">
+        <div className="intro-illus__circle intro-illus__circle--balls">
+          <span className="intro-illus__label">Vermelhas</span>
+          {balls
+            .filter(([, color]) => color === 'red')
+            .map(([n], index) => (
+              <span key={n} className="intro-illus__item intro-ball" style={{ animationDelay: `${index * 0.25}s` }}>
+                <span className="num-ball num-ball--red">{n}</span>
+              </span>
+            ))}
+        </div>
+        <span className="intro-notation__math intro-ball-caption">V = {'{'}3, 7, 12{'}'}</span>
+      </div>
+    );
+  }
   if (kind === 'set-example') {
     return (
       <div className="intro-illus intro-illus--set" aria-hidden="true">

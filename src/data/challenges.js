@@ -1251,6 +1251,51 @@ export const CHALLENGES = {
       text: 'Notação, pertinência, interseção e união: agora você fala a língua dos conjuntos.',
     },
   },
+  'forest-1-tween': {
+    id: 'forest-1-tween',
+    type: 'color-sorting',
+    levelId: 'forest-1',
+    ageGroup: '9-12',
+    scene: 'forest',
+
+    intro: [
+      {
+        id: 't9.f1.intro.1',
+        mood: 'happy',
+        illustration: 'color-balls',
+        text: 'Olá, aventureiro! Bolinhas coloridas com números se espalharam pela floresta. Vamos organizar tudo em grupos?',
+      },
+      {
+        id: 't9.f1.intro.2',
+        mood: 'curious',
+        illustration: 'color-balls-set',
+        text: 'Um conjunto é um grupo de elementos que têm algo em comum. Pode ser a cor da bolinha, ou alguma coisa do próprio número!',
+      },
+    ],
+
+    mission: { id: 't9.f1.mission', text: 'Complete as três missões para formar os grupos.' },
+
+    feedback: {
+      success: {
+        id: 't9.f1.success',
+        title: 'Missões completas!',
+        text: 'Você formou grupos pela cor, por uma regra dos números e pelas duas coisas juntas. E ainda aprendeu a escrever um conjunto com chaves!',
+      },
+      empty: { id: 't9.f1.hint.empty', text: 'Vamos começar? Arraste para o círculo uma bolinha que combina com a missão.' },
+      wrongInside: { id: 't9.f1.hint.wrongInside', text: 'Quase! Tem bolinha no círculo que não combina com a missão.' },
+      missing: { id: 't9.f1.hint.missing', text: 'Quase! Ainda tem bolinha certa esperando do lado de fora.' },
+      generic: { id: 't9.f1.hint.generic', text: 'Quase lá! Vamos olhar de novo?' },
+      visualHint: { id: 't9.f1.hint.visual', text: 'Olha só: as bolinhas que brilham são as que entram no círculo.' },
+    },
+
+    visualHintAfter: 2,
+
+    complete: {
+      id: 't9.f1.complete',
+      title: 'Primeira fase concluída!',
+      text: 'Um conjunto se escreve com uma letra e os elementos entre chaves. E agora você conhece o símbolo de “pertence” e o de “não pertence”.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {
