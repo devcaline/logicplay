@@ -32,6 +32,16 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'union-balls') {
+    const sets = { a: { label: 'Vermelhas', color: VENN_PALETTE.red }, b: { label: 'Ímpares', color: VENN_PALETTE.ruleA }, both: { label: 'Os dois', color: VENN_PALETTE.both } };
+    const ball = (n, color) => <span key={n} className={`num-ball num-ball--${color} intro-venn-ball`}>{n}</span>;
+    return (
+      <div className="intro-illus intro-illus--venn intro-illus--balls" aria-hidden="true">
+        <VennDiagram small sets={sets} regions={{ a: [ball(4, 'red')], both: [ball(3, 'red')], b: [ball(9, 'blue'), ball(5, 'yellow')] }} className="tween-venn" />
+        <span className="intro-notation__math intro-ball-caption">V ∪ I = {'{'}3, 4, 5, 9{'}'}</span>
+      </div>
+    );
+  }
   if (kind === 'venn-balls') {
     const sets = { a: { label: 'Vermelhas', color: VENN_PALETTE.red }, b: { label: 'Ímpares', color: VENN_PALETTE.ruleA }, both: { label: 'Vermelhas e ímpares', color: VENN_PALETTE.both } };
     const ball = (n, color) => <span key={n} className={`num-ball num-ball--${color} intro-venn-ball`}>{n}</span>;

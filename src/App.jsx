@@ -23,6 +23,7 @@ import TeenGuardianGame from './screens/game/teen/TeenGuardianGame.jsx';
 import ColorSortingGame from './screens/game/tween/ColorSortingGame.jsx';
 import TweenMembershipGame from './screens/game/tween/TweenMembershipGame.jsx';
 import TweenVennGame from './screens/game/tween/TweenVennGame.jsx';
+import TweenUnionGame from './screens/game/tween/TweenUnionGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -50,6 +51,7 @@ const GAME_COMPONENTS = {
   'color-sorting': ColorSortingGame,
   'tween-membership': TweenMembershipGame,
   'tween-venn': TweenVennGame,
+  'tween-union': TweenUnionGame,
 };
 
 function Router() {

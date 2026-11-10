@@ -43,7 +43,7 @@ export const WORLDS = [
         name: 'O Portal do OU',
         description: 'Junte grupos para abrir o portal mágico.',
         pos: { x: 72, y: 68 },
-        content: { '5-8': 'forest-4-kids', '13+': 'forest-4-teen' },
+        content: { '5-8': 'forest-4-kids', '9-12': 'forest-4-tween', '13+': 'forest-4-teen' },
       },
       {
         id: 'forest-5',

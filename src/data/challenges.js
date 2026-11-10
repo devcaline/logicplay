@@ -1382,6 +1382,48 @@ export const CHALLENGES = {
       text: 'A interseção é a parte do meio: os elementos que estão nos dois grupos ao mesmo tempo. O símbolo dela parece um U de cabeça para baixo.',
     },
   },
+  'forest-4-tween': {
+    id: 'forest-4-tween',
+    type: 'tween-union',
+    levelId: 'forest-4',
+    ageGroup: '9-12',
+    scene: 'forest',
+
+    intro: [
+      {
+        id: 't9.f4.intro.1',
+        mood: 'curious',
+        illustration: 'union-balls',
+        text: 'Este portal é diferente: ele deixa passar quem está em um grupo OU no outro. Basta uma das duas coisas, e quem está nos dois também passa!',
+      },
+      {
+        id: 't9.f4.intro.2',
+        mood: 'happy',
+        illustration: 'union-balls',
+        text: 'As bolinhas vão subir dentro de bolhas. Estoure só as que o portal deixa passar!',
+      },
+    ],
+
+    mission: { id: 't9.f4.mission', text: 'Estoure as bolhas das bolinhas que podem passar pelo portal.' },
+
+    feedback: {
+      success: {
+        id: 't9.f4.success',
+        title: 'O portal se abriu!',
+        text: 'Você juntou dois grupos em um só. Isso se chama união: está em um grupo, ou no outro, ou nos dois.',
+      },
+      visualHint: { id: 't9.f4.hint.visual', text: 'Olha só: as bolhas que brilham são as que o portal deixa passar!' },
+      idle: { id: 't9.f4.hint.idle', text: 'Escolha uma bolha! Pergunte: essa bolinha está em algum dos dois grupos?' },
+    },
+
+    visualHintAfter: 2,
+
+    complete: {
+      id: 't9.f4.complete',
+      title: 'União: concluída!',
+      text: 'A união junta tudo o que está em pelo menos um dos grupos. O símbolo dela parece um U, de união!',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

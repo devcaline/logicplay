@@ -22,7 +22,7 @@ const SIZES = {
   hard: { count: 9, max: 30 },
 };
 
-const RULES = {
+export const RULES = {
   odd: { letter: 'I', name: 'ímpares', test: (n) => n % 2 === 1, tip: 'ímpar' },
   even: { letter: 'P', name: 'pares', test: (n) => n % 2 === 0, tip: 'par' },
   mult3: { letter: 'T', name: 'múltiplos de 3', test: (n) => n % 3 === 0, tip: 'múltiplo de 3' },

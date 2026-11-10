@@ -285,10 +285,10 @@ export default function UnionGame({ challenge, level, onExit, onComplete }) {
               </div>
             </section>
 
-            <section className="union-board" aria-label="Fichas de A e de B">
+            <section className="union-chips-board" aria-label="Fichas de A e de B">
               {chipRow(round.a, 'A')}
               {chipRow(round.b, 'B')}
-              <p className="union-board__tip">
+              <p className="union-chips-board__tip">
                 {stage === 'build' ? 'Toque nas fichas para colocar os números em A ∪ B. Toque em um número da caixa para tirá-lo.' : 'A ∪ B está completo.'}
               </p>
             </section>

@@ -275,7 +275,7 @@
 .inter-next { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; font: 700 1rem/1 var(--font-display); color: var(--ink); }
 .inter-next__chip { display: grid; place-items: center; min-width: 44px; height: 44px; padding: 0 8px; border-radius: 50%; background: var(--lilac-500); color: #fff; font: 700 1.2rem/1 var(--font-display); animation: decoder-call 2.4s ease-in-out infinite; }
 .inter-next__done { color: var(--ink-soft); }
-.venn-board { display: block; width: 100%; max-width: min(460px, calc((100svh - 330px) * 4 / 3)); margin: 0 auto; touch-action: manipulation; user-select: none; }
+.inter-venn-board { display: block; width: 100%; max-width: min(460px, calc((100svh - 330px) * 4 / 3)); margin: 0 auto; touch-action: manipulation; user-select: none; }
 .venn-region { cursor: default; outline: none; }
 .venn-region.is-target { cursor: pointer; }
 .venn-region rect { fill: #F6F5FB; stroke: #CFCBE6; stroke-width: 2; }
@@ -284,7 +284,7 @@
 .venn-region--both path { fill: rgba(224, 154, 0, 0.16); }
 .venn-region.is-target:hover rect { fill: #EEECF8; }
 .venn-region.is-target:hover path, .venn-region.is-target:focus-visible path { fill-opacity: 1; filter: brightness(0.94); stroke: var(--lilac-500); stroke-width: 2; }
-.venn-board.is-solved .venn-region--both path { fill: rgba(255, 201, 77, 0.75); }
+.inter-venn-board.is-solved .venn-region--both path { fill: rgba(255, 201, 77, 0.75); }
 .venn-outline { fill: none; stroke: #8B7CF6; stroke-width: 2.5; pointer-events: none; }
 .venn-name { font: 700 22px/1 var(--font-display); fill: var(--lilac-700); pointer-events: none; }
 .venn-name--u { font-size: 18px; fill: var(--ink-soft); }
@@ -293,7 +293,7 @@
 .venn-chip text { text-anchor: middle; font: 700 15px/1 var(--font-display); fill: var(--ink); pointer-events: none; }
 .venn-chip.is-wrong circle { fill: #FDE2EC; stroke: var(--pink-500); stroke-width: 3; }
 .venn-chip.is-wrong text { fill: #A3285C; }
-.venn-board.is-solved .venn-chip { cursor: default; }
+.inter-venn-board.is-solved .venn-chip { cursor: default; }
 
 .inter-question { scroll-margin-bottom: 96px; }
 .inter-options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
@@ -320,7 +320,7 @@
 }
 
 /* União: fichas de A e B indo para a caixa A ∪ B */
-.union-board { display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #DCDAEE; }
+.union-chips-board { display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #DCDAEE; }
 .union-row { display: flex; align-items: center; gap: 10px; }
 .union-row__name { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; font: 700 1.1rem/1 var(--font-display); color: #fff; }
 .union-row--a .union-row__name { background: #6C5CE7; }
@@ -344,7 +344,7 @@
 .union-chip:active:not(:disabled) { transform: translateY(2px); border-bottom-width: 2px; }
 .union-chip.is-used { opacity: 0.32; border-style: dashed; border-bottom-width: 2px; cursor: default; }
 .union-chip.is-missing { opacity: 1; box-shadow: 0 0 0 3px var(--green-500); animation: decoder-call 1.6s ease-in-out infinite; }
-.union-board__tip { margin: 0; font: 600 0.85rem/1.3 var(--font-body); color: var(--ink-soft); }
+.union-chips-board__tip { margin: 0; font: 600 0.85rem/1.3 var(--font-body); color: var(--ink-soft); }
 
 .union-box { justify-content: flex-start; align-items: center; gap: 6px; min-height: 58px; }
 .union-box__chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -394,7 +394,7 @@
 @keyframes union-bump { 30% { transform: scale(1.25); } }
 
 @media (max-width: 600px) {
-  .union-board { padding: 10px; }
+  .union-chips-board { padding: 10px; }
   .union-chip { min-width: 40px; height: 42px; font-size: 1rem; }
   .union-row { align-items: flex-start; }
   .union-problem__text { font-size: 1.02rem; }

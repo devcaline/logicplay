@@ -45,7 +45,7 @@ function VennBoard({ round, placements, wrong, solved, current, onPlace, onPickU
   );
 
   return (
-    <svg className={`venn-board ${solved ? 'is-solved' : ''}`} viewBox="0 0 400 300" role="group" aria-label="Diagrama de Venn">
+    <svg className={`inter-venn-board ${solved ? 'is-solved' : ''}`} viewBox="0 0 400 300" role="group" aria-label="Diagrama de Venn">
       {region('out', <rect x="3" y="3" width="394" height="294" rx="18" />)}
       {region('a', <path d={PATHS.a} />)}
       {region('b', <path d={PATHS.b} />)}
