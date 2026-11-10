@@ -31,6 +31,25 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'membership-balls') {
+    return (
+      <div className="intro-notation intro-balls-membership" aria-hidden="true">
+        <span className="intro-notation__math">P = números pares</span>
+        <div className="intro-notation__pair">
+          <div className="intro-notation__row">
+            <span className="num-ball num-ball--blue intro-ball">4</span>
+            <span className="intro-notation__math">4 ∈ P</span>
+            <span className="intro-notation__tag">pertence</span>
+          </div>
+          <div className="intro-notation__row">
+            <span className="num-ball num-ball--red intro-ball">7</span>
+            <span className="intro-notation__math">7 ∉ P</span>
+            <span className="intro-notation__tag">não pertence</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
   if (kind === 'color-balls' || kind === 'color-balls-set') {
     const balls = [[3, 'red'], [8, 'blue'], [12, 'red'], [5, 'yellow'], [7, 'red'], [10, 'blue']];
     if (kind === 'color-balls') {

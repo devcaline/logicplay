@@ -1296,6 +1296,47 @@ export const CHALLENGES = {
       text: 'Um conjunto se escreve com uma letra e os elementos entre chaves. E agora você conhece o símbolo de “pertence” e o de “não pertence”.',
     },
   },
+  'forest-2-tween': {
+    id: 'forest-2-tween',
+    type: 'tween-membership',
+    levelId: 'forest-2',
+    ageGroup: '9-12',
+    scene: 'forest',
+
+    intro: [
+      {
+        id: 't9.f2.intro.1',
+        mood: 'happy',
+        illustration: 'membership-balls',
+        text: 'Quando um elemento faz parte de um grupo, dizemos que ele pertence ao grupo. Quando não faz parte, ele não pertence.',
+      },
+      {
+        id: 't9.f2.intro.2',
+        mood: 'curious',
+        illustration: 'membership-balls',
+        text: 'Os matemáticos têm um símbolo para isso: parece um E arredondado e quer dizer “pertence”. Com um risquinho, quer dizer “não pertence”. Vamos usar os dois!',
+      },
+    ],
+
+    mission: { id: 't9.f2.mission', text: 'Responda se cada bolinha pertence ao grupo.' },
+
+    feedback: {
+      success: {
+        id: 't9.f2.success',
+        title: 'Você é fera em pertencer!',
+        text: 'Você decidiu quem pertence a cada grupo e ainda escreveu tudo do jeito dos matemáticos.',
+      },
+      visualHint: { id: 't9.f2.hint.visual', text: 'Olha só: o botão certo está brilhando. Leia de novo a regra do grupo!' },
+    },
+
+    visualHintAfter: 2,
+
+    complete: {
+      id: 't9.f2.complete',
+      title: 'Pertinência: concluída!',
+      text: 'Para cada elemento só existem duas respostas: ele pertence ou não pertence ao grupo. E a cor da bolinha só importa quando a regra fala dela!',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

@@ -77,3 +77,44 @@
 
 @keyframes ball-hint { 50% { transform: translateY(-3px); } }
 @keyframes tween-pop { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Fase 2: pertence / não pertence */
+.tween-group-rule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 0 auto;
+  padding: 8px 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 3px solid #E4DEFF;
+  text-align: center;
+}
+.tween-group-rule__math { font: 600 clamp(1.1rem, 4vw, 1.35rem)/1.3 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: var(--ink); }
+.tween-group-rule__words { font: 600 0.88rem/1.3 var(--font-body); color: var(--ink-soft); }
+.tween-mini { display: grid; place-items: center; }
+.tween-mini .num-ball { width: 40px; height: 40px; font-size: 1.05rem; }
+.tween-card { gap: 8px; }
+.tween-card__ball { width: clamp(84px, 22vw, 110px); height: clamp(84px, 22vw, 110px); font-size: clamp(2rem, 7vw, 2.6rem); }
+.tween-symbol { font: 600 2rem/1 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; }
+.tween-set .member-set__label { background: var(--lilac-500); box-shadow: 0 4px 0 var(--lilac-700); }
+
+/* Caderno com as frases escritas */
+.tween-notes {
+  padding: 14px 16px;
+  border-radius: var(--radius-xl);
+  background: #FFFDF5;
+  border: 3px solid #F1E6B8;
+  box-shadow: 0 6px 0 rgba(160, 120, 0, 0.1);
+  scroll-margin-bottom: 110px;
+}
+.tween-notes .tween-reveal__label { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.tween-notes ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 6px 16px; }
+.tween-notes li { display: flex; align-items: baseline; gap: 10px; padding: 6px 10px; border-radius: 10px; background: #fff; animation: tween-pop 0.3s ease; }
+.tween-notes__math { flex: none; min-width: 64px; font: 600 1.25rem/1.2 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; }
+.tween-notes li.is-in .tween-notes__math { color: var(--green-700); }
+.tween-notes li.is-out .tween-notes__math { color: #C2374F; }
+.tween-notes__why { font: 600 0.85rem/1.3 var(--font-body); color: var(--ink-soft); }
+.intro-balls-membership .intro-notation__row { gap: 6px; }
+.intro-balls-membership .num-ball.intro-ball { width: 52px; height: 52px; flex: none; font-size: 1.3rem; }
