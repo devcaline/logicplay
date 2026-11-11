@@ -138,3 +138,58 @@
 .tween-reveal__math.is-compare { font-size: clamp(1rem, 3.6vw, 1.25rem); color: var(--ink-soft); }
 .union-screen .tween-reveal { align-self: center; width: 100%; }
 .union-screen .tween-reveal .game-btn { margin-top: 10px; }
+
+/* Fase 5: o Guardião (desafios com bolinhas) */
+.tween-boss .teen-layout { gap: 12px; }
+.tween-boss-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 16px 18px;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.92);
+  border: 3px solid #fff;
+  box-shadow: 0 14px 34px rgba(43, 35, 80, 0.2);
+  scroll-margin-bottom: 24px;
+}
+.tween-boss-card__label { display: flex; align-items: center; gap: 6px; margin: 0; font: 700 0.85rem/1 var(--font-display); color: var(--lilac-700); }
+.tween-boss-card__math { margin: 0; font: 600 clamp(1.05rem, 3.8vw, 1.3rem)/1.3 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: var(--ink); text-align: center; }
+.tween-boss-card__balls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 8px 4px; }
+.boss-ball { width: clamp(44px, 11vw, 54px); height: clamp(44px, 11vw, 54px); font-size: clamp(1.05rem, 3.6vw, 1.3rem); }
+.boss-ball--small { width: 32px; height: 32px; font-size: 0.85rem; }
+.tween-boss-options { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 520px; }
+.tween-boss-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  border: 3px solid #E4DEFF;
+  border-bottom-width: 6px;
+  border-radius: 18px;
+  background: #fff;
+  font: 600 clamp(1.1rem, 4vw, 1.35rem)/1.2 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.15s ease;
+}
+.tween-boss-option:hover:not(:disabled) { border-color: var(--lilac-500); transform: translateY(-2px); }
+.tween-boss-option:disabled { cursor: default; }
+.tween-boss-option.is-wrong { background: #FDE2EC; border-color: var(--pink-500); color: #A3285C; opacity: 0.75; animation: boss-shake 0.4s ease; }
+.tween-boss-option.is-right { background: var(--green-100); border-color: var(--green-500); }
+.tween-boss-option.is-hinted { border-color: #FFC21A; box-shadow: 0 0 0 4px rgba(255, 212, 59, 0.6); }
+.tween-boss-option__balls { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+.tween-boss-pick { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; width: 100%; max-width: 420px; }
+.tween-boss-pick__ball { position: relative; display: grid; place-items: center; padding: 6px; border: 3px solid transparent; border-radius: 50%; background: none; cursor: pointer; aspect-ratio: 1; }
+.tween-boss-pick__ball .boss-ball { width: 100%; height: 100%; max-width: 64px; max-height: 64px; }
+.tween-boss-pick__check { position: absolute; top: 0; right: 0; display: none; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--green-500); color: #fff; border: 2px solid #fff; }
+.tween-boss-pick__ball.is-selected { border-color: var(--lilac-500); background: rgba(139, 124, 246, 0.15); }
+.tween-boss-pick__ball.is-selected .tween-boss-pick__check { display: grid; }
+.tween-boss-pick__ball.is-hinted { border-color: #FFC21A; box-shadow: 0 0 14px 2px rgba(255, 212, 59, 0.8); }
+.tween-boss-pick__ball.is-right { border-color: var(--green-500); }
+.tween-boss-card__done { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; }
+.tween-boss-card__explain { display: flex; align-items: flex-start; gap: 8px; margin: 0; padding: 10px 14px; border-radius: 14px; background: var(--green-100); color: var(--green-700); font: 700 0.95rem/1.35 var(--font-body); }
+.tween-boss-card__explain svg { flex-shrink: 0; margin-top: 2px; }
+.tween-boss-card__awake { margin: 0; font: 700 1.1rem/1.3 var(--font-display); color: #B07A00; text-align: center; }
+@keyframes boss-shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }

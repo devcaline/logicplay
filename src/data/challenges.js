@@ -1424,6 +1424,49 @@ export const CHALLENGES = {
       text: 'A união junta tudo o que está em pelo menos um dos grupos. O símbolo dela parece um U, de união!',
     },
   },
+  'forest-5-tween': {
+    id: 'forest-5-tween',
+    type: 'tween-guardian',
+    levelId: 'forest-5',
+    ageGroup: '9-12',
+    scene: 'guardian',
+
+    intro: [
+      {
+        id: 't9.f5.intro.1',
+        mood: 'curious',
+        illustration: 'guardian',
+        example: { lit: 0 },
+        text: 'Este é o Guardião da Floresta. Ele está dormindo, e a floresta perdeu as cores!',
+      },
+      {
+        id: 't9.f5.intro.2',
+        mood: 'happy',
+        illustration: 'guardian',
+        example: { lit: 2 },
+        text: 'Cada desafio acende uma pedra mágica. São cinco desafios com tudo o que você aprendeu: chaves, pertence, interseção e união. Acenda todas para acordar o Guardião!',
+      },
+    ],
+
+    mission: { id: 't9.f5.mission', text: 'Acerte os cinco desafios para acordar o Guardião.' },
+
+    feedback: {
+      success: {
+        id: 't9.f5.success',
+        title: 'O Guardião acordou!',
+        text: 'Você acendeu todas as pedras mágicas e a floresta ganhou as cores de volta. Você completou a Floresta dos Conjuntos!',
+      },
+      visualHint: { id: 't9.f5.hint.visual', text: 'Olha só: a resposta certa está brilhando!' },
+    },
+
+    visualHintAfter: 2,
+
+    complete: {
+      id: 't9.f5.complete',
+      title: 'Floresta dos Conjuntos: concluída!',
+      text: 'Agora você sabe escrever grupos com chaves, dizer quem pertence e juntar grupos com a interseção e a união.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {
