@@ -1467,6 +1467,55 @@ export const CHALLENGES = {
       text: 'Agora você sabe escrever grupos com chaves, dizer quem pertence e juntar grupos com a interseção e a união.',
     },
   },
+  'lab-1-tween': {
+    id: 'lab-1-tween',
+    type: 'tween-truth',
+    levelId: 'lab-1',
+    ageGroup: '9-12',
+    scene: 'lab',
+
+    intro: [
+      {
+        id: 't9.l1.intro.1',
+        mood: 'happy',
+        illustration: 'truth-balls',
+        text: 'Bem-vindo ao Laboratório da Verdade! Aqui cada lâmpada guarda uma frase. Se a frase é verdadeira, a lâmpada acende. Se é falsa, fica apagada.',
+      },
+      {
+        id: 't9.l1.intro.2',
+        mood: 'curious',
+        illustration: 'truth-balls',
+        text: 'Os matemáticos dão nomes curtos para as frases, como p e q, e escrevem a letra V para verdadeiro e a letra F para falso. Vamos usar esse jeito também!',
+      },
+    ],
+
+    mission: { id: 't9.l1.mission', text: 'Responda V ou F em cada lâmpada e ligue a máquina.' },
+
+    missions: {
+      balls: 'Primeira máquina! Toque em cada lâmpada, leia a frase sobre a bolinha e escolha V ou F. Depois ligue a máquina.',
+      symbols: 'Segunda máquina: agora as frases usam os símbolos da floresta! Olhe os grupos lá em cima antes de responder.',
+    },
+
+    reveal: {
+      balls: 'A máquina ligou! Cada frase que pode ser verdadeira ou falsa se chama proposição. Veja como ficou escrito: o nome da frase e a letra V ou F.',
+      symbols: 'Ligou de novo! Até as frases com símbolos são proposições: cada uma é verdadeira ou falsa.',
+    },
+
+    feedback: {
+      success: {
+        id: 't9.l1.success',
+        title: 'As duas máquinas ligaram!',
+        text: 'Você descobriu o valor de cada frase: V para verdadeiro e F para falso. Isso é o começo da lógica!',
+      },
+      unanswered: { id: 't9.l1.hint.unanswered', text: 'Ainda tem lâmpada com ponto de interrogação. Toque nela para ler a frase!' },
+    },
+
+    complete: {
+      id: 't9.l1.complete',
+      title: 'Luzes da Verdade: concluída!',
+      text: 'Uma proposição é uma frase que pode ser verdadeira ou falsa. Os matemáticos dão nomes como p e q, e escrevem V ou F.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

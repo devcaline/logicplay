@@ -32,6 +32,22 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'truth-balls') {
+    return (
+      <div className="intro-notation intro-truth-balls" aria-hidden="true">
+        <div className="intro-notation__row">
+          <TruthLamp state="on" size={52} />
+          <span className="num-ball num-ball--red intro-ball">7</span>
+          <span className="intro-notation__math">p: o 7 é ímpar → V</span>
+        </div>
+        <div className="intro-notation__row">
+          <TruthLamp state="off" size={52} />
+          <span className="num-ball num-ball--blue intro-ball">4</span>
+          <span className="intro-notation__math">q: a bolinha do 4 é vermelha → F</span>
+        </div>
+      </div>
+    );
+  }
   if (kind === 'union-balls') {
     const sets = { a: { label: 'Vermelhas', color: VENN_PALETTE.red }, b: { label: 'Ímpares', color: VENN_PALETTE.ruleA }, both: { label: 'Os dois', color: VENN_PALETTE.both } };
     const ball = (n, color) => <span key={n} className={`num-ball num-ball--${color} intro-venn-ball`}>{n}</span>;
