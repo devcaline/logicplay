@@ -32,6 +32,23 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'gate-balls') {
+    const { a, b, gate, symbol } = example;
+    const on = (value) => (value ? 'on' : 'off');
+    const result = gate === 'E' ? a.value && b.value : a.value || b.value;
+    return (
+      <div className="intro-illus intro-illus--gate" aria-hidden="true">
+        <GateMachine
+          gate={gate}
+          gateLabel={symbol}
+          className="tween-gate"
+          inputs={[{ ball: a, lamp: on(a.value) }, { ball: b, lamp: on(b.value) }]}
+          output={on(result)}
+          flowing
+        />
+      </div>
+    );
+  }
   if (kind === 'truth-balls') {
     return (
       <div className="intro-notation intro-truth-balls" aria-hidden="true">

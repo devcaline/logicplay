@@ -7,12 +7,13 @@ import './GateMachine.css';
  * Máquina lógica com duas entradas (frases) ligadas por fios a uma porta ("E", "OU"...)
  * e uma lâmpada de saída.
  *
- * inputs: [{ subject, property, lamp: 'on' | 'off' | 'unset', text? }]
+ * inputs: [{ subject, property, lamp: 'on' | 'off' | 'unset', text? }] ou, com bolinha numerada, [{ ball: { n, color }, lamp, text? }]
  * output: 'on' | 'off' | 'unset'
  * flowing: a energia corre pelos fios das entradas acesas
  * size: 'mini' (no laboratório) | 'large' (no zoom)
+ * gateLabel: o que aparece escrito na porta (o padrão é o próprio `gate`)
  */
-export default function GateMachine({ inputs, output = 'unset', gate = 'E', flowing = false, size = 'large', className = '' }) {
+export default function GateMachine({ inputs, output = 'unset', gate = 'E', gateLabel = gate, flowing = false, size = 'large', className = '' }) {
   const wireOn = (index) => flowing && inputs[index].lamp === 'on';
   return (
     <div className={`gate-machine gate-machine--${size} ${className}`}>
@@ -21,8 +22,14 @@ export default function GateMachine({ inputs, output = 'unset', gate = 'E', flow
           <div key={index} className={`gate-input gate-input--${input.lamp}`}>
             <TruthLamp state={input.lamp} size={size === 'mini' ? 22 : 40} />
             <span className="gate-input__picture" aria-hidden="true">
-              <ItemArt id={input.subject} size={size === 'mini' ? 30 : 58} />
-              <PropertyIcon kind={input.property.kind} color={input.property.color} size={size === 'mini' ? 18 : 32} />
+              {input.ball ? (
+                <span className={`num-ball num-ball--${input.ball.color} gate-input__ball`}>{input.ball.n}</span>
+              ) : (
+                <>
+                  <ItemArt id={input.subject} size={size === 'mini' ? 30 : 58} />
+                  <PropertyIcon kind={input.property.kind} color={input.property.color} size={size === 'mini' ? 18 : 32} />
+                </>
+              )}
             </span>
             {input.text && size !== 'mini' && <span className="gate-input__text">{input.text}</span>}
           </div>
@@ -35,7 +42,7 @@ export default function GateMachine({ inputs, output = 'unset', gate = 'E', flow
       </svg>
 
       <div className={`gate-machine__gate ${flowing ? 'is-working' : ''}`} aria-label={`porta ${gate}`}>
-        {gate}
+        {gateLabel}
       </div>
 
       <svg className="gate-machine__wire-out" viewBox="0 0 20 30" preserveAspectRatio="none" aria-hidden="true">

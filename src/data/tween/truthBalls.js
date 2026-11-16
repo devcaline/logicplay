@@ -54,6 +54,17 @@ const BALL_STATEMENTS = {
   },
 };
 
+/** Uma frase sobre uma bolinha (verdadeira ou falsa), de um dos tipos disponíveis na dificuldade. */
+export function ballStatement(kinds, ball, wantTrue) {
+  for (const kind of shuffle(kinds)) {
+    const made = BALL_STATEMENTS[kind](ball, wantTrue);
+    if (made) return made;
+  }
+  return BALL_STATEMENTS.parity(ball, wantTrue);
+}
+
+export { SETTINGS as TRUTH_SETTINGS };
+
 function ballMachine(level) {
   for (let attempt = 0; attempt < 200; attempt += 1) {
     const truths = shuffle([true, true, false, false]);

@@ -1516,6 +1516,51 @@ export const CHALLENGES = {
       text: 'Uma proposição é uma frase que pode ser verdadeira ou falsa. Os matemáticos dão nomes como p e q, e escrevem V ou F.',
     },
   },
+  'lab-2-tween': {
+    id: 'lab-2-tween',
+    type: 'tween-gate',
+    levelId: 'lab-2',
+    ageGroup: '9-12',
+    scene: 'lab',
+    gate: 'E',
+    symbol: '∧',
+
+    intro: [
+      {
+        id: 't9.l2.intro.1',
+        mood: 'happy',
+        illustration: 'gate-balls',
+        example: { gate: 'E', symbol: '∧', a: { n: 7, color: 'red', value: true }, b: { n: 4, color: 'blue', value: true } },
+        text: 'Esta é a Máquina do E. Ela tem duas frases, p e q. A lâmpada grande só acende se a frase p E a frase q forem verdadeiras.',
+      },
+      {
+        id: 't9.l2.intro.2',
+        mood: 'curious',
+        illustration: 'gate-balls',
+        example: { gate: 'E', symbol: '∧', a: { n: 7, color: 'red', value: true }, b: { n: 4, color: 'blue', value: false } },
+        text: 'Os matemáticos escrevem o E com um símbolo que parece um telhadinho. Repare: ele parece a interseção da floresta, porque os dois querem dizer “os dois ao mesmo tempo”!',
+      },
+    ],
+
+    mission: { id: 't9.l2.mission', text: 'Toque em cada máquina, leia as frases p e q e dê seu palpite: a lâmpada grande acende?' },
+
+    table: { id: 't9.l2.table', text: 'Você testou as quatro máquinas! Juntas, elas formam a tabela do E: a lâmpada só acende na linha em que p e q são verdadeiras.' },
+    tableNote: 'p ∧ q só é V quando p e q são V. Basta uma frase F para dar F.',
+
+    feedback: {
+      success: {
+        id: 't9.l2.success',
+        title: 'Máquinas do E consertadas!',
+        text: 'A Máquina do E só acende quando as duas frases são verdadeiras. Você montou a tabela do E!',
+      },
+    },
+
+    complete: {
+      id: 't9.l2.complete',
+      title: 'A Máquina do E: concluída!',
+      text: 'O E só é verdadeiro quando as duas frases são verdadeiras ao mesmo tempo, igual à interseção da floresta.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

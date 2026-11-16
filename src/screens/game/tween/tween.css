@@ -214,3 +214,17 @@
 .intro-truth-balls { align-items: stretch; }
 .intro-truth-balls .intro-notation__row { flex-direction: row; gap: 10px; }
 .intro-truth-balls .num-ball.intro-ball { width: 44px; height: 44px; flex: none; font-size: 1.15rem; }
+
+/* Laboratório, fase 2: máquinas com p e q */
+.gate-input__ball { width: 46px; height: 46px; font-size: 1.15rem; }
+.gate-machine--mini .gate-input__ball { width: 26px; height: 26px; font-size: 0.72rem; }
+.tween-gate .gate-input__text { font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; font-weight: 600; font-size: 0.98rem; }
+.tween-gate .gate-machine__gate { font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; font-size: 1.8em; }
+.gate-table table { border-collapse: separate; border-spacing: 6px; }
+.gate-table th { padding: 6px 18px; border-radius: 10px; background: #EEE9FF; font: italic 700 1.2rem/1 'Cambria Math', 'Times New Roman', serif; color: var(--lilac-700); }
+.gate-table th.is-key { background: #FFF3C4; color: #7A5300; }
+.gate-table td { padding: 8px 18px; border-radius: 10px; text-align: center; font: 700 1.15rem/1 var(--font-display); color: #fff; }
+.gate-table td.is-v { background: var(--green-500); }
+.gate-table td.is-f { background: var(--pink-500); }
+.gate-table td.is-key { box-shadow: 0 0 0 3px #FFD43B; }
+.gate-table .game-btn { margin-top: 10px; }

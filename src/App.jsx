@@ -26,6 +26,7 @@ import TweenVennGame from './screens/game/tween/TweenVennGame.jsx';
 import TweenUnionGame from './screens/game/tween/TweenUnionGame.jsx';
 import TweenGuardianGame from './screens/game/tween/TweenGuardianGame.jsx';
 import TweenTruthGame from './screens/game/tween/TweenTruthGame.jsx';
+import TweenGateGame from './screens/game/tween/TweenGateGame.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
@@ -56,6 +57,7 @@ const GAME_COMPONENTS = {
   'tween-union': TweenUnionGame,
   'tween-guardian': TweenGuardianGame,
   'tween-truth': TweenTruthGame,
+  'tween-gate': TweenGateGame,
 };
 
 function Router() {
