@@ -542,3 +542,32 @@
 }
 .not-card.is-trap { flex-direction: column; align-items: flex-start; gap: 4px; background: #FFF6D8; border-color: #FFC94D; color: #6A4300; opacity: 1; cursor: default; }
 .not-card__trap { padding: 2px 6px; border-radius: 6px; background: #FFC94D; color: #2E2668; font: 700 0.7rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ---------- Laboratório 13+, fase 5: a Tabela Mestra ---------- */
+.tmaster-wrap { overflow-x: auto; }
+.tmaster-table { max-width: 560px; }
+.tmaster-table th { font-size: 1rem; white-space: nowrap; }
+.tmaster-table td { height: 34px; }
+.tmaster-table td.is-v, .tmaster-table td.is-f { height: 34px; }
+.tmaster-table .and-cell { height: 34px; }
+.tmaster-table__mystery { color: #FFC94D !important; font-size: 1.3rem !important; }
+.tmaster-table__result.is-mystery { outline: 2px solid #FFC94D; outline-offset: -2px; }
+.tmaster-table__result.is-v { background: rgba(63, 168, 107, 0.35) !important; color: #fff !important; }
+.tmaster-table__result.is-f { background: rgba(194, 55, 79, 0.35) !important; color: #fff !important; }
+.master-scratch.is-unset { border-style: dotted; color: rgba(125, 232, 255, 0.7); }
+.tmaster-table__num { width: 36px; }
+.master-row-btn { width: 32px; height: 32px; border-radius: 8px; border: none; background: rgba(255, 255, 255, 0.1); color: #B9AFFF; font: 700 0.9rem/1 var(--font-display); }
+.tmaster-table.is-picking .master-row-btn { background: #FFC94D; color: #2E2668; cursor: pointer; animation: decoder-call 2.4s ease-in-out infinite; }
+.master-row-btn:disabled { cursor: default; }
+.tmaster-table tr.is-differ td.is-v, .tmaster-table tr.is-differ td.is-f { box-shadow: inset 0 0 0 2px rgba(255, 201, 77, 0.6); }
+.tmaster-table tr.is-proof .master-row-btn { background: var(--green-500); color: #fff; }
+.master-class__name { font: 700 1.02rem/1.15 var(--font-display); color: var(--lilac-700); }
+.master-class.is-right .master-class__name { color: var(--green-700); }
+.master-class.is-wrong .master-class__name { color: #A3285C; }
+.master-options .not-option { min-height: 48px; }
+@media (min-width: 601px) { .master-options { display: grid; grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) {
+  .tmaster-table { border-spacing: 4px; }
+  .tmaster-table th { font-size: 0.85rem; }
+  .master-class__name { font-size: 0.88rem; }
+}

@@ -207,6 +207,16 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'master-example') {
+    return (
+      <div className="intro-notation intro-propositions" aria-hidden="true">
+        <span className="intro-notation__tag">p ∨ ¬p</span>
+        <span className="intro-notation__math">p = V → V</span>
+        <span className="intro-notation__math">p = F → V</span>
+        <span className="intro-notation__tag">Sempre V: tautologia</span>
+      </div>
+    );
+  }
   if (kind === 'not-example') {
     return (
       <div className="intro-notation intro-propositions" aria-hidden="true">

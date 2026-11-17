@@ -1908,6 +1908,49 @@ export const CHALLENGES = {
       text: '¬p diz o contrário de p e tem o valor oposto. O contrário de “>” é “≤”, e o de “todo” é “existe um que não”.',
     },
   },
+  'lab-5-teen': {
+    id: 'lab-5-teen',
+    type: 'teen-master',
+    levelId: 'lab-5',
+    ageGroup: '13+',
+    scene: 'study',
+    quiet: true,
+
+    intro: [
+      {
+        id: 't.l5.intro',
+        mood: 'curious',
+        illustration: 'master-example',
+        text: 'A tabela-verdade lista todas as combinações de valores e o resultado de uma fórmula em cada uma. Com ela dá para descobrir uma fórmula pela coluna, saber se ela é sempre V (tautologia), sempre F (contradição) ou se depende (contingência), e provar se duas fórmulas são equivalentes.',
+      },
+    ],
+
+    mission: { id: 't.l5.mission', text: 'Descubra fórmulas, classifique-as e prove equivalências com a Tabela Mestra.' },
+
+    symbols: [
+      ['¬ / ∧ / ∨', 'não / e / ou'],
+      ['( )', 'resolva primeiro o que está dentro'],
+      ['ordem', '¬ primeiro, depois ∧, depois ∨'],
+      ['tautologia', 'sempre V'],
+      ['contradição', 'sempre F'],
+      ['contingência', 'depende da linha'],
+      ['equivalentes', 'mesma coluna em todas as linhas'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.l5.success',
+        title: 'Fase concluída!',
+        text: 'Você dominou a Tabela Mestra: descobriu fórmulas, classificou-as e provou equivalências.',
+      },
+    },
+
+    complete: {
+      id: 't.l5.complete',
+      title: 'Laboratório da Verdade: concluído!',
+      text: 'Proposições, ∧, ∨, ¬ e tabelas-verdade: agora você raciocina como um lógico.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

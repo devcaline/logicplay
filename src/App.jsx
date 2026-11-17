@@ -24,6 +24,7 @@ import PropositionGame from './screens/game/teen/PropositionGame.jsx';
 import AndGame from './screens/game/teen/AndGame.jsx';
 import OrGame from './screens/game/teen/OrGame.jsx';
 import NotGame from './screens/game/teen/NotGame.jsx';
+import MasterGame from './screens/game/teen/MasterGame.jsx';
 import ColorSortingGame from './screens/game/tween/ColorSortingGame.jsx';
 import TweenMembershipGame from './screens/game/tween/TweenMembershipGame.jsx';
 import TweenVennGame from './screens/game/tween/TweenVennGame.jsx';
@@ -62,6 +63,7 @@ const GAME_COMPONENTS = {
   'teen-and': AndGame,
   'teen-or': OrGame,
   'teen-not': NotGame,
+  'teen-master': MasterGame,
   'color-sorting': ColorSortingGame,
   'tween-membership': TweenMembershipGame,
   'tween-venn': TweenVennGame,
