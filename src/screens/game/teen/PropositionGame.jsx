@@ -132,7 +132,7 @@ export default function PropositionGame({ challenge, level, onExit, onComplete }
 
         {inWarmup && (
           <MascotDialogue
-            line={{ id: `${item.id}${answered ? '-done' : ''}`, text: answered ? `${correct ? 'Isso!' : 'Quase.'} ${item.why}` : item.talk }}
+            line={{ id: `${challenge.id}.${item.id}${answered ? (correct ? '.ok' : '.retry') : ''}`, text: answered ? `${correct ? 'Isso!' : 'Quase.'} ${item.why}` : item.talk }}
             bubbleKey={`${item.id}${answered ? '-done' : ''}`}
             mood={answered ? (correct ? 'cheer' : 'encourage') : 'curious'}
             mascotSize={60}

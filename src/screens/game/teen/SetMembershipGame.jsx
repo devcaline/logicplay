@@ -131,7 +131,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
 
         {inWarmup && (
           <MascotDialogue
-            line={answered ? { id: `${item.id}-done`, text: item.reason } : { id: item.id, text: item.talk }}
+            line={answered ? { id: `${challenge.id}.${item.id}.done`, text: item.reason } : { id: `${challenge.id}.${item.id}`, text: item.talk }}
             bubbleKey={answered ? `${item.id}-done` : item.id}
             mood={answered ? (correct ? 'cheer' : 'encourage') : 'curious'}
             mascotSize={60}

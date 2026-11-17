@@ -1,4 +1,5 @@
 import { AUDIO_MANIFEST } from './audioManifest.js';
+import { voiceKey } from './voiceKey.js';
 
 /**
  * Narrador do mascote.
@@ -80,14 +81,26 @@ export const narrator = {
     const token = ++playToken;
     const finish = () => token === playToken && setCurrent(null);
 
-    const recorded = AUDIO_MANIFEST[line.id];
-    if (recorded) {
-      const audio = new Audio(recorded);
-      currentAudio = audio;
-      audio.onended = finish;
-      audio.onerror = finish;
+    // A gravação é procurada pelo código da fala e, se não houver, pelo texto (falas sorteadas).
+    // Uma fala montada com partes ({ parts: [fala, fala] }) toca as gravações em sequência.
+    const findRecording = (part) => AUDIO_MANIFEST[part.id] ?? AUDIO_MANIFEST[voiceKey(part.text)];
+    const whole = findRecording(line);
+    const pieces = whole ? [whole] : line.parts?.map(findRecording);
+    if (pieces?.length && pieces.every(Boolean)) {
       setCurrent(line.id);
-      audio.play().catch(finish);
+      const playPiece = (position) => {
+        if (token !== playToken) return;
+        if (position >= pieces.length) {
+          finish();
+          return;
+        }
+        const audio = new Audio(pieces[position]);
+        currentAudio = audio;
+        audio.onended = () => playPiece(position + 1);
+        audio.onerror = finish;
+        audio.play().catch(finish);
+      };
+      playPiece(0);
       return;
     }
 

@@ -148,9 +148,13 @@ A fase passa a ser jogável para essa faixa etária. Um novo tipo de jogo precis
 registrado em `GAME_COMPONENTS` no `App.jsx`. O cenário de fundo de cada fase vem do campo `scene`
 do desafio (`'forest'`, `'ocean'`...).
 
-**Voz gravada do Pipo:** rode `npm run roteiro` para gerar o [ROTEIRO_DE_GRAVACAO.md](ROTEIRO_DE_GRAVACAO.md),
-com todas as falas, o nome de cada arquivo e o tom sugerido. Coloque as gravações em `src/assets/voz/`
-com esses nomes (mp3, m4a, wav, ogg ou webm) e o jogo as usa automaticamente. Falas sem gravação usam a voz do navegador.
+**Voz gravada do Pipo:** rode `npm run roteiro` para gerar o roteiro de gravação das três faixas etárias
+([ROTEIRO_DE_GRAVACAO.md](ROTEIRO_DE_GRAVACAO.md), uma versão para imprimir em HTML e, com o Google Chrome
+instalado, o `ROTEIRO_DE_GRAVACAO.pdf`), com todas as falas, o nome de cada arquivo, o tom sugerido e, nas falas
+com símbolos, uma sugestão de leitura em palavras. Coloque as gravações em `src/assets/voz/` com esses nomes
+(mp3, m4a, wav, ogg ou webm) e o jogo as usa automaticamente. Falas sem gravação usam a voz do navegador.
+Os nomes `v-…` são falas sorteadas (como a missão com a cor da vez): o narrador procura a gravação pelo
+código da fala e, se não achar, pelo texto. Frases montadas com números sorteados continuam com a voz do navegador.
 
 **Efeitos sonoros:** são sintetizados em `src/audio/sfx.js`. Para usar um arquivo gravado, mapeie o nome do som em `SFX_FILES`.
 

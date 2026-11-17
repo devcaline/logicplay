@@ -145,7 +145,8 @@ export default function ColorSortingGame({ challenge, level, onExit, onComplete 
     else if (missing.length) base = feedback.missing;
     const visual = inside.length > 0 && nextAttempts >= challenge.visualHintAfter;
     if (visual) setShowVisualHint(true);
-    const line = { id: `${base.id}.${mission.id}${visual ? '.visual' : ''}`, text: `${base.text} ${visual ? feedback.visualHint.text : mission.hint}` };
+    const tail = visual ? feedback.visualHint : { id: `${mission.id}.hint`, text: mission.hint };
+    const line = { id: `${base.id}.${mission.id}${visual ? '.visual' : ''}`, text: `${base.text} ${tail.text}`, parts: [base, tail] };
     sfx.play('tryAgain');
     setHintLine(line);
     setHintCount((count) => count + 1);

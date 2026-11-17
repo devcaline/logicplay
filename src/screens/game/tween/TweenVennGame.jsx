@@ -140,7 +140,8 @@ export default function TweenVennGame({ challenge, level, onExit, onComplete }) 
     else if (wrong.some((ball) => placement[ball.id] === 'both')) base = feedback.wrongBoth;
     const visual = !empty && nextAttempts >= challenge.visualHintAfter;
     if (visual) setShowVisualHint(true);
-    const line = { id: `${base.id}.${mission.id}${visual ? '.visual' : ''}`, text: `${base.text} ${visual ? feedback.visualHint.text : mission.hint}` };
+    const tail = visual ? feedback.visualHint : { id: `${mission.id}.hint`, text: mission.hint };
+    const line = { id: `${base.id}.${mission.id}${visual ? '.visual' : ''}`, text: `${base.text} ${tail.text}`, parts: [base, tail] };
     sfx.play('tryAgain');
     setHintLine(line);
     setHintCount((count) => count + 1);

@@ -219,7 +219,7 @@ export default function OrGame({ challenge, level, onExit, onComplete }) {
 
         {inWarmup && (
           <MascotDialogue
-            line={{ id: `${item.id}${done ? '-done' : ''}`, text: done ? (correct ? item.done : `Quase. ${item.why ?? item.done}`) : item.talk }}
+            line={{ id: `${challenge.id}.${item.id}${done ? (correct ? '.ok' : '.retry') : ''}`, text: done ? (correct ? item.done : `Quase. ${item.why ?? item.done}`) : item.talk }}
             bubbleKey={`${item.id}${done ? '-done' : ''}`}
             mood={done ? (correct ? 'cheer' : 'encourage') : 'curious'}
             mascotSize={60}
