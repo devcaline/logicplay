@@ -1,80 +1,17 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { GameProvider, useGame } from './state/GameContext.jsx';
 import HomeScreen from './screens/HomeScreen.jsx';
 import AgeSelection from './screens/AgeSelection.jsx';
 import DifficultySelection from './screens/DifficultySelection.jsx';
 import AdventureMap from './screens/map/AdventureMap.jsx';
 import LevelIntro from './screens/LevelIntro.jsx';
-import SetSortingGame from './screens/game/SetSortingGame.jsx';
-import MembershipGame from './screens/game/MembershipGame.jsx';
-import VennSortingGame from './screens/game/VennSortingGame.jsx';
-import UnionCatchGame from './screens/game/UnionCatchGame.jsx';
-import GuardianQuizGame from './screens/game/GuardianQuizGame.jsx';
-import TruthLightsGame from './screens/game/TruthLightsGame.jsx';
-import GateMachinesGame from './screens/game/GateMachinesGame.jsx';
-import LeverMachineGame from './screens/game/LeverMachineGame.jsx';
-import NotMirrorGame from './screens/game/NotMirrorGame.jsx';
-import MasterTableGame from './screens/game/MasterTableGame.jsx';
-import SetBuilderGame from './screens/game/teen/SetBuilderGame.jsx';
-import SetMembershipGame from './screens/game/teen/SetMembershipGame.jsx';
-import IntersectionGame from './screens/game/teen/IntersectionGame.jsx';
-import UnionGame from './screens/game/teen/UnionGame.jsx';
-import TeenGuardianGame from './screens/game/teen/TeenGuardianGame.jsx';
-import PropositionGame from './screens/game/teen/PropositionGame.jsx';
-import AndGame from './screens/game/teen/AndGame.jsx';
-import OrGame from './screens/game/teen/OrGame.jsx';
-import NotGame from './screens/game/teen/NotGame.jsx';
-import MasterGame from './screens/game/teen/MasterGame.jsx';
-import ColorSortingGame from './screens/game/tween/ColorSortingGame.jsx';
-import TweenMembershipGame from './screens/game/tween/TweenMembershipGame.jsx';
-import TweenVennGame from './screens/game/tween/TweenVennGame.jsx';
-import TweenUnionGame from './screens/game/tween/TweenUnionGame.jsx';
-import TweenGuardianGame from './screens/game/tween/TweenGuardianGame.jsx';
-import TweenTruthGame from './screens/game/tween/TweenTruthGame.jsx';
-import TweenGateGame from './screens/game/tween/TweenGateGame.jsx';
-import TweenLeverGame from './screens/game/tween/TweenLeverGame.jsx';
-import TweenNotGame from './screens/game/tween/TweenNotGame.jsx';
-import TweenMasterGame from './screens/game/tween/TweenMasterGame.jsx';
+import GameScreen, { preloadGame } from './screens/game/GameScreen.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
 import { getChallenge } from './data/challenges.js';
 import { getChallengeIdFor, getLevelStatus } from './logic/progress.js';
 import { narrator } from './audio/narrator.js';
-
-/** Tipos de desafio → componente que joga esse tipo. Novos tipos entram aqui. */
-const GAME_COMPONENTS = {
-  'set-sorting': SetSortingGame,
-  membership: MembershipGame,
-  'venn-sorting': VennSortingGame,
-  'union-catch': UnionCatchGame,
-  'guardian-quiz': GuardianQuizGame,
-  'truth-lights': TruthLightsGame,
-  'gate-machines': GateMachinesGame,
-  'lever-machine': LeverMachineGame,
-  'not-mirror': NotMirrorGame,
-  'master-table': MasterTableGame,
-  'set-builder': SetBuilderGame,
-  'set-membership': SetMembershipGame,
-  'set-intersection': IntersectionGame,
-  'set-union': UnionGame,
-  'teen-guardian': TeenGuardianGame,
-  'teen-propositions': PropositionGame,
-  'teen-and': AndGame,
-  'teen-or': OrGame,
-  'teen-not': NotGame,
-  'teen-master': MasterGame,
-  'color-sorting': ColorSortingGame,
-  'tween-membership': TweenMembershipGame,
-  'tween-venn': TweenVennGame,
-  'tween-union': TweenUnionGame,
-  'tween-guardian': TweenGuardianGame,
-  'tween-truth': TweenTruthGame,
-  'tween-gate': TweenGateGame,
-  'tween-lever': TweenLeverGame,
-  'tween-not': TweenNotGame,
-  'tween-master': TweenMasterGame,
-};
 
 function Router() {
   const { profile, profileProgress, setProfile } = useGame();
@@ -123,6 +60,12 @@ function Router() {
     if (!challenge || (status !== 'available' && status !== 'completed')) screen = 'map';
   }
 
+  // Enquanto a pessoa lê a introdução, o código do jogo da fase já vai baixando.
+  const introGameType = screen === 'intro' ? challenge.type : null;
+  useEffect(() => {
+    if (introGameType) preloadGame(introGameType);
+  }, [introGameType]);
+
   switch (screen) {
     case 'age':
       return <AgeSelection onSelect={handleSelectAge} onHome={goHome} />;
@@ -134,10 +77,9 @@ function Router() {
       return <AdventureMap onHome={goHome} onChangeAge={() => go('age')} onPlayLevel={(levelId) => go('intro', { levelId })} />;
     case 'intro':
       return <LevelIntro challenge={challenge} level={level} onBack={goMap} onStart={() => go('game', { levelId: level.id, run: Date.now() })} />;
-    case 'game': {
-      const Game = GAME_COMPONENTS[challenge.type];
+    case 'game':
       return (
-        <Game
+        <GameScreen
           key={route.run}
           challenge={challenge}
           level={level}
@@ -145,7 +87,6 @@ function Router() {
           onComplete={(stars) => go('complete', { levelId: level.id, stars: typeof stars === 'number' ? stars : undefined })}
         />
       );
-    }
     case 'complete': {
       const nextLevel = LEVEL_SEQUENCE[LEVEL_SEQUENCE.findIndex((candidate) => candidate.id === level.id) + 1];
       const nextStatus = nextLevel ? getLevelStatus(nextLevel.id, profile, profileProgress) : 'locked';
