@@ -207,6 +207,17 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'proposition-example') {
+    return (
+      <div className="intro-notation intro-propositions" aria-hidden="true">
+        <span className="intro-notation__tag">Proposições</span>
+        <span className="intro-notation__math">p: 7 é primo. → V</span>
+        <span className="intro-notation__math">q: 4 + 5 = 10. → F</span>
+        <span className="intro-notation__tag">Não são proposições</span>
+        <span className="intro-notation__math">Quanto é 4 + 5? · x + 1 = 5</span>
+      </div>
+    );
+  }
   if (kind === 'membership-notation') {
     return (
       <div className="intro-notation" aria-hidden="true">

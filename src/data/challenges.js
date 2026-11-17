@@ -1731,6 +1731,51 @@ export const CHALLENGES = {
       text: 'Agora você conhece as frases verdadeiras e falsas, o E, o OU e o NÃO, e sabe montar uma tabela-verdade.',
     },
   },
+  'lab-1-teen': {
+    id: 'lab-1-teen',
+    type: 'teen-propositions',
+    levelId: 'lab-1',
+    ageGroup: '13+',
+    scene: 'study',
+    quiet: true,
+    rounds: 3,
+
+    intro: [
+      {
+        id: 't.l1.intro',
+        mood: 'curious',
+        illustration: 'proposition-example',
+        text: 'Uma proposição é uma frase declarativa que é verdadeira (V) ou falsa (F), nunca as duas. Perguntas, ordens e exclamações não são proposições, e nem sentenças abertas como x + 1 = 5, cujo valor depende de x.',
+      },
+    ],
+
+    mission: { id: 't.l1.mission', text: 'Classifique cada frase: V, F ou não é proposição.' },
+
+    symbols: [
+      ['p, q, r', 'nomes usados para proposições'],
+      ['V', 'verdadeiro'],
+      ['F', 'falso'],
+      ['V(p)', 'valor lógico de p'],
+      ['x, y', 'variáveis: deixam a sentença aberta'],
+      ['∈ / ∉', 'pertence / não pertence'],
+      ['todo', 'vale para todos, sem exceção'],
+      ['existe', 'vale para pelo menos um'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.l1.success',
+        title: 'Fase concluída!',
+        text: 'Você separou proposições de frases que não são proposições e encontrou o valor lógico de cada uma.',
+      },
+    },
+
+    complete: {
+      id: 't.l1.complete',
+      title: 'Proposições: concluída!',
+      text: 'Toda proposição tem um único valor lógico: V ou F. Frases sem valor definido não são proposições.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

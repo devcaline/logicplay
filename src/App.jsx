@@ -20,6 +20,7 @@ import SetMembershipGame from './screens/game/teen/SetMembershipGame.jsx';
 import IntersectionGame from './screens/game/teen/IntersectionGame.jsx';
 import UnionGame from './screens/game/teen/UnionGame.jsx';
 import TeenGuardianGame from './screens/game/teen/TeenGuardianGame.jsx';
+import PropositionGame from './screens/game/teen/PropositionGame.jsx';
 import ColorSortingGame from './screens/game/tween/ColorSortingGame.jsx';
 import TweenMembershipGame from './screens/game/tween/TweenMembershipGame.jsx';
 import TweenVennGame from './screens/game/tween/TweenVennGame.jsx';
@@ -54,6 +55,7 @@ const GAME_COMPONENTS = {
   'set-intersection': IntersectionGame,
   'set-union': UnionGame,
   'teen-guardian': TeenGuardianGame,
+  'teen-propositions': PropositionGame,
   'color-sorting': ColorSortingGame,
   'tween-membership': TweenMembershipGame,
   'tween-venn': TweenVennGame,

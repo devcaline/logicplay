@@ -435,3 +435,18 @@
   .teen-boss .teen-boss__runes .rune__stone { width: clamp(40px, 4.4vw, 58px); height: clamp(40px, 4.4vw, 58px); }
   .teen-boss .teen-boss__runes .rune__label { font-size: clamp(0.5rem, 0.9vw, 0.76rem); line-height: 1.05; padding: 3px 4px; }
 }
+
+/* Laboratório, fase 1: proposições */
+.prop-statement__text { margin: 10px 0 12px; font: 600 clamp(1.3rem, 4.6vw, 1.7rem)/1.35 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: #fff; }
+.prop-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.prop-choice:disabled { cursor: default; }
+.prop-choice--V .relation-btn__symbol { color: var(--green-700); }
+.prop-choice--F .relation-btn__symbol { color: #C2374F; }
+.prop-choice--N .relation-btn__symbol { color: var(--ink-soft); }
+.prop-choice.is-right { background: var(--green-100); border-color: var(--green-500); }
+.prop-choice.is-wrong { background: #FDE2EC; border-color: var(--pink-500); }
+.intro-propositions { align-items: flex-start; }
+@media (max-width: 600px) {
+  .prop-choices { gap: 6px; }
+  .prop-choice .relation-btn__label { font-size: 0.75rem; }
+}

@@ -69,7 +69,7 @@ export const WORLDS = [
         name: 'Luzes da Verdade',
         description: 'Acenda as luzes do verdadeiro e do falso.',
         pos: { x: 26, y: 12 },
-        content: { '5-8': 'lab-1-kids', '9-12': 'lab-1-tween' },
+        content: { '5-8': 'lab-1-kids', '9-12': 'lab-1-tween', '13+': 'lab-1-teen' },
       },
       {
         id: 'lab-2',
