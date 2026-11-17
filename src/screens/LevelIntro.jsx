@@ -243,7 +243,13 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
   if (kind === 'circuit-example') {
     return (
       <div className="intro-illus intro-illus--circuit" aria-hidden="true">
-        <EnergyCircuit gate={example.gate} a={example.a} b={example.b} phase="done" />
+        <EnergyCircuit
+          gate={example.gate}
+          a={example.a}
+          b={example.b}
+          phase="done"
+          {...(example.symbol ? { names: ['p', 'q'], gateLabel: example.symbol, stateText: (on) => (on ? 'V' : 'F') } : {})}
+        />
       </div>
     );
   }

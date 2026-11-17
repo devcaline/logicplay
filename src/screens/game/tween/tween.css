@@ -257,3 +257,30 @@
 .tween-mirror-phrase__value.is-f { background: var(--pink-500); color: #fff; }
 .tween-mirror-first { opacity: 0.85; }
 .mirror-screen .gate-table { margin-top: 6px; }
+
+/* Laboratório, fase 5: a Tabela Mestra */
+.tween-master-symbol { font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; font-size: 1.15em; }
+.tween-master-circuit .circuit-gate__label { font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; }
+.tween-master-table { position: relative; }
+.tween-master-table td.tween-master-table__not { padding: 0; background: none; }
+.tween-master-cell {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-width: 58px;
+  height: 40px;
+  border: 3px dashed var(--lilac-500);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--lilac-700);
+  font: 700 1.15rem/1 var(--font-display);
+  cursor: pointer;
+}
+.tween-master-cell.is-v { border-style: solid; border-color: var(--green-700); background: var(--green-500); color: #fff; }
+.tween-master-cell.is-f { border-style: solid; border-color: #C2374F; background: var(--pink-500); color: #fff; }
+.tween-master-cell.is-wrong { box-shadow: 0 0 0 4px #FFC21A; animation: boss-shake 0.4s ease; }
+.tween-master-cell:disabled { cursor: default; }
+@media (max-width: 600px) {
+  .tween-master-table th, .tween-master-table td { padding: 6px 8px; font-size: 0.95rem; }
+  .tween-master-cell { min-width: 44px; }
+}

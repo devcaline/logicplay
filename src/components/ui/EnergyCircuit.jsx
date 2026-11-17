@@ -8,7 +8,7 @@ export function circuitPower(gate, a, b) {
   return gateOutput(gate, a, b) ? 'strong' : 'weak';
 }
 
-function Lever({ x, y, on, number }) {
+function Lever({ x, y, on, number, stateText }) {
   return (
     <g transform={`translate(${x} ${y})`} className={`circuit-lever ${on ? 'is-on' : ''}`}>
       <rect x="-56" y="-62" width="112" height="124" rx="24" className="circuit-lever__box" />
@@ -21,7 +21,7 @@ function Lever({ x, y, on, number }) {
       <circle r="11" className="circuit-lever__pivot" />
       <circle cx="-40" cy="-46" r="11" className="circuit-lever__badge" />
       <text x="-40" y="-41" textAnchor="middle" className="circuit-lever__number">{number}</text>
-      <text y="84" textAnchor="middle" className="circuit-lever__state">{on ? 'Ligada' : 'Desligada'}</text>
+      <text y="84" textAnchor="middle" className="circuit-lever__state">{stateText(on)}</text>
     </g>
   );
 }
@@ -49,8 +49,11 @@ function Bulb({ state }) {
  * Circuito com duas alavancas (à esquerda), uma porta lógica (no meio) e uma lâmpada (à direita).
  * phase: 'idle' (esperando o palpite) | 'inputs' (energia sai das alavancas ligadas)
  *        | 'output' (energia chega na lâmpada) | 'done' (resultado visível)
+ * Opcionais: names (nomes das alavancas), gateLabel (o que aparece na porta) e stateText (texto embaixo da alavanca).
  */
-export default function EnergyCircuit({ gate, a, b, phase = 'idle' }) {
+const ON_OFF = (on) => (on ? 'Ligada' : 'Desligada');
+
+export default function EnergyCircuit({ gate, a, b, phase = 'idle', names = ['1', '2'], gateLabel = gate, stateText = ON_OFF }) {
   const power = circuitPower(gate, a, b);
   const inputsFlow = phase !== 'idle';
   const outputFlow = phase === 'output' || phase === 'done';
@@ -69,13 +72,13 @@ export default function EnergyCircuit({ gate, a, b, phase = 'idle' }) {
         <path d="M140 240 H250 Q290 240 290 200 V180 H330" pathLength="100" className={`circuit-energy ${b && inputsFlow ? 'is-flowing' : ''}`} />
         <path d="M430 160 H500" pathLength="100" className={`circuit-energy circuit-energy--out circuit-energy--${power} ${outputFlow && power !== 'none' ? 'is-flowing' : ''}`} />
 
-        <Lever x={80} y={80} on={a} number="1" />
-        <Lever x={80} y={240} on={b} number="2" />
+        <Lever x={80} y={80} on={a} number={names[0]} stateText={stateText} />
+        <Lever x={80} y={240} on={b} number={names[1]} stateText={stateText} />
 
         {/* porta lógica com os "encaixes" de energia */}
         <g className={`circuit-gate ${inputsFlow && charged > 0 ? 'is-charged' : ''}`}>
           <rect x="330" y="105" width="100" height="110" rx="22" className="circuit-gate__box" />
-          <text x="380" y="168" textAnchor="middle" className="circuit-gate__label">{gate}</text>
+          <text x="380" y="168" textAnchor="middle" className="circuit-gate__label">{gateLabel}</text>
           {[0, 1].map((slot) => (
             <circle
               key={slot}

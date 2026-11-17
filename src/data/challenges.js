@@ -1660,6 +1660,77 @@ export const CHALLENGES = {
       text: 'O NÃO deixa tudo ao contrário: o que era V vira F, e o que era F vira V.',
     },
   },
+  'lab-5-tween': {
+    id: 'lab-5-tween',
+    type: 'tween-master',
+    levelId: 'lab-5',
+    ageGroup: '9-12',
+    scene: 'lab',
+
+    intro: [
+      {
+        id: 't9.l5.intro.1',
+        mood: 'happy',
+        illustration: 'circuit-example',
+        example: { gate: 'E', symbol: '∧', a: true, b: true },
+        text: 'Chegou o desafio final do laboratório: a Tabela Mestra! As alavancas p e q mandam energia quando estão em V. A porta decide se a luz acende.',
+      },
+      {
+        id: 't9.l5.intro.2',
+        mood: 'curious',
+        illustration: 'circuit-example',
+        example: { gate: 'E', symbol: '∧', a: true, b: false },
+        text: 'Na porta do E, a luz precisa da energia das duas alavancas. Com uma só, ela só pisca fraquinho. No fim, você vai completar a tabela sozinho!',
+      },
+    ],
+
+    mission: { id: 't9.l5.mission', text: 'Descubra se a luz acende em cada circuito e complete a Tabela Mestra.' },
+
+    columns: [
+      {
+        id: 'and',
+        gate: 'E',
+        symbol: '∧',
+        start: { id: 't9.l5.col.and', text: 'Primeiro a porta do E! Para a luz acender, p e q precisam estar em V.' },
+        hints: {
+          2: { id: 't9.l5.and.h2', text: 'As duas alavancas estão em V e mandaram energia. Com o E, a luz acende!' },
+          1: { id: 't9.l5.and.h1', text: 'Só uma alavanca está em V. O E precisa das duas, então a luz só pisca fraquinho.' },
+          0: { id: 't9.l5.and.h0', text: 'As duas alavancas estão em F: não sai energia e a luz fica apagada.' },
+        },
+      },
+      {
+        id: 'or',
+        gate: 'OU',
+        symbol: '∨',
+        start: { id: 't9.l5.col.or', text: 'Agora a porta do OU! Com o OU, uma alavanca em V já basta para acender a luz.' },
+        hints: {
+          2: { id: 't9.l5.or.h2', text: 'As duas alavancas estão em V. Com o OU, a luz acende!' },
+          1: { id: 't9.l5.or.h1', text: 'Uma alavanca está em V, e com o OU uma já basta: a luz acende!' },
+          0: { id: 't9.l5.or.h0', text: 'As duas alavancas estão em F: não sai energia e a luz fica apagada.' },
+        },
+      },
+    ],
+
+    tableStart: { id: 't9.l5.table.start', text: 'A Tabela Mestra já tem o E e o OU que você descobriu. Falta a última coluna: o não p! Toque em cada casa e escolha V ou F.' },
+    notHint: { id: 't9.l5.table.hint', text: 'Quase! O não p é sempre o contrário de p. Olhe a primeira coluna: onde p é V, não p é F.' },
+    notUnset: { id: 't9.l5.table.unset', text: 'Ainda tem casa com ponto de interrogação. Toque nela para escolher V ou F.' },
+    tableNote: 'O E pede as duas, o OU basta uma e o NÃO troca tudo. Essa é a Tabela Mestra da lógica!',
+
+    feedback: {
+      tableDone: { id: 't9.l5.table.done', text: 'A Tabela Mestra está completa! O laboratório tem energia de novo!' },
+      success: {
+        id: 't9.l5.success',
+        title: 'O laboratório está ligado!',
+        text: 'Você completou a Tabela Mestra com o E, o OU e o NÃO. Você completou o Laboratório da Verdade!',
+      },
+    },
+
+    complete: {
+      id: 't9.l5.complete',
+      title: 'Laboratório da Verdade: concluído!',
+      text: 'Agora você conhece as frases verdadeiras e falsas, o E, o OU e o NÃO, e sabe montar uma tabela-verdade.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {
