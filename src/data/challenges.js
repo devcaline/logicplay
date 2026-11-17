@@ -1819,6 +1819,51 @@ export const CHALLENGES = {
       text: 'p ∧ q é V só quando p e q são V. Em qualquer outro caso, é F.',
     },
   },
+  'lab-3-teen': {
+    id: 'lab-3-teen',
+    type: 'teen-or',
+    levelId: 'lab-3',
+    ageGroup: '13+',
+    scene: 'study',
+    quiet: true,
+
+    intro: [
+      {
+        id: 't.l3.intro',
+        mood: 'curious',
+        illustration: 'or-example',
+        text: 'A disjunção junta duas proposições com “ou”, escrito ∨. A proposição p ∨ q é verdadeira quando pelo menos uma das partes é verdadeira, e só é falsa quando as duas são falsas. Na lógica, o “ou” é inclusivo: as duas partes podem ser verdadeiras ao mesmo tempo. Nesta fase você vai montar frases com cartas e resolver casos de detetive.',
+      },
+    ],
+
+    mission: { id: 't.l3.mission', text: 'Monte disjunções com o valor pedido e deduza valores a partir de pistas.' },
+
+    symbols: [
+      ['p, q, r', 'proposições'],
+      ['∨', 'ou (disjunção)'],
+      ['∧', 'e (conjunção)'],
+      ['( )', 'resolva primeiro o que está dentro'],
+      ['?', 'não dá para saber'],
+      ['V', 'verdadeiro'],
+      ['F', 'falso'],
+      ['x', 'variável: deixa a sentença aberta'],
+      ['∈', 'pertence'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.l3.success',
+        title: 'Fase concluída!',
+        text: 'Você montou disjunções com cartas e resolveu os casos de detetive.',
+      },
+    },
+
+    complete: {
+      id: 't.l3.complete',
+      title: 'Disjunção: concluída!',
+      text: 'p ∨ q é V quando pelo menos uma parte é V. Só é F quando p e q são F.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

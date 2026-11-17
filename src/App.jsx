@@ -22,6 +22,7 @@ import UnionGame from './screens/game/teen/UnionGame.jsx';
 import TeenGuardianGame from './screens/game/teen/TeenGuardianGame.jsx';
 import PropositionGame from './screens/game/teen/PropositionGame.jsx';
 import AndGame from './screens/game/teen/AndGame.jsx';
+import OrGame from './screens/game/teen/OrGame.jsx';
 import ColorSortingGame from './screens/game/tween/ColorSortingGame.jsx';
 import TweenMembershipGame from './screens/game/tween/TweenMembershipGame.jsx';
 import TweenVennGame from './screens/game/tween/TweenVennGame.jsx';
@@ -58,6 +59,7 @@ const GAME_COMPONENTS = {
   'teen-guardian': TeenGuardianGame,
   'teen-propositions': PropositionGame,
   'teen-and': AndGame,
+  'teen-or': OrGame,
   'color-sorting': ColorSortingGame,
   'tween-membership': TweenMembershipGame,
   'tween-venn': TweenVennGame,

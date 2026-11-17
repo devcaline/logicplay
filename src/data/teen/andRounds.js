@@ -4,18 +4,18 @@
  *
  * Questões:
  *  - eval:  { kind: 'eval', items: [{ id, lines: [{ name, text, value }], ask, answer, why, hint }] }
- *  - findx: { kind: 'findx', parts, universe, solution, hint }
- *  - table: { kind: 'table', columns: ['p ∧ q'] ou ['p ∧ q', 'q ∧ p'], hint }
+ *  - findx: { kind: 'findx', sentence, universe, solution, hint, doneText }
+ *  - table: { kind: 'table', columns: [{ label, op: 'and' | 'or' }], hint, doneText }
  */
 
-const range = (from, to) => Array.from({ length: to - from + 1 }, (_, index) => from + index);
-const pick = (list) => list[Math.floor(Math.random() * list.length)];
-const shuffle = (list) => [...list].sort(() => Math.random() - 0.5);
-const isPrime = (n) => n > 1 && range(2, Math.floor(Math.sqrt(n))).every((d) => n % d !== 0);
-const VF = (value) => (value ? 'V' : 'F');
+export const range = (from, to) => Array.from({ length: to - from + 1 }, (_, index) => from + index);
+export const pick = (list) => list[Math.floor(Math.random() * list.length)];
+export const shuffle = (list) => [...list].sort(() => Math.random() - 0.5);
+export const isPrime = (n) => n > 1 && range(2, Math.floor(Math.sqrt(n))).every((d) => n % d !== 0);
+export const VF = (value) => (value ? 'V' : 'F');
 
 // ---------- Frases com valor escolhido ----------
-const FACTS = {
+export const FACTS = {
   parity: (value) => {
     const n = pick(range(2, 40));
     const even = n % 2 === 0;
@@ -61,7 +61,7 @@ const NAMES = ['p', 'q', 'r'];
 const joinAnd = (names) => names.join(' ∧ ');
 
 /** Monta as linhas (p, q, talvez r) com valores escolhidos, sem repetir o tipo de frase. */
-function makeLines(facts, values) {
+export function makeLines(facts, values) {
   const kinds = shuffle(facts);
   return values.map((value, index) => ({ name: NAMES[index], value, ...FACTS[kinds[index % kinds.length]](value) }));
 }
@@ -87,7 +87,7 @@ function andItem(level, difficulty, values, id) {
 }
 
 /** Combinações de valores para uma questão: sempre há pelo menos um caso V e um F. */
-function valueSets(count, names) {
+export function valueSets(count, names) {
   const all = names === 3
     ? [[true, true, true], [true, true, false], [true, false, true], [false, true, true], [false, false, true], [true, false, false]]
     : [[true, true], [true, false], [false, true], [false, false]];
@@ -123,7 +123,7 @@ function makeEval(level, difficulty, round) {
 }
 
 // ---------- Encontre x ----------
-const CONDITIONS = {
+export const CONDITIONS = {
   even: { text: 'x é par', test: (x) => x % 2 === 0 },
   odd: { text: 'x é ímpar', test: (x) => x % 2 === 1 },
   prime: { text: 'x é primo', test: isPrime },
@@ -145,11 +145,13 @@ function makeFindX(difficulty) {
     }
     const solution = universe.filter((x) => parts.every((part) => part.test(x)));
     if (solution.length >= 2 && solution.length <= 5) {
+      const sentence = parts.map((part) => part.text).join(' ∧ ');
       return {
         kind: 'findx',
-        parts: parts.map((part) => part.text),
+        sentence,
         universe,
         solution,
+        doneText: `Isso! A sentença ${sentence} é V só para x ∈ {${solution.join(', ')}}: são os valores em que todas as partes são V.`,
         hint:
           difficulty === 'hard'
             ? 'Cada valor de x transforma a sentença numa proposição. Ela só é V se todas as partes forem V para aquele x.'
@@ -157,10 +159,11 @@ function makeFindX(difficulty) {
       };
     }
   }
-  return { kind: 'findx', parts: ['x é par', 'x > 6'], universe, solution: universe.filter((x) => x % 2 === 0 && x > 6), hint: 'Teste cada número nas duas partes.' };
+  const solution = universe.filter((x) => x % 2 === 0 && x > 6);
+  return { kind: 'findx', sentence: 'x é par ∧ x > 6', universe, solution, hint: 'Teste cada número nas duas partes.', doneText: `Isso! A sentença é V só para x ∈ {${solution.join(', ')}}.` };
 }
 
-function coinFlip() {
+export function coinFlip() {
   return Math.random() < 0.5;
 }
 
@@ -175,7 +178,11 @@ export function generateAndRounds(difficulty) {
     return {
       id: `round-${round}`,
       kind: 'table',
-      columns: id === 'hard' ? ['p ∧ q', 'q ∧ p'] : ['p ∧ q'],
+      columns: id === 'hard' ? [{ label: 'p ∧ q', op: 'and' }, { label: 'q ∧ p', op: 'and' }] : [{ label: 'p ∧ q', op: 'and' }],
+      doneText:
+        id === 'hard'
+          ? 'Isso! As colunas p ∧ q e q ∧ p são iguais: no ∧, a ordem não importa. E só a primeira linha, com p e q verdadeiras, dá V.'
+          : 'Isso! Só a primeira linha, com p e q verdadeiras, dá V. Nas outras, basta uma parte F para o ∧ ser F.',
       hint:
         id === 'hard'
           ? 'Em cada linha, olhe p e q. O ∧ só dá V quando os dois são V. Será que trocar a ordem muda alguma coisa?'

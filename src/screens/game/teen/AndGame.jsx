@@ -17,7 +17,10 @@ const CHOICES = [
   { value: true, label: 'V', caption: 'verdadeira' },
   { value: false, label: 'F', caption: 'falsa' },
 ];
-const tableValue = (row) => row.p && row.q; // p ∧ q e q ∧ p têm a mesma coluna
+const OPS = { and: (row) => row.p && row.q, or: (row) => row.p || row.q };
+const CONTENT = {
+  'teen-and': { generate: generateAndRounds, warmup: andWarmup },
+};
 
 /**
  * A conjunção (13+): p ∧ q só é V quando p e q são V.
@@ -32,8 +35,9 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
   const Scene = getLevelScene(challenge.scene);
   const { symbols } = challenge;
 
-  const rounds = useMemo(() => generateAndRounds(difficultyId), [difficultyId]);
-  const warmup = useMemo(() => andWarmup(), []);
+  const content = CONTENT[challenge.type] ?? CONTENT['teen-and'];
+  const rounds = useMemo(() => content.generate(difficultyId), [content, difficultyId]);
+  const warmup = useMemo(() => content.warmup(), [content]);
   const [inWarmup, setInWarmup] = useState(true);
   const [index, setIndex] = useState(0);
   const [itemIndex, setItemIndex] = useState(0);
@@ -114,7 +118,7 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
   };
 
   const checkTable = () => {
-    const keys = round.columns.flatMap((_, col) => AND_ROWS.map((row, r) => ({ key: `${col}-${r}`, expected: tableValue(row) })));
+    const keys = round.columns.flatMap((column, col) => AND_ROWS.map((row, r) => ({ key: `${col}-${r}`, expected: OPS[column.op](row) })));
     const unset = keys.filter(({ key }) => cells[key] === undefined);
     setHintOpen(false);
     if (unset.length) {
@@ -175,7 +179,6 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
     return Boolean(item.showValues);
   };
 
-  const findxSentence = round.kind === 'findx' ? round.parts.join(' ∧ ') : '';
 
   return (
     <div className="screen game-screen teen-screen">
@@ -274,7 +277,7 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
         {round.kind === 'findx' && (
           <section className="statement and-statement" aria-live="polite">
             <p className="teen-card__label">Sentença aberta</p>
-            <p className="and-ask">{findxSentence}</p>
+            <p className="and-ask">{round.sentence}</p>
             <p className="and-findx__note">
               x ∈ {'{'}1, 2, …, {round.universe.length}{'}'}. Toque nos valores de x que tornam a sentença V.
             </p>
@@ -307,7 +310,7 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
                   <th>p</th>
                   <th>q</th>
                   {round.columns.map((column) => (
-                    <th key={column} className="is-key">{column}</th>
+                    <th key={column.label} className="is-key">{column.label}</th>
                   ))}
                 </tr>
               </thead>
@@ -320,13 +323,13 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
                       const key = `${col}-${r}`;
                       const value = cells[key];
                       return (
-                        <td key={column}>
+                        <td key={column.label}>
                           <button
                             type="button"
                             className={`and-cell ${value === undefined ? 'is-unset' : value ? 'is-v' : 'is-f'} ${wrongMarks.includes(key) ? 'is-wrong' : ''}`}
                             onClick={() => toggleCell(key)}
                             disabled={solved}
-                            aria-label={`Linha ${r + 1}, ${column}: ${value === undefined ? 'sem resposta' : VF(value)}. Toque para mudar.`}
+                            aria-label={`Linha ${r + 1}, ${column.label}: ${value === undefined ? 'sem resposta' : VF(value)}. Toque para mudar.`}
                           >
                             {value === undefined ? '?' : VF(value)}
                           </button>
@@ -362,11 +365,7 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
           <p ref={feedbackRef} className="teen-feedback teen-feedback--ok">
             <Check size={18} strokeWidth={3} aria-hidden="true" />
             <span>
-              {round.kind === 'findx'
-                ? `Isso! A sentença ${findxSentence} é V só para x ∈ {${round.solution.join(', ')}}: são os valores em que as duas partes são V.`
-                : round.columns.length > 1
-                  ? 'Isso! As colunas p ∧ q e q ∧ p são iguais: no ∧, a ordem não importa. E só a primeira linha, com p e q verdadeiras, dá V.'
-                  : 'Isso! Só a primeira linha, com p e q verdadeiras, dá V. Nas outras, basta uma parte F para o ∧ ser F.'}
+              {round.doneText}
             </span>
           </p>
         )}

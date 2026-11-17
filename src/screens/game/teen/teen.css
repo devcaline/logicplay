@@ -487,3 +487,28 @@
   .x-chips { grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 6px; }
   .x-chip { height: 42px; font-size: 1rem; }
 }
+
+/* ---------- Laboratório 13+, fase 3: disjunção (Monte + Detetive) ---------- */
+.and-statement .teen-card__label svg { vertical-align: -2px; }
+.or-goal { margin: 8px 0 4px; font: 600 1.02rem/1.4 var(--font-body); color: #D8D3FF; }
+.or-goal__expr { font: 600 1.25rem/1 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: #fff; white-space: nowrap; }
+.or-goal strong { padding: 1px 8px; border-radius: 6px; color: #fff; }
+.or-goal strong.is-v { background: var(--green-500); }
+.or-goal strong.is-f { background: #C2374F; }
+.or-slots li { flex-wrap: wrap; }
+.or-slot { flex: 1; min-width: 150px; min-height: 40px; padding: 6px 10px; border-radius: 8px; border: 2px dashed rgba(125, 232, 255, 0.6); background: transparent; color: #7DE8FF; font: 600 0.95rem/1.2 var(--font-body); text-align: left; }
+.or-slot.is-filled { border: 2px solid #fff; background: #fff; color: var(--ink); font: 600 1.05rem/1.25 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; cursor: pointer; }
+.or-slot:disabled { cursor: default; }
+.or-need { padding: 3px 8px; border-radius: 6px; background: rgba(255, 201, 77, 0.18); color: #FFC94D; font: 700 0.78rem/1.2 var(--font-display); white-space: nowrap; }
+.or-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.or-card { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 52px; padding: 8px 12px; border: 1px solid #CFCBE6; border-bottom-width: 4px; border-radius: 12px; background: #fff; color: var(--ink); font: 600 1.05rem/1.25 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.or-card:hover { border-color: var(--lilac-500); }
+.or-card:active { transform: translateY(2px); border-bottom-width: 2px; }
+.or-card.is-used { opacity: 0.3; cursor: default; }
+.or-clues__title { margin: 6px 0 0; text-align: left; font: 700 0.8rem/1 var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; color: #FFC94D; }
+.and-ask__slot.is-unknown { border-style: solid; border-color: transparent; background: #6E66A8; color: #fff; }
+@media (max-width: 600px) {
+  .or-cards { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .or-card { min-height: 48px; padding: 6px 8px; font-size: 0.95rem; }
+  .or-slot { min-width: 0; }
+}
