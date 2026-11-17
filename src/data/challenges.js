@@ -1864,6 +1864,50 @@ export const CHALLENGES = {
       text: 'p ∨ q é V quando pelo menos uma parte é V. Só é F quando p e q são F.',
     },
   },
+  'lab-4-teen': {
+    id: 'lab-4-teen',
+    type: 'teen-not',
+    levelId: 'lab-4',
+    ageGroup: '13+',
+    scene: 'study',
+    quiet: true,
+
+    intro: [
+      {
+        id: 't.l4.intro',
+        mood: 'curious',
+        illustration: 'not-example',
+        text: 'A negação de p, escrita ¬p, diz exatamente o contrário de p e sempre tem o valor oposto. O desafio é negar direito: o contrário de “maior que” é “menor ou igual”, e o contrário de “todo” é “existe um que não”.',
+      },
+    ],
+
+    mission: { id: 't.l4.mission', text: 'Ligue cada frase à sua negação e escolha a negação certa entre frases parecidas.' },
+
+    symbols: [
+      ['¬', 'não (negação)'],
+      ['¬(¬p)', 'negar duas vezes: volta a p'],
+      ['≠', 'diferente'],
+      ['≤ / ≥', 'menor ou igual / maior ou igual'],
+      ['∈ / ∉', 'pertence / não pertence'],
+      ['todo', 'vale para todos, sem exceção'],
+      ['existe', 'vale para pelo menos um'],
+      ['∧ / ∨', 'e / ou'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.l4.success',
+        title: 'Fase concluída!',
+        text: 'Você ligou frases às suas negações e escapou das armadilhas da negação.',
+      },
+    },
+
+    complete: {
+      id: 't.l4.complete',
+      title: 'Negação: concluída!',
+      text: '¬p diz o contrário de p e tem o valor oposto. O contrário de “>” é “≤”, e o de “todo” é “existe um que não”.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

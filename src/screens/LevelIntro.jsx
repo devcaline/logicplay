@@ -207,6 +207,15 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'not-example') {
+    return (
+      <div className="intro-notation intro-propositions" aria-hidden="true">
+        <span className="intro-notation__math">p: 5 &gt; 3. → V</span>
+        <span className="intro-notation__math">¬p: 5 ≤ 3. → F</span>
+        <span className="intro-notation__tag">Armadilha: ¬p não é 5 &lt; 3</span>
+      </div>
+    );
+  }
   if (kind === 'or-example') {
     return (
       <div className="intro-notation intro-propositions" aria-hidden="true">

@@ -512,3 +512,33 @@
   .or-card { min-height: 48px; padding: 6px 8px; font-size: 0.95rem; }
   .or-slot { min-width: 0; }
 }
+
+/* ---------- Laboratório 13+, fase 4: negação (Pares + Negação certa) ---------- */
+.not-match { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; }
+.not-match__col { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.not-match__head { margin: 0; text-align: center; font: 700 1.2rem/1 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: #7DE8FF; }
+.not-card { position: relative; display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 8px 10px; border-radius: 10px; border: 2px solid transparent; background: #fff; color: var(--ink); font: 600 1rem/1.25 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; text-align: left; overflow-wrap: anywhere; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: transform 0.15s ease, background 0.2s ease; }
+.not-card.is-selected { border-color: #7DE8FF; background: #E3FAFF; transform: scale(1.03); }
+.not-card.is-wrong { border-color: var(--pink-500); background: #FDE2EC; animation: not-shake 0.35s ease; }
+.not-card.is-matched { cursor: default; color: #fff; }
+.not-card.is-pair-1 { background: #3FA86B; }
+.not-card.is-pair-2 { background: #3D7FD9; }
+.not-card.is-pair-3 { background: #B5651D; }
+.not-card.is-pair-4 { background: #8A55C7; }
+.not-card.is-pair-5 { background: #C2374F; }
+.not-card__num { display: grid; place-items: center; flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: rgba(255, 255, 255, 0.25); font: 700 0.8rem/1 var(--font-display); }
+.not-options { display: flex; flex-direction: column; gap: 8px; }
+.not-option { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 54px; padding: 10px 16px; border: 1px solid #CFCBE6; border-bottom-width: 4px; border-radius: 12px; background: #fff; color: var(--ink); font: 600 1.15rem/1.3 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.not-option:hover:not(:disabled) { border-color: var(--lilac-500); }
+.not-option:disabled { cursor: default; }
+.not-option.is-right { background: var(--green-100); border-color: var(--green-500); color: var(--green-700); }
+.not-option.is-wrong { background: #FDE2EC; border-color: var(--pink-500); color: #A3285C; }
+.not-option svg { flex-shrink: 0; }
+@keyframes not-shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+@media (max-width: 600px) {
+  .not-match { gap: 6px; }
+  .not-card { min-height: 48px; padding: 6px 8px; font-size: 0.9rem; }
+  .not-option { font-size: 1.02rem; padding: 8px 12px; }
+}
+.not-card.is-trap { flex-direction: column; align-items: flex-start; gap: 4px; background: #FFF6D8; border-color: #FFC94D; color: #6A4300; opacity: 1; cursor: default; }
+.not-card__trap { padding: 2px 6px; border-radius: 6px; background: #FFC94D; color: #2E2668; font: 700 0.7rem/1 var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; }
