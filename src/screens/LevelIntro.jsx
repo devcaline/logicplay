@@ -256,7 +256,7 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
   if (kind === 'lever-example') {
     return (
       <div className="intro-illus intro-illus--levers" aria-hidden="true">
-        <LeverMachine levers={challenge.levers} values={{ a: example.a, b: example.b }} gate={challenge.gate} state={example.state} />
+        <LeverMachine levers={challenge.levers} values={{ a: example.a, b: example.b }} gate={challenge.symbol ?? challenge.gate} state={example.state} />
       </div>
     );
   }

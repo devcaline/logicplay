@@ -1561,6 +1561,59 @@ export const CHALLENGES = {
       text: 'O E só é verdadeiro quando as duas frases são verdadeiras ao mesmo tempo, igual à interseção da floresta.',
     },
   },
+  'lab-3-tween': {
+    id: 'lab-3-tween',
+    type: 'tween-lever',
+    levelId: 'lab-3',
+    ageGroup: '9-12',
+    scene: 'lab',
+    gate: 'OU',
+    symbol: '∨',
+
+    levers: {
+      a: { label: 'p', tag: 'p', color: '#3B95E8' },
+      b: { label: 'q', tag: 'q', color: '#F7619F' },
+    },
+
+    intro: [
+      {
+        id: 't9.l3.intro.1',
+        mood: 'happy',
+        illustration: 'lever-example',
+        example: { a: true, b: false, state: 'working' },
+        text: 'Esta é a Máquina do OU! Cada alavanca guarda uma frase: p e q. Quando a frase é verdadeira, a alavanca sobe. Basta uma alavanca para cima para as engrenagens girarem!',
+      },
+      {
+        id: 't9.l3.intro.2',
+        mood: 'curious',
+        illustration: 'lever-example',
+        example: { a: false, b: false, state: 'stopped' },
+        text: 'Se as duas frases forem falsas, a máquina para. Os matemáticos escrevem o OU com um símbolo que parece um V, e ele lembra a união da floresta!',
+      },
+    ],
+
+    mission: { id: 't9.l3.mission', text: 'Leia as frases p e q e descubra: a Máquina do OU funciona?' },
+
+    act: 'Ih, a alavanca p emperrou numa frase falsa! Escolha para q uma frase que faça a máquina funcionar.',
+    actHint: 'Essa frase é falsa, então a alavanca q ficou para baixo. Com p falsa, a máquina só funciona se q for verdadeira.',
+
+    table: { id: 't9.l3.table', text: 'As quatro rodadas formam a tabela do OU: a máquina só fica parada quando p e q são falsas.' },
+    tableNote: 'p ∨ q é V quando pelo menos uma frase é V. Só dá F quando as duas são F. Compare com p ∧ q!',
+
+    feedback: {
+      success: {
+        id: 't9.l3.success',
+        title: 'A Máquina do OU está funcionando!',
+        text: 'Com o OU, basta uma frase verdadeira. A máquina só para quando as duas são falsas.',
+      },
+    },
+
+    complete: {
+      id: 't9.l3.complete',
+      title: 'A Máquina do OU: concluída!',
+      text: 'O OU é verdadeiro quando pelo menos uma frase é verdadeira, igual à união da floresta.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

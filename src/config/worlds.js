@@ -85,7 +85,7 @@ export const WORLDS = [
         name: 'A Máquina do OU',
         description: 'Basta uma verdade para esta máquina funcionar.',
         pos: { x: 30, y: 50 },
-        content: { '5-8': 'lab-3-kids' },
+        content: { '5-8': 'lab-3-kids', '9-12': 'lab-3-tween' },
       },
       {
         id: 'lab-4',

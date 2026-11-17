@@ -2,7 +2,7 @@ import { Lock } from 'lucide-react';
 import { gearPath } from '../scenery/sceneParts.jsx';
 import './LeverMachine.css';
 
-/** Desenho da alavanca num trilho vertical: em cima = ligada, embaixo = desligada. */
+/** Desenho da alavanca num trilho vertical: em cima = ligada, embaixo = desligada, deitada = ainda não se sabe (null). */
 export function LeverArt({ on, color = '#3B95E8', className = 'lever__art' }) {
   return (
     <svg className={className} viewBox="0 0 80 110" aria-hidden="true">
@@ -11,7 +11,7 @@ export function LeverArt({ on, color = '#3B95E8', className = 'lever__art' }) {
       <rect x="35" y="16" width="10" height="78" rx="5" fill="#3F3A63" />
       <circle cx="40" cy="14" r="3" fill={on ? '#5FD99B' : '#8C86B8'} />
       <circle cx="40" cy="96" r="3" fill={on ? '#8C86B8' : '#C9C4E0'} />
-      <g className="lever__arm" style={{ transform: `rotate(${on ? 0 : 180}deg)` }}>
+      <g className="lever__arm" style={{ transform: `rotate(${on === null ? 90 : on ? 0 : 180}deg)` }}>
         <rect x="36" y="22" width="8" height="34" rx="4" fill="#C9C4E0" />
         <circle cx="40" cy="22" r="13" fill={color} />
         <circle cx="36" cy="18" r="4" fill="#fff" opacity="0.6" />
@@ -22,14 +22,16 @@ export function LeverArt({ on, color = '#3B95E8', className = 'lever__art' }) {
   );
 }
 
-/** Uma alavanca: para cima = ligada, para baixo = desligada. */
-function Lever({ on, color, label, stuck, interactive, onToggle, small }) {
+/** Uma alavanca: para cima = ligada, para baixo = desligada. `tag` é um nome opcional (como "p"). */
+function Lever({ on, color, label, tag, stuck, interactive, onToggle, small }) {
+  const stateText = on === null ? '?' : tag ? `${tag} é ${on ? 'V' : 'F'}` : on ? 'Ligada' : 'Desligada';
   const content = (
     <>
+      {tag && <span className="lever__tag">{tag}</span>}
       <LeverArt on={on} color={color} />
       {!small && (
         <span className={`lever__state ${on ? 'is-on' : ''}`}>
-          {stuck && <Lock size={14} strokeWidth={3} aria-hidden="true" />} {on ? 'Ligada' : 'Desligada'}
+          {stuck && <Lock size={14} strokeWidth={3} aria-hidden="true" />} {stateText}
         </span>
       )}
     </>
@@ -104,6 +106,7 @@ export default function LeverMachine({ levers, values, gate = 'OU', state = 'idl
           on={values.a}
           color={levers.a.color}
           label={levers.a.label}
+          tag={levers.a.tag}
           stuck={stuck === 'a'}
           interactive={interactive}
           onToggle={() => onToggle?.('a')}
@@ -114,6 +117,7 @@ export default function LeverMachine({ levers, values, gate = 'OU', state = 'idl
           on={values.b}
           color={levers.b.color}
           label={levers.b.label}
+          tag={levers.b.tag}
           stuck={stuck === 'b'}
           interactive={interactive}
           onToggle={() => onToggle?.('b')}
