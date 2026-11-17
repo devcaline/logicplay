@@ -207,6 +207,16 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'and-example') {
+    return (
+      <div className="intro-notation intro-propositions" aria-hidden="true">
+        <span className="intro-notation__math">p: 6 é par. → V</span>
+        <span className="intro-notation__math">q: 6 &gt; 10. → F</span>
+        <span className="intro-notation__math">p ∧ q → F</span>
+        <span className="intro-notation__tag">p ∧ q só é V quando p e q são V</span>
+      </div>
+    );
+  }
   if (kind === 'proposition-example') {
     return (
       <div className="intro-notation intro-propositions" aria-hidden="true">

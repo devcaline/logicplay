@@ -1776,6 +1776,49 @@ export const CHALLENGES = {
       text: 'Toda proposição tem um único valor lógico: V ou F. Frases sem valor definido não são proposições.',
     },
   },
+  'lab-2-teen': {
+    id: 'lab-2-teen',
+    type: 'teen-and',
+    levelId: 'lab-2',
+    ageGroup: '13+',
+    scene: 'study',
+    quiet: true,
+
+    intro: [
+      {
+        id: 't.l2.intro',
+        mood: 'curious',
+        illustration: 'and-example',
+        text: 'A conjunção junta duas proposições com “e”, escrito ∧. A proposição p ∧ q só é verdadeira quando p e q são verdadeiras ao mesmo tempo. Basta uma parte falsa para tudo ser falso.',
+      },
+    ],
+
+    mission: { id: 't.l2.mission', text: 'Descubra o valor lógico das conjunções e complete a tabela-verdade do ∧.' },
+
+    symbols: [
+      ['p, q, r', 'proposições'],
+      ['∧', 'e (conjunção)'],
+      ['V(p ∧ q)', 'valor lógico de p ∧ q'],
+      ['V', 'verdadeiro'],
+      ['F', 'falso'],
+      ['x', 'variável: deixa a sentença aberta'],
+      ['∈', 'pertence'],
+    ],
+
+    feedback: {
+      success: {
+        id: 't.l2.success',
+        title: 'Fase concluída!',
+        text: 'Você avaliou conjunções e montou a tabela-verdade do ∧.',
+      },
+    },
+
+    complete: {
+      id: 't.l2.complete',
+      title: 'Conjunção: concluída!',
+      text: 'p ∧ q é V só quando p e q são V. Em qualquer outro caso, é F.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

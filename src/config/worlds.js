@@ -77,7 +77,7 @@ export const WORLDS = [
         name: 'A Máquina do E',
         description: 'Uma máquina que só liga quando tudo é verdade.',
         pos: { x: 72, y: 30 },
-        content: { '5-8': 'lab-2-kids', '9-12': 'lab-2-tween' },
+        content: { '5-8': 'lab-2-kids', '9-12': 'lab-2-tween', '13+': 'lab-2-teen' },
       },
       {
         id: 'lab-3',
