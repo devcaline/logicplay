@@ -32,6 +32,23 @@ function IntroIllustration({ kind, items, set, sets, example, statements, challe
       </div>
     );
   }
+  if (kind === 'not-balls') {
+    return (
+      <div className="intro-notation intro-truth-balls" aria-hidden="true">
+        <div className="intro-notation__row">
+          <TruthLamp state="on" size={52} />
+          <span className="num-ball num-ball--red intro-ball">7</span>
+          <span className="intro-notation__math">p: o 7 é ímpar → V</span>
+        </div>
+        <span className="intro-notation__equals">↓ espelho do NÃO</span>
+        <div className="intro-notation__row">
+          <TruthLamp state="off" size={52} />
+          <span className="num-ball num-ball--red intro-ball">7</span>
+          <span className="intro-notation__math">¬p: o 7 NÃO é ímpar → F</span>
+        </div>
+      </div>
+    );
+  }
   if (kind === 'gate-balls') {
     const { a, b, gate, symbol } = example;
     const on = (value) => (value ? 'on' : 'off');

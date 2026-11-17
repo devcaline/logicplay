@@ -1614,6 +1614,52 @@ export const CHALLENGES = {
       text: 'O OU é verdadeiro quando pelo menos uma frase é verdadeira, igual à união da floresta.',
     },
   },
+  'lab-4-tween': {
+    id: 'lab-4-tween',
+    type: 'tween-not',
+    levelId: 'lab-4',
+    ageGroup: '9-12',
+    scene: 'lab',
+
+    intro: [
+      {
+        id: 't9.l4.intro.1',
+        mood: 'happy',
+        illustration: 'not-balls',
+        text: 'Este é o Espelho do NÃO! Ele mostra cada frase ao contrário. Se a frase p é verdadeira, no espelho ela vira falsa. Se p é falsa, no espelho vira verdadeira!',
+      },
+      {
+        id: 't9.l4.intro.2',
+        mood: 'curious',
+        illustration: 'not-balls',
+        text: 'Os matemáticos escrevem o NÃO com um sinal que parece um tracinho com uma perninha, antes da letra. Lemos: não p.',
+      },
+    ],
+
+    mission: { id: 't9.l4.mission', text: 'Olhe a frase p e descubra: no espelho, a luz acende ou apaga?' },
+
+    parts: {
+      single: { id: 't9.l4.part.single', text: 'Olhe a frase p e a lâmpada dela. No espelho do NÃO, a luz acende ou apaga?' },
+      double: { id: 't9.l4.part.double', text: 'Agora são dois espelhos! O segundo espelho vira de novo o que o primeiro virou. O que acontece com a luz?' },
+    },
+
+    table: { id: 't9.l4.table', text: 'Aqui está a tabela do NÃO: ele sempre troca o V pelo F e o F pelo V. E com dois espelhos, tudo volta a ser como era!' },
+    tableNote: '¬p é sempre o contrário de p. E ¬(¬p) volta a ser igual a p.',
+
+    feedback: {
+      success: {
+        id: 't9.l4.success',
+        title: 'Você domou o Espelho do NÃO!',
+        text: 'O NÃO troca verdadeiro por falso e falso por verdadeiro. E dois NÃOs se cancelam!',
+      },
+    },
+
+    complete: {
+      id: 't9.l4.complete',
+      title: 'O Espelho do NÃO: concluída!',
+      text: 'O NÃO deixa tudo ao contrário: o que era V vira F, e o que era F vira V.',
+    },
+  },
 };
 
 export function getChallenge(challengeId) {

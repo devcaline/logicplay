@@ -246,3 +246,14 @@
 .lever-option { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 3px solid #E4DEFF; border-bottom-width: 6px; border-radius: 16px; background: #fff; font: 600 1.02rem/1.3 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: var(--ink); text-align: left; cursor: pointer; }
 .lever-option:hover { border-color: var(--lilac-500); }
 .levers-screen .gate-table { margin-top: 6px; }
+
+/* Laboratório, fase 4: o Espelho do NÃO */
+.tween-mirror-phrase { display: flex; align-items: center; gap: 10px; width: 100%; }
+.tween-mirror-phrase__ball { flex: none; width: 44px; height: 44px; font-size: 1.1rem; }
+.tween-mirror-phrase__text { flex: 1; font: 600 clamp(1rem, 3.8vw, 1.2rem)/1.3 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: var(--ink); text-align: left; }
+.tween-mirror-phrase__text strong { color: var(--lilac-700); font-style: italic; }
+.tween-mirror-phrase__value { display: grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 8px; background: #E4DEFF; color: var(--ink-soft); font: 700 1rem/1 var(--font-display); }
+.tween-mirror-phrase__value.is-v { background: var(--green-500); color: #fff; }
+.tween-mirror-phrase__value.is-f { background: var(--pink-500); color: #fff; }
+.tween-mirror-first { opacity: 0.85; }
+.mirror-screen .gate-table { margin-top: 6px; }
