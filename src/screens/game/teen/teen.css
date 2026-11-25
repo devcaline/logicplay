@@ -571,3 +571,39 @@
   .tmaster-table th { font-size: 0.85rem; }
   .master-class__name { font-size: 0.88rem; }
 }
+
+/* A tela cabe na altura do aparelho: os botões ficam presos embaixo. */
+.teen-layout { flex: 1; padding-bottom: 0; }
+.teen-layout > .teen-actions { margin-top: auto; }
+
+/* A legenda de símbolos abre por cima do conteúdo, sem empurrar a tela para baixo. */
+.teen-legend {
+  position: absolute;
+  top: 58px;
+  left: 12px;
+  right: 12px;
+  z-index: 40;
+  box-shadow: 0 14px 36px rgba(43, 35, 80, 0.24);
+  animation: fade-in 0.18s ease;
+}
+
+/* Celular: tudo um pouco mais compacto para caber na altura da tela sem reduzir demais. */
+@media (max-width: 600px) {
+  .teen-layout { padding-top: 10px; gap: 8px; }
+  .teen-card, .statement { padding: 10px 14px; }
+  .statement .teen-card__label, .teen-card__label { margin-bottom: 4px; }
+  .and-lines li { padding: 6px 10px; }
+  .and-ask { margin: 6px 0; }
+  .teen-feedback { padding: 8px 12px; font-size: 0.9rem; }
+  .teen-hint { padding: 6px 12px 6px 6px; }
+  .teen-hint p { font-size: 0.88rem; }
+  .teen-actions { padding: 8px 16px max(8px, env(safe-area-inset-bottom)); }
+  .relation-btn { padding: 8px 8px; }
+  .relation-btn__symbol { font-size: 1.6rem; }
+  .decoder-talk .dialogue__text { font-size: 0.95rem; }
+  .not-option { min-height: 44px; padding: 6px 12px; }
+  .or-card { min-height: 42px; }
+  .tmaster-table td, .tmaster-table td.is-v, .tmaster-table td.is-f, .tmaster-table .and-cell { height: 28px; }
+  .tmaster-table .master-row-btn { width: 28px; height: 28px; }
+  .and-table td.is-v, .and-table td.is-f, .and-cell { height: 34px; }
+}

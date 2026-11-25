@@ -284,3 +284,10 @@
   .tween-master-table th, .tween-master-table td { padding: 6px 8px; font-size: 0.95rem; }
   .tween-master-cell { min-width: 44px; }
 }
+
+/* Caderno compacto: as anotações antigas viram etiquetas; só a última mostra o porquê. */
+.tween-notes ul { display: flex; flex-wrap: wrap; gap: 6px; }
+.tween-notes li { flex: 0 0 auto; }
+.tween-notes li:not(:last-child) { padding: 4px 10px; }
+.tween-notes li:not(:last-child) .tween-notes__why { display: none; }
+.tween-notes li:last-child { flex-basis: 100%; }

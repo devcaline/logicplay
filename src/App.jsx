@@ -7,13 +7,15 @@ import AdventureMap from './screens/map/AdventureMap.jsx';
 import LevelIntro from './screens/LevelIntro.jsx';
 import GameScreen, { preloadGame } from './screens/game/GameScreen.jsx';
 import LevelComplete from './screens/LevelComplete.jsx';
+import FitScreen from './components/layout/FitScreen.jsx';
 import { getAgeGroup, isProfileComplete } from './config/ageGroups.js';
 import { findLevel, LEVEL_SEQUENCE } from './config/worlds.js';
 import { getChallenge } from './data/challenges.js';
 import { getChallengeIdFor, getLevelStatus } from './logic/progress.js';
 import { narrator } from './audio/narrator.js';
 
-function Router() {
+/** Decide qual tela mostrar (máquina de estados das telas). */
+function useCurrentScreen() {
   const { profile, profileProgress, setProfile } = useGame();
   const [route, setRoute] = useState({ name: 'home' });
   const [pendingAge, setPendingAge] = useState(null);
@@ -105,6 +107,13 @@ function Router() {
     default:
       return <HomeScreen onStart={() => go('age')} onContinue={goMap} />;
   }
+}
+
+/** Todas as telas cabem na altura do aparelho, menos o mapa, que pode rolar. */
+function Router() {
+  const content = useCurrentScreen();
+  if (content?.type === AdventureMap) return content;
+  return <FitScreen>{content}</FitScreen>;
 }
 
 export default function App() {

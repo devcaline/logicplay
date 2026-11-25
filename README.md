@@ -156,6 +156,11 @@ com símbolos, uma sugestão de leitura em palavras. Coloque as gravações em `
 Os nomes `v-…` são falas sorteadas (como a missão com a cor da vez): o narrador procura a gravação pelo
 código da fala e, se não achar, pelo texto. Frases montadas com números sorteados continuam com a voz do navegador.
 
+**Telas sem rolagem:** só o mapa rola. As outras telas passam pelo `FitScreen`
+(`src/components/layout/FitScreen.jsx`): quando o conteúdo fica mais alto que a tela (uma dica, uma tabela),
+ele é reduzido por igual para caber. Ao criar uma tela, use `main`, `.screen__content`, `.game-layout` ou
+`.teen-layout` como conteúdo principal dentro de `.screen`.
+
 **Efeitos sonoros:** são sintetizados em `src/audio/sfx.js`. Para usar um arquivo gravado, mapeie o nome do som em `SFX_FILES`.
 
 **Arte oficial do mascote:** substitua o SVG de `src/components/mascot/Mascot.jsx`, mantendo as props `mood`, `talking` e `size`.

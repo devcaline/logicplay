@@ -150,3 +150,11 @@
   .choice-card__go { align-self: flex-end; margin: 0 16px 16px 0; }
   .choice-card--row .choice-card__icon svg { width: 54px; height: 54px; }
 }
+
+/* Celulares baixos: cartões mais enxutos para caber sem rolagem. */
+@media (max-width: 559px) and (max-height: 760px) {
+  .selection-guide { margin-bottom: 10px; }
+  .choice-grid { gap: 10px; }
+  .choice-card__item:nth-child(2) { display: none; }
+  .choice-card__body { padding-top: 10px; padding-bottom: 10px; }
+}
