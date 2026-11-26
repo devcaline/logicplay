@@ -21,35 +21,37 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 18px 8px 8px;
+  padding: 6px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  font: 700 1.1rem/1.2 var(--font-display);
+  background: rgba(255, 255, 255, 0.75);
+  font: 700 1rem/1.2 var(--font-display);
   color: var(--ink);
-  box-shadow: 0 4px 12px rgba(43, 35, 80, 0.1);
 }
 
 .levers-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 440px; }
 .levers-choices:has(.lever-retry) { grid-template-columns: 1fr; justify-items: center; }
+/* Resposta em pílula enxuta (mesmo estilo de Pertence / Não pertence): ícone e texto na mesma linha, sombra leve. */
 .lever-choice {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  min-height: 96px;
-  padding: 10px 6px;
+  justify-content: center;
+  gap: 7px;
+  min-height: 54px;
+  padding: 0 10px;
+  white-space: nowrap;
   border: none;
-  border-radius: 26px;
+  border-radius: 999px;
   color: #fff;
-  font: 700 1.1rem/1 var(--font-display);
+  font: 700 clamp(0.9rem, 3.7vw, 1.02rem)/1.1 var(--font-display);
   cursor: pointer;
   transition: transform 0.12s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.lever-choice:active { transform: translateY(4px); }
-.lever-choice__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); }
-.lever-choice--no { background: linear-gradient(180deg, #A9A3CF, #8C86B8); box-shadow: 0 6px 0 #6E6896; }
-.lever-choice--yes { background: linear-gradient(180deg, #5FD99B, #33B877); box-shadow: 0 6px 0 #1E8C55; }
+.lever-choice:active { transform: translateY(3px); box-shadow: none; }
+.lever-choice__icon { display: grid; place-items: center; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: rgba(255, 255, 255, 0.28); }
+.lever-choice__icon svg { width: 18px; height: 18px; }
+.lever-choice--no { background: #9C96C6; box-shadow: 0 3px 0 #7A74A6, 0 6px 14px rgba(110, 104, 150, 0.22); }
+.lever-choice--yes { background: #3CC584; box-shadow: 0 3px 0 #239A5E, 0 6px 14px rgba(35, 154, 94, 0.22); }
 .lever-retry {
   display: inline-flex;
   align-items: center;
@@ -72,9 +74,8 @@
   .levers-stage .lever__state { font-size: 0.72rem; padding: 3px 8px; }
   .levers-stage .lever-machine__panel { padding: 8px 8px 8px; }
   .levers-stage .lever-machine__gate { font-size: 1.2rem; padding: 6px 12px; }
-  .levers-question { font-size: 0.98rem; border-radius: 22px; }
-  .lever-choice { min-height: 78px; font-size: 1rem; }
-  .lever-choice__icon { width: 42px; height: 42px; }
+  .levers-question { font-size: 0.95rem; }
+  .lever-choice { min-height: 52px; }
 }
 
 /* Telas largas: máquina à esquerda, pergunta e respostas à direita */
@@ -88,6 +89,6 @@
   }
   .levers-stage { max-width: min(460px, max(300px, calc((100dvh - 300px) * 0.95))); justify-self: end; margin-top: 30px; }
   .levers-controls { gap: 18px; align-items: stretch; max-width: 420px; }
-  .levers-question { border-radius: 24px; padding: 12px 18px 12px 10px; }
-  .lever-choice { min-height: 110px; font-size: 1.2rem; }
+  .levers-question { padding: 8px 18px; }
+  .lever-choice { min-height: 58px; font-size: 1.1rem; }
 }

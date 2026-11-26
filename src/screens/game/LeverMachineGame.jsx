@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Cog, CircleSlash, RotateCcw } from 'lucide-react';
 import TopBar from '../../components/ui/TopBar.jsx';
 import MascotDialogue from '../../components/mascot/MascotDialogue.jsx';
-import SpeakButton from '../../components/ui/SpeakButton.jsx';
 import StarBurst from '../../components/ui/StarBurst.jsx';
 import LeverMachine from '../../components/ui/LeverMachine.jsx';
 import { getLevelScene } from '../../components/scenery/scenes.js';
@@ -173,7 +172,6 @@ export default function LeverMachineGame({ challenge, level, onExit, onComplete 
         <div className="levers-controls">
         {!done && (
           <div className="levers-question">
-            <SpeakButton line={round.question} compact />
             <span>{round.kind === 'act' ? 'Ligue uma alavanca!' : `A Máquina do ${gate} funciona?`}</span>
           </div>
         )}

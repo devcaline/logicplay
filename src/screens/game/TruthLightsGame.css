@@ -144,26 +144,30 @@
 .lamp-zoom__property { display: grid; place-items: center; width: 80px; height: 80px; border-radius: 50%; background: #fff; border: 4px dashed var(--lilac-200); }
 .lamp-zoom__text { margin: 0; font: 700 1.5rem/1.2 var(--font-display); color: var(--ink); text-align: center; }
 .lamp-zoom__choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; margin-top: 4px; }
+/* Resposta em pílula enxuta (mesmo estilo de Pertence / Não pertence): ícone e texto na mesma linha, sombra leve. */
 .lamp-choice {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  min-height: 104px;
-  padding: 12px 6px;
+  justify-content: center;
+  gap: 7px;
+  min-height: 54px;
+  padding: 0 10px;
+  white-space: nowrap;
   border: none;
-  border-radius: 26px;
+  border-radius: 999px;
   color: #fff;
-  font: 700 1.15rem/1 var(--font-display);
+  font: 700 clamp(0.9rem, 3.7vw, 1.02rem)/1.1 var(--font-display);
   cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.lamp-choice:active { transform: translateY(4px); }
-.lamp-choice__icon { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); }
-.lamp-choice--no { background: linear-gradient(180deg, #A9A3CF, #8C86B8); box-shadow: 0 6px 0 #6E6896; }
-.lamp-choice--yes { background: linear-gradient(180deg, #FFD95A, #FFB800); color: #6A4300; box-shadow: 0 6px 0 #C27C0E; }
-.lamp-choice.is-active { outline: 5px solid var(--lilac-500); outline-offset: 3px; }
+.lamp-choice:hover:not(:disabled) { filter: brightness(1.05); }
+.lamp-choice:active:not(:disabled) { transform: translateY(3px); box-shadow: none; }
+.lamp-choice__icon { display: grid; place-items: center; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: rgba(255, 255, 255, 0.28); }
+.lamp-choice__icon svg { width: 18px; height: 18px; }
+.lamp-choice--no { background: #9C96C6; box-shadow: 0 3px 0 #7A74A6, 0 6px 14px rgba(110, 104, 150, 0.22); }
+.lamp-choice--yes { background: #FFC933; color: #6A4300; box-shadow: 0 3px 0 #D99A12, 0 6px 14px rgba(217, 154, 18, 0.22); }
+.lamp-choice.is-active { outline: 4px solid var(--lilac-500); outline-offset: 3px; }
 
 @keyframes zoom-in {
   from { transform: translate(var(--dx), var(--dy)) scale(0.15); opacity: 0.4; }

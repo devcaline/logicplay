@@ -65,6 +65,5 @@
   .master-layout { gap: 8px; }
   .master-circuit { padding: 8px 6px; border-radius: 24px; max-width: 100%; }
   .master-question { font-size: 0.95rem; }
-  .master-choices .lamp-choice { min-height: 80px; }
   .master-steps__group { padding: 4px 9px; }
 }

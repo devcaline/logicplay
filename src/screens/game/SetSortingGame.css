@@ -152,13 +152,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 6px 13px;
   border-radius: 999px;
   background: var(--blue-500);
   color: #fff;
-  font: 700 1rem/1 var(--font-display);
+  font: 700 0.9rem/1 var(--font-display);
   white-space: nowrap;
-  box-shadow: 0 4px 0 var(--blue-700);
+  box-shadow: 0 2px 6px rgba(31, 95, 168, 0.3);
   z-index: 2;
 }
 .set-zone__items {
@@ -201,13 +201,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 14px;
+  padding: 5px 12px;
   border-radius: 999px;
   background: var(--green-500);
   color: #fff;
-  font: 700 0.95rem/1 var(--font-display);
+  font: 700 0.85rem/1 var(--font-display);
   white-space: nowrap;
-  box-shadow: 0 4px 0 var(--green-700);
+  box-shadow: 0 2px 6px rgba(30, 140, 85, 0.3);
 }
 .tray__items {
   display: flex;
@@ -225,7 +225,26 @@
   justify-content: center;
   padding-top: 4px;
 }
-.game-actions .game-btn { min-width: 220px; }
+.game-actions .game-btn { min-width: 200px; }
+/* Botões de ação enxutos: mais baixos, sem o brilho e com relevo leve. */
+.game-actions .game-btn,
+.game-feedback__actions .game-btn,
+.game-btn.quiz-ready {
+  min-height: 54px;
+  padding: 0 28px;
+  gap: 8px;
+  font-size: 1.12rem;
+  box-shadow: 0 3px 0 var(--btn-shadow), 0 6px 14px rgba(43, 35, 80, 0.14);
+}
+.game-actions .game-btn::after,
+.game-feedback__actions .game-btn::after,
+.game-btn.quiz-ready::after { display: none; }
+.game-actions .game-btn .game-btn__icon,
+.game-feedback__actions .game-btn .game-btn__icon,
+.game-btn.quiz-ready .game-btn__icon { width: 22px; height: 22px; }
+.game-actions .game-btn:active:not(:disabled),
+.game-feedback__actions .game-btn:active:not(:disabled),
+.game-btn.quiz-ready:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 0 0 var(--btn-shadow), 0 2px 6px rgba(43, 35, 80, 0.14); }
 
 /* ---------- Feedback de acerto ---------- */
 .game-feedback {
