@@ -12,6 +12,8 @@ import { useGame } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
+const AUTO_NEXT_MS = 1500;
+
 /**
  * Pertinência (13+): cada conjunto vem com afirmações do tipo "7 _ A" para completar com ∈ ou ∉
  * (no difícil, também "{2, 3} _ A" com ⊂ ou ⊄). Depois de cada resposta aparece o porquê.
@@ -48,6 +50,18 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
   useEffect(() => {
     if (answered) feedbackRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }, [answered]);
+
+  // Acertou e ainda há afirmações no conjunto: mostra a confirmação e passa sozinho para a próxima.
+  const autoNext = correct && !lastItem;
+  useEffect(() => {
+    if (!autoNext) return undefined;
+    const timer = setTimeout(() => {
+      setAnswer(null);
+      setHintOpen(false);
+      setItemIndex((current) => current + 1);
+    }, AUTO_NEXT_MS);
+    return () => clearTimeout(timer);
+  }, [autoNext, itemIndex]);
 
   const choose = (belongs) => {
     if (answered) return;
@@ -207,7 +221,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
           </div>
         )}
 
-        {(answered || !hintOpen) && (
+        {!autoNext && (answered || !hintOpen) && (
           <div className="teen-actions">
             {answered ? (
               <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
