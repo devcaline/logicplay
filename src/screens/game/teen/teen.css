@@ -652,6 +652,10 @@
 .master-class.is-right .master-class__name { color: var(--green-700); }
 .master-class.is-wrong .master-class__name { color: #A3285C; }
 .master-options .not-option { min-height: 48px; }
+/* Equivalentes? com cores neutras (azul e laranja), para não parecer V ou F. */
+.master-class--yes { --choice-bg: #E4F2FF; --choice-edge: #8CC8FF; --choice-ink: #2468B5; --choice-dot: #3B95E8; }
+.master-class--no { --choice-bg: #FFEBDD; --choice-edge: #FFB27A; --choice-ink: #B5541A; --choice-dot: #FF8A3D; }
+.prop-choice .master-class__name { color: var(--choice-ink); }
 @media (min-width: 601px) { .master-options { display: grid; grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) {
   .tmaster-table { border-spacing: 4px; }

@@ -14,6 +14,9 @@ import './teen.css';
 
 const VF = (value) => (value ? 'V' : 'F');
 const LABELS = { which: 'Qual fórmula?', classify: 'Classifique', equiv: 'Equivalentes?' };
+const AUTO_NEXT_MS = 1500;
+/** Cor de cada classe: tautologia (sempre V) verde, contradição (sempre F) rosa, contingência amarelo. */
+const CLASS_COLOR = { taut: 'V', contra: 'F', conting: 'N' };
 
 /**
  * A Tabela Mestra (13+): tabelas-verdade completas, com três dinâmicas novas:
@@ -110,8 +113,8 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
     setRowMessage(`Na linha ${rowIndex + 1}, as duas fórmulas dão ${VF(item.colA[rowIndex])}. Procure outra linha.`);
   };
 
-  const goNext = () => {
-    sfx.play('tap');
+  const goNext = ({ silent = false } = {}) => {
+    if (!silent) sfx.play('tap');
     setAnswer(null);
     setStage('ask');
     setPickedRow(null);
@@ -135,6 +138,15 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
     }
     setIndex(index + 1);
   };
+
+  // Acertou: mostra a confirmação e passa sozinho para a próxima tabela ou questão.
+  const autoNext = correct;
+  useEffect(() => {
+    if (!autoNext) return undefined;
+    const next = setTimeout(() => goNext({ silent: true }), AUTO_NEXT_MS);
+    return () => clearTimeout(next);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoNext, itemIndex, index, inWarmup]);
 
   const nextLabel = () => {
     if (!lastItem) return 'Próxima tabela';
@@ -164,7 +176,7 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout teen-centered">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Questão ${index + 1} de ${rounds.length}`}</span>
@@ -303,7 +315,7 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
               const isPicked = answer === key;
               const isRight = done && key === item.answer;
               return (
-                <button key={key} type="button" className={`relation-btn prop-choice master-class ${isPicked && !isRight ? 'is-wrong' : ''} ${isRight ? 'is-right' : ''}`} onClick={() => pickAnswer(key)} disabled={done}>
+                <button key={key} type="button" className={`relation-btn prop-choice prop-choice--${CLASS_COLOR[key] ?? 'N'} master-class ${isPicked && !isRight ? 'is-wrong' : ''} ${isRight ? 'is-right' : ''}`} onClick={() => pickAnswer(key)} disabled={done}>
                   <span className="master-class__name">{info.label}</span>
                   <span className="relation-btn__label">{info.caption}</span>
                 </button>
@@ -314,11 +326,11 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
 
         {item.kind === 'equiv' && stage === 'ask' && (
           <div className="relation-choices" role="group" aria-label="Equivalentes?">
-            <button type="button" className="relation-btn prop-choice master-class" onClick={() => pickAnswer(true)}>
+            <button type="button" className="relation-btn prop-choice master-class master-class--yes" onClick={() => pickAnswer(true)}>
               <span className="master-class__name">São equivalentes</span>
               <span className="relation-btn__label">mesma coluna</span>
             </button>
-            <button type="button" className="relation-btn prop-choice master-class" onClick={() => pickAnswer(false)}>
+            <button type="button" className="relation-btn prop-choice master-class master-class--no" onClick={() => pickAnswer(false)}>
               <span className="master-class__name">Não são</span>
               <span className="relation-btn__label">alguma linha difere</span>
             </button>
@@ -352,19 +364,18 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
           </div>
         )}
 
-        {(done || !hintOpen) && (
-          <div className="teen-actions">
-            {done ? (
-              <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
-                {nextLabel()}
-              </GameButton>
-            ) : (
-              <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
-                Dica
-              </GameButton>
-            )}
-          </div>
-        )}
+        {/* A barra fica sempre na tela (só some de vista) para o conteúdo não sair do meio. */}
+        <div className={`teen-actions ${autoNext || (!done && hintOpen) ? 'is-waiting' : ''}`} aria-hidden={autoNext || (!done && hintOpen)}>
+          {done && !autoNext ? (
+            <GameButton variant="green" iconRight={ArrowRight} onClick={() => goNext()} sound={null}>
+              {nextLabel()}
+            </GameButton>
+          ) : (
+            <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
+              Dica
+            </GameButton>
+          )}
+        </div>
       </div>
     </div>
   );
