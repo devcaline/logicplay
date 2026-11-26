@@ -170,7 +170,8 @@ export default function TweenGuardianGame({ challenge, level, onExit, onComplete
 
             {round.kind === 'choice' ? (
               <div className="tween-boss-options">
-                {round.options.map((option) => {
+                {/* Depois do acerto, só a opção certa fica na tela, junto com a explicação. */}
+                {(solved ? round.options.filter((option) => round.answer.includes(option.key)) : round.options).map((option) => {
                   const isRight = round.answer.includes(option.key);
                   return (
                     <button
