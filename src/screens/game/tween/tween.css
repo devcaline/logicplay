@@ -265,6 +265,26 @@
 .tween-mirror-phrase__value.is-f { background: var(--pink-500); color: #fff; }
 .tween-mirror-first { opacity: 0.85; }
 .mirror-screen .gate-table { margin-top: 6px; }
+/* Com a tabela na tela, os espelhos viram uma pílula com a bolinha e as lâmpadas. */
+.mirror-summary {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+  padding: 4px 14px 4px 4px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--green-300);
+  box-shadow: 0 3px 10px rgba(84, 67, 196, 0.1);
+  animation: tween-pop 0.35s ease both;
+}
+.mirror-summary .mirror-summary__ball { width: 30px; height: 30px; flex-shrink: 0; font-size: 0.85rem; }
+.mirror-summary__item { display: inline-flex; align-items: center; gap: 4px; }
+.mirror-summary__name { font: italic 700 1rem/1 'Cambria Math', 'Times New Roman', serif; color: var(--lilac-700); }
+.mirror-summary__arrow { color: var(--lilac-200); margin: 0 2px; }
 
 /* Laboratório, fase 5: a Tabela Mestra */
 .tween-master-symbol { font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; font-size: 1.15em; }

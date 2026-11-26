@@ -133,10 +133,33 @@ export default function TweenNotGame({ challenge, level, onExit, onComplete }) {
           className="game-dialogue"
         />
 
-        <p className="mirror-stage">{isDouble ? 'Parte 2 · Dois espelhos' : 'Parte 1 · O espelho do NÃO'}</p>
+        {/* No fim, os espelhos viram uma pílula (bolinha e lâmpadas) para sobrar espaço para a tabela. */}
+        {showTable && (
+          <div
+            className="mirror-summary"
+            role="img"
+            aria-label={`p ${VF(row.value)}, não p ${VF(!row.value)}, não não p ${VF(row.value)}`}
+          >
+            <StarBurst />
+            <span className={`num-ball num-ball--${row.ball.color} mirror-summary__ball`}>{row.ball.n}</span>
+            {[
+              ['p', row.value],
+              ['¬p', !row.value],
+              ['¬(¬p)', row.value],
+            ].map(([name, value], position) => (
+              <span key={name} className="mirror-summary__item">
+                {position > 0 && <ArrowRight className="mirror-summary__arrow" size={14} strokeWidth={3} aria-hidden="true" />}
+                <span className="mirror-summary__name">{name}</span>
+                <TruthLamp state={lampOf(value)} size={20} />
+              </span>
+            ))}
+          </div>
+        )}
 
+        {!showTable && <p className="mirror-stage">{isDouble ? 'Parte 2 · Dois espelhos' : 'Parte 1 · O espelho do NÃO'}</p>}
+
+        {!showTable && (
         <div key={`${step.kind}-${row.id}`} className={`mirror-single ${solvedRow ? 'is-solved' : ''}`}>
-          {showTable && <StarBurst />}
           <div className="mirror-steps" aria-label={`Frase ${index + 1} de ${steps.length}`}>
             {steps.map((item, position) => (
               <span key={`${item.kind}-${item.row.id}`} className={position < index || showTable ? 'is-done' : position === index ? 'is-current' : ''} />
@@ -194,6 +217,7 @@ export default function TweenNotGame({ challenge, level, onExit, onComplete }) {
             </div>
           )}
         </div>
+        )}
 
         {showTable && (
           <section ref={tableRef} className="tween-reveal gate-table" aria-label="Tabela do NÃO">
