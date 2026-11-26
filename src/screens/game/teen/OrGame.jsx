@@ -77,21 +77,8 @@ export default function OrGame({ challenge, level, onExit, onComplete }) {
     if (done || checkMessage) feedbackRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }, [done, checkMessage]);
 
-  // Acertou e ainda há desafios ou casos na questão: mostra a confirmação e passa sozinho para o próximo.
-  const autoNext = correct && !lastItem;
-  useEffect(() => {
-    if (!autoNext) return undefined;
-    const timer = setTimeout(() => {
-      setSlots({});
-      setRevealed([]);
-      setCheckMessage(null);
-      setSolved(false);
-      setAnswer(null);
-      setHintOpen(false);
-      setItemIndex((current) => current + 1);
-    }, AUTO_NEXT_MS);
-    return () => clearTimeout(timer);
-  }, [autoNext, itemIndex]);
+  // Acertou: mostra a confirmação e passa sozinho para o próximo desafio, caso ou questão.
+  const autoNext = correct;
 
   const addError = () => {
     if (!inWarmup) setErrors((count) => count + 1); // o aquecimento não conta
@@ -158,8 +145,8 @@ export default function OrGame({ challenge, level, onExit, onComplete }) {
     addError();
   };
 
-  const goNext = () => {
-    sfx.play('tap');
+  const goNext = ({ silent = false } = {}) => {
+    if (!silent) sfx.play('tap');
     setSlots({});
     setRevealed([]);
     setCheckMessage(null);
@@ -183,6 +170,13 @@ export default function OrGame({ challenge, level, onExit, onComplete }) {
     }
     setIndex(index + 1);
   };
+
+  useEffect(() => {
+    if (!autoNext) return undefined;
+    const timer = setTimeout(() => goNext({ silent: true }), AUTO_NEXT_MS);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoNext, itemIndex, index, inWarmup]);
 
   const nextLabel = () => {
     if (!lastItem) return isBuild ? 'Próximo desafio' : 'Próximo caso';
@@ -370,7 +364,7 @@ export default function OrGame({ challenge, level, onExit, onComplete }) {
         {/* A barra fica sempre na tela (só some de vista) para o conteúdo não sair do meio. */}
         <div className={`teen-actions ${autoNext ? 'is-waiting' : ''}`} aria-hidden={autoNext}>
           {done && !autoNext ? (
-            <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
+            <GameButton variant="green" iconRight={ArrowRight} onClick={() => goNext()} sound={null}>
               {nextLabel()}
             </GameButton>
           ) : (
