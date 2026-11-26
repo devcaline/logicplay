@@ -13,6 +13,9 @@ import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
 const WRONG_FLASH_MS = 900;
+const AUTO_NEXT_MS = 1500;
+/** Quando sobra a carta armadilha, a explicação é maior: um pouco mais de tempo para ler. */
+const AUTO_NEXT_TRAP_MS = 3000;
 
 /**
  * A negação (13+), com duas dinâmicas diferentes das fases 2 e 3:
@@ -113,8 +116,8 @@ export default function NotGame({ challenge, level, onExit, onComplete }) {
     addError();
   };
 
-  const goNext = () => {
-    sfx.play('tap');
+  const goNext = ({ silent = false } = {}) => {
+    if (!silent) sfx.play('tap');
     setPicked(null);
     setSelLeft(null);
     setSelRight(null);
@@ -140,6 +143,16 @@ export default function NotGame({ challenge, level, onExit, onComplete }) {
     setIndex(index + 1);
   };
 
+  // Acertou: mostra a confirmação e passa sozinho para a próxima frase ou questão.
+  const autoNext = correct;
+  useEffect(() => {
+    if (!autoNext) return undefined;
+    const wait = isMatch && item.extra && !inWarmup ? AUTO_NEXT_TRAP_MS : AUTO_NEXT_MS;
+    const next = setTimeout(() => goNext({ silent: true }), wait);
+    return () => clearTimeout(next);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoNext, itemIndex, index, inWarmup]);
+
   const nextLabel = () => {
     if (!lastItem) return 'Próxima frase';
     if (inWarmup) return 'Começar as questões';
@@ -158,7 +171,7 @@ export default function NotGame({ challenge, level, onExit, onComplete }) {
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout teen-centered">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Questão ${index + 1} de ${rounds.length}`}</span>
@@ -281,19 +294,18 @@ export default function NotGame({ challenge, level, onExit, onComplete }) {
           </div>
         )}
 
-        {(done || !hintOpen) && (
-          <div className="teen-actions">
-            {done ? (
-              <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
-                {nextLabel()}
-              </GameButton>
-            ) : (
-              <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
-                Dica
-              </GameButton>
-            )}
-          </div>
-        )}
+        {/* A barra fica sempre na tela (só some de vista) para o conteúdo não sair do meio. */}
+        <div className={`teen-actions ${autoNext || (!done && hintOpen) ? 'is-waiting' : ''}`} aria-hidden={autoNext || (!done && hintOpen)}>
+          {done && !autoNext ? (
+            <GameButton variant="green" iconRight={ArrowRight} onClick={() => goNext()} sound={null}>
+              {nextLabel()}
+            </GameButton>
+          ) : (
+            <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
+              Dica
+            </GameButton>
+          )}
+        </div>
       </div>
     </div>
   );
