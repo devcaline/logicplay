@@ -29,7 +29,7 @@ export default function LevelInfoPanel({ level, world, status, stars, profile, o
     <div className={`level-panel level-panel--${status} ${className}`}>
       {onClose && (
         <button type="button" className="level-panel__close" onClick={() => { sfx.play('tap'); onClose(); }} aria-label="Fechar detalhes da fase">
-          <X size={22} strokeWidth={3} />
+          <X size={18} strokeWidth={3} />
         </button>
       )}
       <p className="level-panel__eyebrow">
@@ -38,35 +38,38 @@ export default function LevelInfoPanel({ level, world, status, stars, profile, o
       <h3 className="level-panel__name">{level.name}</h3>
       <p className="level-panel__description">{level.description}</p>
 
-      {status === 'completed' && (
-        <div className="level-panel__stars" aria-label={`${stars} de 3 estrelas`}>
-          {[0, 1, 2].map((index) => (
-            <StarIcon key={index} size={30} filled={index < stars} />
-          ))}
-        </div>
-      )}
-
       {note && (
         <p className="level-panel__note">
-          <note.icon size={20} strokeWidth={2.6} aria-hidden="true" />
+          <note.icon size={18} strokeWidth={2.6} aria-hidden="true" />
           <span>{note.text}</span>
         </p>
       )}
 
-      {status === 'available' && (
-        <GameButton variant="green" size="lg" icon={Play} onClick={() => onPlay(level.id)} className="level-panel__cta">
-          Jogar
-        </GameButton>
-      )}
-      {status === 'completed' && (
-        <GameButton variant="lilac" icon={RotateCcw} onClick={() => onPlay(level.id)} className="level-panel__cta">
-          Jogar de novo
-        </GameButton>
-      )}
-      {status === 'comingSoon' && (
-        <GameButton variant="light" icon={Sparkles} disabled className="level-panel__cta">
-          Em breve
-        </GameButton>
+      {status !== 'locked' && (
+        <div className="level-panel__footer">
+          {status === 'completed' && (
+            <div className="level-panel__stars" aria-label={`${stars} de 3 estrelas`}>
+              {[0, 1, 2].map((index) => (
+                <StarIcon key={index} size={24} filled={index < stars} />
+              ))}
+            </div>
+          )}
+          {status === 'available' && (
+            <GameButton variant="green" size="sm" icon={Play} onClick={() => onPlay(level.id)} className="level-panel__cta">
+              Jogar
+            </GameButton>
+          )}
+          {status === 'completed' && (
+            <GameButton variant="lilac" size="sm" icon={RotateCcw} onClick={() => onPlay(level.id)} className="level-panel__cta">
+              Jogar de novo
+            </GameButton>
+          )}
+          {status === 'comingSoon' && (
+            <GameButton variant="light" size="sm" icon={Sparkles} disabled className="level-panel__cta">
+              Em breve
+            </GameButton>
+          )}
+        </div>
       )}
     </div>
   );

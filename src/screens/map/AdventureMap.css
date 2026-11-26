@@ -264,13 +264,13 @@
 /* ---------- Painel da fase ---------- */
 .level-panel {
   position: relative;
-  padding: 18px 18px 20px;
-  border-radius: var(--radius-xl);
+  padding: 16px 16px 16px;
+  border-radius: 22px;
   background: #fff;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   animation: pop-in 0.3s ease;
 }
 .level-panel__close {
@@ -279,54 +279,100 @@
   right: 10px;
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border: none;
   border-radius: 50%;
-  background: var(--lilac-100);
+  background: var(--lilac-50);
   color: var(--lilac-700);
   cursor: pointer;
+  transition: background 0.15s ease;
 }
-.level-panel__eyebrow { margin: 0; padding-right: 48px; font: 700 0.85rem/1.2 var(--font-display); color: var(--green-700); text-transform: uppercase; letter-spacing: 0.05em; }
-.level-panel__name { margin: 0; padding-right: 40px; font: 700 1.5rem/1.15 var(--font-display); color: var(--lilac-700); }
-.level-panel__description { margin: 0; font: 600 1rem/1.4 var(--font-body); color: var(--ink-soft); }
-.level-panel__stars { display: flex; gap: 4px; }
+.level-panel__close:hover { background: var(--lilac-100); }
+.level-panel__eyebrow { margin: 0; padding-right: 44px; font: 700 0.72rem/1.2 var(--font-display); color: var(--green-700); text-transform: uppercase; letter-spacing: 0.08em; }
+.level-panel__name { margin: 0; padding-right: 40px; font: 700 1.3rem/1.15 var(--font-display); color: var(--lilac-700); }
+.level-panel__description { margin: 2px 0 0; font: 600 0.92rem/1.4 var(--font-body); color: var(--ink-soft); }
+.level-panel__stars { display: flex; gap: 2px; }
 .level-panel__note {
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  margin: 4px 0 0;
-  padding: 10px 12px;
-  border-radius: var(--radius-md);
+  margin: 6px 0 0;
+  padding: 8px 10px;
+  border-radius: 12px;
   background: var(--lilac-50);
   color: var(--lilac-700);
-  font: 600 0.95rem/1.35 var(--font-body);
+  font: 600 0.85rem/1.35 var(--font-body);
 }
 .level-panel__note svg { flex-shrink: 0; margin-top: 1px; }
-.level-panel__cta { margin-top: 8px; width: 100%; }
 
-/* Aba inferior no celular: sobe do fim da tela, encostada nas bordas */
+/* Rodapé: estrelas à esquerda e o botão à direita (ou sozinho, ocupando a linha). */
+.level-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+.level-panel__footer > .level-panel__cta:only-child { flex: 1; }
+
+/* Botão mais enxuto e plano que o padrão do jogo. */
+.game-btn.level-panel__cta {
+  min-height: 44px;
+  padding: 0 22px;
+  gap: 8px;
+  font-size: 1rem;
+  box-shadow: 0 3px 0 var(--btn-shadow), 0 6px 14px rgba(43, 35, 80, 0.14);
+}
+.game-btn.level-panel__cta::after { display: none; }
+.game-btn.level-panel__cta .game-btn__icon { width: 18px; height: 18px; }
+.game-btn.level-panel__cta:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--btn-shadow), 0 2px 6px rgba(43, 35, 80, 0.14);
+}
+
+/* Celular: cartão flutuante, afastado das bordas, com uma alça no topo. */
 .map-sheet {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 40;
+  padding: 0 12px max(12px, env(safe-area-inset-bottom));
+  pointer-events: none;
   animation: sheet-up 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .map-sheet .level-panel {
-  max-width: none;
-  margin: 0;
-  border-radius: 28px 28px 0 0;
-  box-shadow: 0 -10px 40px rgba(43, 35, 80, 0.28);
-  gap: 6px;
-  padding: 20px 20px max(20px, calc(env(safe-area-inset-bottom) + 14px));
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 18px 16px 14px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 36px rgba(43, 35, 80, 0.24);
+  pointer-events: auto;
   animation: none;
 }
-.map-sheet .level-panel__close { top: 14px; right: 14px; }
-.map-sheet .level-panel__name { font-size: 1.3rem; }
-@media (min-width: 600px) {
-  .map-sheet .level-panel { padding-left: max(20px, calc((100% - 560px) / 2)); padding-right: max(20px, calc((100% - 560px) / 2)); }
+.map-sheet .level-panel::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 36px;
+  height: 4px;
+  margin-left: -18px;
+  border-radius: 999px;
+  background: var(--lilac-100);
+}
+.map-sheet .level-panel__close { top: 12px; right: 12px; }
+.map-sheet .level-panel__name { font-size: 1.15rem; }
+.map-sheet .level-panel__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 @keyframes sheet-up {
   from { transform: translateY(100%); }
