@@ -423,7 +423,7 @@ export const CHALLENGES = {
         symbol: '∉',
         concept: 'Não pertence',
         kind: 'pick-one',
-        display: { type: 'group', label: 'Vivem na água', theme: 'water' },
+        display: { type: 'group', label: 'Não vivem na água', theme: 'water' },
         prompt: { id: 'f5k.r3.prompt', text: 'Agora o contrário: quem NÃO pertence ao grupo dos animais da água?' },
         options: ['dolphin', 'butterfly', 'fish'],
         answer: ['butterfly'],
