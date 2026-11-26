@@ -229,6 +229,7 @@
 /* Botões de ação enxutos: mais baixos, sem o brilho e com relevo leve. */
 .game-actions .game-btn,
 .game-feedback__actions .game-btn,
+.tween-reveal .game-btn,
 .game-btn.quiz-ready {
   min-height: 54px;
   padding: 0 28px;
@@ -238,12 +239,15 @@
 }
 .game-actions .game-btn::after,
 .game-feedback__actions .game-btn::after,
+.tween-reveal .game-btn::after,
 .game-btn.quiz-ready::after { display: none; }
 .game-actions .game-btn .game-btn__icon,
 .game-feedback__actions .game-btn .game-btn__icon,
+.tween-reveal .game-btn .game-btn__icon,
 .game-btn.quiz-ready .game-btn__icon { width: 22px; height: 22px; }
 .game-actions .game-btn:active:not(:disabled),
 .game-feedback__actions .game-btn:active:not(:disabled),
+.tween-reveal .game-btn:active:not(:disabled),
 .game-btn.quiz-ready:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 0 0 var(--btn-shadow), 0 2px 6px rgba(43, 35, 80, 0.14); }
 
 /* ---------- Feedback de acerto ---------- */

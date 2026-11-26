@@ -7,6 +7,7 @@ import SpeakButton from '../../../components/ui/SpeakButton.jsx';
 import StarBurst from '../../../components/ui/StarBurst.jsx';
 import GameButton from '../../../components/ui/GameButton.jsx';
 import GateMachine from '../../../components/ui/GateMachine.jsx';
+import TruthLamp from '../../../components/ui/TruthLamp.jsx';
 import { getLevelScene } from '../../../components/scenery/scenes.js';
 import GameFeedback from '../GameFeedback.jsx';
 import { generateGateMachines } from '../../../data/tween/gateBalls.js';
@@ -243,8 +244,32 @@ export default function TweenGateGame({ challenge, level, onExit, onComplete }) 
           className="game-dialogue"
         />
 
-        <div className={`gates-grid ${allDone ? 'is-solved' : ''}`}>
-          {allDone && <StarBurst />}
+        {/* No fim, as máquinas viram pílulas (número e lâmpadas) para sobrar espaço para a tabela. */}
+        {allDone && (
+          <div className="gate-pills is-solved">
+            <StarBurst />
+            {machines.map((machine, index) => {
+              const result = gateOutput(gate, machine.a.value, machine.b.value);
+              return (
+                <div
+                  key={machine.id}
+                  className="gate-pill"
+                  role="img"
+                  aria-label={`Máquina ${index + 1}: p ${VF(machine.a.value)}, q ${VF(machine.b.value)}, resultado ${VF(result)}`}
+                >
+                  <span className="gate-pill__number">{index + 1}</span>
+                  <TruthLamp state={lamp(machine.a.value)} size={20} />
+                  <TruthLamp state={lamp(machine.b.value)} size={20} />
+                  <ArrowRight className="gate-pill__arrow" size={14} strokeWidth={3} aria-hidden="true" />
+                  <TruthLamp state={lamp(result)} size={24} />
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {!allDone && (
+        <div className="gates-grid">
           {machines.map((machine, index) => {
             const isSolved = solved.includes(machine.id);
             const result = gateOutput(gate, machine.a.value, machine.b.value);
@@ -280,6 +305,7 @@ export default function TweenGateGame({ challenge, level, onExit, onComplete }) 
             );
           })}
         </div>
+        )}
 
         {!allDone && (
           <p className="gates-progress" aria-live="polite">

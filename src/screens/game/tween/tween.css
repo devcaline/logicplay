@@ -293,3 +293,38 @@
 .tween-notes li:not(:last-child) { padding: 4px 10px; }
 .tween-notes li:not(:last-child) .tween-notes__why { display: none; }
 .tween-notes li:last-child { flex-basis: 100%; }
+
+/* Fase 7: depois da tabela, cada máquina vira uma pílula com o número e as lâmpadas. */
+.gate-pills {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  gap: 8px 10px;
+  margin: 0 auto;
+}
+.gate-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--green-300);
+  box-shadow: 0 3px 10px rgba(84, 67, 196, 0.1);
+  animation: tween-pop 0.35s ease both;
+}
+.gate-pill__number {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--lilac-500);
+  color: #fff;
+  font: 700 0.85rem/1 var(--font-display);
+}
+.gate-pill__arrow { color: var(--lilac-200); }
+@media (min-width: 820px) {
+  .gate-pills { grid-template-columns: repeat(4, max-content); }
+}
