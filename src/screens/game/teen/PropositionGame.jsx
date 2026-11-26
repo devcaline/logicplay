@@ -12,6 +12,8 @@ import { useGame } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
+const AUTO_NEXT_MS = 1500;
+
 const CHOICES = [
   { key: 'V', label: 'V', caption: 'proposição verdadeira' },
   { key: 'F', label: 'F', caption: 'proposição falsa' },
@@ -52,6 +54,18 @@ export default function PropositionGame({ challenge, level, onExit, onComplete }
   useEffect(() => {
     if (answered) feedbackRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }, [answered]);
+
+  // Acertou e ainda há frases na questão: mostra a confirmação e passa sozinho para a próxima.
+  const autoNext = correct && !lastItem;
+  useEffect(() => {
+    if (!autoNext) return undefined;
+    const timer = setTimeout(() => {
+      setAnswer(null);
+      setHintOpen(false);
+      setItemIndex((current) => current + 1);
+    }, AUTO_NEXT_MS);
+    return () => clearTimeout(timer);
+  }, [autoNext, itemIndex]);
 
   const choose = (key) => {
     if (answered) return;
@@ -98,7 +112,7 @@ export default function PropositionGame({ challenge, level, onExit, onComplete }
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout prop-layout">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Questão ${index + 1} de ${rounds.length}`}</span>
@@ -190,7 +204,7 @@ export default function PropositionGame({ challenge, level, onExit, onComplete }
           </div>
         )}
 
-        {(answered || !hintOpen) && (
+        {!autoNext && (answered || !hintOpen) && (
           <div className="teen-actions">
             {answered ? (
               <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>

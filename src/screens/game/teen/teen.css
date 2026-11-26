@@ -439,16 +439,49 @@
 /* Laboratório, fase 1: proposições */
 .prop-statement__text { margin: 10px 0 12px; font: 600 clamp(1.3rem, 4.6vw, 1.7rem)/1.35 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: #fff; }
 .prop-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+/* Botões coloridos: cada resposta tem sua cor, com o símbolo numa bolinha e um degrau da mesma cor. */
+.prop-choice {
+  --choice-bg: #F1EEFF;
+  --choice-edge: #B9AEF0;
+  --choice-ink: var(--lilac-700);
+  --choice-dot: var(--lilac-500);
+  gap: 6px;
+  padding: 12px 8px 10px;
+  border: 2px solid var(--choice-edge);
+  border-bottom-width: 5px;
+  border-radius: 20px;
+  background: var(--choice-bg);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.15s ease, opacity 0.2s ease, filter 0.2s ease;
+}
+.prop-choice--V { --choice-bg: #E3F8EC; --choice-edge: #5FD99B; --choice-ink: #1E8C55; --choice-dot: #33B877; }
+.prop-choice--F { --choice-bg: #FFE6EF; --choice-edge: #FF9AC8; --choice-ink: #C93C78; --choice-dot: #F7619F; }
+.prop-choice--N { --choice-bg: #FFF4D6; --choice-edge: #FFD166; --choice-ink: #9A6500; --choice-dot: #FFB800; }
+.prop-choice:hover:not(:disabled) { border-color: var(--choice-dot); transform: translateY(-3px) rotate(-1.5deg); }
+.prop-choice:active:not(:disabled) { transform: translateY(2px); border-bottom-width: 2px; }
+.prop-choice .relation-btn__symbol {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--choice-dot);
+  color: #fff;
+  font: 700 1.6rem/1 var(--font-display);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.12), inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+}
+.prop-choice .relation-btn__label { color: var(--choice-ink); }
 .prop-choice:disabled { cursor: default; }
-.prop-choice--V .relation-btn__symbol { color: var(--green-700); }
-.prop-choice--F .relation-btn__symbol { color: #C2374F; }
-.prop-choice--N .relation-btn__symbol { color: var(--ink-soft); }
-.prop-choice.is-right { background: var(--green-100); border-color: var(--green-500); }
-.prop-choice.is-wrong { background: #FDE2EC; border-color: var(--pink-500); }
+/* Depois da resposta: a certa ganha destaque e as outras ficam apagadinhas. */
+.prop-choices:has(.is-right) .prop-choice:not(.is-right):not(.is-wrong) { opacity: 0.45; filter: saturate(0.5); }
+.prop-choice.is-right { border-color: var(--green-500); box-shadow: 0 0 0 4px rgba(95, 217, 155, 0.45); animation: prop-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.prop-choice.is-wrong { opacity: 0.7; animation: prop-shake 0.4s ease; }
+@keyframes prop-pop { 50% { transform: scale(1.08); } }
+@keyframes prop-shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
 .intro-propositions { align-items: flex-start; }
 @media (max-width: 600px) {
   .prop-choices { gap: 6px; }
   .prop-choice .relation-btn__label { font-size: 0.75rem; }
+  .prop-choice .relation-btn__symbol { width: 38px; height: 38px; font-size: 1.35rem; }
 }
 
 /* ---------- Laboratório 13+, fase 2: conjunção ---------- */
@@ -575,6 +608,10 @@
 /* A tela cabe na altura do aparelho: os botões ficam presos embaixo. */
 .teen-layout { flex: 1; padding-bottom: 0; }
 .teen-layout > .teen-actions { margin-top: auto; }
+/* Fase 6: a frase e as respostas ficam no meio da tela (o espaço sobra igual em cima e embaixo). */
+.prop-layout > .decoder-talk,
+.prop-layout > .prop-statement { margin-top: auto; }
+.prop-layout > .decoder-talk + .prop-statement { margin-top: 0; }
 
 /* A legenda de símbolos abre por cima do conteúdo, sem empurrar a tela para baixo. */
 .teen-legend {
