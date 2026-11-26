@@ -186,7 +186,7 @@ export default function TweenLeverGame({ challenge, level, onExit, onComplete })
           ))}
         </div>
 
-        <div className="levers-board">
+        <div className={`levers-board ${showTable ? 'is-compact' : ''}`}>
           <div className="levers-stage">
             {showTable && <StarBurst />}
             <LeverMachine
@@ -196,9 +196,11 @@ export default function TweenLeverGame({ challenge, level, onExit, onComplete })
               gate={symbol}
               state={showTable ? 'working' : machineState}
               stuck={isAct ? 'a' : null}
+              small={showTable}
             />
           </div>
 
+          {!showTable && (
           <div className="levers-controls">
             {!showTable && (
               <div className="lever-statements">
@@ -259,6 +261,7 @@ export default function TweenLeverGame({ challenge, level, onExit, onComplete })
               </div>
             )}
           </div>
+          )}
         </div>
 
         {showTable && (
