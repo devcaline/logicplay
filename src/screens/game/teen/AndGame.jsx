@@ -12,6 +12,8 @@ import { useGame } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
+const AUTO_NEXT_MS = 1500;
+
 const VF = (value) => (value ? 'V' : 'F');
 const CHOICES = [
   { value: true, label: 'V', caption: 'verdadeira' },
@@ -64,6 +66,18 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
   useEffect(() => {
     if (answered || checkMessage) feedbackRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }, [answered, checkMessage]);
+
+  // Acertou uma frase e ainda há outras na questão: mostra a confirmação e passa sozinho para a próxima.
+  const autoNext = correct && !lastItem;
+  useEffect(() => {
+    if (!autoNext) return undefined;
+    const timer = setTimeout(() => {
+      setAnswer(null);
+      setHintOpen(false);
+      setItemIndex((current) => current + 1);
+    }, AUTO_NEXT_MS);
+    return () => clearTimeout(timer);
+  }, [autoNext, itemIndex]);
 
   const addError = () => {
     if (!inWarmup) setErrors((count) => count + 1); // o aquecimento não conta
@@ -185,7 +199,7 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout teen-centered">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Questão ${index + 1} de ${rounds.length}`}</span>
@@ -377,14 +391,15 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
           </div>
         )}
 
-        <div className="teen-actions">
-          {answered ? (
+        {/* A barra fica sempre na tela (só some de vista) para o conteúdo não sair do meio. */}
+        <div className={`teen-actions ${autoNext ? 'is-waiting' : ''}`} aria-hidden={autoNext}>
+          {answered && !autoNext ? (
             <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
               {nextLabel()}
             </GameButton>
           ) : (
             <>
-              {!hintOpen && (
+              {(!hintOpen || autoNext) && (
                 <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
                   Dica
                 </GameButton>

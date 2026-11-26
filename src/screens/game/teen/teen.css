@@ -503,6 +503,17 @@
 .x-chip.is-wrong { background: #FDE2EC; border-color: var(--pink-500); color: #A3285C; }
 .x-chip.is-right { background: var(--green-500); border-color: var(--green-500); color: #fff; }
 .x-chip:disabled { cursor: default; }
+/* Mais lúdico: fichas redondinhas que sobem ao passar e dão um pulinho ao serem marcadas. */
+.x-chip {
+  border-radius: 999px;
+  border-bottom-width: 4px;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease;
+}
+.x-chip:hover:not(:disabled) { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
+.x-chip.is-on { background: #FFD43B; border-color: #FFD43B; border-bottom-color: #E0A800; color: #5A3E00; animation: prop-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.x-chip.is-on:hover:not(:disabled) { background: #FFE066; }
+.x-chip.is-right { border-bottom-color: #1E8C55; animation: prop-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.x-chip.is-wrong { animation: prop-shake 0.4s ease; }
 .and-table { width: 100%; max-width: 420px; margin: 4px auto 10px; border-collapse: separate; border-spacing: 6px; }
 .and-table th { font: 700 1.1rem/1 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; color: #B9AFFF; padding: 4px; }
 .and-table th.is-key { color: #7DE8FF; }
@@ -516,6 +527,11 @@
 .and-cell.is-f { background: #C2374F; }
 .and-cell.is-wrong { outline: 3px solid #FFC94D; outline-offset: 1px; }
 .and-cell:disabled { cursor: default; }
+/* Casas da tabela com cor cheia, degrauzinho e pulinho ao trocar. */
+.and-statement .and-cell { border-radius: 12px; transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.and-statement .and-cell.is-v { background: #3CC584; box-shadow: inset 0 -4px 0 #239A5E; animation: prop-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.and-statement .and-cell.is-f { background: #F7709F; box-shadow: inset 0 -4px 0 #CF4C7C; animation: prop-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.and-statement .and-cell:hover:not(:disabled) { transform: translateY(-2px); }
 @media (max-width: 600px) {
   .x-chips { grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 6px; }
   .x-chip { height: 42px; font-size: 1rem; }
@@ -608,10 +624,11 @@
 /* A tela cabe na altura do aparelho: os botões ficam presos embaixo. */
 .teen-layout { flex: 1; padding-bottom: 0; }
 .teen-layout > .teen-actions { margin-top: auto; }
-/* Fase 6: a frase e as respostas ficam no meio da tela (o espaço sobra igual em cima e embaixo). */
-.prop-layout > .decoder-talk,
-.prop-layout > .prop-statement { margin-top: auto; }
-.prop-layout > .decoder-talk + .prop-statement { margin-top: 0; }
+/* Fases 6 e 7: a frase e as respostas ficam no meio da tela (o espaço sobra igual em cima e embaixo). */
+.teen-centered > .decoder-talk,
+.teen-centered > .statement { margin-top: auto; }
+.teen-centered > .decoder-talk + .statement { margin-top: 0; }
+.teen-actions.is-waiting { visibility: hidden; }
 
 /* A legenda de símbolos abre por cima do conteúdo, sem empurrar a tela para baixo. */
 .teen-legend {

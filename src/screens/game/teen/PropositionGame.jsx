@@ -112,7 +112,7 @@ export default function PropositionGame({ challenge, level, onExit, onComplete }
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout prop-layout">
+      <div className="teen-layout teen-centered">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Questão ${index + 1} de ${rounds.length}`}</span>
@@ -204,19 +204,18 @@ export default function PropositionGame({ challenge, level, onExit, onComplete }
           </div>
         )}
 
-        {!autoNext && (answered || !hintOpen) && (
-          <div className="teen-actions">
-            {answered ? (
-              <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
-                {nextLabel()}
-              </GameButton>
-            ) : (
-              <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
-                Dica
-              </GameButton>
-            )}
-          </div>
-        )}
+        {/* A barra fica sempre na tela (só some de vista) para o conteúdo não sair do meio. */}
+        <div className={`teen-actions ${autoNext || (!answered && hintOpen) ? 'is-waiting' : ''}`} aria-hidden={autoNext || (!answered && hintOpen)}>
+          {answered && !autoNext ? (
+            <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
+              {nextLabel()}
+            </GameButton>
+          ) : (
+            <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
+              Dica
+            </GameButton>
+          )}
+        </div>
       </div>
     </div>
   );
