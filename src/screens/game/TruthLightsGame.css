@@ -43,6 +43,8 @@
   gap: 12px;
   width: 100%;
 }
+/* 5 a 8 anos: as quatro lâmpadas em duas linhas (2 em cima e 2 embaixo). */
+.truth-machine__slots--2x2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 360px; gap: 12px; }
 .machine-slot {
   display: flex;
   flex-direction: column;
@@ -182,6 +184,7 @@
 @media (max-width: 819px) {
   .truth-machine__body { padding: 14px 10px 16px; border-radius: 30px; gap: 12px; }
   .truth-machine__slots { gap: 6px; }
+  .truth-machine__slots--2x2 { gap: 10px; max-width: 300px; }
   .machine-slot { padding: 10px 2px 8px; border-radius: 20px; }
   .machine-slot .truth-lamp { width: 44px !important; height: 55px !important; }
   .machine-slot__plate { width: 40px; height: 40px; }

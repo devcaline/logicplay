@@ -194,7 +194,7 @@ export default function TruthLightsGame({ challenge, level, onExit, onComplete }
               {done ? 'Máquina ligada!' : `${answeredCount} de ${statements.length} luzes`}
             </div>
 
-            <div className="truth-machine__slots">
+            <div className="truth-machine__slots truth-machine__slots--2x2">
               {statements.map((statement, index) => {
                 const state = lampState(statement.id);
                 return (
