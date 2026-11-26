@@ -227,8 +227,9 @@ export default function TweenTruthGame({ challenge, level, onExit, onComplete })
           </div>
         )}
 
-        <div className={`truth-machine ${done ? 'is-on' : ''}`}>
-          {done && <StarBurst />}
+        {/* Depois de acertar, a máquina sai e fica só o card com as respostas certas. */}
+        {!done && (
+        <div className="truth-machine">
           <div className="truth-machine__pipes" aria-hidden="true">
             <span />
             <span />
@@ -275,9 +276,11 @@ export default function TweenTruthGame({ challenge, level, onExit, onComplete })
           </div>
           <div className="truth-machine__base" aria-hidden="true" />
         </div>
+        )}
 
         {done && (
           <section ref={revealRef} className="tween-reveal truth-reveal" aria-label="Como os matemáticos escrevem">
+            <StarBurst />
             <p className="tween-reveal__label">Como os matemáticos escrevem</p>
             <ul>
               {statements.map((statement) => (
