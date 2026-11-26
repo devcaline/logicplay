@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Check, X, Apple, LogOut } from 'lucide-react';
 import TopBar from '../../components/ui/TopBar.jsx';
 import MascotDialogue from '../../components/mascot/MascotDialogue.jsx';
-import SpeakButton from '../../components/ui/SpeakButton.jsx';
 import StarBurst from '../../components/ui/StarBurst.jsx';
 import ItemArt from '../../components/art/ItemArt.jsx';
 import { getLevelScene } from '../../components/scenery/scenes.js';
@@ -135,12 +134,11 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
         <div className="member-board">
           <section className={`member-set ${phase === 'correct' && item.belongs ? 'is-receiving' : ''} ${done ? 'is-solved' : ''}`} aria-label={`Grupo das ${set.label}: ${placedIn.length} elementos`}>
             <span className="member-set__label">
-              <Apple size={20} strokeWidth={2.6} aria-hidden="true" /> {set.label}
+              <Apple size={16} strokeWidth={2.6} aria-hidden="true" /> {set.label}
             </span>
             <div className="member-set__items">
               {placedIn.map(renderMini)}
-              {placedIn.length === 0 && <span className="member-empty">Vazio</span>}
-            </div>
+                          </div>
             {done && <StarBurst />}
           </section>
 
@@ -158,7 +156,6 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
               <div key={item.id} className={`member-card ${goingClass} ${phase === 'hint' ? 'is-thinking' : ''}`}>
                 <ItemArt id={item.id} size={120} />
                 <span className="member-card__name">{item.name}</span>
-                <SpeakButton line={item.question} compact className="member-card__speak" />
               </div>
             )}
 
@@ -171,7 +168,7 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
                   disabled={answered}
                 >
                   <span className="member-choice__icon" aria-hidden="true">
-                    <Check size={34} strokeWidth={3.4} />
+                    <Check size={22} strokeWidth={3.4} />
                   </span>
                   {answers.yes}
                 </button>
@@ -182,7 +179,7 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
                   disabled={answered}
                 >
                   <span className="member-choice__icon" aria-hidden="true">
-                    <X size={34} strokeWidth={3.4} />
+                    <X size={22} strokeWidth={3.4} />
                   </span>
                   {answers.no}
                 </button>
@@ -192,12 +189,11 @@ export default function MembershipGame({ challenge, level, onExit, onComplete })
 
           <section className={`member-out ${phase === 'correct' && !item.belongs ? 'is-receiving' : ''}`} aria-label={`${set.outLabel}: ${placedOut.length} elementos`}>
             <span className="member-out__label">
-              <LogOut size={18} strokeWidth={2.6} aria-hidden="true" /> {set.outLabel}
+              <LogOut size={15} strokeWidth={2.6} aria-hidden="true" /> {set.outLabel}
             </span>
             <div className="member-set__items">
               {placedOut.map(renderMini)}
-              {placedOut.length === 0 && <span className="member-empty">Vazio</span>}
-            </div>
+                          </div>
           </section>
         </div>
       </div>

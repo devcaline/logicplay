@@ -2,6 +2,9 @@ import { Component, Suspense, lazy } from 'react';
 import { RotateCcw, Map as MapIcon } from 'lucide-react';
 import Mascot from '../../components/mascot/Mascot.jsx';
 import GameButton from '../../components/ui/GameButton.jsx';
+// Base comum a todas as telas de jogo (camadas, rodapé, feedback). Fica aqui porque as fases
+// carregam sob demanda: sem isso, abrir uma fase sem ter aberto a primeira deixava o cenário por cima.
+import './SetSortingGame.css';
 import './GameScreen.css';
 
 /**
