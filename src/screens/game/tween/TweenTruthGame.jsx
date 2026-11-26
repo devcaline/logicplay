@@ -239,7 +239,7 @@ export default function TweenTruthGame({ challenge, level, onExit, onComplete })
               {done ? 'Máquina ligada!' : `${machine.title} · ${answeredCount} de ${statements.length}`}
             </div>
 
-            <div className="truth-machine__slots">
+            <div className="truth-machine__slots truth-machine__slots--2x2">
               {statements.map((statement, index) => {
                 const state = lampState(statement.id);
                 return (

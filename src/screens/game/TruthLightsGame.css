@@ -185,6 +185,7 @@
   .truth-machine__body { padding: 14px 10px 16px; border-radius: 30px; gap: 12px; }
   .truth-machine__slots { gap: 6px; }
   .truth-machine__slots--2x2 { gap: 10px; max-width: 300px; }
+  .truth-machine__screen { padding: 7px 14px; font-size: 0.9rem; white-space: nowrap; }
   .machine-slot { padding: 10px 2px 8px; border-radius: 20px; }
   .machine-slot .truth-lamp { width: 44px !important; height: 55px !important; }
   .machine-slot__plate { width: 40px; height: 40px; }
