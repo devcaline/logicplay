@@ -275,6 +275,7 @@ const TWEEN_VARIANTS = {
   'color-sorting': () => [
     ['Missão sorteada', 'curious', variants(generateColorSetPhase, (phase) => phase.missions.map((mission) => mission.text))],
     ['Dica da missão (2ª parte, depois do “Quase!”)', 'encourage', variants(generateColorSetPhase, (phase) => phase.missions.map((mission) => mission.hint))],
+    ['Quadro final da missão', 'cheer', variants(generateColorSetPhase, (phase) => phase.missions.map((mission) => mission.reveal.text))],
   ],
   'tween-membership': () => [['Apresentação do grupo sorteado', 'curious', variants(generateTweenMembership, (groups) => groups.map((group) => group.intro))]],
   'tween-venn': () => [

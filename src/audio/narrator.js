@@ -70,7 +70,23 @@ if (synth) {
   });
 }
 
+// A gravação é procurada pelo código da fala e, se não houver, pelo texto (falas sorteadas).
+const findRecording = (part) => AUDIO_MANIFEST[part.id] ?? AUDIO_MANIFEST[voiceKey(part.text)];
+
+/** Gravações da fala inteira, ou de cada parte dela ({ parts: [fala, fala] }); null se faltar alguma. */
+function recordingsFor(line) {
+  const whole = findRecording(line);
+  if (whole) return [whole];
+  const pieces = line.parts?.map(findRecording);
+  return pieces?.length && pieces.every(Boolean) ? pieces : null;
+}
+
 export const narrator = {
+  /** A fala tem gravação da voz do Pipo (e não depende da voz do navegador)? */
+  hasRecording(line) {
+    return Boolean(line?.text && recordingsFor(line));
+  },
+
   isSupported() {
     return Boolean(synth) || typeof Audio !== 'undefined';
   },
@@ -81,12 +97,9 @@ export const narrator = {
     const token = ++playToken;
     const finish = () => token === playToken && setCurrent(null);
 
-    // A gravação é procurada pelo código da fala e, se não houver, pelo texto (falas sorteadas).
     // Uma fala montada com partes ({ parts: [fala, fala] }) toca as gravações em sequência.
-    const findRecording = (part) => AUDIO_MANIFEST[part.id] ?? AUDIO_MANIFEST[voiceKey(part.text)];
-    const whole = findRecording(line);
-    const pieces = whole ? [whole] : line.parts?.map(findRecording);
-    if (pieces?.length && pieces.every(Boolean)) {
+    const pieces = recordingsFor(line);
+    if (pieces) {
       setCurrent(line.id);
       const playPiece = (position) => {
         if (token !== playToken) return;

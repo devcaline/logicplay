@@ -72,10 +72,14 @@ export function useSpeakingId() {
 /**
  * Controle de narração para as telas.
  * - `speak(line)`: pedido explícito (botão de áudio). Se a voz estava desligada, liga de novo.
- * - `autoSpeak(line)`: narração automática; só toca com voz ligada e após interação do usuário.
+ * - `autoSpeak(line)`: narração automática; só toca com voz ligada e após interação do usuário
+ *   (de 9 anos em diante, só se a fala tiver gravação).
  */
 export function useNarration() {
-  const { audioEnabled, setAudioEnabled } = useGame();
+  const { audioEnabled, setAudioEnabled, profile } = useGame();
+  // De 9 anos em diante a criança já lê: sozinho, o Pipo só fala o que tem gravação da voz dele.
+  // Falas sem gravação (com números sorteados etc.) ficam no botão de som, com a voz do navegador.
+  const onlyRecorded = Boolean(profile?.ageGroup) && profile.ageGroup !== '5-8';
   const speakingId = useSpeakingId();
 
   const speak = useCallback(
@@ -88,9 +92,11 @@ export function useNarration() {
 
   const autoSpeak = useCallback(
     (line) => {
-      if (audioEnabled && userHasInteracted) narrator.speak(line);
+      if (!audioEnabled || !userHasInteracted) return;
+      if (onlyRecorded && !narrator.hasRecording(line)) return;
+      narrator.speak(line);
     },
-    [audioEnabled],
+    [audioEnabled, onlyRecorded],
   );
 
   const stop = useCallback(() => narrator.stop(), []);

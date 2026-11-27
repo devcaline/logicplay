@@ -108,7 +108,7 @@ export function generateColorSetPhase(difficulty) {
         hint: property.tip,
         reveal: {
           math: [`${property.letter} = ${formatSet(propList)}`, `${inProp} ∈ ${property.letter}     ${outProp} ∉ ${property.letter}`],
-          text: `Aquele símbolo parecido com um E arredondado quer dizer “pertence”: o ${inProp} pertence ao grupo ${property.letter}. Com um risquinho por cima, ele quer dizer “não pertence”: o ${outProp} ficou de fora.`,
+          text: `Aquele símbolo parecido com um E arredondado quer dizer “pertence”: os números ${property.name} pertencem ao grupo ${property.letter}. Com um risquinho por cima, ele quer dizer “não pertence”: é o caso dos números que ficaram de fora.`,
         },
       },
       {

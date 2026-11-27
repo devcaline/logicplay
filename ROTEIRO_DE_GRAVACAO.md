@@ -2,7 +2,7 @@
 
 Gerado automaticamente pelo comando `npm run roteiro` em 27/11/2026 (rode de novo depois de gravar para atualizar o progresso).
 
-**Progresso: 636 de 636 falas gravadas.**
+**Progresso: 655 de 655 falas gravadas.**
 
 ## Como gravar e colocar no jogo
 
@@ -284,6 +284,25 @@ Falas fora das fases: escolha da idade, mapa e ajuda.
 | ✅ | `v-fc06a051.mp3` | Dica da missão (2ª parte, depois do “Quase!”) | carinhoso, incentivando | Números pares terminam em 0, 2, 4, 6 ou 8. |
 | ✅ | `v-ef197842.mp3` | Dica da missão (2ª parte, depois do “Quase!”) | carinhoso, incentivando | Olhe só a cor da bolinha: o número não importa agora. |
 | ✅ | `v-030a43c9.mp3` | Dica da missão (2ª parte, depois do “Quase!”) | carinhoso, incentivando | Os múltiplos de 3 estão na tabuada do 3: 3, 6, 9, 12… |
+| ✅ | `v-af63b1a4.mp3` | Quadro final da missão | comemorando, bem animado | Aquele símbolo parecido com um E arredondado quer dizer “pertence”: os números ímpares pertencem ao grupo I. Com um risquinho por cima, ele quer dizer “não pertence”: é o caso dos números que ficaram de fora. |
+| ✅ | `v-98955bb8.mp3` | Quadro final da missão | comemorando, bem animado | Aquele símbolo parecido com um E arredondado quer dizer “pertence”: os números maiores que 15 pertencem ao grupo G. Com um risquinho por cima, ele quer dizer “não pertence”: é o caso dos números que ficaram de fora. |
+| ✅ | `v-657f8658.mp3` | Quadro final da missão | comemorando, bem animado | Aquele símbolo parecido com um E arredondado quer dizer “pertence”: os números múltiplos de 3 pertencem ao grupo T. Com um risquinho por cima, ele quer dizer “não pertence”: é o caso dos números que ficaram de fora. |
+| ✅ | `v-cb39130f.mp3` | Quadro final da missão | comemorando, bem animado | Aquele símbolo parecido com um E arredondado quer dizer “pertence”: os números pares pertencem ao grupo P. Com um risquinho por cima, ele quer dizer “não pertence”: é o caso dos números que ficaram de fora. |
+| ✅ | `v-c18508f5.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em A e em G. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-7dfece5f.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em A e em I. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-26b4968a.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em A e em P. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-cf45615e.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em A e em T. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-202b2179.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em M e em G. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-4e31521b.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em M e em I. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-0f0b68e6.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em M e em P. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-7cd4d4d2.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em M e em T. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-d4948138.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em V e em G. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-b470027a.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em V e em I. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-d68fa3ef.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em V e em P. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-ae5b9a53.mp3` | Quadro final da missão | comemorando, bem animado | Esses números estão nos dois grupos ao mesmo tempo: em V e em T. Mais adiante, isso vai ganhar um símbolo só para ele! |
+| ✅ | `v-790eb0f6.mp3` | Quadro final da missão | comemorando, bem animado | Os matemáticos escrevem um grupo assim: uma letra para dar nome, e os elementos dentro das chaves { }. A é o grupo das azuis.<br>*Leia: Os matemáticos escrevem um grupo assim: uma letra para dar nome, e os elementos dentro das chaves conjunto vazio. A é o grupo das azuis.* |
+| ✅ | `v-b6ab9a58.mp3` | Quadro final da missão | comemorando, bem animado | Os matemáticos escrevem um grupo assim: uma letra para dar nome, e os elementos dentro das chaves { }. M é o grupo das amarelas.<br>*Leia: Os matemáticos escrevem um grupo assim: uma letra para dar nome, e os elementos dentro das chaves conjunto vazio. M é o grupo das amarelas.* |
+| ✅ | `v-9877c542.mp3` | Quadro final da missão | comemorando, bem animado | Os matemáticos escrevem um grupo assim: uma letra para dar nome, e os elementos dentro das chaves { }. V é o grupo das vermelhas.<br>*Leia: Os matemáticos escrevem um grupo assim: uma letra para dar nome, e os elementos dentro das chaves conjunto vazio. V é o grupo das vermelhas.* |
 | ✅ | `t9.f1.complete.mp3` | Tela final da fase | comemorando, bem animado | Primeira fase concluída! Um conjunto se escreve com uma letra e os elementos entre chaves. E agora você conhece o símbolo de “pertence” e o de “não pertence”. |
 
 ## 9 a 12 anos · Floresta dos Conjuntos · Fase 2: Quem Pertence Aqui?
