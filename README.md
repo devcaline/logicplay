@@ -6,6 +6,8 @@ completando desafios. Feito para crianças a partir de 5 anos, pré-adolescentes
 
 > Versão 0.1: os dois mundos completos para a faixa de 5 a 8 anos — a Floresta dos Conjuntos (conjuntos, pertinência, interseção e união) e o Laboratório da Verdade (verdadeiro e falso, E, OU, NÃO e tabela-verdade), com dez fases jogáveis.
 
+📄 **[Relatório resumido do projeto](RELATORIO.md)**: conceitos matemáticos, didática por faixa etária e níveis de dificuldade.
+
 ![Tela inicial do LogicPlay](docs/prints/01-inicio.png)
 
 ## Prints
