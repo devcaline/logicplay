@@ -8,7 +8,7 @@ import { getLevelScene } from '../../../components/scenery/scenes.js';
 import { getDifficulty } from '../../../config/ageGroups.js';
 import { generateAndRounds, andWarmup, AND_ROWS } from '../../../data/teen/andRounds.js';
 import { starsFromErrors } from '../../../logic/scoring.js';
-import { useGame } from '../../../state/GameContext.jsx';
+import { useGame, useSpeakingId } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
@@ -32,6 +32,7 @@ const CONTENT = {
  */
 export default function AndGame({ challenge, level, onExit, onComplete }) {
   const { profile, completeLevel } = useGame();
+  const speakingId = useSpeakingId();
   const difficultyId = profile?.difficulty ?? 'easy';
   const difficulty = getDifficulty(difficultyId);
   const Scene = getLevelScene(challenge.scene);
@@ -70,14 +71,14 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
   // Acertou uma frase e ainda há outras na questão: mostra a confirmação e passa sozinho para a próxima.
   const autoNext = correct && !lastItem;
   useEffect(() => {
-    if (!autoNext) return undefined;
+    if (!autoNext || speakingId) return undefined; // espera o Pipo terminar de falar
     const timer = setTimeout(() => {
       setAnswer(null);
       setHintOpen(false);
       setItemIndex((current) => current + 1);
     }, AUTO_NEXT_MS);
     return () => clearTimeout(timer);
-  }, [autoNext, itemIndex]);
+  }, [speakingId, autoNext, itemIndex]);
 
   const addError = () => {
     if (!inWarmup) setErrors((count) => count + 1); // o aquecimento não conta
@@ -232,7 +233,7 @@ export default function AndGame({ challenge, level, onExit, onComplete }) {
         )}
 
         {inWarmup && (
-          <MascotDialogue
+          <MascotDialogue autoPlay
             line={{ id: `${challenge.id}.${item.id}${answered ? (correct ? '.ok' : '.retry') : ''}`, text: answered ? `${correct ? 'Isso!' : 'Quase.'} ${item.why}` : item.talk }}
             bubbleKey={`${item.id}${answered ? '-done' : ''}`}
             mood={answered ? (correct ? 'cheer' : 'encourage') : 'curious'}

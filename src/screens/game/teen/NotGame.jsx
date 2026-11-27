@@ -8,7 +8,7 @@ import { getLevelScene } from '../../../components/scenery/scenes.js';
 import { getDifficulty } from '../../../config/ageGroups.js';
 import { generateNotRounds, notWarmup } from '../../../data/teen/notRounds.js';
 import { starsFromErrors } from '../../../logic/scoring.js';
-import { useGame } from '../../../state/GameContext.jsx';
+import { useGame, useSpeakingId } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
@@ -24,6 +24,7 @@ const AUTO_NEXT_TRAP_MS = 3000;
  */
 export default function NotGame({ challenge, level, onExit, onComplete }) {
   const { profile, completeLevel } = useGame();
+  const speakingId = useSpeakingId();
   const difficultyId = profile?.difficulty ?? 'easy';
   const difficulty = getDifficulty(difficultyId);
   const Scene = getLevelScene(challenge.scene);
@@ -146,12 +147,12 @@ export default function NotGame({ challenge, level, onExit, onComplete }) {
   // Acertou: mostra a confirmação e passa sozinho para a próxima frase ou questão.
   const autoNext = correct;
   useEffect(() => {
-    if (!autoNext) return undefined;
+    if (!autoNext || speakingId) return undefined; // espera o Pipo terminar de falar
     const wait = isMatch && item.extra && !inWarmup ? AUTO_NEXT_TRAP_MS : AUTO_NEXT_MS;
     const next = setTimeout(() => goNext({ silent: true }), wait);
     return () => clearTimeout(next);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoNext, itemIndex, index, inWarmup]);
+  }, [speakingId, autoNext, itemIndex, index, inWarmup]);
 
   const nextLabel = () => {
     if (!lastItem) return 'Próxima frase';
@@ -204,7 +205,7 @@ export default function NotGame({ challenge, level, onExit, onComplete }) {
         )}
 
         {inWarmup && (
-          <MascotDialogue
+          <MascotDialogue autoPlay
             line={{ id: `${challenge.id}.${item.id}${done ? (correct ? '.ok' : '.retry') : ''}`, text: done ? (correct ? item.done : `Quase. ${item.why}`) : item.talk }}
             bubbleKey={`${item.id}${done ? '-done' : ''}`}
             mood={done ? (correct ? 'cheer' : 'encourage') : 'curious'}

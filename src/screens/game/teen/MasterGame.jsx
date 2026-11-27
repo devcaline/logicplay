@@ -8,7 +8,7 @@ import { getLevelScene } from '../../../components/scenery/scenes.js';
 import { getDifficulty } from '../../../config/ageGroups.js';
 import { generateMasterRounds, masterWarmup, tableRows, CLASSES } from '../../../data/teen/masterRounds.js';
 import { starsFromErrors } from '../../../logic/scoring.js';
-import { useGame } from '../../../state/GameContext.jsx';
+import { useGame, useSpeakingId } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
@@ -25,6 +25,7 @@ const CLASS_COLOR = { taut: 'V', contra: 'F', conting: 'N' };
  */
 export default function MasterGame({ challenge, level, onExit, onComplete }) {
   const { profile, completeLevel } = useGame();
+  const speakingId = useSpeakingId();
   const difficultyId = profile?.difficulty ?? 'easy';
   const difficulty = getDifficulty(difficultyId);
   const Scene = getLevelScene(challenge.scene);
@@ -142,11 +143,11 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
   // Acertou: mostra a confirmação e passa sozinho para a próxima tabela ou questão.
   const autoNext = correct;
   useEffect(() => {
-    if (!autoNext) return undefined;
+    if (!autoNext || speakingId) return undefined; // espera o Pipo terminar de falar
     const next = setTimeout(() => goNext({ silent: true }), AUTO_NEXT_MS);
     return () => clearTimeout(next);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoNext, itemIndex, index, inWarmup]);
+  }, [speakingId, autoNext, itemIndex, index, inWarmup]);
 
   const nextLabel = () => {
     if (!lastItem) return 'Próxima tabela';
@@ -209,7 +210,7 @@ export default function MasterGame({ challenge, level, onExit, onComplete }) {
         )}
 
         {inWarmup && (
-          <MascotDialogue
+          <MascotDialogue autoPlay
             line={{ id: `${challenge.id}.${item.id}${done ? (correct ? '.ok' : '.retry') : ''}`, text: done ? (correct ? item.done : `Quase. ${item.why}`) : item.talk }}
             bubbleKey={`${item.id}${done ? '-done' : ''}`}
             mood={done ? (correct ? 'cheer' : 'encourage') : 'curious'}

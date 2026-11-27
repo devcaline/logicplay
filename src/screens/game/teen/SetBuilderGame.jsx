@@ -74,7 +74,7 @@ function NotationDecoder({ tutorial, onDone }) {
         {seen.length} de {tutorial.parts.length} partes descobertas
       </p>
 
-      <MascotDialogue line={line} bubbleKey={line.id} mood={allSeen ? 'cheer' : 'curious'} mascotSize={72} layout="compact" className="decoder-talk" />
+      <MascotDialogue autoPlay line={line} bubbleKey={line.id} mood={allSeen ? 'cheer' : 'curious'} mascotSize={72} layout="compact" className="decoder-talk" />
 
       {allSeen && (
         <div className="teen-actions teen-actions--inline">
@@ -235,7 +235,7 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
         ) : (
           <>
             {inWarmup && (
-              <MascotDialogue
+              <MascotDialogue autoPlay
                 line={solved ? tutorial.done : tutorial.build}
                 bubbleKey={solved ? 'done' : 'build'}
                 mood={solved ? 'cheer' : 'happy'}

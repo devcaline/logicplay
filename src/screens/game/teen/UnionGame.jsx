@@ -27,10 +27,10 @@ function CountVenn({ counts, names }) {
       {regions.map(([id]) => (
         <path key={id} className={`count-venn__region count-venn__region--${id}`} d={VENN_PATHS[id]} />
       ))}
-      <circle className="venn-outline" cx="150" cy="150" r="100" />
-      <circle className="venn-outline" cx="250" cy="150" r="100" />
-      <text className="venn-name" x="62" y="72">{names[0]}</text>
-      <text className="venn-name" x="338" y="72">{names[1]}</text>
+      <circle className="venn-outline venn-outline--a" cx="150" cy="150" r="100" />
+      <circle className="venn-outline venn-outline--b" cx="250" cy="150" r="100" />
+      <text className="venn-name venn-name--a" x="58" y="76">{names[0]}</text>
+      <text className="venn-name venn-name--b" x="342" y="76">{names[1]}</text>
       {regions.map(([id, value, x]) => (
         <text key={id} className="count-venn__value" x={x} y="160">
           {value}
@@ -261,7 +261,7 @@ export default function UnionGame({ challenge, level, onExit, onComplete }) {
         )}
 
         {inWarmup && (
-          <MascotDialogue
+          <MascotDialogue autoPlay
             line={warmLine()}
             bubbleKey={warmLine().id}
             mood={done ? 'cheer' : dupNote !== null ? 'happy' : 'curious'}

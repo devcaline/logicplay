@@ -17,12 +17,14 @@ const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 const shuffle = (list) => [...list].sort(() => Math.random() - 0.5);
 
 const PATHS = VENN_PATHS;
-const SLOTS_A = [[80, 112], [118, 98], [80, 150], [118, 150], [80, 188], [118, 202], [152, 74], [152, 226]];
+// Começa pelo centro de cada região (até 6 números só em A, 5 no meio e 6 fora).
+const SLOTS_A = [[78, 150], [120, 150], [80, 108], [120, 108], [80, 192], [120, 192], [128, 70], [128, 230]];
 const SLOTS = {
   a: SLOTS_A,
-  both: [[180, 110], [220, 110], [180, 150], [220, 150], [180, 190], [220, 190]],
+  both: [[180, 150], [220, 150], [180, 110], [220, 110], [180, 190], [220, 190]],
   b: SLOTS_A.map(([x, y]) => [400 - x, y]),
-  out: [26, 274].flatMap((y) => [40, 80, 120, 160, 200, 240, 280, 320, 360].map((x) => [x, y])),
+  // Fora dos círculos: uma coluna em cada lateral, alternando esquerda e direita.
+  out: [84, 122, 160, 198, 236].flatMap((y) => [[12, y], [388, y]]),
 };
 
 function VennBoard({ round, placements, wrong, solved, current, onPlace, onPickUp }) {
@@ -45,16 +47,16 @@ function VennBoard({ round, placements, wrong, solved, current, onPlace, onPickU
   );
 
   return (
-    <svg className={`inter-venn-board ${solved ? 'is-solved' : ''}`} viewBox="0 0 400 300" role="group" aria-label="Diagrama de Venn">
-      {region('out', <rect x="3" y="3" width="394" height="294" rx="18" />)}
+    <svg className={`inter-venn-board ${solved ? 'is-solved' : ''}`} viewBox="-16 40 432 220" role="group" aria-label="Diagrama de Venn">
+      {region('out', <rect x="-13" y="43" width="426" height="214" rx="18" />)}
       {region('a', <path d={PATHS.a} />)}
       {region('b', <path d={PATHS.b} />)}
       {region('both', <path d={PATHS.both} />)}
-      <circle className="venn-outline" cx="150" cy="150" r="100" />
-      <circle className="venn-outline" cx="250" cy="150" r="100" />
-      <text className="venn-name" x="62" y="72">A</text>
-      <text className="venn-name" x="338" y="72">B</text>
-      <text className="venn-name venn-name--u" x="16" y="62">U</text>
+      <circle className="venn-outline venn-outline--a" cx="150" cy="150" r="100" />
+      <circle className="venn-outline venn-outline--b" cx="250" cy="150" r="100" />
+      <text className="venn-name venn-name--a" x="58" y="76">A</text>
+      <text className="venn-name venn-name--b" x="342" y="76">B</text>
+      <text className="venn-name venn-name--u" x="-2" y="62">U</text>
       {Object.entries(byRegion).flatMap(([id, numbers]) =>
         numbers.map((n, i) => {
           const [x, y] = SLOTS[id][i];
@@ -67,8 +69,8 @@ function VennBoard({ round, placements, wrong, solved, current, onPlace, onPickU
               aria-label={`${n}, ${REGIONS[id]}. Toque para tirar.`}
               onClick={() => !solved && onPickUp(n)}
             >
-              <circle r="15" />
-              <text dy="5.5">{n}</text>
+              <circle r="19" />
+              <text dy="7">{n}</text>
             </g>
           );
         }),
@@ -241,7 +243,7 @@ export default function IntersectionGame({ challenge, level, onExit, onComplete 
         )}
 
         {inWarmup && (
-          <MascotDialogue
+          <MascotDialogue autoPlay
             line={solved ? tutorial.done : tutorial.start}
             bubbleKey={solved ? 'done' : 'start'}
             mood={solved ? 'cheer' : 'curious'}
@@ -251,13 +253,12 @@ export default function IntersectionGame({ challenge, level, onExit, onComplete 
           />
         )}
 
-        <section className="teen-card" aria-label="Os conjuntos">
-          <p className="teen-card__label">{inWarmup ? 'Aquecimento · os conjuntos' : 'Os conjuntos'}</p>
+        <section className="teen-card inter-sets-card" aria-label="Os conjuntos">
           <div className="inter-sets">
             {setCard(round.a)}
             {setCard(round.b)}
+            <p className="teen-card__universe">U = {formatList(round.universe)}</p>
           </div>
-          <p className="teen-card__universe">U = {formatList(round.universe)}</p>
         </section>
 
         <section className="inter-board">

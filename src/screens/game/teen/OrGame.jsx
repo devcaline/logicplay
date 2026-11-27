@@ -8,7 +8,7 @@ import { getLevelScene } from '../../../components/scenery/scenes.js';
 import { getDifficulty } from '../../../config/ageGroups.js';
 import { generateOrRounds, orWarmup, EXPRESSIONS } from '../../../data/teen/orRounds.js';
 import { starsFromErrors } from '../../../logic/scoring.js';
-import { useGame } from '../../../state/GameContext.jsx';
+import { useGame, useSpeakingId } from '../../../state/GameContext.jsx';
 import { sfx } from '../../../audio/sfx.js';
 import './teen.css';
 
@@ -42,6 +42,7 @@ function requireText(require) {
  */
 export default function OrGame({ challenge, level, onExit, onComplete }) {
   const { profile, completeLevel } = useGame();
+  const speakingId = useSpeakingId();
   const difficultyId = profile?.difficulty ?? 'easy';
   const difficulty = getDifficulty(difficultyId);
   const Scene = getLevelScene(challenge.scene);
@@ -172,11 +173,11 @@ export default function OrGame({ challenge, level, onExit, onComplete }) {
   };
 
   useEffect(() => {
-    if (!autoNext) return undefined;
+    if (!autoNext || speakingId) return undefined; // espera o Pipo terminar de falar
     const timer = setTimeout(() => goNext({ silent: true }), AUTO_NEXT_MS);
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoNext, itemIndex, index, inWarmup]);
+  }, [speakingId, autoNext, itemIndex, index, inWarmup]);
 
   const nextLabel = () => {
     if (!lastItem) return isBuild ? 'Próximo desafio' : 'Próximo caso';
@@ -230,7 +231,7 @@ export default function OrGame({ challenge, level, onExit, onComplete }) {
         )}
 
         {inWarmup && (
-          <MascotDialogue
+          <MascotDialogue autoPlay
             line={{ id: `${challenge.id}.${item.id}${done ? (correct ? '.ok' : '.retry') : ''}`, text: done ? (correct ? item.done : `Quase. ${item.why ?? item.done}`) : item.talk }}
             bubbleKey={`${item.id}${done ? '-done' : ''}`}
             mood={done ? (correct ? 'cheer' : 'encourage') : 'curious'}

@@ -137,7 +137,7 @@ export default function TeenGuardianGame({ challenge, level, onExit, onComplete 
           </div>
 
           {inWarmup && (
-            <MascotDialogue
+            <MascotDialogue autoPlay
               line={solved ? tutorial.done : tutorial.start}
               bubbleKey={solved ? 'done' : 'start'}
               mood={solved ? 'cheer' : 'curious'}
