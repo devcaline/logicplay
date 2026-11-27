@@ -228,7 +228,7 @@ export default function UnionGame({ challenge, level, onExit, onComplete }) {
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout teen-middle">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Questão ${index + 1} de ${rounds.length}`}</span>
@@ -273,7 +273,7 @@ export default function UnionGame({ challenge, level, onExit, onComplete }) {
 
         {isBuild ? (
           <>
-            <section className="teen-card" aria-label="Os conjuntos">
+            <section className="teen-card teen-card--dark" aria-label="Os conjuntos">
               <p className="teen-card__label">{inWarmup ? 'Aquecimento · junte A e B' : 'Junte A e B'}</p>
               <div className="inter-sets">
                 {[round.a, round.b].map((set) => (
@@ -340,7 +340,7 @@ export default function UnionGame({ challenge, level, onExit, onComplete }) {
             )}
           </>
         ) : (
-          <section className="teen-card union-problem" aria-label="Problema">
+          <section className="teen-card teen-card--dark union-problem" aria-label="Problema">
             <p className="teen-card__label">Problema</p>
             <p className="teen-card__words union-problem__text">{round.text}</p>
             <p className="teen-card__reading">{round.sets}</p>

@@ -721,3 +721,77 @@
   .tmaster-table .master-row-btn { width: 28px; height: 28px; }
   .and-table td.is-v, .and-table td.is-f, .and-cell { height: 34px; }
 }
+
+/* ===== Faixa 13+ uniforme: as fases 1 a 5 com a mesma cara lúdica das fases 6 a 10 ===== */
+/* Conteúdo no meio da tela: a sobra fica igual em cima (depois do cabeçalho) e embaixo (antes dos botões). */
+.teen-middle > .teen-meta { margin-bottom: auto; }
+/* Sem barra de botões no fim (ex.: o aquecimento da fase 1), a sobra de baixo fica com o último bloco. */
+.teen-middle > :last-child:not(.teen-actions) { margin-bottom: auto; }
+
+/* Card principal escuro, igual ao das proposições. */
+.teen-card--dark,
+.decoder.teen-card--dark { background: #2E2668; border: none; box-shadow: 0 6px 18px rgba(46, 38, 104, 0.22); color: #fff; }
+.teen-card--dark .teen-card__label { color: #B9AFFF; }
+.teen-card--dark .teen-card__notation,
+.teen-card--dark .teen-card__words { color: #fff; }
+.teen-card--dark .teen-card__notation--small,
+.teen-card--dark .teen-card__reading { color: #CFC8FF; }
+.teen-card--dark .teen-card__universe { color: #B9AFFF; border-top-color: rgba(255, 255, 255, 0.2); }
+.teen-card--dark .decoder-count { color: #CFC8FF; }
+.teen-card--dark .decoder-piece { background: #fff; }
+.teen-card--dark .decoder-piece--name.is-current { background: #EEE9FF; }
+.teen-card--dark .decoder-piece--braces.is-current { background: #FFF3C4; }
+.teen-card--dark .decoder-piece--element.is-current { background: #E2F3FF; }
+.teen-card--dark .decoder-piece--such.is-current { background: #FFE4F0; }
+.teen-card--dark .decoder-piece--rule.is-current { background: #D8F7E6; }
+
+/* Elementos do conjunto como fichas coloridas. */
+.set-box__inside { background: #FBFAFF; border-color: #C9BEFA; }
+.set-chip { border: 2px solid #B9AEF0; border-bottom-width: 4px; border-radius: 12px; background: #F1EEFF; color: #4B3BC0; }
+.set-chip:nth-of-type(4n + 2) { background: #E4F2FF; border-color: #8CC8FF; color: #1F6FB8; }
+.set-chip:nth-of-type(4n + 3) { background: #FFF4D6; border-color: #FFD166; color: #8A5A00; }
+.set-chip:nth-of-type(4n + 4) { background: #FFEBDD; border-color: #FFB27A; color: #A04A10; }
+.set-chip.is-found { background: var(--green-500); border-color: var(--green-700); color: #fff; animation: prop-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+/* ∈ e ∉ como os botões coloridos das proposições (o símbolo matemático fica na bolinha). */
+.relation-choices .prop-choice .relation-btn__symbol { font: 600 1.7rem/1 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif; }
+
+/* Opções de resposta coloridas, com pulinho no acerto e tremidinha no erro. */
+.inter-options .inter-option,
+.union-options .union-option {
+  --opt-bg: #F1EEFF; --opt-edge: #B9AEF0;
+  border: 2px solid var(--opt-edge);
+  border-bottom-width: 5px;
+  border-radius: 16px;
+  background: var(--opt-bg);
+  color: var(--ink);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease, filter 0.2s ease;
+}
+.inter-options .inter-option:nth-child(4n + 2),
+.union-options .union-option:nth-child(4n + 2) { --opt-bg: #E4F2FF; --opt-edge: #8CC8FF; }
+.inter-options .inter-option:nth-child(4n + 3),
+.union-options .union-option:nth-child(4n + 3) { --opt-bg: #FFF4D6; --opt-edge: #FFD166; }
+.inter-options .inter-option:nth-child(4n + 4),
+.union-options .union-option:nth-child(4n + 4) { --opt-bg: #FFEBDD; --opt-edge: #FFB27A; }
+.inter-options .inter-option:hover:not(:disabled),
+.union-options .union-option:hover:not(:disabled) { border-color: var(--opt-edge); transform: translateY(-2px) rotate(-0.6deg); }
+.inter-options .inter-option:active:not(:disabled),
+.union-options .union-option:active:not(:disabled) { transform: translateY(2px); border-bottom-width: 2px; }
+.inter-options .inter-option.is-right,
+.union-options .union-option.is-right { --opt-bg: #E3F8EC; --opt-edge: #33B877; color: #1E8C55; box-shadow: 0 0 0 4px rgba(95, 217, 155, 0.4); animation: prop-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.inter-options .inter-option.is-wrong,
+.union-options .union-option.is-wrong { --opt-bg: #FFE6EF; --opt-edge: #F7619F; color: #A3285C; text-decoration: line-through; animation: prop-shake 0.4s ease; }
+.inter-options:has(.is-right) .inter-option:not(.is-right):not(.is-wrong),
+.union-options:has(.is-right) .union-option:not(.is-right):not(.is-wrong) { opacity: 0.45; filter: saturate(0.5); }
+
+/* Grade de números (montar o conjunto): fichas coloridas com degrau; a escolhida fica cheia e dá um pulinho. */
+.number-cell { --cell-bg: #F1EEFF; --cell-edge: #B9AEF0; --cell-ink: #4B3BC0; --cell-on: var(--lilac-500); border: 2px solid var(--cell-edge); border-bottom-width: 4px; background: var(--cell-bg); color: var(--cell-ink); transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease; }
+.number-cell:nth-child(4n + 2) { --cell-bg: #E4F2FF; --cell-edge: #8CC8FF; --cell-ink: #1F6FB8; --cell-on: #3B95E8; }
+.number-cell:nth-child(4n + 3) { --cell-bg: #FFF4D6; --cell-edge: #FFD166; --cell-ink: #8A5A00; --cell-on: #E09A00; }
+.number-cell:nth-child(4n + 4) { --cell-bg: #FFEBDD; --cell-edge: #FFB27A; --cell-ink: #A04A10; --cell-on: #F08A3C; }
+.number-cell:hover:not(:disabled) { border-color: var(--cell-on); transform: translateY(-2px); }
+.number-cell:active:not(:disabled) { transform: translateY(2px); border-bottom-width: 2px; }
+.number-cell.is-selected { background: var(--cell-on); border-color: rgba(0, 0, 0, 0.18); color: #fff; animation: prop-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.number-cell.is-extra { background: #FFE6EF; border-color: #F7619F; color: #A3285C; animation: prop-shake 0.4s ease; }
+.number-cell.is-missing { border: 2px dashed var(--green-500); border-bottom-width: 4px; }
+.number-cell.is-right { background: var(--green-500); border-color: var(--green-700); color: #fff; }

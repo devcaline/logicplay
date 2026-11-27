@@ -52,7 +52,7 @@ function NotationDecoder({ tutorial, onDone }) {
   };
 
   return (
-    <section className="decoder" aria-label="Decifrando a notação">
+    <section className="decoder teen-card--dark" aria-label="Decifrando a notação">
       <p className="teen-card__label">Aquecimento · decifre a notação</p>
       <div className="decoder-formula">
         {piece('name')}
@@ -198,7 +198,7 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout teen-middle">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{stage === 'rounds' ? `Questão ${index + 1} de ${rounds.length}` : 'Aquecimento'}</span>
@@ -245,7 +245,7 @@ export default function SetBuilderGame({ challenge, level, onExit, onComplete })
               />
             )}
 
-            <section className="teen-card" aria-labelledby="teen-task">
+            <section className="teen-card teen-card--dark" aria-labelledby="teen-task">
               <p id="teen-task" className="teen-card__label">
                 {inWarmup ? 'Aquecimento · monte o conjunto' : 'Monte o conjunto'}
               </p>

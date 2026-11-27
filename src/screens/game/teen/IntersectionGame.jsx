@@ -210,7 +210,7 @@ export default function IntersectionGame({ challenge, level, onExit, onComplete 
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout teen-middle">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Questão ${index + 1} de ${rounds.length}`}</span>
@@ -253,7 +253,7 @@ export default function IntersectionGame({ challenge, level, onExit, onComplete 
           />
         )}
 
-        <section className="teen-card inter-sets-card" aria-label="Os conjuntos">
+        <section className="teen-card teen-card--dark inter-sets-card" aria-label="Os conjuntos">
           <div className="inter-sets">
             {setCard(round.a)}
             {setCard(round.b)}

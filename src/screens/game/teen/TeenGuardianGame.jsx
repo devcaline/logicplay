@@ -94,7 +94,7 @@ export default function TeenGuardianGame({ challenge, level, onExit, onComplete 
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
       <div className="teen-boss__main">
-        <div className="teen-layout">
+        <div className="teen-layout teen-middle">
           <div className="teen-meta">
             <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
             <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Desafio ${index + 1} de ${rounds.length}`}</span>
@@ -147,7 +147,7 @@ export default function TeenGuardianGame({ challenge, level, onExit, onComplete 
             />
           )}
 
-          <section key={round.id} className="teen-card teen-boss__card" aria-label={round.concept}>
+          <section key={round.id} className="teen-card teen-card--dark teen-boss__card" aria-label={round.concept}>
             <p className="teen-card__label">
               {inWarmup ? 'Aquecimento · os símbolos' : `Pedra ${round.symbol} · ${round.concept}`}
             </p>

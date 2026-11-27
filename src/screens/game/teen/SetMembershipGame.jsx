@@ -112,7 +112,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
       <Scene />
       <TopBar onBack={onExit} backLabel="Voltar ao mapa" title={level.name} />
 
-      <div className="teen-layout">
+      <div className="teen-layout teen-middle">
         <div className="teen-meta">
           <span className={`teen-badge teen-badge--${difficultyId}`}>{difficulty?.label}</span>
           <span className="teen-progress">{inWarmup ? 'Aquecimento' : `Conjunto ${index + 1} de ${rounds.length}`}</span>
@@ -191,7 +191,7 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
         {!answered && (
           <div className="relation-choices" role="group" aria-label="Escolha o símbolo">
             {[true, false].map((belongs) => (
-              <button key={String(belongs)} type="button" className="relation-btn" onClick={() => choose(belongs)}>
+              <button key={String(belongs)} type="button" className={`relation-btn prop-choice prop-choice--${belongs ? 'V' : 'F'}`} onClick={() => choose(belongs)}>
                 <span className="relation-btn__symbol">{belongs ? symbolsFor.yes : symbolsFor.no}</span>
                 <span className="relation-btn__label">{belongs ? symbolsFor.yesLabel : symbolsFor.noLabel}</span>
               </button>
@@ -222,19 +222,18 @@ export default function SetMembershipGame({ challenge, level, onExit, onComplete
           </div>
         )}
 
-        {!autoNext && (answered || !hintOpen) && (
-          <div className="teen-actions">
-            {answered ? (
-              <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
-                {nextLabel()}
-              </GameButton>
-            ) : (
-              <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
-                Dica
-              </GameButton>
-            )}
-          </div>
-        )}
+        {/* A barra fica sempre na tela (só some de vista) para o conteúdo não sair do meio. */}
+        <div className={`teen-actions ${autoNext || (!answered && hintOpen) ? 'is-waiting' : ''}`} aria-hidden={autoNext || (!answered && hintOpen)}>
+          {answered && !autoNext ? (
+            <GameButton variant="green" iconRight={ArrowRight} onClick={goNext} sound={null}>
+              {nextLabel()}
+            </GameButton>
+          ) : (
+            <GameButton variant="light" size="sm" icon={Lightbulb} onClick={() => setHintOpen(true)}>
+              Dica
+            </GameButton>
+          )}
+        </div>
       </div>
     </div>
   );
